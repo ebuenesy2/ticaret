@@ -1,0 +1,52 @@
+<DataList>
+    <Data>
+        <Id>5</Id>
+        <CreatedDate>2023-03-27 10:18:55</CreatedDate>
+        <Image>http://localhost:8000/assets/img/user/user.jpg</Image>
+        <Name>Name 5</Name>
+        <Surname>Surname 5</Surname>
+        <Email>test5@test.com.tr</Email>
+        <Value>564</Value>
+        <Status>false</Status>
+    </Data>
+    <Data>
+        <Id>4</Id>
+        <CreatedDate>2022-11-16 16:44:31</CreatedDate>
+        <Image>http://localhost:8000/assets/img/user/user.jpg</Image>
+        <Name>Name 4</Name>
+        <Surname>Surname 4</Surname>
+        <Email>test4@test.com.tr</Email>
+        <Value>65</Value>
+        <Status>false</Status>
+    </Data>
+    <Data>
+        <Id>3</Id>
+        <CreatedDate>2022-11-16 15:38:22</CreatedDate>
+        <Image>http://localhost:8000/assets/img/user/user.jpg</Image>
+        <Name>Name 3</Name>
+        <Surname>Surname 3</Surname>
+        <Email>test3@test.com.tr</Email>
+        <Value>154</Value>
+        <Status>true</Status>
+    </Data>
+    <Data>
+        <Id>2</Id>
+        <CreatedDate>2022-11-16 15:37:15</CreatedDate>
+        <Image>http://localhost:8000/assets/img/user/user.jpg</Image>
+        <Name>Name 2</Name>
+        <Surname>Surname 2</Surname>
+        <Email>test2@test.com.tr</Email>
+        <Value>15</Value>
+        <Status>false</Status>
+    </Data>
+    <Data>
+        <Id>1</Id>
+        <CreatedDate>2022-11-16 15:34:01</CreatedDate>
+        <Image>http://localhost:8000/assets/img/user/user.jpg</Image>
+        <Name>Name 1 x</Name>
+        <Surname>Surname 1</Surname>
+        <Email>test1@test.com.tr</Email>
+        <Value>10</Value>
+        <Status>true</Status>
+    </Data>
+</DataList>

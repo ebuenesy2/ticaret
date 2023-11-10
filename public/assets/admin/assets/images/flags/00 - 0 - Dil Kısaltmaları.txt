@@ -1,0 +1,14 @@
+
+
+ url
+-------------------
+https://www.w3schools.com/tags/ref_language_codes.asp
+
+
+
+ Dil Kısaltmaları
+-------------------
+Turkish => Türkçe => tr
+English => English => en
+German =>  Deutsche => de
+Russian => русский => ru

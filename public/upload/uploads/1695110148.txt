@@ -1,0 +1,222 @@
+    try {
+
+      //! Test
+      //echo "<pre>"; print_r($request->all());  die();
+
+      //! Server ve Token 
+      $controlServerToken =  $this->token_ServerControl($request);
+
+      //! Tanım
+      $statusGeneral = true; //! Genel Durum
+      $fileUploadStatus = false; //! Dosya Yükleme Durumu
+      $fileDbSaveCheck = $request->fileDbSave ? $request->fileDbSave : null; //! Veri Tabanına Kayıt Kontrol
+      $fileDbSaveCheck = false; //! Dosya Veri Tabanına Kayıt Kontrol
+      $fileWhere = $request->fileWhere ? $request->fileWhere : null; //! Ne için kayıt
+      $statusCode = null; //! Hata Kodu
+      $status = null; //! Hata
+
+      //! Dosya Durumu
+      $fileData =array(); //! Tüm Dosyaların Olduğu Array
+      $fileDataSucess =array(); //! Başarılı Dosyaların Olduğu Array
+      $fileControl = true; //! Dosya Yükleme Durumu
+      
+      //! Dosya Sayısı
+      $fileMaxCount =  config('admin.Max_FileUpload_Count'); //! Max Dosya Sayısı
+      $fileCount = 0 ; //! Dosya Sayısı
+      $fileCountSuccess = 0 ; //! Başarılı Olan Sayı
+      
+      $fileSizeByteGeneral = 0 ; //! Toplam Boyut - Byte
+      $fileSizeTotalGeneral = 0 ; //! Toplam Boyut
+      $fileSizeTotalTypeGeneral = 0 ; //! Toplam Boyut - Type
+      $statusGeneralCode = null; //! Hata Kodu
+      $statusGeneral = null; //! Hata
+
+      //! Dosya Adresi
+      $fileUrl = "upload/uploads/"; //! Yüklenen Dosya Url
+      $filePath = config('admin.Api_Url'); //! Yüklenen Resim     
+  
+      try {
+
+        $request->validate([
+            'files' => 'required',
+        ]);
+
+        if($request->hasfile('files'))
+        {
+
+          //! Tanım
+          $fileCount = count($request->file('files')); //! Dosya Sayısı
+          $fileCounter = 0; //! Dosya Sayaç
+
+          //! Dosya Sayısı Kontrol
+          if($fileMaxCount  <  $fileCount) { $statusGeneralCode = config('admin.Status_FileUpload_Count_Error');  $statusGeneral = config('admin.Status_FileUpload_Count_Error_Msg');  $statusGeneral = false; }
+          else if($fileMaxCount  >=  $fileCount){    
+          
+            //! Dosyaları Alıyor
+            foreach($request->file('files') as $file)
+            {
+                //! Tanım
+                $time = time(); //! Zanan id
+                $fileOriginalName=$file->getClientOriginalName(); //! Dosya Orginal Adı
+                $userId = $request->userId ? $request->userId : 0; //! Yükleme Yapan Kullanıcı
+
+                //$fileName=$time.'_'.$file->getClientOriginalName(); //! Dosya Adı
+                $fileName =  $userId.'_'.$fileCounter.'_'.$time.'.'.$file->extension(); //! Dosya Adı
+                $fileMaxSize =  config('admin.Max_FileUpload_Size_MB'); //! Max Dosya Boyutu
+                  
+                //! Dosya Türü
+                $fileExt = $file->getClientOriginalExtension(); //! Uzantısı
+                $fileType = $_FILES['files']['type'][$fileCounter]; //! Türü [ image/jpeg ]
+                $fileType = explode('/',$fileType)[0]; //! Türü Ayırma - > Image
+
+                //! Dosya Boyutu
+                $fileSize = $_FILES['files']['size'][$fileCounter];  //! Dosya Boyutu [345012]
+                $fileSize_kb = round($fileSize/1024,2);
+                $fileSize_mb = round($fileSize/1024/1024,2);
+                $fileSize_gb = round($fileSize/1024/1024/1024,2);
+
+                $fileSizeTotal = 0; //! Boyut
+                $fileSizeTotalType = 'kb';  //! Boyut - Type
+
+                if($fileSize_gb >= 1) {  $fileSizeTotal = $fileSize_gb;  $fileSizeTotalType = 'gb';   }
+                else if($fileSize_gb < 1) {
+                  if($fileSize_mb >= 1) {  $fileSizeTotal = $fileSize_mb;  $fileSizeTotalType = 'mb';   }
+                  else if($fileSize_mb < 1) {  $fileSizeTotal = $fileSize_kb;  $fileSizeTotalType = 'kb';   }
+                }
+                //! Dosya Boyutu Son
+
+                //! Dosya Yükleme Durumu
+                $file_status= false;
+
+                //! Server ve Token Kontrolu
+                if( $controlServerToken["generalStatus"] == true ) {
+                  if($fileMaxSize >= $fileSize_mb) { 
+                    $file->move(public_path('upload/uploads'), $fileName);  //! Dosya Yükleme
+                    $file_status = true; //! Dosya Yükleme Durumu
+                    $statusCode = null;  //! Hata Kodu
+                    $status = null; //! Hata Durumu
+                    $fileSizeByteGeneral = $fileSizeByteGeneral + $fileSize;  //! Toplam Dosya Boyutu
+                    $fileCountSuccess++; //! Yüklenen Dosya Sayısı
+                  }
+                  else if($fileMaxSize < $fileSize_mb) { $statusCode = config('admin.Status_FileUpload_Size_Error');  $status = config('admin.Status_FileUpload_Size_Error_Msg');    }
+                }
+
+                $fileUrlNew = $fileUrl.$fileName; //! Yüklenen Dosya Url
+                $filePathNew = $filePath.'/'.$fileUrlNew; //! Yüklenen Resim
+                //! Dosya Yükleme Durumu
+                
+                //! Dosya Bilgileri
+                $fileData[] =  array(
+                  'status'=> $file_status == true ? 1 : 0,
+                  'fileDbSaveStatus' => $fileDbSaveStatus ? $fileDbSaveStatus : null,
+                  'fileName'=> $fileName,
+                  'fileOriginName'=> $fileOriginalName,
+                  'fileSize'=>array(
+                    'sizeByte' => $fileSize,
+                    'sizeTotal' => $fileSizeTotal,
+                    'sizeTotalType' => $fileSizeTotalType
+                  ),
+                  'fileExt'=> $fileExt,
+                  'fileType'=> $fileType,
+                  'fileUrl'=> $fileUrlNew,
+                  'fileUrlPublic'=> public_path('upload\uploads'),
+                  'filefileUploadStatus'=> $file_status == true ? 1 : 0,
+                  'filePath'=> $filePathNew,
+                  'errorCode'=> $statusCode,
+                  'error'=> $status
+                ); //! Dosya Bilgileri Son
+
+                //! Başarılı Dosya Bilgileri
+                if($file_status == true) { $fileDataSucess[] = $filePathNew; }
+
+                $fileCounter++; //! Sayaç
+                
+            } //! Dosyaları Alıyor Son
+          
+          }
+
+        }
+        
+      } 
+      catch (\Throwable $th) {  //throw $th;
+        $fileData =array(); //! Dosyaların Olduğu Array
+        $statusGeneralCode = config('admin.Status_FileUpload_Error'); //! Hata Kodu
+        $statusGeneral = config('admin.Status_FileUpload_Error_Msg'); //! Hata Durumu
+      }
+      
+      //! Genel Dosya Boyutu
+      $fileSizeGeneral_kb = round($fileSizeByteGeneral/1024,2);
+      $fileSizeGeneral_mb = round($fileSizeByteGeneral/1024/1024,2);
+      $fileSizeGeneral_gb = round($fileSizeByteGeneral/1024/1024/1024,2);
+
+      $fileSizeTotalGeneral = 0;
+      $fileSizeTotalTypeGeneral = 'kb';
+
+      if($fileSizeGeneral_gb >= 1) {  $fileSizeTotalGeneral = $fileSizeGeneral_gb;  $fileSizeTotalTypeGeneral = 'gb';   } 
+      else if($fileSizeGeneral_gb < 1) {  
+          if($fileSizeGeneral_mb >= 1) {  $fileSizeTotalGeneral = $fileSizeGeneral_mb;  $fileSizeTotalTypeGeneral = 'mb';   } 
+          else if($fileSizeGeneral_mb < 1) {  $fileSizeTotalGeneral = $fileSizeGeneral_kb;  $fileSizeTotalTypeGeneral = 'kb';   } 
+      } 
+      //! Genel Dosya Boyutu Son
+    
+    
+     //! Dosya
+     if($fileCount == 0 ) { $statusGeneralCode = config('admin.Status_FileUpload_NoCount_Error');  $statusGeneral = config('admin.Status_FileUpload_NoCount_Error_Msg');   }
+     else if ( $statusGeneralCode == null && $fileCountSuccess == 0 ) { $statusGeneralCode = config('admin.Status_Error');  $statusGeneral = config('admin.Status_Error_Msg');  }
+     
+     //! Server ve Token Kontrolu - Veri Tabanı İşlemleri
+     if( $controlServerToken["generalStatus"] == true && $fileMaxCount  >=  $fileCount ) {
+    
+        //! Veri Ekleme
+        DB::table('test')->insert([
+          'serverId'=>  config('admin.ServerId'),
+          'serverToken'=>  config('admin.ServerToken'),
+          'name'=>  $request->name,
+          'surname'=>  $request->surname,
+          'email'=>  $request->email,
+          'value'=>  $request->value,
+          'img_url'=>  $fileDataSucess ? json_encode($fileDataSucess) : null,
+          'created_byId'=>  $request->created_byId
+        ]); //! Veri Ekleme Son
+
+     }
+     else  if( $controlServerToken["generalStatus"] == false ) { $statusGeneralCode = config('admin.Status_BearerToken_Error'); $statusGeneral = config('admin.Status_BearerToken_Error_Msg'); $statusGeneral = false;  } 
+     //! Server ve Token Kontrolu  - Veri Tabanı İşlemleri -  Son
+
+     //! Return
+     $response = array(
+        'title' => "test.service -> Veri Ekleme - Çoklu Dosya Yükle",
+        'table' => 'test',
+        'status' => $statusGeneral == true ? 1 : 0,
+        'msg' => $controlServerToken["generalStatus"] == true? 'Veri Eklendi' : $status,
+        
+        'filesData'=>  $fileDataSucess ? json_encode($fileDataSucess) : null,
+        'fileUrl'=> $fileUrl,
+        'filePath'=> $filePath,
+        'fileCount' => $fileCount,
+        'fileCountSuccess'=> $fileCountSuccess,
+        'errorCode' => $statusGeneralCode,
+        'error' => $statusGeneral,
+     );  //! Return Son
+      
+     return response()->json($response);
+   
+    } catch (\Throwable $th) { throw $th;
+
+      $response = array(
+        'title' => "test.service -> Veri Güncelleme",
+        'table' => 'test',
+        'status' => 0,
+        'msg' => null,
+        'filesData'=> null,
+        'fileUrl'=>null,
+        'filePath'=>null,
+        'fileCount' => 0,
+        'fileCountSuccess'=> 0,
+        'errorCode' => null,
+        'error' => $th        
+      );
+
+      return response()->json($response);
+    
+    }

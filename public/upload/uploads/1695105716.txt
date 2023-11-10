@@ -1,0 +1,43 @@
+                  
+      //! Test
+      $response = array(
+        'test' => "Son",
+      
+        // 'generalStatus' => $controlServerToken["generalStatus"],
+        // 'generalStatusCode' => $controlServerToken["generalStatusCode"],
+        // 'generalStatusMsg' => $controlServerToken["generalStatusMsg"],
+
+        // //! Dosyalar
+        // 'fileData' => $fileData,
+        // 'fileDataSucess' => $fileDataSucess,
+
+        // //! Dosya Bilgisi
+        // 'fileSizeTotalGeneral' => $fileSizeTotalGeneral,
+        // 'fileSizeTotalTypeGeneral' => $fileSizeTotalTypeGeneral,
+
+        //  //! İşlem
+        // 'status' => $status,
+        // 'statusCode' => $statusCode,
+        // 'statusMessage' => $statusMessage,
+        
+         //! Veri Tabanı
+        'dbActionCheck' => $dbActionCheck,
+        'dbActionStatus' => $dbActionStatus,
+
+         //! Return
+        'title' => "test.service -> Veri Ekleme - Çoklu Dosya Yükle",
+        'table' => 'test',
+        'status' => $status,
+        'statusCode' => $statusCode,
+        'statusMessage' => $statusMessage,
+
+        'filesData'=>  $fileDataSucess ? json_encode($fileDataSucess) : null,
+        'fileUrl'=> $fileUrl,
+        'filePath'=> $filePath,
+        'fileCount' => $fileCount,
+        'fileCountSuccess'=> $fileCountSuccess,
+        
+      );
+
+      return response()->json($response);
+      //! Test Son
