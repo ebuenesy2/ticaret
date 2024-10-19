@@ -662,124 +662,127 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Loading - Veri Yüklendi
         function loadingYuklendi(){
             $('#loaderEdit').hide(); //! Laoding Gizle
-            $('##edit_modal ').removeAttr('disabled'); //! //! Button Göster
-            $('##edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
         }
         //! Loading - Veri Yüklendi Son
 
-        // var selectTypeUpdate = $('#selectTypeUpdate').val();
-        // var titleUpdate = $('#titleUpdate').val();
-        // var titleENUpdate = $('#titleENUpdate').val();
-        // var codeLetUpdate = $('#codeLetUpdate').val();
-        // var codeNumberUpdate = $('#codeNumberUpdate').val();
+        var selectTypeUpdate = $('#selectTypeUpdate').val();
+        var titleUpdate = $('#titleUpdate').val();
+        var titleENUpdate = $('#titleENUpdate').val();
+        var codeLetUpdate = $('#codeLetUpdate').val();
+        var codeNumberUpdate = $('#codeNumberUpdate').val();
 
-        // if (selectTypeUpdate == "") {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "error",
-        //         title: "Tür Seç",
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //     });
-        // }
-        // else if (titleUpdate == "") {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "error",
-        //         title: "Başlık Yazınız",
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //     });
-        // }
-        // else if (titleENUpdate == "") {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "error",
-        //         title: "Başlık En Yazınız",
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //     });
-        // }
-        // else if (codeLetUpdate == "") {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "error",
-        //         title: "Kod Harf Yazınız",
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //     });
-        // }
-        // else if (codeNumberUpdate == "") {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "error",
-        //         title: "Kod Sayı Yazınız",
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //     });
-        // }
-        // else {
+        if (selectTypeUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Tür Seç",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (titleUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Başlık Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (titleENUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Başlık En Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (codeLetUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Kod Harf Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (codeNumberUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Kod Sayı Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
 
-        //      //! Id
-        //     var data_id =  $('#update_data_id').html();
+             //! Id
+            var data_id =  $('#update_data_id').html();
 
-        //     //! Ajax
-        //     $.ajax({
-        //         url: "/category/edit/post",
-        //         method: "post",
-        //         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-        //         data: {
-        //             siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-        //             id: Number(data_id),
-        //             type: $('#selectTypeUpdate').val(),
-        //             title: $('#titleUpdate').val(),
-        //             title_EN: $('#titleENUpdate').val(),
+            //! Ajax
+            $.ajax({
+                url: "/category/edit/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id: Number(data_id),
+                    type: $('#selectTypeUpdate').val(),
+                    title: $('#titleUpdate').val(),
+                    title_EN: $('#titleENUpdate').val(),
 
-        //             codeLet: $('#codeLetUpdate').val(),
-        //             codeNumber: $('#codeNumberUpdate').val(),
+                    codeLet: $('#codeLetUpdate').val(),
+                    codeNumber: $('#codeNumberUpdate').val(),
 
-        //             updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-        //         },
-        //         success: function (response) {
-        //             // alert("başarılı");
-        //             //console.log("response:", response);
-        //             // console.log("status:", response.status);
+                    updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    //console.log("response:", response);
+                    // console.log("status:", response.status);
 
-        //             if (response.status == "success") {
-        //                 Swal.fire({
-        //                     position: "center",
-        //                     icon: "success",
-        //                     title: response.msg,
-        //                     showConfirmButton: false,
-        //                     timer: 2000,
-        //                 });
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
 
-        //                 //! Sayfa Yenileme
-        //                 window.location.reload();
+                        //! Sayfa Yenileme
+                        window.location.reload();
+                        
+                        //! Loading
+                        loadingYuklendi();
 
-        //             } else {
-        //                 Swal.fire({
-        //                     position: "center",
-        //                     icon: "error",
-        //                     title: response.msg,
-        //                     showConfirmButton: false,
-        //                     timer: 2000,
-        //                 });
-        //             }
-        //         },
-        //         error: function (error) {
-        //             Swal.fire({
-        //                 position: "center",
-        //                 icon: "error",
-        //                 title: response.msg,
-        //                 showConfirmButton: false,
-        //                 timer: 2000,
-        //             });
-        //             console.log("error:", error);
-        //         },
-        //     }); //! Ajax Son
+                    } else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+                },
+                error: function (error) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: response.msg,
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                    console.log("error:", error);
+                },
+            }); //! Ajax Son
 
-        // }
+        }
 
     }); //! Güncelle Son
 
@@ -864,6 +867,20 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! Ekleme
     $("#new_add").click(function (e) {
         e.preventDefault();
+
+        
+        //! Loading - Veri Yükleniyor
+        $('#loaderAdd').css('display','block'); //! Laoding Göster
+        $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+        $('#new_add input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+        //! Loading - Veri Yüklendi
+        function loadingYuklendi(){
+            $('#loaderAdd').hide(); //! Laoding Gizle
+            $('#new_add').removeAttr('disabled'); //! //! Button Göster
+            $('#new_add input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+        }
+        //! Loading - Veri Yüklendi Son
 
         
         var selectTypeAdd = $('#selectTypeAdd').val();
@@ -958,6 +975,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
                 },
                 error: function (error) {
                     Swal.fire({
