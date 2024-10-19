@@ -42,7 +42,7 @@
                             <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                         </span> </div>
                         <div id="uploadStatus"></div>
-                        <!--- End Loading --->
+                        <!--- Son Loading --->
 
                         <!---  ModalBodyInfo --->
                         <div id="ModalBodyInfo" style="display:none;"  >
@@ -81,7 +81,7 @@
                             <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                         </span> </div>
                         <div id="uploadStatus"></div>
-                        <!--- End Loading --->
+                        <!--- Son Loading --->
 
                         <!---  ModalBodyInfoImage --->
                         <div id="ModalBodyInfoImage" style="display:none;" >
@@ -236,7 +236,7 @@
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <!--- End Loading --->
+                    <!--- Son Loading --->
 
                     <!---  ModalBodyInfoImage --->
                     <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
@@ -420,7 +420,7 @@
 
                                             <!--- Import ----->
                                             <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#modalTableImport"  style="width: 150px; margin-left:10px; display: flex;gap: 10px;background-color: slateblue;" ><i class="ri-folder-upload-line"></i> Import</button>
-                                            <!--- End Import ----->
+                                            <!--- Son Import ----->
                                             
 
                                             <!--- Export -->
@@ -430,7 +430,7 @@
                                                 <img data-bs-toggle="modal" data-bs-target="#exportExcelModal" title="Excel" src="/assets/img/icon/excel.png" style="cursor:pointer;height: 35px; display:none;" alt="" srcset="">
                                                 <img title="Pdf" src="/assets/img/icon/pdf.png" style=" cursor:pointer; display:none; " alt="" srcset="">
                                             </div>
-                                            <!--- end Export -->
+                                            <!--- Son Export -->
                                     </div>
                                 
                                 </div>

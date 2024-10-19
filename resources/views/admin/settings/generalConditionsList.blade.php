@@ -40,7 +40,7 @@
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <!--- End Loading --->
+                    <!--- Son Loading --->
 
                     <div class="modal-body">                       
                         <!-- Arama Durum -->
@@ -89,7 +89,7 @@
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <!--- End Loading --->
+                    <!--- Son Loading --->
 
                     <!---  ModalBodyInfoBody --->
                     <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
@@ -157,7 +157,7 @@
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>
                                     <div id="uploadStatus"></div>
-                                    <!--- End Loading --->
+                                    <!--- Son Loading --->
 
                                 </h5>
                                 <div class="flex-shrink-0">

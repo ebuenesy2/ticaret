@@ -78,7 +78,7 @@
                                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                                     </span> </div>
                                     <div id="uploadStatus"></div>
-                                    <!--- End Loading --->
+                                    <!--- Son Loading --->
 
                                     <input type="file" name="files[]" style="display: flex; color: steelblue; margin-left: 10px; " multiple>
                                     <div style="display: flex; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrl"></p></div>

@@ -103,7 +103,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatus"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInput" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrl"></p></div>
@@ -156,7 +156,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfConditionsUpdate" style="display:none;" >
@@ -220,7 +220,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatusEdit"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputEdit" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlEdit"></p></div>
@@ -275,7 +275,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >
@@ -376,7 +376,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatusNote"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputNote" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlNote"></p></div>
@@ -429,7 +429,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfNoteUpdate" style="display:none;" >
@@ -504,7 +504,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatusEditNote"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputEditNote" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlEditNote"></p></div>
@@ -559,7 +559,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >
@@ -653,7 +653,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatusDoc"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputDoc" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlDoc"></p></div>
@@ -706,7 +706,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfDocUpdate" style="display:none;" >
@@ -773,7 +773,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatusEditDoc"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputEditDoc" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlEditDoc"></p></div>
@@ -828,7 +828,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >
@@ -926,7 +926,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfTodoUpdate" style="display:none;" >
@@ -999,7 +999,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >

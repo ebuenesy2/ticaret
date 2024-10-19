@@ -42,7 +42,7 @@
                             <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                         </span> </div>
                         <div id="uploadStatus"></div>
-                        <!--- End Loading --->
+                        <!--- Son Loading --->
 
                         <!---  ModalBodyInfo --->
                         <div id="ModalBodyInfo" style="display:none;"  >
@@ -150,7 +150,7 @@
                             <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                         </span> </div>
                         <div id="uploadStatus"></div>
-                        <!--- End Loading --->
+                        <!--- Son Loading --->
 
                         <!---  ModalBodyInfoJson --->
                         <div id="ModalBodyInfoJson" style="display:none;"  >
@@ -209,7 +209,7 @@
                             <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                         </span> </div>
                         <div id="uploadStatus"></div>
-                        <!--- End Loading --->
+                        <!--- Son Loading --->
 
                         <!---  ModalBodyInfoExcel --->
                         <div id="ModalBodyInfoExcel" style="display:none;"  >
@@ -276,7 +276,7 @@
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading'). </span>
                                     </span> </div>
                                     <div id="uploadStatus"></div>
-                                    <!--- End Loading --->
+                                    <!--- Son Loading --->
 
                                     <input type="file" name="file" id="fileInput" style="display: flex; color: steelblue; margin-left: 10px; ">
                                     <div style="display: flex; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrl"></p></div>
@@ -340,7 +340,7 @@
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>
                                     <div id="uploadStatus"></div>
-                                    <!--- End Loading --->
+                                    <!--- Son Loading --->
 
                                 </h5>
                                 <div class="flex-shrink-0">
@@ -414,7 +414,7 @@
 
                                         <!--- Import ----->
                                         <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#modalTableImport"  style="width: 150px; margin-left:10px; display: flex;gap: 10px;background-color: slateblue;" ><i class="ri-folder-upload-line"></i> Import</button>
-                                        <!--- End Import ----->
+                                        <!--- Son Import ----->
                                         
 
                                         <!--- Export -->
@@ -424,7 +424,7 @@
                                             <img data-bs-toggle="modal" data-bs-target="#exportExcelModal" title="Excel" src="/assets/img/icon/excel.png" style="cursor:pointer;height: 35px;" alt="" srcset="">
                                             <img style="display:none;"  title="Pdf" src="/assets/img/icon/pdf.png" style=" cursor:pointer;" alt="" srcset="">
                                         </div>
-                                        <!--- end Export -->
+                                        <!--- Son Export -->
                                     </div>
                                 
                                 </div>

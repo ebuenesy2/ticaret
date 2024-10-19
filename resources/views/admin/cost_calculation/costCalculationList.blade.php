@@ -208,7 +208,7 @@
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>
                                     <div id="uploadStatus"></div>
-                                    <!--- End Loading --->
+                                    <!--- Son Loading --->
 
                                 </h5>
                                 <div class="flex-shrink-0">

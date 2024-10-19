@@ -247,7 +247,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatus"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInput" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrl"></p></div>
@@ -284,7 +284,7 @@
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
                                                                 <div id="uploadStatus"></div>
-                                                                <!--- End Loading --->
+                                                                <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputTech" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                                 <div style="display: flex; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrltechnicalFile"></p></div>
@@ -346,7 +346,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
@@ -565,7 +565,7 @@
                                                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                                                     </span> </div>
                                                     <div id="uploadStatusEdit"></div>
-                                                    <!--- End Loading --->
+                                                    <!--- Son Loading --->
         
                                                     <input type="file" name="file" id="fileInputEdit" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                     <div style="display: flex; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrlEdit"></p></div>
@@ -604,7 +604,7 @@
                                                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                                                     </span> </div>
                                                     <div id="uploadStatus"></div>
-                                                    <!--- End Loading --->
+                                                    <!--- Son Loading --->
         
                                                     <input type="file" name="file" id="fileInputEditTech" style="display: flex; color: steelblue; margin-left: 10px; ">
                                                     <div style="display: flex; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrltechnicalFileEdit"></p></div>
@@ -666,7 +666,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >
@@ -743,7 +743,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoExpenseUpdate" style="display:none;" >
@@ -795,7 +795,7 @@
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
                             <div id="uploadStatus"></div>
-                            <!--- End Loading --->
+                            <!--- Son Loading --->
 
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoDelete" style="display:none;" >
