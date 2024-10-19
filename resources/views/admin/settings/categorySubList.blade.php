@@ -263,7 +263,7 @@
 
                                     <!-- Arama Type -->
                                     <div class="col-xl-2 col-md-4">
-                                        <label for="selectActive" class="form-label">Tür</label>
+                                        <label for="selectTypeList" class="form-label">Tür</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeList"  style="cursor:pointer;" >
                                             <option value="selectedFirst" selected  >@lang('admin.All')</option>
                                             <option value="SektorStok" >Sektor Stok</option>
@@ -280,8 +280,8 @@
 
                                     <!-- Arama Durum Başlık  -->
                                     <div class="col-xl-2 col-md-4">
-                                        <label for="selectTypeCategory" class="form-label">Kategori</label>
-                                        <select class="form-control" data-choices data-choices-search-false name="selectTypeCategoryList" id="selectTypeCategoryList"  >
+                                        <label for="selectTypeCategoryList" class="form-label">Kategori</label>
+                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryList"  style="cursor:pointer;" >
                                             <option value="selectedFirst" selected  >@lang('admin.All')</option>
                                             @for ($i = 0; $i < count($DB_Find_Category); $i++) 
                                             <option value="{{$DB_Find_Category[$i]->id}}">{{$DB_Find_Category[$i]->title}}</option> 

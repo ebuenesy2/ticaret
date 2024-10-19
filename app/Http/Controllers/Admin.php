@@ -12253,6 +12253,7 @@ class Admin extends Controller
                if($data_key_item == "CreatedDate") { $data_key_item = "categorysub.created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
                else if($data_key_item == "Id") { $data_key_item = "categorysub.id";  $data_item_object="=";  }
                else if($data_key_item == "Status") { $data_key_item = "categorysub.isActive";  $data_item_object="="; }
+               else if($data_key_item == "Category") { $data_key_item = "category.id";  $data_item_object="="; }
                
                //! Ekleme Yapıyor
                array_push($data_search_key,$data_key_item); //! id
@@ -12266,7 +12267,7 @@ class Admin extends Controller
 
             } //! Params Verileri Where Formatında Yazılacak Son
 
-            //! print_r($data_all); echo "<br/>";
+            //print_r($data_all); die();
 
 
             //! Çoklu Arama
@@ -12275,7 +12276,7 @@ class Admin extends Controller
                        ->leftJoin('category', 'category.id', '=', 'categorysub.categoryid')
                        ->select('categorysub.*','category.type as categoryType','category.title as categoryTitle')
                        ->where($data_all)
-                       ->orderBy('id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+                       ->orderBy('categorysub.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             // echo "<pre>"; print_r($DB_Find); die();
 
             //! Params Verileri Where Formatında Yazılacak Son   

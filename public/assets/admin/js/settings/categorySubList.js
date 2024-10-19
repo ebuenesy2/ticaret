@@ -64,8 +64,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             if(data.exportname == "Id") {  $('#searhId_Table').val( data.text);  } //! Input
             else if(data.exportname == "CreatedDate") {  $('#exampleInputdate').val(data.text); } //! Zaman
-            else if(data.exportname == "Status") {  $('#selectActive option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             else if(data.exportname == "Type") {  $('#selectTypeList option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "Category") {  $('#selectTypeCategoryList option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             
         }); //! Json Verilerini Alıyor Son
 
@@ -110,7 +110,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 
     } //! Arama Fonksiyon Son
 
-
     //! Arama Id
     document.querySelector('#searhId_Table').addEventListener('keyup', e => {
 
@@ -128,7 +127,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchTableControl();
 
     }); //! Arama Id Son
-
 
     //! Arama Zaman
     document.querySelector('#exampleInputdate').addEventListener('change', e => {
@@ -148,8 +146,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Arama Zaman Son
 
-
-
     //! Arama Type
     document.querySelector('#selectTypeList').addEventListener('change', e => {
 
@@ -167,6 +163,24 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchTableControl();
 
     }); //! Arama Type Son
+
+    //! Arama Kategori
+    document.querySelector('#selectTypeCategoryList').addEventListener('change', e => {
+
+        //! Tanım
+        var filter = $('#selectTypeCategoryList').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "Category", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Category'); //! Json İçinde Arama 
+
+        //! Kontrol
+        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
+        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
+        if (filter == 'selectedFirst') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+
+        //! Table Arama Kontrol
+        searchTableControl();
+
+    }); //! Arama Kategori Son
 
     //! ************ Arama Son ***************
 
