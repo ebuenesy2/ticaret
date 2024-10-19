@@ -598,7 +598,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
 
         }); //! Arama Kategori Add Son
-
         
         //! Arama Alt Kategori Add
         document.querySelector('#selectSubCategoryAdd').addEventListener('change', e => {
@@ -749,6 +748,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         var nameEnAdd =  $('#nameEnAdd').val();
 
         var SelectStockUnitAdd =  $('#SelectStockUnitAdd').val();
+        var StockCountAdd =  $('#StockCountAdd').val();
         var SelectCurrencyAdd =  $('#SelectCurrencyAdd').val();
         var PriceAdd =  $('#PriceAdd').val();
 
@@ -761,7 +761,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
+        } 
         else if(selectSubCategoryAdd == "") { 
             Swal.fire({
                 position: "center",
@@ -770,36 +770,47 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
-         else if(nameTrAdd == "") { 
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Ürün Adı Yazılmadı",
-                showConfirmButton: false,
-                timer: 2000,
-            });
-         } 
-         else if(nameEnAdd == "") { 
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Ad En Yazılmadı",
-                showConfirmButton: false,
-                timer: 2000,
-            });
-         } 
-         else  if(SelectStockUnitAdd == "") { 
+        } 
+        else if(nameTrAdd == "") { 
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ürün Adı Yazılmadı",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+        } 
+        else if(nameEnAdd == "") { 
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ad En Yazılmadı",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+        } 
+        else if(SelectStockUnitAdd == "") { 
+
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: 'Stok Birimi Seçiniz',
+            showConfirmButton: false,
+            timer: 2000,
+        });
+
+        }
+        else if(StockCountAdd == "") { 
 
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: 'Stok Birimi Seçiniz',
+                title: 'Stok Sayısı Yazılmadı',
                 showConfirmButton: false,
                 timer: 2000,
             });
-
-         }
+    
+        }
         else if(SelectCurrencyAdd == "") { 
 
             Swal.fire({
@@ -810,7 +821,18 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
 
-         } 
+        }
+        else if(PriceAdd == "") { 
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: 'Birim Fiyat Yazılmadı',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+    
+        }
         else {
 
             //! Ajax
@@ -934,8 +956,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Modal Resim Son
     //! ************ Modal Resim Son  ***************
-
-
 
     //! ************ Silme  ***************
     document.querySelectorAll("#listItemDelete").forEach(function (i) {
@@ -1335,74 +1355,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! ************ Güncelle Son  ***************
 
-
-    //! ************ Ara  ***************
-
-    //! Modal Ara
-    $('document').ready(function () {
-        $("#searchModal").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-        
-            var button = $(event.relatedTarget); 
-            var modalId = button.data("id"); 
-          
-            
-            //! Ajax  Post
-            $.ajax({
-                url: "/stock/search/post",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: {
-                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                    id:Number(modalId)
-                },              
-                beforeSend: function() { console.log("Başlangıc"); },
-                success: function (response) {
-                    // alert("başarılı");
-                    console.log("response:", response);
-                    // console.log("status:", response.status);
-
-                     //! Return
-                    $('#search_data_id').html(modalId);
-                    $('#sectorSearched option[value='+response.DB.sector+']').prop('selected',true); //! Select
-                    $('#NameSearched').val(response.DB.name);
-                    
-                    $('#SelectStockUnitSearched option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
-                    $('#StockCountSearched').val(response.DB.stockCount);
-                    $('#SelectCurrencySearched option[value='+response.DB.currency+']').prop('selected',true); //! Select
-                    $('#PriceSearched').val(response.DB.price);
-                    $('#descriptionSearched').val(response.DB.description);
-                    $('#featuresSearched').val(response.DB.features);
-
-                     //! Return
-        
-                
-                },
-                error: function (error) { console.log("search error:", error); },
-              complete: function() {}
-            }); //! Ajax Post Son
-           
-
-           
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadSearch').css('display','none');
-            $('#ModalBodyInfoSearch').css('display','block');
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Ara Son
-
-    //! ************ Ara Son  ***************
-
     //! ************ Ürün Resmi  ***************
 
-    //! FileUpload
+    //! Dosya Yükleme
     $("#fileUploadClick").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1476,9 +1431,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUpload").width('100%');
@@ -1495,8 +1450,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                 $('#product_dowloand_imgAdd').css('display','block');
                 $('#product_dowloand_imgAdd').attr("href",resp.file_path);
-                $('#product_dowloand_imgAdd').attr("download",resp.file_path);
-
+                $('#product_dowloand_imgAdd').attr("download",resp.file_name);
 
                 //! Alert
                 Swal.fire({
@@ -1510,17 +1464,15 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }
         }); //! Ajax
 
-
-
     });
-    //! FileUpload Son
+    //! Dosya Yükleme Son
 
     //! ************ Ürün Resmi Son  ***************
 
 
     //! ************ Ürün Resmi Edit ***************
 
-    //! FileUpload
+    //! Dosya Yükleme
     $("#fileUploadClickEdit").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1583,7 +1535,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 //! Upload Url
                 $('#filePathUrlEdit').html("");
 
-
                 //! Alert
                 Swal.fire({
                     position: "center",
@@ -1594,9 +1545,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadEdit").width('100%');
@@ -1613,8 +1564,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                 $('#product_dowloand_img').css('display','block');
                 $('#product_dowloand_img').attr("href",resp.file_path);
-                $('#product_dowloand_img').attr("download",resp.file_path);
-
+                $('#product_dowloand_img').attr("download",resp.file_name);
 
                 //! Alert
                 Swal.fire({
@@ -1628,17 +1578,15 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }
         }); //! Ajax
 
-
-
     });
-    //! FileUpload Son
+    //! Dosya Yükleme Son
 
     //! ************ Ürün Resmi Edit Son  ***************
 
 
     //! ************ Teknik Özellikler ***************
 
-    //! FileUpload
+    //! Dosya Yükleme
     $("#techFileUploadClick").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1711,9 +1659,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadtechnical").width('100%');
@@ -1725,7 +1673,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 $('#filePathUrltechnicalFile').html(resp.file_url);
                 $('#product_dowloand_fileAdd').css('display','block');
                 $('#product_dowloand_fileAdd').attr("href",resp.file_path);
-                $('#product_dowloand_fileAdd').attr("download",resp.file_path);
+                $('#product_dowloand_fileAdd').attr("download",resp.file_name);
 
 
                 //! Alert
@@ -1743,14 +1691,14 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     });
-    //! FileUpload Son
+    //! Dosya Yükleme Son
 
     //! ************ Teknik Özellikler Son  ***************
 
 
     //! ************ Teknik Özellikler Edit ***************
 
-    //! FileUpload
+    //! Dosya Yükleme
     $("#techFileUploadClickEdit").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1823,9 +1771,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadtechnicalEdit").width('100%');
@@ -1838,8 +1786,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                 $('#product_dowloand_file').css('display','block');
                 $('#product_dowloand_file').attr("href",resp.file_path);
-                $('#product_dowloand_file').attr("download",resp.file_path);
-
+                $('#product_dowloand_file').attr("download",resp.file_name);
 
                 //! Alert
                 Swal.fire({
@@ -1853,10 +1800,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }
         }); //! Ajax
 
-
-
     });
-    //! FileUpload Son
+    //! Dosya Yükleme Son
 
     //! ************ Teknik Özellikler Edit Son  ***************
 

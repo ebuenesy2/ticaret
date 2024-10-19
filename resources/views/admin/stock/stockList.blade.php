@@ -262,7 +262,7 @@
                                                         <img id="productViewImageAdd" src="/assets/img/product/default.jpg" alt="" style="margin: auto;display: flex;width: 150px;">
 
                                                         <a href="" id="product_dowloand_imgAdd" download="">
-                                                        <i class="ri-inbox-archive-line" style="color:#1bb934; font-size: 30px;" ></i>
+                                                           <i class="ri-inbox-archive-line" style="color:#1bb934; font-size: 30px;" ></i>
                                                         </a>
                                                     </div>
 
