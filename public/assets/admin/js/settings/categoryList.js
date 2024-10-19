@@ -7,7 +7,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! Tanım
     var searchJsonData = []; //! Aranan Veriler
 
+    //! Yüklenince Kapanıyor
+    $(document).ready(function () { $('#loader').hide(); });
 
+    
     //! ************ Params dan Json Oluşturma  ***************
 
     //! Params dan Json Oluşturma
@@ -71,7 +74,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -187,95 +190,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Arama Type Son
 
     //! ************ Arama Son ***************
-
-    //! ************ Tablo Özellik ***************
-
-    //! Modal Ayarlama
-    $('document').ready(function () {
-        $("#modalTableColoums").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            //    console.log("TableJson:",TableJson);
-            //    console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-            
-                if(element.head_display == "" ) { 
-                exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckSettings" id="modalTableTitleCheckSettings'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheckSettings'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_display == "none"  ) { 
-                exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckSettings" id="modalTableTitleCheckSettings'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheckSettings'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            }
-
-            $('#exportModalHeaderTable').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUpload').css('display','none');
-            $('#ModalBodyInfo').css('display','block');
-
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Ayarlama Son
-
-
-    //! Güncelle
-    $("#data_update_check_coloums").click(function (e) {
-        e.preventDefault();
-
-        //alert("data_update_check_coloums");
-
-        //! Tüm Check
-        $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
-    
-            var data_check_checked = $(this)[0].checked//! false/true
-            var data_check_val = $(this)[0].defaultValue//! Val
-
-            // console.log("data_check_checked:",data_check_checked);
-            // console.log("data_check_val:",data_check_val);
-
-            //! Tablo Sutun Silme
-            var tablex = document.getElementById('customerTable'); //! Tablo Okuma
-            //console.log("tablex:",tablex);
-
-            var row = tablex.rows; //! Satır Alma
-
-            for (var i = 0; i < row[0].cells.length; i++) {
-
-                var str = row[0].cells[i].attributes["exportname"].nodeValue //! Sutun Adı
-                var searchText = data_check_val; //! Aranan Metin
-            
-                //! Veri Varmı - Sutun Siliyor
-                //if (str.search(searchText) != -1 && data_check_checked == false ) {  for (var j = 0; j < row.length; j++) { row[j].deleteCell(i); } }
-                
-                if (str.search(searchText) != -1 && data_check_checked == false ) {  for (var j = 0; j < row.length; j++) { row[j].cells[i].style.display="none" } }
-                else if (str.search(searchText) != -1 && data_check_checked == true ) {  for (var j = 0; j < row.length; j++) { row[j].cells[i].style.display="" } }
-            }
-            //! Tablo Sutun Silme
-
-        }); 
-        //! Tüm Check Son
-
-    }); //! Güncelle Coloums Son
-
-
-    //! ************ Tablo Özellik Son ***************
 
     //! ************ Tümü Seç Olayı ***************
     
@@ -687,8 +601,24 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
             var button = $(event.relatedTarget); 
             var modalId = button.data("id"); 
-
             //console.log("modalId:",modalId);
+            
+            // //! Loading - Veri Yükleniyor
+            // $('#loaderEdit').show(); //! Laoding Göster
+            // $('#updateModal body input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+            // $('#updateModal body button').attr('disabled','disabled'); //! Buttonları Gizleme
+            // $('#updateModal #edit_item').attr('disabled','disabled'); //! Button Gizleme
+            // document.getElementById("edit_item").style.cursor = "wait"; //! Cursor - Dönen
+
+            // //! Loading - Veri Yüklendi
+            // function loadingYuklendi(){
+            //     $('#loaderEdit').hide(); //! Laoding Gizle
+            //     $('body input,textarea,select').removeAttr('disabled'); //! İnputları Aç
+            //     $('body button').removeAttr('disabled'); //! Buttonları Aç
+            //     $('#edit_item').removeAttr('disabled'); //! //! Button Göster
+            //     document.getElementById("edit_item").style.cursor = "pointer"; //! Cursor - Ok
+            // }
+            // //! Loading - Veri Yüklendi Son
            
             //! Ajax  Post
             $.ajax({
@@ -728,10 +658,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             //! Return
             $('#update_data_id').html(modalId);
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadUpdate').css('display','none');
-            $('#ModalBodyInfoUpdate').css('display','block');
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 

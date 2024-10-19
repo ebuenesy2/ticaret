@@ -103,11 +103,10 @@
                 <form action="#">
 
                     <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
@@ -201,7 +200,7 @@
                                 <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.Category') @lang('admin.List')</p> <p> | {{count($DB_Find)}}</p> 
                                 
                                     <!---  Loading --->
-                                    <div id="LoadingFirstDb" style="display:block;" ><span class="d-flex align-items-center">
+                                    <div id="loader" style="display:block;" ><span class="d-flex align-items-center">
                                         <span class="spinner-border flex-shrink-0" role="status"></span>
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>
