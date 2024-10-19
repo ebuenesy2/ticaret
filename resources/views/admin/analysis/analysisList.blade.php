@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title> @lang('admin.ProductList') | {{ config('admin.Admin_Title') }}</title>
+    <title> @lang('admin.AnalysisList') | {{ config('admin.Admin_Title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="{{ config('admin.Admin_Meta_Title') }}">
@@ -80,7 +80,7 @@
                                     Detay Bilgiler
                                 </a>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item d-none" role="presentation">
                                 <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab" aria-selected="false" tabindex="-1">
                                     Yüklemeler
                                 </a>
@@ -91,45 +91,40 @@
                                
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <label for="nameTrAdd" class="form-label">Ad</label>
-                                        <input class="form-control" type="text" id="nameTrAdd" name="nameTrAdd">
+                                        <label for="productItemsAdd" class="form-label">Ürün Seçiniz</label>
+                                        <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="productItemsAdd" style="cursor: pointer;">
+                                            <option value="">Seç</option>
+
+                                            @for ($i = 0; $i < count($DB_Find_Product); $i++)
+                                            <option value="{{$DB_Find_Product[$i]->id}}">{{$DB_Find_Product[$i]->nameTr}}</option>
+                                            @endfor
+                                          
+                                        </select>
                                     </div>
                                   
                                 </div>
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <label for="gtipNoAdd" class="form-label">GTIP Kodu</label>
-                                        <input class="form-control" type="text" id="gtipNoAdd" name="gtipNoAdd" placeholder="">
-                                    </div>
-                                </div>
-                              
-                                <div class="row">
-                                    <!-- Stok Birimi -->
-                                    <div class="col-6 mb-3">
-                                        <label for="SelectStockUnitAdd" class="form-label">Stok Birimi</label>
-                                        <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="SelectStockUnitAdd" style="cursor: pointer;">
+                                        <label for="platformAdd" class="form-label">Araştırma Platformu</label>
+                                        <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="platformAdd" style="cursor: pointer;">
                                             <option value="">Seç</option>
-                                            <option value="Adet">Adet</option>
-                                            <option value="Kg">Kg</option>
-                                            <option value="Ton">Ton</option>
-                                            <option value="Litre">Litre</option>
+
+                                            <option value="1">N11.com</option>
+                                            <option value="2">Hepsiburada.com</option>
+                                            <option value="3">Trendyol.com</option>
+                                            <option value="4">Ebay.com</option>
+                                            <option value="5">Amazon.com</option>
+                                          
                                         </select>
                                     </div>
-                                    <!-- End Stok Birimi -->
-                                    <!-- Stok Sayısı -->
-                                    <div class="col-6 mb-3">
-                                        <label for="StockCountAdd" class="form-label">Stok Sayısı</label>
-                                        <input class="form-control" type="number" id="StockCountAdd" name="StockCountAdd">
-                                    </div>
-                                    <!-- End Stok Sayısı -->
                                 </div>
                                 <div class="row">
                                     <!-- Para Birimi -->
                                     <div class="col-6 mb-3">
                                         <label for="SelectCurrencyAdd" class="form-label">Para Birimi</label>
-                                        <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="SelectCurrencyAdd" style="cursor: pointer;">
+                                        <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="SelectCurrencyAdd" style="cursor: pointer;" disabled>
                                             <option value="">Seç</option>
-                                            <option value="TL">TL</option>
+                                            <option value="TL" selected>TL</option>
                                             <option value="Dolar">DOLAR</option>
                                             <option value="Euro">EURO</option>
                                         </select>
@@ -171,7 +166,7 @@
                                    
                                 </div>
                            </div>
-                           <div class="tab-pane" id="messages" role="tabpanel">
+                           <div class="tab-pane d-none" id="messages" role="tabpanel">
                                <div class="row">
                                     <div class="col-12">
                                         <!-- Dosya Yükleme Kutusu ----->
@@ -268,57 +263,56 @@
                                         Detay Bilgiler
                                     </a>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <li class="nav-item d-none" role="presentation">
                                     <a class="nav-link" data-bs-toggle="tab" href="#messagesEdit" role="tab" aria-selected="false" tabindex="-1">
                                         Yüklemeler
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#analysisEdit" role="tab" aria-selected="false" tabindex="-1">
+                                        Piyasa Analizi
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content  text-muted">
                                <div class="tab-pane active show" id="homeEdit" role="tabpanel">
                                   
-                                   <div class="row">
+                                    <div class="row">
                                         <div class="col-12 mb-3">
-                                            <label for="nameTrEdit" class="form-label">@lang('admin.name')</label>
-                                            <input class="form-control" type="text" id="nameTrEdit" name="nameTrEdit" placeholder="@lang('admin.name')">
-                                        </div>
-                                      
-                                        <div class="col-12 mb-3">
-                                            <label for="gtipNoEdit" class="form-label">GTIP NO</label>
-                                            <input class="form-control" type="text" id="gtipNoEdit" name="gtipNoEdit" placeholder="">
-                                        </div>
-                                   </div>
-                                
-                                   <div class="row">
-                                                      
-                                        <!-- Stok Birimi -->
-                                        <div class="col-6 mb-3">
-                                            <label for="SelectStockUnitEdit" class="form-label">@lang('admin.SelectStockUnit')</label>
-                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="SelectStockUnitEdit" style="cursor: pointer;" >
-                                                <option value="">@lang('admin.SelectStockUnit')</option>
-                                                <option value="Adet">@lang('admin.Piece')</option>
-                                                <option value="Kg">Kg</option>
-                                                <option value="Ton">Ton</option>
-                                                <option value="Litre">Litre</option>
+                                            <label for="productItemsEdit" class="form-label">Ürün Seçiniz</label>
+                                            <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="productItemsEdit" style="cursor: pointer;">
+                                                <option value="">Seç</option>
+
+                                                @for ($i = 0; $i < count($DB_Find_Product); $i++)
+                                                <option value="{{$DB_Find_Product[$i]->id}}">{{$DB_Find_Product[$i]->nameTr}}</option>
+                                                @endfor
+                                            
                                             </select>
                                         </div>
-                                        <!-- End Stok Birimi -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="platformEdit" class="form-label">Araştırma Platformu</label>
+                                            <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="platformEdit" style="cursor: pointer;">
+                                                <option value="">Seç</option>
 
-                                        <!-- Stok Sayısı -->
-                                        <div class="col-6 mb-3">
-                                            <label for="StockCountEdit" class="form-label">@lang('admin.StockCount')</label>
-                                            <input class="form-control" type="number" id="StockCountEdit" name="StockCountEdit" placeholder="0">
+                                                <option value="1">N11.com</option>
+                                                <option value="2">Hepsiburada.com</option>
+                                                <option value="3">Trendyol.com</option>
+                                                <option value="4">Ebay.com</option>
+                                                <option value="5">Amazon.com</option>
+                                                <option value="6">Diğer</option>
+                                            
+                                            </select>
                                         </div>
-                                        <!-- End Stok Sayısı -->
-
-                                   </div>
+                                    </div>
                                     <div class="row">
                                         <!-- Para Birimi -->
                                         <div class="col-6 mb-3">
                                             <label for="SelectCurrencyEdit" class="form-label">@lang('admin.SelectCurrency')</label>
-                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="SelectCurrencyEdit" style="cursor: pointer;" >
+                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="SelectCurrencyEdit" style="cursor: pointer;"  disabled>
                                                 <option value="">@lang('admin.SelectCurrency')</option>
-                                                <option value="TL">TL</option>
+                                                <option value="TL" selected>TL</option>
                                                 <option value="Dolar">DOLAR</option>
                                                 <option value="Euro">EURO</option>
                                             </select>
@@ -327,7 +321,7 @@
 
                                         <!-- Para Tutarı -->
                                         <div class="col-6 mb-3">
-                                            <label for="PriceEdit" class="form-label">@lang('admin.Price')</label>
+                                            <label for="PriceEdit" class="form-label">KDV Dahil Fiyat</label>
                                             <input class="form-control" type="text" id="PriceEdit" name="PriceEdit" placeholder="00,00">
                                         </div>
                                         <!-- End Para Tutarı -->
@@ -368,7 +362,7 @@
                                     
                                
                                </div>
-                               <div class="tab-pane" id="messagesEdit" role="tabpanel">
+                               <div class="tab-pane d-none" id="messagesEdit" role="tabpanel">
                                    <div class="row">
                                  
                                         <!-- Dosya Yükleme Kutusu ----->
@@ -420,6 +414,114 @@
 
                                    </div>
                                </div>
+                               <div class="tab-pane" id="analysisEdit" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="systemKdvEdit" class="form-label">Kdv Oranı  </label>
+                                            <input class="form-control" type="text" id="systemKdvEdit" name="systemKdvEdit" placeholder="00,00">
+                                           </div>
+                                        <div class="col-6 mb-3">
+                                            <label for="systemKdvTotalEdit" class="form-label">Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="systemKdvTotalEdit" name="systemKdvTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="systemKdvOtherEdit" class="form-label">KDV Hariç Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="systemKdvOtherEdit" name="systemKdvOtherEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="systemCommissionEdit" class="form-label">Sistem Komisyonu  </label>
+                                            <a href="https://magazadestek.n11.com/s/komisyon-oranlari"  >Komisyonu Bak</a>
+                                            <input class="form-control" type="text" id="systemCommissionEdit" name="systemCommissionEdit" placeholder="00,00">
+                                           </div>
+                                        <div class="col-6 mb-3">
+                                            <label for="systemCommissionTotalEdit" class="form-label">Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="systemCommissionTotalEdit" name="systemCommissionTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="shippingCostEdit" class="form-label">Kargo Maliyeti</label>
+                                            <input class="form-control" type="text" id="shippingCostEdit" name="shippingCostEdit" placeholder="00,00">
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <label for="shippingCostTotalEdit" class="form-label">Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="shippingCostTotalEdit" name="shippingCostTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="sellerNetPrice" class="form-label">Satıcının Eline Geçen Tutar </label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="sellerNetPrice" name="sellerNetPrice" placeholder="00,00" disabled="">
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <label for="salesProfitRateEdit" class="form-label">Satış Kar Oranı</label>
+                                            <input class="form-control" type="text" id="salesProfitRateEdit" name="salesProfitRateEdit" placeholder="00,00">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="salesProfitRateTotalEdit" class="form-label">Kar Düşüldükten Sonra Kalan [ Ürün Maliyeti ] </label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="salesProfitRateTotalEdit" name="salesProfitRateTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="productBrutVatEdit" class="form-label">Ürün Satış  Brüt Karı </label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="productBrutVatEdit" name="productBrutVatEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="inventoryCostEdit" class="form-label">Depo Maliyeti</label>
+                                            <input class="form-control" type="text" id="inventoryCostEdit" name="inventoryCostEdit" placeholder="00,00">
+                                        </div>
+                                        
+                                        <div class="col-6 mb-3">
+                                            <label for="inventoryCostTotalEdit" class="form-label">Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="inventoryCostTotalEdit" name="inventoryCostTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label for="profitTaxEdit" class="form-label">KV ve KDV </label>
+                                            <input class="form-control" type="text" id="profitTaxEdit" name="profitTaxEdit" placeholder="00,00">
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <label for="profitTaxTotalEdit" class="form-label">Tutar</label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="profitTaxTotalEdit" name="profitTaxTotalEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="otherCostTotarEdit" class="form-label">Diğer Maliyetlerin Toplamı </label>
+                                            <input class="form-control bg-light border-0 col-8" type="text" id="otherCostTotarEdit" name="otherCostTotarEdit" placeholder="00,00" disabled="">
+                                        </div>
+                                    </div>
+                                  
+                                    <hr>
+                                    <div class="col-12 mb-3">
+                                        <label for="netProfitEdit" class="form-label">Ürün Net Satış Kar'ı </label>
+                                        <input class="form-control bg-light border-0 col-8" type="text" id="netProfitEdit" name="netProfitEdit" placeholder="00,00" disabled="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="netProfitPercEdit" class="form-label">Satılan Ürünün Karlılık Yüzdesi (%)</label>
+                                        <input class="form-control bg-light border-0 col-8" type="text" id="netProfitPercEdit" name="netProfitPercEdit" placeholder="00,00" disabled="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="productPriceEdit" class="form-label">Teklif Alınan Fiyat </label>
+                                            <input class="form-control" type="text" id="productPriceEdit" name="productPriceEdit" placeholder="00,00" disabled>
+                                        </div>
+                                    </div>
+                             </div>
                             </div>
                            
                    
@@ -475,12 +577,12 @@
             <!-- Body Title -->
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">@lang('admin.ProductList') </h4>
+                    <h4 class="mb-sm-0">@lang('admin.AnalysisList') </h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/analysis/product/list/@lang('admin.lang')">@lang('admin.ProductList')</a></li>
-                            <li class="breadcrumb-item active">@lang('admin.ProductList')</li>
+                            <li class="breadcrumb-item"><a href="/analysis/product/list/@lang('admin.lang')">@lang('admin.AnalysisList')</a></li>
+                            <li class="breadcrumb-item active">@lang('admin.AnalysisList')</li>
                         </ol>
                     </div>
 
@@ -492,7 +594,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
-                                <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.ProductList')</p> <p> | {{count($DB_Find)}}</p> 
+                                <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.AnalysisList')</p> <p> | {{count($DB_Find)}}</p> 
 
                                
                                     <!---  Loading --->
@@ -531,13 +633,14 @@
                                     <!--end Arama Takvim-->
 
                                     <!-- Arama Durum -->
-                                    <div class="col-xl-2 col-md-4 d-none">
-                                        <label for="selectActive" class="form-label">Onaylama</label>
-                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
-                                            <option value="">@lang('admin.StatusSelect')</option>
-                                            <option value="All">@lang('admin.All')</option>
-                                            <option value="1">Onaylananlar</option>
-                                            <option value="0">Onay Bekleyenler</option>
+                                    <div class="col-xl-2 col-md-4">
+                                        <label for="selectProduct" class="form-label">Ürün Seçiniz</label>
+                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectProduct">
+                                            <option value="">@lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_Product); $i++)
+                                             <option value="{{$DB_Find_Product[$i]->id}}">{{$DB_Find_Product[$i]->nameTr}}</option>
+                                            @endfor
+
                                         </select>
                                     </div>
                                     <!--end Arama Durum  -->
@@ -595,12 +698,14 @@
 
                                                 <th exportname="NameTr" >@lang('admin.name')</th>
                                                 <th exportname="GTIP" >GTIP</th>
-                                              
-                                                <th exportname="StockUnit" >@lang('admin.StockUnit')</th>
-                                                <th exportname="StockCount" >@lang('admin.StockCount')</th>
+                                                <th exportname="Pratform" >Pratform</th>
+
                                                 <th exportname="Currency" >@lang('admin.Currency')</th>
-                                                <th exportname="Price" >@lang('admin.Price')</th>
-                                              
+
+                                                <th exportname="Price" >Teklif Alınan Fiyat</th>
+                                                <th exportname="PlatformPrice" >Platform Fiyat</th>
+                                                <th exportname="NetPrice" >Alınması Gereken Fiyat</th>
+                                                <th exportname="StatusPrice" >Durum</th>
 
                                                 <th exportname="Actions" >@lang('admin.Actions')</th>
                                             </tr>
@@ -622,15 +727,31 @@
                                                     <td exportname="CreatedDate" class="order_date"> {{$DB_Find[$i]->created_at}}</td>
                                                    
                                                     <!---- Resim --->
-                                                    <td exportname="Image" id="listItemImageBox" class="c-table__cell" style="width: 100px; cursor:pointer;" > <img src="{{asset($DB_Find[$i]->imgUrl)}}" data-bs-toggle="modal" data-bs-target="#modalImage" data-id="{{$DB_Find[$i]->id}}" data-src="{{$DB_Find[$i]->imgUrl}}"  alt="" class="avatar-xs rounded-circle me-2" data-toggle="modal" data-target="#modalImage" ></td>
+                                                    <td exportname="Image" id="listItemImageBox" class="c-table__cell" style="width: 100px; cursor:pointer;" > <img src="{{asset($DB_Find[$i]->product_imgUrl)}}" data-bs-toggle="modal" data-bs-target="#modalImage" data-id="{{$DB_Find[$i]->id}}" data-src="{{$DB_Find[$i]->product_imgUrl}}"  alt="" class="avatar-xs rounded-circle me-2" data-toggle="modal" data-target="#modalImage" ></td>
                                                    
                                                     <td exportname="NameTr" > {{$DB_Find[$i]->nameTr}}</td>
                                                     <td exportname="GTIP" > {{$DB_Find[$i]->gtipNo}}</td>
-                                                   
-                                                    <td exportname="StockUnit" > {{$DB_Find[$i]->stockUnit}}</td>
-                                                    <td exportname="StockCount" > {{$DB_Find[$i]->stockCount}}</td>
+                                                    <td exportname="Pratform" > 
+                                                        @if($DB_Find[$i]->pratform_id == "0") <span class="badge badge-soft-danger text-uppercase">Seçilmedi</span>
+                                                        @elseif($DB_Find[$i]->pratform_id == "1") N11.com 
+                                                        @elseif($DB_Find[$i]->pratform_id == "2") Hepsiburada.com
+                                                        @elseif($DB_Find[$i]->pratform_id == "3") Trendyol.com
+                                                        @elseif($DB_Find[$i]->pratform_id == "4") Ebay.com 
+                                                        @elseif($DB_Find[$i]->pratform_id == "5") Amazon.com 
+                                                        @elseif($DB_Find[$i]->pratform_id == "6") Diğer
+                                                        @endif
+                                                    </td>
+
                                                     <td exportname="Currency" > {{$DB_Find[$i]->currency}}</td>
-                                                    <td exportname="Price" > {{$DB_Find[$i]->price}}</td>
+
+                                                    <td exportname="Price" > {{$DB_Find[$i]->productPrice}}</td>
+                                                    <td exportname="PlatformPrice" > {{$DB_Find[$i]->price}}</td>
+                                                    <td exportname="NetPrice" > {{$DB_Find[$i]->netPrice}}</td>
+                                                    <td exportname="StatusPrice" >
+                                                       @if($DB_Find[$i]->productPrice <= $DB_Find[$i]->netPrice   ) <span class="badge badge-soft-success text-uppercase" > Uygun</span>
+                                                       @elseif($DB_Find[$i]->productPrice > $DB_Find[$i]->netPrice   ) <span class="badge badge-soft-danger text-uppercase">Uygun Değil</span>
+                                                       @endif
+                                                    </td>
                                                   
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
@@ -704,6 +825,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/analysisProductList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/analysis/analysisList.js"></script>
 
         </footer>

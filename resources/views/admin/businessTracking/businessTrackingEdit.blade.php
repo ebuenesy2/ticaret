@@ -1545,6 +1545,6 @@
         @include('admin.include.footer')
 
         <!------- Js --->
-        <script src="{{asset('/assets/admin')}}/js/businessTrackingEdit.js"></script>
+        <script src="{{asset('/assets/admin')}}/js/businessTracking/businessTrackingEdit.js"></script>
 
     </footer>

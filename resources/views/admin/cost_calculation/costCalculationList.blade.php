@@ -406,6 +406,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/cost_calculation_list.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/cost_calculation/cost_calculation_list.js"></script>
 
         </footer>

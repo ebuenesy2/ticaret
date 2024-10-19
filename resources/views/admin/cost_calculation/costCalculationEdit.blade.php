@@ -1389,6 +1389,6 @@
         @include('admin.include.footer')
 
         <!------- Js --->
-        <script src="{{asset('/assets/admin')}}/js/cost_calculation_edit.js"></script>
+        <script src="{{asset('/assets/admin')}}/js/cost_calculation/cost_calculation_edit.js"></script>
 
     </footer>

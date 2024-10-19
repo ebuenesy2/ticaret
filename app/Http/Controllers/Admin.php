@@ -7845,7 +7845,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/costCalculationList',$DB);
+            return view('admin/cost_calculation/costCalculationList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -8380,7 +8380,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/costCalculationEdit',$DB);
+            return view('admin/cost_calculation/costCalculationEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -8542,7 +8542,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/costCalculationExportPdf',$DB);
+            return view('admin/cost_calculation/costCalculationExportPdf',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -14410,7 +14410,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/analysisProductList',$DB);
+            return view('admin/analysis/analysisProductList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -14800,7 +14800,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/analysisList',$DB);
+            return view('admin/analysis/analysisList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -15213,7 +15213,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/businessTrackingList',$DB);
+            return view('admin/businessTracking/businessTrackingList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -15578,7 +15578,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/businessTrackingEdit',$DB);
+            return view('admin/businessTracking/businessTrackingEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
