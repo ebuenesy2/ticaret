@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Resim  Son -->
+    <!-- Modal Resim  Son -->
 
     <!-- Modal Ekle -->
     <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

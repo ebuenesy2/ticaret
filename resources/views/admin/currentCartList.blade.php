@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Coloums  Son -->
+    <!-- Modal Coloums  Son -->
 
     <!-- Modal Silme  -->
     <div class="modal fade flip" id="deleteModal" tabindex="-1" aria-hidden="true"  >

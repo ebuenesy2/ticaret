@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Coloums  Son -->
+    <!-- Modal Coloums  Son -->
 
     <!-- Modal Resim -->
     <div class="modal fade" id="modalImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Resim  Son -->
+    <!-- Modal Resim  Son -->
 
     <!-- Modal Ekle -->
     <div class="modal_new fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

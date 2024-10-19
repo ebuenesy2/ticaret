@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Coloums  Son -->
+    <!-- Modal Coloums  Son -->
 
     <!-- Modal Ekle -->
     <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

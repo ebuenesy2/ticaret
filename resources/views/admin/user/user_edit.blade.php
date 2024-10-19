@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <!-- Mod al Resim  Son -->
+    <!-- Modal Resim  Son -->
 
     <!-- Page-content -->
     <div class="page-content">
