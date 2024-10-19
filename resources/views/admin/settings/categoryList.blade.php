@@ -143,8 +143,8 @@
                        <div class="row">
                            <div class="col-6">
                                 <div class="mb-3"> 
-                                    <label for="titleUpdate" class="form-label">Başlık</label>
-                                    <input class="form-control" type="text" id="titleUpdate" name="titleUpdate" placeholder="0">
+                                    <label for="titleEdit" class="form-label">Başlık</label>
+                                    <input class="form-control" type="text" id="titleEdit" name="titleEdit" placeholder="0">
                                 </div>
                                 <div class="mb-3"> 
                                     <label for="codeLetUpdate" class="form-label">Kod Harf</label>

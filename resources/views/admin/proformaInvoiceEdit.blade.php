@@ -879,13 +879,13 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="bankaAccountTitleUpdate" class="form-label">Banka Hesap Adı</label>
-                                    <input class="form-control" type="text" id="bankaAccountTitleUpdate" name="bankaAccountTitleUpdate" placeholder="Banka Hesap Adı">
+                                    <label for="bankaAccounttitleEdit" class="form-label">Banka Hesap Adı</label>
+                                    <input class="form-control" type="text" id="bankaAccounttitleEdit" name="bankaAccounttitleEdit" placeholder="Banka Hesap Adı">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="BankTitleUpdate" class="form-label">@lang('admin.BankTitle')</label>
-                                    <input class="form-control" type="text" id="BankTitleUpdate" name="BankTitleUpdate" placeholder="@lang('admin.BankTitle')">
+                                    <label for="BanktitleEdit" class="form-label">@lang('admin.BankTitle')</label>
+                                    <input class="form-control" type="text" id="BanktitleEdit" name="BanktitleEdit" placeholder="@lang('admin.BankTitle')">
                                 </div>
 
                                 <div class="mb-3">

@@ -34,7 +34,7 @@ $(function () {
 
             //! Ajax
             $.ajax({
-                url: "/user/update/post/edit",
+                url: "/user/edit/post/edit",
                 method: "post",
                 headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                 data: {
@@ -143,7 +143,7 @@ $(function () {
             
              //! Ajax
             $.ajax({
-                url: "/user/update/post/pass",
+                url: "/user/edit/post/pass",
                 method: "post",
                 headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                 data: {

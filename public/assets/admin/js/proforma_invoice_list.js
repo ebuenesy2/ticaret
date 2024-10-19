@@ -392,7 +392,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 

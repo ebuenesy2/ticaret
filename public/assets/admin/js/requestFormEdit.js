@@ -1281,7 +1281,7 @@ $(function () {
 
                 //! Ajax
                 $.ajax({
-                    url: "/request/form/product/update/post",
+                    url: "/request/form/product/edit/post",
                     method: "post",
                     headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                     data: {

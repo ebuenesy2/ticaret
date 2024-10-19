@@ -351,7 +351,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -748,7 +748,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             //! Ajax
             $.ajax({
-                url: "/analysis/list/update/post",
+                url: "/analysis/list/edit/post",
                 method: "post",
                 headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                 data: {

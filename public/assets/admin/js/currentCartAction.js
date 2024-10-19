@@ -224,7 +224,7 @@ $(function () {
     
         //! Ajax
         $.ajax({
-            url: "/current/cart/update/post",
+            url: "/current/cart/edit/post",
             method: "post",
             headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
             data: {
@@ -812,8 +812,8 @@ $(function () {
                     // console.log("status:", response.status);
 
                     $('#CurrencyCartIDUpdate').val(response.DB.currencyCartId);
-                    $('#bankaAccountTitleUpdate').val(response.DB.bankaAccountTitle);
-                    $('#BankTitleUpdate').val(response.DB.bankTitle);
+                    $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
+                    $('#BanktitleEdit').val(response.DB.bankTitle);
                     $('#BranchUpdate').val(response.DB.branch);
                     $('#AcountNumberUpdate').val(response.DB.accountNumber);
 
@@ -864,8 +864,8 @@ $(function () {
                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                 id: Number(data_id),
                 currencyCartId: $('#CurrencyCartIDUpdate').val(),
-                bankaAccountTitle: $('#bankaAccountTitleUpdate').val(),
-                bankTitle: $('#BankTitleUpdate').val(),
+                bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
+                bankTitle: $('#BanktitleEdit').val(),
                 branch: $('#BranchUpdate').val(),
                 accountNumber: $('#AcountNumberUpdate').val(),
                 iban: $('#IbanUpdate').val(),

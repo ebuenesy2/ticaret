@@ -1498,7 +1498,7 @@ $(function () {
     
                     //! Ajax
                     $.ajax({
-                        url: "/cost/calculation/update/post",
+                        url: "/cost/calculation/edit/post",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {

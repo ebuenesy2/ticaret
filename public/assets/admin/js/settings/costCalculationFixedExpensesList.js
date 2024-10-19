@@ -72,7 +72,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -739,7 +739,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
                     $('#selectTypeCategoryEdit').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                
-                    $('#titleUpdate').val(response.DB.title);
+                    $('#titleEdit').val(response.DB.title);
                     $('#descriptionEdit').html(response.DB.description);
                     $('#CurrencyEdit option[value='+response.DB.currency+']').prop('selected',true);
                     $('#priceEdit').val(response.DB.price);
@@ -811,7 +811,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             //! Loading - Veri Yüklendi
             function loadingYuklendi(){
                 $('#loaderEdit').hide(); //! Laoding Gizle
-                $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+                $('#edit_item').removeAttr('disabled'); //! //! Button Göster
                 $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
             }
             //! Loading - Veri Yüklendi Son
@@ -830,7 +830,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     id: Number(data_id),
                     type: $('#selectTypeEdit').val(),
                     category_id: $('#selectTypeCategoryEdit option[value="'+selectTypeCategoryEdit +'"]').attr('data_id'),
-                    title: $('#titleUpdate').val(),
+                    title: $('#titleEdit').val(),
                     description: $('#descriptionEdit').val(), 
                     currency: $('#CurrencyEdit  option[value="'+CurrencyEdit  +'"]').val(),
                     price: $('#priceEdit').val(),

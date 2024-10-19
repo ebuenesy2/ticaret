@@ -394,7 +394,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -535,7 +535,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -1252,7 +1252,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             //! Ajax
             $.ajax({
-                url: "/stock/update/post",
+                url: "/stock/edit/post",
                 method: "post",
                 headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                 data: {

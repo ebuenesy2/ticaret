@@ -383,7 +383,7 @@ $("#update_checkedItems").click(function (e) {
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -797,7 +797,7 @@ $("#edit_item").click(function (e) {
 
         //! Ajax
         $.ajax({
-            url: "/user/update/post",
+            url: "/user/edit/post",
             method: "post",
             headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
             data: {

@@ -75,8 +75,8 @@
                         <!--end Arama Durum  Başlık -->
 
                         <div class="mb-3">
-                            <label for="titleUpdate" class="form-label">Sabit Gider Adı</label>
-                            <input class="form-control" type="text" id="titleUpdate" name="titleUpdate" placeholder="Başlık">
+                            <label for="titleEdit" class="form-label">Sabit Gider Adı</label>
+                            <input class="form-control" type="text" id="titleEdit" name="titleEdit" placeholder="Başlık">
                         </div>
 
                         <div class="mb-3">
@@ -225,9 +225,9 @@
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
                                 <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.CostCalculationFixedExpenses') @lang('admin.List')</p> <p> | {{count($DB_Find)}}</p> 
-                                
+                               
                                     <!---  Loading --->
-                                    <div id="LoadingFirstDb" style="display:block;" ><span class="d-flex align-items-center">
+                                    <div id="loader" style="display:block;" ><span class="d-flex align-items-center">
                                         <span class="spinner-border flex-shrink-0" role="status"></span>
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>

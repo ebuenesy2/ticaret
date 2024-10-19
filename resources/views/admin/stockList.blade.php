@@ -741,9 +741,9 @@
                                         <p> {{count($DB_Find_stok_Ret)}} tane onay bekleyen stok var.</p>
                                     </div>
                                     @endif
-                                
+                               
                                     <!---  Loading --->
-                                    <div id="LoadingFirstDb" style="display:block;" ><span class="d-flex align-items-center">
+                                    <div id="loader" style="display:block;" ><span class="d-flex align-items-center">
                                         <span class="spinner-border flex-shrink-0" role="status"></span>
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>

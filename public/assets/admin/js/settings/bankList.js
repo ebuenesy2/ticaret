@@ -71,7 +71,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
         //! Loading Görünürlük
-        $('#LoadingFirstDb').css('display','none');
+        $('#loader').css('display','none');
 
     } //! //! Json Html Kontrol Son
 
@@ -525,8 +525,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     $('#CurrencyCartIDUpdate option[value='+response.DB.currencyCartId+']').prop('selected',true);
-                    $('#bankaAccountTitleUpdate').val(response.DB.bankaAccountTitle);
-                    $('#BankTitleUpdate').val(response.DB.bankTitle);
+                    $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
+                    $('#BanktitleEdit').val(response.DB.bankTitle);
                     $('#BranchUpdate').val(response.DB.branch);
                     $('#AcountNumberUpdate').val(response.DB.accountNumber);
 
@@ -582,7 +582,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Loading - Veri Yüklendi
         function loadingYuklendi(){
             $('#loaderEdit').hide(); //! Laoding Gizle
-            $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_item').removeAttr('disabled'); //! //! Button Göster
             $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
         }
         //! Loading - Veri Yüklendi Son
@@ -599,8 +599,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                 id: Number(data_id),
                 currencyCartId: $('#CurrencyCartIDUpdate').val(),
-                bankaAccountTitle: $('#bankaAccountTitleUpdate').val(),
-                bankTitle: $('#BankTitleUpdate').val(),
+                bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
+                bankTitle: $('#BanktitleEdit').val(),
                 branch: $('#BranchUpdate').val(),
                 accountNumber: $('#AcountNumberUpdate').val(),
                 iban: $('#IbanUpdate').val(),

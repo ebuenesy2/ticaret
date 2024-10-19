@@ -34,6 +34,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
+                
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- End Loading --->
+
                     <div class="modal-body">                       
                         <!-- Arama Durum -->
                         <div class="mb-3">
@@ -42,21 +50,13 @@
                                 <option value="">Tür Seç</option>
                                 <option value="Genel">Genel</option>
                                 <option value="OzelSart">Özel Şart</option>
-                                <!-- <option value="SektorStok"  style="cursor:pointer;" >Sektor Stok</option>
-                                <option value="SektorCari"  style="cursor:pointer;" >Sektor Cari</option>
-                                <option value="ÖdemeŞekli">Ödeme Şekli</option>
-                                <option value="SevkŞekli">Sevk Şekli</option>
-                                <option value="TeslimŞekli">Teslim Şekli</option>
-                                <option value="NakliyetŞekli">Nakliyet Şekli</option>
-                                <option value="ÖzelİzneTabiMi">Özel İzne Tabi Mi</option>
-                                <option value="İntertekTabiMi">İntertek Tabi Mi</option> -->
                             </select>
                         </div>
                         <!--end Arama Durum  -->
 
                       
                         <div class="mb-3">
-                            <label for="titleAdd" class="form-label">Title</label>
+                            <label for="titleAdd" class="form-label">Başlık</label>
                             <input class="form-control" type="text" id="titleAdd" name="titleAdd" placeholder="Başlık">
                         </div>
                         
@@ -72,7 +72,6 @@
         </div>
     </div>
     <!-- Modal Ekle  Son -->
-
     
     <!-- Modal Güncelle -->
     <div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,23 +100,13 @@
                                 <option value="">Tür Seç</option>
                                 <option value="Genel">Genel</option>
                                 <option value="OzelSart">Özel Şart</option>
-                                <!-- <option value="SektorStok"  style="cursor:pointer;" >Sektor Stok</option>
-                                <option value="SektorCari"  style="cursor:pointer;" >Sektor Cari</option>
-                                <option value="ÖdemeŞekli">Ödeme Şekli</option>
-                                <option value="SevkŞekli">Sevk Şekli</option>
-                                <option value="TeslimŞekli">Teslim Şekli</option>
-                                <option value="NakliyetŞekli">Nakliyet Şekli</option>
-                                <option value="ÖzelİzneTabiMi">Özel İzne Tabi Mi</option>
-                                <option value="İntertekTabiMi">İntertek Tabi Mi</option> -->
                             </select>
                         </div>
                         <!--end Arama Durum  -->
 
-                      
-
                         <div class="mb-3">
-                            <label for="titleUpdate" class="form-label">Title</label>
-                            <input class="form-control" type="text" id="titleUpdate" name="titleUpdate" placeholder="Başlık">
+                            <label for="titleEdit" class="form-label">Başlık</label>
+                            <input class="form-control" type="text" id="titleEdit" name="titleEdit" placeholder="Başlık">
                         </div>
                     </div>
                     <!---  ModalBodyInfoBody Son --->
@@ -133,8 +122,6 @@
         </div>
     </div>
     <!-- Modal Güncelle  Son -->
-
-
 
    <div class="page-content">
      <div class="container-fluid">
@@ -163,9 +150,9 @@
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
                                 <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" > Proforma Şartarı  </p> <p> | {{count($DB_Find)}}</p> 
-                                
+                               
                                     <!---  Loading --->
-                                    <div id="LoadingFirstDb" style="display:block;" ><span class="d-flex align-items-center">
+                                    <div id="loader" style="display:block;" ><span class="d-flex align-items-center">
                                         <span class="spinner-border flex-shrink-0" role="status"></span>
                                         <span class="flex-grow-1 ms-2">  @lang('admin.Loading') </span>
                                     </span> </div>
@@ -200,9 +187,9 @@
                                     <!--end Arama Takvim-->
 
                                     <!-- Arama Durum -->
-                                    <div class="col-xl-2 col-md-4 d-none">
+                                    <div class="col-xl-2 col-md-4">
                                         <label for="selectActive" class="form-label"> Durumu</label>
-                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
+                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive" style="cursor:pointer;">
                                             <option value="">@lang('admin.All')</option>
                                             <option value="1">@lang('admin.Active')</option>
                                             <option value="0">@lang('admin.Passive')</option>
@@ -371,6 +358,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/generalConditionsList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/settings/generalConditionsList.js"></script>
 
         </footer>

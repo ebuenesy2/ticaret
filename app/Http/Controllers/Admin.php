@@ -814,7 +814,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -890,7 +889,7 @@ class Admin extends Controller
    } //! UserList Delete  Son
       
    //! UserList Update  
-   public function UserListUpdatePost(Request $request)
+   public function UserListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -963,7 +962,7 @@ class Admin extends Controller
 
 
    //! UserList Update Edit 
-   public function UserListUpdatePostEdit(Request $request)
+   public function UserListEditPostEdit(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -1009,7 +1008,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -1034,7 +1032,7 @@ class Admin extends Controller
 
    
    //! UserList Update Pass 
-   public function UserListUpdatePostPass(Request $request)
+   public function UserListEditPostPass(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -1217,7 +1215,7 @@ class Admin extends Controller
    } //! UserList View Son
 
 
-   //! UserList Update Active
+   //! UserList Edit Active
    public function UserListEditActive(Request $request)
    {
 
@@ -1252,7 +1250,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -1273,11 +1270,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! UserList Update Active Son
+   } //! UserList Edit Active Son
 
 
-   //! UserList Update Active Multi
-   public function UserListUpdateActiveMulti(Request $request)
+   //! UserList Edit Active Multi
+   public function UserListEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -1311,7 +1308,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
             return response()->json($response);
          }
@@ -1330,7 +1326,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! UserList Update Active Multi Son
+   } //! UserList Edit Active Multi Son
 
 
    //! UserList Import File
@@ -1941,7 +1937,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -1996,7 +1991,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2076,7 +2070,7 @@ class Admin extends Controller
 
      
    //! StockList Update  
-   public function StockListUpdatePost(Request $request)
+   public function StockListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -2162,7 +2156,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2185,7 +2178,7 @@ class Admin extends Controller
    } //! StockList Update  Son
    
 
-   //! StockList Update Active
+   //! StockList Edit Active
    public function StockListEditActive(Request $request)
    {
 
@@ -2220,7 +2213,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2241,11 +2233,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! StockList Update Active Son
+   } //! StockList Edit Active Son
 
 
-   //! StockList Update Active Multi
-   public function StockListUpdateActiveMulti(Request $request)
+   //! StockList Edit Active Multi
+   public function StockListEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -2280,7 +2272,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2301,7 +2292,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! StockList Update Active Multi Son
+   } //! StockList Edit Active Multi Son
 
       
    //! StockList Update Product Image
@@ -2596,7 +2587,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2650,7 +2640,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2762,7 +2751,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2785,7 +2773,7 @@ class Admin extends Controller
    } //! Stok Firma Edit Son
 
    
-   //! Stok Firma Update Active
+   //! Stok Firma Edit Active
    public function StockCompanyEditActive(Request $request)
    {
 
@@ -2820,7 +2808,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2841,10 +2828,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Stok Firma Update Active Son
+   } //! Stok Firma Edit Active Son
 
-   //! Stok Firma Update Active Multi
-   public function StockCompanyUpdateActiveMulti(Request $request)
+   //! Stok Firma Edit Active Multi
+   public function StockCompanyEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -2879,7 +2866,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -2900,7 +2886,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Stok Firma Update Active Multi Son
+   } //! Stok Firma Edit Active Multi Son
    
 
 
@@ -3211,7 +3197,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -3266,7 +3251,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -3290,7 +3274,7 @@ class Admin extends Controller
 
      
    //! currentCartList Update  
-   public function currentCartListUpdatePost(Request $request)
+   public function currentCartListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -3381,7 +3365,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -3588,7 +3571,7 @@ class Admin extends Controller
    } //! currentCartList Search Post Son
 
 
-   //! currentCartList Update Active
+   //! currentCartList Edit Active
    public function currentCartListEditActive(Request $request)
    {
 
@@ -3623,7 +3606,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -3644,11 +3626,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! currentCartList Update Active Son
+   } //! currentCartList Edit Active Son
 
 
-   //! currentCartList Update Active Multi
-   public function currentCartListUpdateActiveMulti(Request $request)
+   //! currentCartList Edit Active Multi
+   public function currentCartListEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -3683,7 +3665,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -3704,7 +3685,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! currentCartList Update Active Multi Son
+   } //! currentCartList Edit Active Multi Son
 
       
    //! currentCartList Import File
@@ -4071,7 +4052,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4125,7 +4105,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4236,7 +4215,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4493,7 +4471,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4547,7 +4524,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4658,7 +4634,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4723,7 +4698,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -4818,7 +4792,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -5087,7 +5060,7 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! RequestForm View Son
    
-   //! RequestForm Update Active
+   //! RequestForm Edit Active
    public function RequestFormEditActive(Request $request)
    {
 
@@ -5122,7 +5095,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -5143,10 +5115,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! RequestForm Update Active Son
+   } //! RequestForm Edit Active Son
 
-   //! RequestForm Update Active Multi
-   public function RequestFormUpdateActiveMulti(Request $request)
+   //! RequestForm Edit Active Multi
+   public function RequestFormEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -5181,7 +5153,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -5202,7 +5173,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! RequestForm Update Active Multi Son
+   } //! RequestForm Edit Active Multi Son
 
    
    //! Dosya Yükleme - Ürün Resmi
@@ -5903,7 +5874,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -5957,7 +5927,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -6041,7 +6010,7 @@ class Admin extends Controller
 
      
    //! RequestFormStockList Update  
-   public function RequestFormStockListUpdatePost(Request $request)
+   public function RequestFormStockListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -6255,7 +6224,7 @@ class Admin extends Controller
    } //! RequestFormStockList Update  Son
    
 
-   //! RequestFormStockList Update Active
+   //! RequestFormStockList Edit Active
    public function RequestFormStockListEditActive(Request $request)
    {
 
@@ -6290,7 +6259,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -6311,11 +6279,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! RequestFormStockList Update Active Son
+   } //! RequestFormStockList Edit Active Son
 
 
-   //! RequestFormStockList Update Active Multi
-   public function RequestFormStockListUpdateActiveMulti(Request $request)
+   //! RequestFormStockList Edit Active Multi
+   public function RequestFormStockListEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -6350,7 +6318,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -6371,7 +6338,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! RequestFormStockList Update Active Multi Son
+   } //! RequestFormStockList Edit Active Multi Son
 
 
 
@@ -6749,7 +6716,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -6841,7 +6807,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7359,7 +7324,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7414,7 +7378,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7495,7 +7458,7 @@ class Admin extends Controller
 
      
    //! GetOffersProduct Update  
-   public function GetOffersProductUpdatePost(Request $request)
+   public function GetOffersProductEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -7599,7 +7562,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7622,7 +7584,7 @@ class Admin extends Controller
    } //! GetOffersProduct Update  Son
    
 
-   //! GetOffersProduct Update Active
+   //! GetOffersProduct Edit Active
    public function GetOffersProductEditActive(Request $request)
    {
 
@@ -7657,7 +7619,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7678,11 +7639,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GetOffersProduct Update Active Son
+   } //! GetOffersProduct Edit Active Son
 
 
-   //! GetOffersProduct Update Active Multi
-   public function GetOffersProductUpdateActiveMulti(Request $request)
+   //! GetOffersProduct Edit Active Multi
+   public function GetOffersProductEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -7717,7 +7678,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -7738,7 +7698,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GetOffersProduct Update Active Multi Son
+   } //! GetOffersProduct Edit Active Multi Son
 
 
 
@@ -8146,7 +8106,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -8201,7 +8160,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -8225,7 +8183,7 @@ class Admin extends Controller
 
      
    //! CostCalculation Update  
-   public function CostCalculationUpdatePost(Request $request)
+   public function CostCalculationEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -8288,7 +8246,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -8595,7 +8552,7 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! CostCalculation Export Pdf Son
 
-   //! CostCalculation Update Active
+   //! CostCalculation Edit Active
    public function CostCalculationEditActive(Request $request)
    {
 
@@ -8630,7 +8587,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -8651,11 +8607,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! CostCalculation Update Active Son
+   } //! CostCalculation Edit Active Son
 
 
-   //! CostCalculation Update Active Multi
-   public function CostCalculationUpdateActiveMulti(Request $request)
+   //! CostCalculation Edit Active Multi
+   public function CostCalculationEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -8690,7 +8646,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -8711,7 +8666,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! CostCalculation Update Active Multi Son
+   } //! CostCalculation Edit Active Multi Son
 
       
 
@@ -8879,7 +8834,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -9068,7 +9022,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -9208,7 +9161,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -9733,7 +9685,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -9788,7 +9739,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -9812,7 +9762,7 @@ class Admin extends Controller
 
      
    //! ProformaInvoice Update  
-   public function ProformaInvoiceUpdatePost(Request $request)
+   public function ProformaInvoiceEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -9893,7 +9843,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -10210,7 +10159,7 @@ class Admin extends Controller
    } //! ProformaInvoice View Export PDF Son
 
 
-   //! ProformaInvoice Update Active
+   //! ProformaInvoice Edit Active
    public function ProformaInvoiceEditActive(Request $request)
    {
 
@@ -10245,7 +10194,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -10266,11 +10214,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! ProformaInvoice Update Active Son
+   } //! ProformaInvoice Edit Active Son
 
 
-   //! ProformaInvoice Update Active Multi
-   public function ProformaInvoiceUpdateActiveMulti(Request $request)
+   //! ProformaInvoice Edit Active Multi
+   public function ProformaInvoiceEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -10305,7 +10253,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -10326,7 +10273,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! ProformaInvoice Update Active Multi Son
+   } //! ProformaInvoice Edit Active Multi Son
 
       
    //! ProformaInvoice Import File
@@ -10664,7 +10611,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -10854,7 +10800,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11199,7 +11144,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11253,7 +11197,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11395,7 +11338,7 @@ class Admin extends Controller
       
    } //! Bank Search Post Son
    
-   //! Bank Update Active
+   //! Bank Edit Active
    public function ProformaBankEditActive(Request $request)
    {
 
@@ -11430,7 +11373,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11451,10 +11393,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Bank Update Active Son
+   } //! Bank Edit Active Son
 
-   //! Bank Update Active Multi
-   public function ProformaBankUpdateActiveMulti(Request $request)
+   //! Bank Edit Active Multi
+   public function ProformaBankEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -11489,7 +11431,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11510,7 +11451,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Bank Update Active Multi Son
+   } //! Bank Edit Active Multi Son
 
    
    //************* Ayarlar ***************************************************************** */
@@ -11785,7 +11726,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -11839,7 +11779,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12082,7 +12021,7 @@ class Admin extends Controller
       
    } //! Category Search Type Post Son
    
-   //! Category Update Active
+   //! Category Edit Active
    public function CategoryEditActive(Request $request)
    {
 
@@ -12117,7 +12056,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12138,10 +12076,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Category Update Active Son
+   } //! Category Edit Active Son
 
-   //! Category Update Active Multi
-   public function CategoryUpdateActiveMulti(Request $request)
+   //! Category Edit Active Multi
+   public function CategoryEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -12176,7 +12114,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12197,7 +12134,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Category Update Active Multi Son
+   } //! Category Edit Active Multi Son
 
    
    //************* SubCategory ***************** */
@@ -12423,7 +12360,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12477,7 +12413,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12538,7 +12473,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12667,7 +12601,7 @@ class Admin extends Controller
       
    } //! SubCategory Search Type Post Son
 
-   //! SubCategory Update Active
+   //! SubCategory Edit Active
    public function SubCategoryEditActive(Request $request)
    {
 
@@ -12702,7 +12636,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12723,10 +12656,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! SubCategory Update Active Son
+   } //! SubCategory Edit Active Son
 
-   //! SubCategory Update Active Multi
-   public function SubCategoryUpdateActiveMulti(Request $request)
+   //! SubCategory Edit Active Multi
+   public function SubCategoryEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -12761,7 +12694,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -12782,7 +12714,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! SubCategory Update Active Multi Son
+   } //! SubCategory Edit Active Multi Son
 
 
    //************* CostCalculationFixedExpenses ***************** */
@@ -13040,7 +12972,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13094,7 +13025,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13266,7 +13196,7 @@ class Admin extends Controller
       
    } //! CostCalculationFixedExpenses Search Post Son
    
-   //! CostCalculationFixedExpenses Update Active
+   //! CostCalculationFixedExpenses Edit Active
    public function CostCalculationFixedExpensesEditActive(Request $request)
    {
 
@@ -13301,7 +13231,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13322,10 +13251,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! CostCalculationFixedExpenses Update Active Son
+   } //! CostCalculationFixedExpenses Edit Active Son
 
-   //! CostCalculationFixedExpenses Update Active Multi
-   public function CostCalculationFixedExpensesUpdateActiveMulti(Request $request)
+   //! CostCalculationFixedExpenses Edit Active Multi
+   public function CostCalculationFixedExpensesEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -13360,7 +13289,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13381,7 +13309,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! CostCalculationFixedExpenses Update Active Multi Son
+   } //! CostCalculationFixedExpenses Edit Active Multi Son
 
   
    //************* Bank ***************** */
@@ -13620,7 +13548,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13674,7 +13601,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13737,7 +13663,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13812,7 +13737,7 @@ class Admin extends Controller
       
    } //! Bank Search Post Son
    
-   //! Bank Update Active
+   //! Bank Edit Active
    public function BankEditActive(Request $request)
    {
 
@@ -13847,7 +13772,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13868,10 +13792,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Bank Update Active Son
+   } //! Bank Edit Active Son
 
-   //! Bank Update Active Multi
-   public function BankUpdateActiveMulti(Request $request)
+   //! Bank Edit Active Multi
+   public function BankEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -13906,7 +13830,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -13927,7 +13850,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! Bank Update Active Multi Son
+   } //! Bank Edit Active Multi Son
 
 
    //************* GeneralConditions ***************** */
@@ -14019,7 +13942,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/generalConditionsList',$DB);
+            return view('admin/settings/generalConditionsList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -14099,7 +14022,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14153,7 +14075,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14189,7 +14110,6 @@ class Admin extends Controller
          $DB_Status = DB::table('general_conditions')->where('id',$request->id)
          ->update([            
             'type' => $request->type,
-            'category_id' => $request->category_id,
             'title' => $request->title,
             'isUpdated'=>true,
             'updated_at'=>Carbon::now(),
@@ -14212,7 +14132,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14253,8 +14172,7 @@ class Admin extends Controller
             $response = array(
                'status' => 'success',
                'msg' => __('admin.TransactionSuccessful'),
-               'DB' =>  $DB_Find,
-               'DB_Category' =>  DB::table('category')->where('id',$DB_Find->category_id)->first(),
+               'DB' =>  $DB_Find
             );
 
             return response()->json($response);
@@ -14288,7 +14206,7 @@ class Admin extends Controller
       
    } //! GeneralConditions Search Post Son
    
-   //! GeneralConditions Update Active
+   //! GeneralConditions Edit Active
    public function GeneralConditionsEditActive(Request $request)
    {
 
@@ -14323,7 +14241,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14344,10 +14261,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GeneralConditions Update Active Son
+   } //! GeneralConditions Edit Active Son
 
-   //! GeneralConditions Update Active Multi
-   public function GeneralConditionsUpdateActiveMulti(Request $request)
+   //! GeneralConditions Edit Active Multi
+   public function GeneralConditionsEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -14382,7 +14299,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14403,7 +14319,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GeneralConditions Update Active Multi Son
+   } //! GeneralConditions Edit Active Multi Son
 
          
    //************* Analiz Ürün Listesi ***************** */
@@ -14591,7 +14507,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14646,7 +14561,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14723,7 +14637,7 @@ class Admin extends Controller
 
      
    //! AnalysisProductList Update  
-   public function AnalysisProductListUpdatePost(Request $request)
+   public function AnalysisProductListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -14769,7 +14683,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -14981,7 +14894,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15036,7 +14948,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15116,7 +15027,7 @@ class Admin extends Controller
 
      
    //! AnalysisList Update  
-   public function AnalysisListUpdatePost(Request $request)
+   public function AnalysisListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -15176,7 +15087,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15391,7 +15301,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15445,7 +15354,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15514,7 +15422,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15789,7 +15696,7 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! BusinessTracking View Son
    
-   //! BusinessTracking Update Active
+   //! BusinessTracking Edit Active
    public function BusinessTrackingEditActive(Request $request)
    {
 
@@ -15824,7 +15731,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15845,10 +15751,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! BusinessTracking Update Active Son
+   } //! BusinessTracking Edit Active Son
 
-   //! BusinessTracking Update Active Multi
-   public function BusinessTrackingUpdateActiveMulti(Request $request)
+   //! BusinessTracking Edit Active Multi
+   public function BusinessTrackingEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -15883,7 +15789,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -15904,7 +15809,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! BusinessTracking Update Active Multi Son
+   } //! BusinessTracking Edit Active Multi Son
 
 
    //************* BusinessTracking Not ***************** */
@@ -16056,7 +15961,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16112,7 +16016,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16284,7 +16187,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16340,7 +16242,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16511,7 +16412,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16567,7 +16467,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16739,7 +16638,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -16796,7 +16694,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17135,7 +17032,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17190,7 +17086,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17214,7 +17109,7 @@ class Admin extends Controller
 
      
    //! SabitList Update  
-   public function SabitListUpdatePost(Request $request)
+   public function SabitListEditPost(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -17251,7 +17146,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17388,7 +17282,7 @@ class Admin extends Controller
    } //! SabitList View Son
 
 
-   //! SabitList Update Active
+   //! SabitList Edit Active
    public function SabitListEditActive(Request $request)
    {
 
@@ -17423,7 +17317,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17444,11 +17337,11 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! SabitList Update Active Son
+   } //! SabitList Edit Active Son
 
 
-   //! SabitList Update Active Multi
-   public function SabitListUpdateActiveMulti(Request $request)
+   //! SabitList Edit Active Multi
+   public function SabitListEditActiveMulti(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -17483,7 +17376,6 @@ class Admin extends Controller
             $response = array(
                'status' => 'error',
                'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
             );
 
             return response()->json($response);
@@ -17504,7 +17396,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! SabitList Update Active Multi Son
+   } //! SabitList Edit Active Multi Son
 
       
    //! SabitList Import File

@@ -34,13 +34,13 @@
     'Admin_Logo' => array(
     'dark' => array(
       'url'=>'/admin',
-      'sm' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'Interturk admin logo dark sm' ),
-      'lg' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'Interturk admin logo dark lg' ),
+      'sm' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'admin logo dark sm' ),
+      'lg' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'admin logo dark lg' ),
     ),
     'light' => array(
       'url'=>'/admin',
-      'sm' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'Interturk admin logo light sm' ),
-      'lg' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'Interturk admin logo light lg' ),
+      'sm' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'admin logo light sm' ),
+      'lg' => array('url'=>'#', 'imgUrl'=> '/img/company/index.png' , 'imgAltDescription' => 'admin logo light lg' ),
     ),
     
     ),
@@ -48,7 +48,7 @@
     'Default_UserImgUrl' => '/assets/img/user/default.jpg',
     'Default_ProductImgUrl' => '/assets/img/product/default.jpg',
 
-    'CompanyName' => 'İntertürk İç ve Dış Ticaret A.Ş.',
+    'CompanyName' => 'Yildirimdev',
      
      
    ]

@@ -619,7 +619,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
-                    $('#titleUpdate').val(response.DB.title);
+                    $('#titleEdit').val(response.DB.title);
                     $('#titleENUpdate').val(response.DB.title_EN);
 
                     $('#codeLetUpdate').val(response.DB.codeLet);
@@ -658,13 +658,13 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Loading - Veri Yüklendi
         function loadingYuklendi(){
             $('#loaderEdit').hide(); //! Laoding Gizle
-            $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_item').removeAttr('disabled'); //! //! Button Göster
             $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
         }
         //! Loading - Veri Yüklendi Son
 
         var selectTypeEdit = $('#selectTypeEdit').val();
-        var titleUpdate = $('#titleUpdate').val();
+        var titleEdit = $('#titleEdit').val();
         var titleENUpdate = $('#titleENUpdate').val();
         var codeLetUpdate = $('#codeLetUpdate').val();
         var codeNumberUpdate = $('#codeNumberUpdate').val();
@@ -678,7 +678,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (titleUpdate == "") {
+        else if (titleEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -728,7 +728,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
                     type: $('#selectTypeEdit').val(),
-                    title: $('#titleUpdate').val(),
+                    title: $('#titleEdit').val(),
                     title_EN: $('#titleENUpdate').val(),
 
                     codeLet: $('#codeLetUpdate').val(),
