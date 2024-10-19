@@ -2906,8 +2906,6 @@ class Admin extends Controller
 
    //************* Current Cart ***************** */
 
-
-
    //! currentCartList
    public function currentCartList($site_lang="tr")
    {
@@ -12243,7 +12241,6 @@ class Admin extends Controller
             $data_all= []; //! Tüm Veriler
             $data_count = count(request()->all()); //! Params Sayısı
 
-
             for ($i=0; $i < count(request()->all()) ; $i++) { 
                
                //! Tanım
@@ -12256,7 +12253,6 @@ class Admin extends Controller
                if($data_key_item == "CreatedDate") { $data_key_item = "categorysub.created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
                else if($data_key_item == "Id") { $data_key_item = "categorysub.id";  $data_item_object="=";  }
                else if($data_key_item == "Status") { $data_key_item = "categorysub.isActive";  $data_item_object="="; }
-
                
                //! Ekleme Yapıyor
                array_push($data_search_key,$data_key_item); //! id
@@ -12282,9 +12278,13 @@ class Admin extends Controller
                        ->orderBy('id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             // echo "<pre>"; print_r($DB_Find); die();
 
-            //! Params Verileri Where Formatında Yazılacak Son         
- 
- 
+            //! Params Verileri Where Formatında Yazılacak Son   
+            
+            //! Kategori
+            $DB_Find_Category = [];
+            $parameter_Type = request('Type');
+            if($parameter_Type) { $DB_Find_Category = DB::table('category')->where('type',$parameter_Type)->get(); }
+            
             //! Return
             $DB["userId"] =  $yildirimdev_userID;
             $DB["name"] =  $yildirimdev_name;
@@ -12292,6 +12292,7 @@ class Admin extends Controller
             $DB["role"] =   $yildirimdev_departman;
             $DB["userImageUrl"] =  $yildirimdev_img_url;
             $DB["DB_Find"] =  $DB_Find;
+            $DB["DB_Find_Category"] =  $DB_Find_Category;
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
@@ -12352,57 +12353,6 @@ class Admin extends Controller
       }
       
    } //! SubCategoryAdd Post Son
-
-   //! SubCategoryAdd View
-   public function SubCategoryAddView($site_lang="tr")
-   {
-      try {
-
-         //! Tanım
-         $yildirimdev_userCheck = 0;
-         $yildirimdev_userID = "";
-         $yildirimdev_name = "";
-         $yildirimdev_surname = "";
-         $yildirimdev_img_url = "";
-
-         //? Cookie Varmı
-         if(isset($_COOKIE["yildirimdev_userCheck"])) {
-
-            $yildirimdev_userCheck = $_COOKIE["yildirimdev_userCheck"];
-            $yildirimdev_userID=$_COOKIE["yildirimdev_userID"]; //! id
-            $yildirimdev_name=$_COOKIE["yildirimdev_name"]; //! name
-            $yildirimdev_surname=$_COOKIE["yildirimdev_surname"]; //! surname
-            $yildirimdev_img_url=$_COOKIE["yildirimdev_img_url"]; //! imgUrl
-            $yildirimdev_departman=$_COOKIE["yildirimdev_departman"]; //! departman
-
-            //echo "yildirimdev_userID ccokie:"; echo $yildirimdev_userID; die();
-            
-         }
-               
-
-         if($yildirimdev_userCheck ) {
-            //echo "üye girişi oldu"; die();
-
-            //! Return
-            $DB["userId"] =  $yildirimdev_userID;
-            $DB["name"] =  $yildirimdev_name;
-            $DB["surname"] =  $yildirimdev_surname;
-            $DB["role"] =   $yildirimdev_departman;
-            $DB["userImageUrl"] =  $yildirimdev_img_url;
-               
-
-            //! Çoklu Dil
-            \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/categorySubAdd',$DB);
-
-         }
-         else {
-            //echo "üye giriş yapınız"; die();
-            return redirect('user/login');
-         }
-
-      } catch (\Throwable $th) {  throw $th; }
-   } //! SubCategoryAdd View Son
 
    //! SubCategory Delete  
    public function SubCategoryDeletePost(Request $request)
@@ -12570,7 +12520,6 @@ class Admin extends Controller
       
    } //! SubCategory Edit Son
 
-
    //! SubCategory Post
    public function SubCategorySearchPost(Request $request)
    {
@@ -12625,7 +12574,6 @@ class Admin extends Controller
       }
       
    } //! SubCategory Search Post Son
-
 
    //! SubCategory Search Type Post
    public function SubCategoryTypeSearchPost(Request $request)

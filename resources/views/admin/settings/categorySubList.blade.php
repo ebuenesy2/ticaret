@@ -283,6 +283,9 @@
                                         <label for="selectTypeCategory" class="form-label">Kategori</label>
                                         <select class="form-control" data-choices data-choices-search-false name="selectTypeCategoryList" id="selectTypeCategoryList"  >
                                             <option value="selectedFirst" selected  >@lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_Category); $i++) 
+                                            <option value="{{$DB_Find_Category[$i]->id}}">{{$DB_Find_Category[$i]->title}}</option> 
+                                            @endfor
                                         </select>
                                     </div>
                                     <!--end Arama Durum  Başlık -->

@@ -50,9 +50,9 @@
                             <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrencyCartID')</label>
                             <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="CurrencyCartIDSearch" disabled >
                                 <option value="">Cari Kart Seç</option>
-                                
-                                @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
-
+                                @for ($i = 0; $i < count($DB_Find_Current); $i++) 
+                                <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option> 
+                                @endfor
                             </select>
                         </div>
 
