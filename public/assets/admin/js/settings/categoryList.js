@@ -741,44 +741,107 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     $("#data_update").click(function (e) {
         e.preventDefault();
 
-        //! Id
-        var data_id =  $('#update_data_id').html();
+        var selectTypeUpdate = $('#selectTypeUpdate').val();
+        var titleUpdate = $('#titleUpdate').val();
+        var titleENUpdate = $('#titleENUpdate').val();
+        var codeLetUpdate = $('#codeLetUpdate').val();
+        var codeNumberUpdate = $('#codeNumberUpdate').val();
 
-        //! Ajax
-        $.ajax({
-            url: "/category/edit/post",
-            method: "post",
-            headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-            data: {
-                siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                id: Number(data_id),
-                type: $('#selectTypeUpdate').val(),
-                title: $('#titleUpdate').val(),
-                title_EN: $('#titleENUpdate').val(),
+        if (selectTypeUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Tür Seç",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (titleUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Başlık Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (titleENUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Başlık En Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (codeLetUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Kod Harf Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (codeNumberUpdate == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Kod Sayı Yazınız",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
 
-                codeLet: $('#codeLetUpdate').val(),
-                codeNumber: $('#codeNumberUpdate').val(),
+             //! Id
+            var data_id =  $('#update_data_id').html();
 
-                updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-            },
-            success: function (response) {
-                // alert("başarılı");
-                // console.log("response:", response);
-                // console.log("status:", response.status);
+            //! Ajax
+            $.ajax({
+                url: "/category/edit/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id: Number(data_id),
+                    type: $('#selectTypeUpdate').val(),
+                    title: $('#titleUpdate').val(),
+                    title_EN: $('#titleENUpdate').val(),
 
-                if (response.status == "success") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: response.msg,
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
+                    codeLet: $('#codeLetUpdate').val(),
+                    codeNumber: $('#codeNumberUpdate').val(),
 
-                    //! Sayfa Yenileme
-                    window.location.reload();
+                    updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    //console.log("response:", response);
+                    // console.log("status:", response.status);
 
-                } else {
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+
+                        //! Sayfa Yenileme
+                        window.location.reload();
+
+                    } else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+                },
+                error: function (error) {
                     Swal.fire({
                         position: "center",
                         icon: "error",
@@ -786,19 +849,13 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         showConfirmButton: false,
                         timer: 2000,
                     });
-                }
-            },
-            error: function (error) {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: response.msg,
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                console.log("error:", error);
-            },
-        }); //! Ajax Son
+                    console.log("error:", error);
+                },
+            }); //! Ajax Son
+
+        }
+
+       
 
     }); //! Güncelle Son
 

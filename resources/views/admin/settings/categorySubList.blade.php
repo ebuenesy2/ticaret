@@ -495,6 +495,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/categorySubList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/settings/categorySubList.js"></script>
 
         </footer>

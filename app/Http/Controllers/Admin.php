@@ -11607,7 +11607,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/categoryList',$DB);
+            return view('admin/settings/categoryList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -11626,28 +11626,71 @@ class Admin extends Controller
       \Illuminate\Support\Facades\App::setLocale($siteLang); //! Çoklu Dil
 
       try {
+
+         //! Veri Arama
+         $DB_Find_title = DB::table('category')->where('type',$request->type)->where('title',$request->title)->first(); //! Arama
+         $DB_Find_codeLet = DB::table('category')->where('type',$request->type)->where('codeLet',$request->codeLet)->first(); //! Arama
+         $DB_Find_codeNumber = DB::table('category')->where('type',$request->type)->where('codeNumber',$request->codeNumber)->first(); //! Arama
+
+         if($DB_Find_title) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Başlık Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else  if($DB_Find_codeLet) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Kod Harf Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else  if($DB_Find_codeNumber) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Kod Sayısı Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+
+         else {
         
 
-         //! Veri Ekleme
-         DB::table('category')->insert([
-            'ServerId' => config('admin.ServerId'),
-            'ServerToken' => config('admin.ServerToken'),
-            'type' => $request->type,
-            'title' => $request->title,
-            'title_EN' => $request->title_EN,
-            'codeLet' => $request->codeLet,
-            'codeNumber' => $request->codeNumber,
-            'created_byId'=>$request->created_byId,
-        ]); //! Veri Ekleme Son
+            //! Veri Ekleme
+            DB::table('category')->insert([
+               'ServerId' => config('admin.ServerId'),
+               'ServerToken' => config('admin.ServerToken'),
+               'type' => $request->type,
+               'title' => $request->title,
+               'title_EN' => $request->title_EN,
+               'codeLet' => $request->codeLet,
+               'codeNumber' => $request->codeNumber,
+               'created_byId'=>$request->created_byId,
+         ]); //! Veri Ekleme Son
 
 
-         $response = array(
-            'status' => 'success',
-            'msg' => __('admin.TransactionSuccessful'),
-            'post' => $request->all(),
-         );
+            $response = array(
+               'status' => 'success',
+               'msg' => __('admin.TransactionSuccessful'),
+               'post' => $request->all(),
+            );
 
-         return response()->json($response);
+            return response()->json($response);
+
+         }
 
       } catch (\Throwable $th) {
         
@@ -11828,44 +11871,100 @@ class Admin extends Controller
       \Illuminate\Support\Facades\App::setLocale($siteLang); //! Çoklu Dil
 
       try {
-        
 
-         //! Veri Güncelle
-         $DB_Status = DB::table('category')->where('id',$request->id)
-         ->update([            
-            'type' => $request->type,
-            'title' => $request->title,
-            'title_EN' => $request->title_EN,
-            'codeLet' => $request->codeLet,
-            'codeNumber' => $request->codeNumber,
-            'isUpdated'=>true,
-            'updated_at'=>Carbon::now(),
-            'updated_byId'=>$request->updated_byId,
-         ]);
+         //! Veri Arama
+         $DB_Find = DB::table('category')->where('id',$request->id)->first(); //! Arama
 
-         if($DB_Status) {
+         if($DB_Find) {
+            
+            $DB_Find_title = DB::table('category')->where('id','!=',$DB_Find->id)->where('type',$request->type)->where('title',$request->title)->first(); //! Arama
+            $DB_Find_codeLet = DB::table('category')->where('id','!=',$DB_Find->id)->where('type',$request->type)->where('codeLet',$request->codeLet)->first(); //! Arama
+            $DB_Find_codeNumber = DB::table('category')->where('id','!=',$DB_Find->id)->where('type',$request->type)->where('codeNumber',$request->codeNumber)->first(); //! Arama
 
-            $response = array(
-               'status' => 'success',
-               'msg' => __('admin.TransactionSuccessful'),
-            );
+            if($DB_Find_title) {
 
-            return response()->json($response);
+               $response = array(
+                  'status' => 'error',
+                  'msg' => "Bu Başlık Kayıtlıdır",
+                  'DB' =>  []
+               );
+   
+               return response()->json($response);
+   
+            }
+            else if($DB_Find_codeLet) {
+   
+               $response = array(
+                  'status' => 'error',
+                  'msg' => "Bu Kod Harf Kayıtlıdır",
+                  'DB' =>  []
+               );
+   
+               return response()->json($response);
+   
+            }
+            else if($DB_Find_codeNumber) {
+   
+               $response = array(
+                  'status' => 'error',
+                  'msg' => "Bu Kod Sayısı Kayıtlıdır",
+                  'DB' =>  []
+               );
+   
+               return response()->json($response);
+   
+            }
+            else {
+               
+               //! Veri Güncelle
+               $DB_Status = DB::table('category')->where('id',$request->id)
+               ->update([            
+                  'type' => $request->type,
+                  'title' => $request->title,
+                  'title_EN' => $request->title_EN,
+                  'codeLet' => $request->codeLet,
+                  'codeNumber' => $request->codeNumber,
+                  'isUpdated'=>true,
+                  'updated_at'=>Carbon::now(),
+                  'updated_byId'=>$request->updated_byId,
+               ]);
+
+               if($DB_Status) {
+
+                  $response = array(
+                     'status' => 'success',
+                     'msg' => __('admin.TransactionSuccessful'),
+                  );
+
+                  return response()->json($response);
+
+               }
+               else {
+
+                  $response = array(
+                     'status' => 'error',
+                     'msg' => __('admin.DataNotFound'),
+                     'dataId'=> $request->id
+                  );
+
+                  return response()->json($response);
+
+               }
+
+            }
 
          }
-
          else {
 
             $response = array(
                'status' => 'error',
-               'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
+               'msg' => "Veri Bulunamdı",
+               'error' => $th,
             );
-
+   
             return response()->json($response);
 
          }
-         
 
       } catch (\Throwable $th) {
         
@@ -11880,7 +11979,6 @@ class Admin extends Controller
       }
       
    } //! Category Edit Son
-
 
    //! Category Search Post
    public function CategorySearchPost(Request $request)
@@ -12197,7 +12295,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/categorySubList',$DB);
+            return view('admin/settings/categorySubList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -12581,8 +12679,6 @@ class Admin extends Controller
       
    } //! SubCategory Search Type Post Son
 
-
-   
    //! SubCategory Update Active
    public function SubCategoryUpdateActive(Request $request)
    {
@@ -17761,8 +17857,6 @@ class Admin extends Controller
      } catch (\Throwable $th) {  throw $th; }
    } //! FileUpload Multi Son
 
-
-      
    //! Post - Çoklu File Upload
    public function fileUploadMultiControl(Request $request)
    {
@@ -18264,7 +18358,6 @@ class Admin extends Controller
 
 
    //************* Hata Sayfaları ***************** */
-
   
    //! errorAccountBlock
    public function errorAccountBlock($site_lang="tr")
