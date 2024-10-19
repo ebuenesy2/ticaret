@@ -105,16 +105,15 @@
                 </div>
                 <form action="#">
 
-                    <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                   <!---  Loading --->
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3"> 
                             <label for="CurrencyCartIDUpdate" class="form-label">@lang('admin.CurrencyCartID')</label>
                             <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="CurrencyCartIDUpdate">
@@ -327,11 +326,6 @@
                                     <!--- End Import ----->
                                     
 
-                                    <!--- Export -->
-                                    <div class="col-xl-2 col-md-4" style="display: flex; height: 40px; gap: 10px; padding: 3px; margin-left: 10px;">
-                                        <!--- yildirimdevReplace_Table_Export --->
-                                    </div>
-                                    <!--- end Export -->
                                 
                                 </div>
                                 <!--end row-->

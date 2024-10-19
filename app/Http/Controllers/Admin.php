@@ -12839,6 +12839,7 @@ class Admin extends Controller
                else if($data_key_item == "Id") { $data_key_item = "cost_calculation_fixed_expenses.id";  $data_item_object="=";  }
                else if($data_key_item == "Status") { $data_key_item = "cost_calculation_fixed_expenses.isActive";  $data_item_object="="; }
                else if($data_key_item == "Type") { $data_key_item = "cost_calculation_fixed_expenses.type";  $data_item_object="="; }
+               else if($data_key_item == "Category") { $data_key_item = "category.id";  $data_item_object="="; }
 
                
                //! Ekleme Yapıyor
@@ -12865,7 +12866,12 @@ class Admin extends Controller
                         ->orderBy('cost_calculation_fixed_expenses.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             // echo "<pre>"; print_r($DB_Find); die();
 
-            //! Params Verileri Where Formatında Yazılacak Son         
+            //! Params Verileri Where Formatında Yazılacak Son  
+            
+            //! Kategori
+            $DB_Find_Category = [];
+            $parameter_Type = request('Type');
+            if($parameter_Type) { $DB_Find_Category = DB::table('category')->where('type',$parameter_Type)->orderBy('category.title','asc')->get(); }
  
  
             //! Return
@@ -12875,10 +12881,11 @@ class Admin extends Controller
             $DB["role"] =   $yildirimdev_departman;
             $DB["userImageUrl"] =  $yildirimdev_img_url;
             $DB["DB_Find"] =  $DB_Find;
+            $DB["DB_Find_Category"] =  $DB_Find_Category;
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/costCalculationFixedExpensesList',$DB);
+            return view('admin/settings/costCalculationFixedExpensesList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -12897,29 +12904,46 @@ class Admin extends Controller
       \Illuminate\Support\Facades\App::setLocale($siteLang); //! Çoklu Dil
 
       try {
-        
 
-         //! Veri Ekleme
-         DB::table('cost_calculation_fixed_expenses')->insert([
-            'ServerId' => config('admin.ServerId'),
-            'ServerToken' => config('admin.ServerToken'),
-            'type' => $request->type,
-            'category_id' => $request->category_id,
-            'title' => $request->title,
-            'description' => $request->description ,
-            'price' => $request->price,
-            'currency' => $request->currency,
-            'created_byId'=>$request->created_byId,
-        ]); //! Veri Ekleme Son
+         //! Veri Arama
+         $DB_Find_title = DB::table('cost_calculation_fixed_expenses')->where('category_id',$request->category_id)->where('title',$request->title)->first(); //! Arama
+
+         if($DB_Find_title) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Başlık Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else {
+          
+            //! Veri Ekleme
+            DB::table('cost_calculation_fixed_expenses')->insert([
+               'ServerId' => config('admin.ServerId'),
+               'ServerToken' => config('admin.ServerToken'),
+               'type' => $request->type,
+               'category_id' => $request->category_id,
+               'title' => $request->title,
+               'description' => $request->description ,
+               'price' => $request->price,
+               'currency' => $request->currency,
+               'created_byId'=>$request->created_byId,
+            ]); //! Veri Ekleme Son
 
 
-         $response = array(
-            'status' => 'success',
-            'msg' => __('admin.TransactionSuccessful'),
-            'post' => $request->all(),
-         );
+            $response = array(
+               'status' => 'success',
+               'msg' => __('admin.TransactionSuccessful'),
+               'post' => $request->all(),
+            );
 
-         return response()->json($response);
+            return response()->json($response);
+            
+         }
 
       } catch (\Throwable $th) {
         
@@ -13100,45 +13124,74 @@ class Admin extends Controller
       \Illuminate\Support\Facades\App::setLocale($siteLang); //! Çoklu Dil
 
       try {
-        
 
-         //! Veri Güncelle
-         $DB_Status = DB::table('cost_calculation_fixed_expenses')->where('id',$request->id)
-         ->update([            
-            'type' => $request->type,
-            'category_id' => $request->category_id,
-            'title' => $request->title,
-            'description' => $request->description ,
-            'price' => $request->price,
-            'currency' => $request->currency,
-            'isUpdated'=>true,
-            'updated_at'=>Carbon::now(),
-            'updated_byId'=>$request->updated_byId,
-         ]);
+         //! Veri Arama
+         $DB_Find = DB::table('cost_calculation_fixed_expenses')->where('id',$request->id)->first(); //! Arama
 
-         if($DB_Status) {
+         if($DB_Find) {
 
-            $response = array(
-               'status' => 'success',
-               'msg' => __('admin.TransactionSuccessful'),
-            );
+               //! Veri Arama
+               $DB_Find_title = DB::table('cost_calculation_fixed_expenses')->where('id','!=',$DB_Find->id)->where('category_id',$request->category_id)->where('title',$request->title)->first(); //! Arama
 
-            return response()->json($response);
+               if($DB_Find_title) {
 
-         }
+                  $response = array(
+                     'status' => 'error',
+                     'msg' => "Bu Başlık Kayıtlıdır",
+                     'DB' =>  []
+                  );
 
-         else {
+                  return response()->json($response);
 
-            $response = array(
-               'status' => 'error',
-               'msg' => __('admin.DataNotFound'),
-               'dataId'=> $request->id
-            );
+               }
+               else { 
 
-            return response()->json($response);
-
-         }
+                  //! Veri Güncelle
+                  $DB_Status = DB::table('cost_calculation_fixed_expenses')->where('id',$request->id)
+                  ->update([            
+                     'type' => $request->type,
+                     'category_id' => $request->category_id,
+                     'title' => $request->title,
+                     'description' => $request->description ,
+                     'price' => $request->price,
+                     'currency' => $request->currency,
+                     'isUpdated'=>true,
+                     'updated_at'=>Carbon::now(),
+                     'updated_byId'=>$request->updated_byId,
+                  ]);
          
+                  if($DB_Status) {
+         
+                     $response = array(
+                        'status' => 'success',
+                        'msg' => __('admin.TransactionSuccessful'),
+                     );
+         
+                     return response()->json($response);
+                  }
+                  else {
+         
+                     $response = array(
+                        'status' => 'error',
+                        'msg' => __('admin.TransactionFailed'),
+                        'dataId'=> $request->id
+                     );
+         
+                     return response()->json($response);
+                  }
+
+               }
+            }
+            else {
+ 
+               $response = array(
+                  'status' => 'error',
+                  'msg' => __('admin.DataNotFound'),
+                  'dataId'=> $request->id
+               );
+   
+               return response()->json($response);
+            } 
 
       } catch (\Throwable $th) {
         
@@ -13153,7 +13206,6 @@ class Admin extends Controller
       }
       
    } //! CostCalculationFixedExpenses Edit Son
-
 
    //! CostCalculationFixedExpenses Post
    public function CostCalculationFixedExpensesSearchPost(Request $request)
@@ -13331,7 +13383,6 @@ class Admin extends Controller
       
    } //! CostCalculationFixedExpenses Update Active Multi Son
 
-
   
    //************* Bank ***************** */
 
@@ -13359,7 +13410,6 @@ class Admin extends Controller
             $yildirimdev_departman=$_COOKIE["yildirimdev_departman"]; //! departman
 
             //echo "yildirimdev_userID ccokie:"; echo $yildirimdev_userID; die();
-            
          }
  
          if($yildirimdev_userCheck ) {
@@ -13440,7 +13490,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/bankList',$DB);
+            return view('admin/settings/bankList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();

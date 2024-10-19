@@ -685,16 +685,12 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
-                    $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
+                    $('#selectTypeCategoryEdit').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                     $('#titleUpdate').val(response.DB.title);
                 
                 },
                 error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadUpdate').css('display','none');
-                    $('#ModalBodyInfoUpdate').css('display','block');
+                complete: function() {               
 
                     //console.log("Search Ajax Bitti");
         
@@ -706,8 +702,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
             //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadUpdate').css('display','none');
-            $('#ModalBodyInfoUpdate').css('display','block');
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
@@ -718,7 +714,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         e.preventDefault();
         
         var selectType = $('#selectTypeEdit').val();
-        var selectTypeCategoryUpdate = $('#selectTypeCategoryUpdate').val();
+        var selectTypeCategoryEdit = $('#selectTypeCategoryEdit').val();
 
         if (selectType == "") {
             Swal.fire({
@@ -729,7 +725,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (selectTypeCategoryUpdate == "") {
+        else if (selectTypeCategoryEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -753,7 +749,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
                     type: $('#selectTypeEdit').val(),
-                    category_id: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategoryUpdate +'"]').attr('data_id'),
+                    category_id: $('#selectTypeCategoryEdit option[value="'+selectTypeCategoryEdit +'"]').attr('data_id'),
                     title: $('#titleUpdate').val(),
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },

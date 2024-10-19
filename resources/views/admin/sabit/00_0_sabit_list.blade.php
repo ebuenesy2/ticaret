@@ -197,16 +197,15 @@
                 </div>
                 <form action="#">
 
-                    <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                   <!---  Loading --->
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3">
                             <label for="NameUpdated" class="form-label">@lang('admin.name')</label>
                             <input class="form-control" type="text" id="NameUpdated" name="nameUpdated" placeholder="@lang('admin.name')">

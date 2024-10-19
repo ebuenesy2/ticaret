@@ -151,8 +151,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="DescriptionUpdate">@lang('admin.Description')</label>
-                                <textarea  class="form-control" id="DescriptionUpdate" rows="10" cols="80"> !!$DB_Find->description!! </textarea>
+                                <label class="form-label" for="descriptionEdit">@lang('admin.Description')</label>
+                                <textarea  class="form-control" id="descriptionEdit" rows="10" cols="80"> !!$DB_Find->description!! </textarea>
                             </div>
 
                             <div class="row">

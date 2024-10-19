@@ -25,46 +25,6 @@
     <!------- Lang --->
     @include('include.lang')
 
-    <!-- Modal Coloums -->
-    <div class="modal fade" id="modalTableColoums" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > @lang('admin.TableSettings')   </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
-
-                        <!---  Loading --->
-                        <div id="LoadingFileUpload" style="display:block;" ><span class="d-flex align-items-center">
-                            <span class="spinner-border flex-shrink-0" role="status"></span>
-                            <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                        </span> </div>
-                        <div id="uploadStatus"></div>
-                        <!--- End Loading --->
-
-                        <!---  ModalBodyInfo --->
-                        <div id="ModalBodyInfo" style="display:none;"  >
-                            <p>@lang('admin.SelectVisibilityColumnsTable')</p>
-                            <div id="exportModalHeaderTable"  style="display: flex;flex-wrap: wrap;gap: 15px;" ></div>
-                        </div>
-                         <!---  ModalBodyInfo Son --->
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Update')</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Mod al Coloums  Son -->
-
-
     <!-- Modal Ekle -->
     <div class="modal_new fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

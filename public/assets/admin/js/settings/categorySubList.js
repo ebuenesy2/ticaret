@@ -650,7 +650,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     optionSelect+='<option id="typeId" data_id="'+response.DB[index].id+'"  value="'+response.DB[index].title+'"  >'+response.DB[index].title+'</option>';
                 }
 
-                $('#selectTypeCategoryUpdate').html(optionSelect);
+                $('#selectTypeCategoryEdit').html(optionSelect);
 
                 //! response.DB.title
                
@@ -766,7 +766,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     $('#selectTypeEdit option[value='+response.DB_Category.type+']').prop('selected',true);
-                    $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
+                    $('#selectTypeCategoryEdit').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                     $('#subCategoryUpdate').val(response.DB.title);
                     $('#subCategoryENUpdate').val(response.DB.title_EN);
                     
@@ -775,11 +775,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 
                 },
                 error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadUpdate').css('display','none');
-                    $('#ModalBodyInfoUpdate').css('display','block');
+                complete: function() {               
 
                     //console.log("Search Ajax Bitti");
         
@@ -802,7 +798,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         e.preventDefault();
 
         var selectType = $('#selectTypeEdit').val();
-        var selectTypeCategory = $('#selectTypeCategoryUpdate').val();
+        var selectTypeCategory = $('#selectTypeCategoryEdit').val();
 
         //! Loading - Veri Yükleniyor
         $('#loaderEdit').css('display','block'); //! Laoding Göster
@@ -854,7 +850,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 data: {
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
-                    categoryid: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategory+'"]').attr('data_id'),
+                    categoryid: $('#selectTypeCategoryEdit option[value="'+selectTypeCategory+'"]').attr('data_id'),
                     title: $('#subCategoryUpdate').val(),
                     title_EN: $('#subCategoryENUpdate').val(),
                     codeLet: $('#codeLetUpdate').val(),

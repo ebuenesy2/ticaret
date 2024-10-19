@@ -753,8 +753,8 @@ $(function () {
                         else {
 
                             //! Görünürlük Kontrolleri
-                            $('#LoadingFileUploadUpdate').css('display','block');
-                            $('#ModalBodyInfoUpdate').css('display','none');
+                            $('#loaderEdit').css('display','block');
+                            $('#ModalBodyInfoEdit').css('display','none');
 
                         }
             
@@ -776,8 +776,8 @@ $(function () {
                 $('#update_data_id').html(modalId);
 
                 //! Görünürlük Kontrolleri
-                $('#LoadingFileUploadUpdate').css('display','none');
-                $('#ModalBodyInfoUpdate').css('display','block');
+                $('#loaderEdit').css('display','none');
+                $('#ModalBodyInfoEdit').css('display','block');
             
             }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 

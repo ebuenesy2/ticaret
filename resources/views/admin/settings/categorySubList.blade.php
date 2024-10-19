@@ -132,7 +132,7 @@
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="row">
                             <div class="col-6">
                                 <!-- Arama Durum -->
@@ -166,8 +166,8 @@
                             <div class="col-6">
                                 <!-- Arama Durum Başlık  -->
                                 <div class="mb-3">
-                                    <label for="selectTypeCategoryUpdate" class="form-label">Başlık</label>
-                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryUpdate"  >
+                                    <label for="selectTypeCategoryEdit" class="form-label">Başlık</label>
+                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryEdit"  >
                                         <option value="">Başlık</option>
                                         
                                     </select>
@@ -285,7 +285,7 @@
                                     </div>
                                     <!--end Arama Type Son  -->
 
-                                    <!-- Arama Durum Başlık  -->
+                                    <!-- Arama Kategori  -->
                                     <div class="col-xl-2 col-md-4">
                                         <label for="selectTypeCategoryList" class="form-label">Kategori</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryList"  style="cursor:pointer;" >
@@ -295,13 +295,8 @@
                                             @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  Başlık -->
+                                    <!--end Arama Kategori  Başlık -->
 
-                                    <!--- Export -->
-                                    <div class="col-xl-2 col-md-4" style="display: flex; height: 40px; gap: 10px; padding: 3px; margin-left: 10px;">
-                                        <!--- yildirimdevReplace_Table_Export --->
-                                    </div>
-                                    <!--- end Export -->
                                 
                                 </div>
                                 <!--end row-->

@@ -103,7 +103,7 @@
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdateSetting" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEditSetting" style="display:none;" >
                            <div class="row">
                               <div class="col-6">
                                     <div class="mb-3">

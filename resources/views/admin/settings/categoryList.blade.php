@@ -278,11 +278,6 @@
                                     <!--- End Import ----->
                                     
 
-                                    <!--- Export -->
-                                    <div class="col-xl-2 col-md-4" style="display: flex; height: 40px; gap: 10px; padding: 3px; margin-left: 10px;">
-                                        <!--- yildirimdevReplace_Table_Export --->
-                                    </div>
-                                    <!--- end Export -->
                                 
                                 </div>
                                 <!--end row-->

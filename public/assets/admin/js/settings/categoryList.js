@@ -631,11 +631,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 
                 },
                 error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#loaderEdit').css('display','none');
-                    $('#ModalBodyInfoEdit').css('display','block');
+                complete: function() {               
 
                     console.log("Search Ajax Bitti");
         

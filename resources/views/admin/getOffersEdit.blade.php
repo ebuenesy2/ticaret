@@ -337,7 +337,7 @@
                         <form action="#">
 
                             <!---  Loading --->
-                            <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                            <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                                 <span class="spinner-border flex-shrink-0" role="status"></span>
                                 <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                             </span> </div>
@@ -345,7 +345,7 @@
                             <!--- End Loading --->
 
                             <!---  ModalBodyInfoBody --->
-                            <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                            <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
 
                             <ul class="nav nav-tabs mb-3" role="tablist">
                                 <li class="nav-item" role="presentation">

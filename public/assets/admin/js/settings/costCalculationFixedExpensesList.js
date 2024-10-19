@@ -66,6 +66,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             else if(data.exportname == "CreatedDate") {  $('#exampleInputdate').val(data.text); } //! Zaman
             else if(data.exportname == "Status") {  $('#selectActive option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             else if(data.exportname == "Type") {  $('#selectTypeList option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "Category") {  $('#selectTypeCategoryList option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             
         }); //! Json Verilerini Alıyor Son
 
@@ -99,7 +100,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchJsonData.map(function(data){  searchParamsList.push(data.exportname+"="+data.text);  }); //! ['Id=4', 'CreatedDate=2023-04-18', 'Status=1']
         var newParams = "?"+searchParamsList.join('&');  //! ?Id=4&CreatedDate=2023-04-18&Status=1
         var searchUrl = location.origin + location.pathname + newParams; //! Site Adresi?params
-
 
         //! Sayfa Yönlendirme
         location.href = searchUrl;
@@ -185,12 +185,30 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchTableControl();
 
     }); //! Arama Type Son
+
     
+    //! Arama Kategori
+    document.querySelector('#selectTypeCategoryList').addEventListener('change', e => {
+
+        //! Tanım
+        var filter = $('#selectTypeCategoryList').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "Category", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Category'); //! Json İçinde Arama 
+
+        //! Kontrol
+        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
+        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
+        if (filter == 'selectedFirst') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+
+        //! Table Arama Kontrol
+        searchTableControl();
+
+    }); //! Arama Kategori Son    
 
     //! ************ Arama Son ***************
 
 
-        //! ************ Tümü Seç Olayı ***************
+    //! ************ Tümü Seç Olayı ***************
     
     //! Tümü Seçme
     $('input[type="checkbox"][id="showAllRows"]').click(function () {
@@ -585,9 +603,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Aktif Son
     //! ************ Aktif Son ***************
 
-  
-    
-
     //! ************ Kategori  ***************
         //! Arama Kategori
         document.querySelector('#selectType').addEventListener('change', e => {
@@ -631,9 +646,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // $('#LoadingFileUploadSearch').css('display','none');
                     // $('#ModalBodyInfoSearch').css('display','block');
 
-                    // console.log("Search Ajax Bitti");
-        
-                }
+                  }  
             }); //! Ajax Post Son
         
 
@@ -668,7 +681,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         optionSelect+='<option id="typeId" data_id="'+response.DB[index].id+'"  value="'+response.DB[index].title+'"  >'+response.DB[index].title+'</option>';
                     }
 
-                    $('#selectTypeCategoryUpdate').html(optionSelect);
+                    $('#selectTypeCategoryEdit').html(optionSelect);
 
                     //! response.DB.title
                 
@@ -680,9 +693,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // $('#LoadingFileUploadSearch').css('display','none');
                     // $('#ModalBodyInfoSearch').css('display','block');
 
-                    // console.log("Search Ajax Bitti");
-        
-                }
+                  }  
             }); //! Ajax Post Son
         
 
@@ -703,9 +714,12 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             //alert("Modal Açıldı");
         
             var button = $(event.relatedTarget); 
-            var modalId = button.data("id"); 
+            var modalId = button.data("id");
+            //console.log("modalId:",modalId);
 
-            console.log("modalId:",modalId);
+            //! Görünürlük Kontrolleri - Başlangıc
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
 
             //! Ajax  Post
             $.ajax({
@@ -723,27 +737,20 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
-                    
-                    $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
+                    $('#selectTypeCategoryEdit').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                
-                    
                     $('#titleUpdate').val(response.DB.title);
-                    $('#descriptionUpdate').html(response.DB.description);
-                    $('#CurrencyUpdate option[value='+response.DB.currency+']').prop('selected',true);
-                    $('#priceUpdate').val(response.DB.price);
-        
+                    $('#descriptionEdit').html(response.DB.description);
+                    $('#CurrencyEdit option[value='+response.DB.currency+']').prop('selected',true);
+                    $('#priceEdit').val(response.DB.price);
+
+                    //! Görünürlük Kontrolleri - Tamamlandı
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
                 
                 },
                 error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadUpdate').css('display','none');
-                    $('#ModalBodyInfoUpdate').css('display','block');
-
-                    // console.log("Search Ajax Bitti");
-        
-                }
+                complete: function() {  }  
             }); //! Ajax Post Son
              
 
@@ -752,8 +759,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
            
          
             //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadUpdate').css('display','none');
-            $('#ModalBodyInfoUpdate').css('display','block');
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
@@ -764,8 +771,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         e.preventDefault();
 
         var selectType = $('#selectTypeEdit').val();
-        var selectTypeCategoryUpdate = $('#selectTypeCategoryUpdate').val();
-        var CurrencyUpdate = $('#CurrencyUpdate').val();
+        var selectTypeCategoryEdit = $('#selectTypeCategoryEdit').val();
+        var CurrencyEdit = $('#CurrencyEdit').val();
 
         if (selectType == "") {
             Swal.fire({
@@ -776,7 +783,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (selectTypeCategoryUpdate == "") {
+        else if (selectTypeCategoryEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -785,7 +792,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (CurrencyUpdate == "") {
+        else if (CurrencyEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -795,6 +802,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             });
         }
         else {
+
+            //! Loading - Veri Yükleniyor
+            $('#loaderEdit').css('display','block'); //! Laoding Göster
+            $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+            $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderEdit').hide(); //! Laoding Gizle
+                $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+                $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
 
 
             //! Id
@@ -809,11 +829,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
                     type: $('#selectTypeEdit').val(),
-                    category_id: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategoryUpdate +'"]').attr('data_id'),
+                    category_id: $('#selectTypeCategoryEdit option[value="'+selectTypeCategoryEdit +'"]').attr('data_id'),
                     title: $('#titleUpdate').val(),
-                    description: $('#descriptionUpdate').val(), 
-                    currency: $('#CurrencyUpdate  option[value="'+CurrencyUpdate  +'"]').val(),
-                    price: $('#priceUpdate').val(),
+                    description: $('#descriptionEdit').val(), 
+                    currency: $('#CurrencyEdit  option[value="'+CurrencyEdit  +'"]').val(),
+                    price: $('#priceEdit').val(),
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },
                 success: function (response) {
@@ -842,6 +862,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
+
                 },
                 error: function (error) {
                     Swal.fire({
@@ -852,6 +876,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         timer: 2000,
                     });
                     console.log("error:", error);
+
+                    //! Loading
+                    loadingYuklendi();
                 },
             }); //! Ajax Son
 
@@ -943,7 +970,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
         var selectType = $('#selectType').val();
         var selectTypeCategoryAdd = $('#selectTypeCategoryAdd').val();
+        var titleAdd = $('#titleAdd').val();
         var CurrencyAdd = $('#CurrencyAdd').val();
+        var priceAdd = $('#priceAdd').val();
 
         if (selectType == "") {
             Swal.fire({
@@ -963,6 +992,15 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
+        else if (titleAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Gider Adı Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
         else if (CurrencyAdd == "") {
             Swal.fire({
                 position: "center",
@@ -972,7 +1010,29 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
+        else if (priceAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Fiyat Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
         else {
+
+            //! Loading - Veri Yükleniyor
+            $('#loaderAdd').css('display','block'); //! Laoding Göster
+            $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+            $('#new_add input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderAdd').hide(); //! Laoding Gizle
+                $('#new_add').removeAttr('disabled'); //! //! Button Göster
+                $('#new_add input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
 
             //! Ajax
             $.ajax({
@@ -991,8 +1051,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 },
                 success: function (response) {
                     // alert("başarılı");
-                    // console.log("response:", response);
-                    // console.log("status:", response.status);
+                    console.log("response:", response);
 
                     if (response.status == "success") {
                         Swal.fire({
@@ -1014,6 +1073,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
                 },
                 error: function (error) {
                     Swal.fire({
@@ -1024,6 +1086,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         timer: 2000,
                     });
                     console.log("error:", error);
+
+                    //! Loading
+                    loadingYuklendi();
                 },
             }); //! Ajax Son
 

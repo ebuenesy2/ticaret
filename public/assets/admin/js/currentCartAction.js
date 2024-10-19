@@ -857,8 +857,8 @@ $(function () {
 
 
             //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadUpdate').css('display','none');
-            $('#ModalBodyInfoUpdate').css('display','block');
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 

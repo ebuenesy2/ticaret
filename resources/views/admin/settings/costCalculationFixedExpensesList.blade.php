@@ -37,16 +37,15 @@
                 </div>
                 <form action="#">
 
-                    <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                   <!---  Loading --->
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <!-- Arama Durum -->
                         <div class="mb-3">
                             <label for="selectTypeEdit" class="form-label">Tür</label>
@@ -67,8 +66,8 @@
 
                         <!-- Arama Durum Başlık  -->
                        <div class="mb-3">
-                            <label for="selectTypeCategoryUpdate" class="form-label">Kategori</label>
-                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryUpdate"  >
+                            <label for="selectTypeCategoryEdit" class="form-label">Kategori</label>
+                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryEdit"  >
                                 <option value="">Başlık</option>
                                 
                             </select>
@@ -81,13 +80,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="descriptionUpdate" class="form-label">Sabit Gider Açıklaması</label>
-                            <textarea class="form-control" id="descriptionUpdate" rows="4"></textarea>
+                            <label for="descriptionEdit" class="form-label">Sabit Gider Açıklaması</label>
+                            <textarea class="form-control" id="descriptionEdit" rows="4"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="CurrencyUpdate" class="form-label">Para Birimi</label>
-                            <select class="form-control"  name="choices-single-default2" id="CurrencyUpdate">
+                            <label for="CurrencyEdit" class="form-label">Para Birimi</label>
+                            <select class="form-control"  name="choices-single-default2" id="CurrencyEdit">
                                 <option value="">@lang('admin.Currency')</option>
                                 <option value="Euro"  >Euro</option>
                                 <option value="Dolar" >Dolar</option>
@@ -96,8 +95,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="priceUpdate" class="form-label">Sabit Gider Fiyatı</label>
-                            <input class="form-control" type="text" id="priceUpdate" name="priceUpdate" placeholder="00,00">
+                            <label for="priceEdit" class="form-label">Sabit Gider Fiyatı</label>
+                            <input class="form-control" type="text" id="priceEdit" name="priceEdit" placeholder="00,00">
                         </div>
                     </div>
                     <!---  ModalBodyInfoBody Son --->
@@ -123,6 +122,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
+
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- End Loading --->
+
                     <div class="modal-body">
                        <!-- Arama Durum -->
                        <div class="mb-3">
@@ -283,20 +290,17 @@
                                     </div>
                                     <!--end Arama Type Son  -->
 
-                                    <!----- Coloumn --->
-                                    <!----TableSettings-->
-                                    <!----- End Coloumn --->
-
-                                    <!--- Import ----->
-                                     <!----TableImport-->
-                                    <!--- End Import ----->
-                                    
-
-                                    <!--- Export -->
-                                    <div class="col-xl-2 col-md-4" style="display: flex; height: 40px; gap: 10px; padding: 3px; margin-left: 10px;">
-                                        <!--- yildirimdevReplace_Table_Export --->
+                                    <!-- Arama Kategori  -->
+                                    <div class="col-xl-2 col-md-4">
+                                        <label for="selectTypeCategoryList" class="form-label">Kategori</label>
+                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeCategoryList"  style="cursor:pointer;" >
+                                            <option value="selectedFirst" selected  >@lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_Category); $i++) 
+                                            <option value="{{$DB_Find_Category[$i]->id}}">{{$DB_Find_Category[$i]->title}}</option> 
+                                            @endfor
+                                        </select>
                                     </div>
-                                    <!--- end Export -->
+                                    <!--end Arama Kategori  Başlık -->
                                 
                                 </div>
                                 <!--end row-->
@@ -351,7 +355,6 @@
                                                 <th exportname="type" >@lang('admin.Type')</th>
                                                 <th exportname="category" >@lang('admin.Category')</th>
                                                 <th exportname="title" >@lang('admin.Title')</th>
-                                                <th exportname="description" >@lang('admin.Description')</th>
                                                 <th exportname="price" >@lang('admin.Price')</th>
                                                 <th exportname="currency" >@lang('admin.Currency')</th>
 
@@ -376,11 +379,8 @@
                                                     <td exportname="type" >{{$DB_Find[$i]->type}}</td>
                                                     <td exportname="category" >{{$DB_Find[$i]->categoryTitle}}</td>
                                                     <td exportname="title" >{{$DB_Find[$i]->title}}</td>
-                                                    <td exportname="description" >{{$DB_Find[$i]->description}}</td>
                                                     <td exportname="price" >{{$DB_Find[$i]->price}}</td>
                                                     <td exportname="currency" >{{$DB_Find[$i]->currency}}</td>
-                                                
-                                                  
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
@@ -449,6 +449,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/costCalculationFixedExpensesList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/settings/costCalculationFixedExpensesList.js"></script>
 
         </footer>

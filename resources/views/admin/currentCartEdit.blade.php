@@ -105,16 +105,15 @@
                 </div>
                 <form action="#">
 
-                    <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                   <!---  Loading --->
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3" style="display:none;" > 
                             <label for="CurrencyCartIDUpdate" class="form-label">@lang('admin.CurrencyCartID')</label>
                             <input class="form-control" type="number" id="CurrencyCartIDUpdate" name="nameUpdate" placeholder="@lang('admin.CurrencyCartID')"  value="{{$DB_Find->current_name}}" >
