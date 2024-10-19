@@ -35,6 +35,14 @@
                     <button type="button" class="btn-close" onclick={$("#AddModal").modal('hide');} id="close-modal"></button>
                 </div>
                 <form action="#">
+
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- End Loading --->
+
                     <div class="modal-body">
                        <div class="row">
                            <div class="col-6">
@@ -117,11 +125,10 @@
                 <form action="#">
 
                     <!---  Loading --->
-                    <div id="LoadingFileUploadUpdate" style="display:block;" ><span class="d-flex align-items-center">
+                    <div id="loaderEdit" style="display:block;" ><span class="d-flex align-items-center">
                         <span class="spinner-border flex-shrink-0" role="status"></span>
                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                     </span> </div>
-                    <div id="uploadStatus"></div>
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->

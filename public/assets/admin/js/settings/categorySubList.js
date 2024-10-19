@@ -745,6 +745,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
             var button = $(event.relatedTarget); 
             var modalId = button.data("id"); 
+
+            //! Görünürlük Kontrolleri - Başlangıc
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
            
             //! Ajax  Post
             $.ajax({
@@ -785,9 +789,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             //! Return
             $('#update_data_id').html(modalId);
 
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadUpdate').css('display','none');
-            $('#ModalBodyInfoUpdate').css('display','block');
+            //! Görünürlük Kontrolleri - Tamamlandı
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
@@ -800,6 +804,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         var selectType = $('#selectTypeEdit').val();
         var selectTypeCategory = $('#selectTypeCategoryUpdate').val();
 
+        //! Loading - Veri Yükleniyor
+        $('#loaderEdit').css('display','block'); //! Laoding Göster
+        $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+        $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+        //! Loading - Veri Yüklendi
+        function loadingYuklendi(){
+            $('#loaderEdit').hide(); //! Laoding Gizle
+            $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+        }
+        //! Loading - Veri Yüklendi Son
+
         if (selectType == "") {
             Swal.fire({
                 position: "center",
@@ -808,6 +825,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
+
+            //! Loading
+            loadingYuklendi();
         }
         else if (selectTypeCategory == "") {
             Swal.fire({
@@ -817,6 +837,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
+
+            //! Loading
+            loadingYuklendi();
         }
         else {
 
@@ -864,6 +887,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
                 },
                 error: function (error) {
                     Swal.fire({
@@ -874,6 +900,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         timer: 2000,
                     });
                     console.log("error:", error);
+
+                    //! Loading
+                    loadingYuklendi();
                 },
             }); //! Ajax Son
 
@@ -1026,6 +1055,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }
         else {
 
+            //! Loading - Veri Yükleniyor
+            $('#loaderAdd').css('display','block'); //! Laoding Göster
+            $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+            $('#new_add input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderAdd').hide(); //! Laoding Gizle
+                $('#new_add').removeAttr('disabled'); //! //! Button Göster
+                $('#new_add input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
+
             //! Ajax
             $.ajax({
                 url: "/category/sub/add/post",
@@ -1042,7 +1084,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 },
                 success: function (response) {
                     // alert("başarılı");
-                    // console.log("response:", response);
+                    console.log("response:", response);
                     // console.log("status:", response.status);
 
                     if (response.status == "success") {
@@ -1065,6 +1107,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
                 },
                 error: function (error) {
                     Swal.fire({

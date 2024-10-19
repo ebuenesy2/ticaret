@@ -12315,29 +12315,69 @@ class Admin extends Controller
       \Illuminate\Support\Facades\App::setLocale($siteLang); //! Çoklu Dil
 
       try {
-        
 
-         //! Veri Ekleme
-         DB::table('categorysub')->insert([
-            'ServerId' => config('admin.ServerId'),
-            'ServerToken' => config('admin.ServerToken'),
-            'categoryid' => $request->categoryid,
-            'title' => $request->title,
-            'title_EN' => $request->title_EN,
-            'codeLet' => $request->codeLet,
-            'codeNumber' => $request->codeNumber,
-            'created_byId'=>$request->created_byId,
-        ]); //! Veri Ekleme Son
+         //! Veri Arama
+         $DB_Find_title = DB::table('categorysub')->where('categoryid',$request->categoryid)->where('title',$request->title)->first(); //! Arama
+         $DB_Find_codeLet = DB::table('categorysub')->where('categoryid',$request->categoryid)->where('codeLet',$request->codeLet)->first(); //! Arama
+         $DB_Find_codeNumber = DB::table('categorysub')->where('categoryid',$request->categoryid)->where('codeNumber',$request->codeNumber)->first(); //! Arama
+
+         if($DB_Find_title) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Başlık Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else  if($DB_Find_codeLet) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Kod Harf Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else  if($DB_Find_codeNumber) {
+
+            $response = array(
+               'status' => 'error',
+               'msg' => "Bu Kod Sayısı Kayıtlıdır",
+               'DB' =>  []
+            );
+
+            return response()->json($response);
+
+         }
+         else { 
+
+            //! Veri Ekleme
+            DB::table('categorysub')->insert([
+               'ServerId' => config('admin.ServerId'),
+               'ServerToken' => config('admin.ServerToken'),
+               'categoryid' => $request->categoryid,
+               'title' => $request->title,
+               'title_EN' => $request->title_EN,
+               'codeLet' => $request->codeLet,
+               'codeNumber' => $request->codeNumber,
+               'created_byId'=>$request->created_byId,
+            ]); //! Veri Ekleme Son
 
 
-         $response = array(
-            'status' => 'success',
-            'msg' => __('admin.TransactionSuccessful'),
-            
-            'ekleme' => 'ekleme',
-         );
+            $response = array(
+               'status' => 'success',
+               'msg' => __('admin.TransactionSuccessful'),
+               'error' => null,
+            );
 
-         return response()->json($response);
+            return response()->json($response);
+
+         }
 
       } catch (\Throwable $th) {
         
