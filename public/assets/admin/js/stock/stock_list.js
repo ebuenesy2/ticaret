@@ -372,8 +372,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! ************ Params dan Json Oluşturma Son  ***************
 
-
-    
     //! ************ Json Verisine Göre Html Kontrol  ***************
 
     //! Json Html Kontrol
@@ -510,8 +508,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Arama Sektor Son
     
-
-
     //! ************ Arama Son  ***************
 
 
@@ -703,7 +699,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             $('#accountingCodeSelEdit').val(accountingCode_sel);
 
         }); //! Arama Alt Kategori Add Son
-
 
         //İhraç Kayıtlı Add
         $('input[type="checkbox"][name="export_registeredAdd"]').click(function () {
@@ -909,7 +904,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! ************ Modal Resim  ***************
-
     //! Modal Resim
     $('document').ready(function () {
         $("#modalImage").modal({
@@ -939,7 +933,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
     }); //! Modal Resim Son
-
     //! ************ Modal Resim Son  ***************
 
 
@@ -1409,461 +1402,461 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! ************ Ürün Resmi  ***************
 
-        //! FileUpload
-        $("#fileUploadClick").click(function (e) {
-            e.preventDefault();
-            //alert("fileUploadClick");
+    //! FileUpload
+    $("#fileUploadClick").click(function (e) {
+        e.preventDefault();
+        //alert("fileUploadClick");
 
-            //! Dosya Yükleme
-            const fileInput = document.querySelector("#fileInput");
-            const fileInputFiles = fileInput.files;
-            console.log("fileInputFiles:",fileInputFiles);
-        
+        //! Dosya Yükleme
+        const fileInput = document.querySelector("#fileInput");
+        const fileInputFiles = fileInput.files;
+        console.log("fileInputFiles:",fileInputFiles);
+    
 
-            //! Yeni Form Veriler
-            var formData = new FormData();
-            formData.append("file", fileInputFiles[0]);
-            formData.append("fileDbSave", $('#fileDbSave').val());
-            formData.append("fileWhere", $('#fileWhere').val());
+        //! Yeni Form Veriler
+        var formData = new FormData();
+        formData.append("file", fileInputFiles[0]);
+        formData.append("fileDbSave", $('#fileDbSave').val());
+        formData.append("fileWhere", $('#fileWhere').val());
 
-            $.ajax({
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = ((evt.loaded / evt.total) * 100);
-                            console.log("Dosya Yükleme Durumu: %", percentComplete);
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUpload").width(percentComplete + '%');
-                            $("#progressBarFileUpload").html(percentComplete+'%');
-                            
-                        }
-                    }, false);
-                    return xhr;
-                },
-                url: "/file/upload/control",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend: function () {
-                    console.log("Dosya yükleme başladı");
+                        $("#progressBarFileUpload").width(percentComplete + '%');
+                        $("#progressBarFileUpload").html(percentComplete+'%');
+                        
+                    }
+                }, false);
+                return xhr;
+            },
+            url: "/file/upload/control",
+            method: "post",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function () {
+                console.log("Dosya yükleme başladı");
 
-                    //! ProgressBar
-                    $("#progressBarFileUpload").width('0%');
+                //! ProgressBar
+                $("#progressBarFileUpload").width('0%');
 
-                    //! Upload Durum
-                    $('#LoadingFileUpload').toggle();
-                    $('#uploadStatus').hide();
+                //! Upload Durum
+                $('#LoadingFileUpload').toggle();
+                $('#uploadStatus').hide();
 
-                    //! Upload Url
-                    $('#filePathUrl').html("");
-                },
-                error: function (error) {
-                    alert("başarısız");
-                    console.log("Hata oluştu error:", error);
+                //! Upload Url
+                $('#filePathUrl').html("");
+            },
+            error: function (error) {
+                alert("başarısız");
+                console.log("Hata oluştu error:", error);
 
-                    //! Upload Durum
-                    $('#LoadingFileUpload').hide();
-                    $('#uploadStatus').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
+                //! Upload Durum
+                $('#LoadingFileUpload').hide();
+                $('#uploadStatus').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
 
-                    //! Upload Url
-                    $('#filePathUrl').html("");
-
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-
-                },
-            success: function (resp) {
-                //alert("Başarılı");
-                console.log("file resp:", resp);
-
-                    //! ProgressBar
-                    $("#progressBarFileUpload").width('100%');
-
-                    //! Upload Durum
-                    $('#LoadingFileUpload').hide();
-                    $('#uploadStatus').hide();
-
-                    //! Upload Url
-                    $('#filePathUrl').html(resp.file_url);
-
-                    $('#productViewImageAdd').css('display','block');
-                    $('#productViewImageAdd').attr("src",resp.file_path);
-
-                    $('#product_dowloand_imgAdd').css('display','block');
-                    $('#product_dowloand_imgAdd').attr("href",resp.file_path);
-                    $('#product_dowloand_imgAdd').attr("download",resp.file_path);
+                //! Upload Url
+                $('#filePathUrl').html("");
 
 
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
 
-                }
-            }); //! Ajax
+            },
+        success: function (resp) {
+            //alert("Başarılı");
+            console.log("file resp:", resp);
+
+                //! ProgressBar
+                $("#progressBarFileUpload").width('100%');
+
+                //! Upload Durum
+                $('#LoadingFileUpload').hide();
+                $('#uploadStatus').hide();
+
+                //! Upload Url
+                $('#filePathUrl').html(resp.file_url);
+
+                $('#productViewImageAdd').css('display','block');
+                $('#productViewImageAdd').attr("src",resp.file_path);
+
+                $('#product_dowloand_imgAdd').css('display','block');
+                $('#product_dowloand_imgAdd').attr("href",resp.file_path);
+                $('#product_dowloand_imgAdd').attr("download",resp.file_path);
+
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            }
+        }); //! Ajax
 
 
 
-        });
-        //! FileUpload Son
+    });
+    //! FileUpload Son
 
     //! ************ Ürün Resmi Son  ***************
 
 
     //! ************ Ürün Resmi Edit ***************
 
-        //! FileUpload
-        $("#fileUploadClickEdit").click(function (e) {
-            e.preventDefault();
-            //alert("fileUploadClick");
+    //! FileUpload
+    $("#fileUploadClickEdit").click(function (e) {
+        e.preventDefault();
+        //alert("fileUploadClick");
 
-            //! Dosya Yükleme
-            const fileInput = document.querySelector("#fileInputEdit");
-            const fileInputFiles = fileInput.files;
-            console.log("fileInputFiles:",fileInputFiles);
-        
+        //! Dosya Yükleme
+        const fileInput = document.querySelector("#fileInputEdit");
+        const fileInputFiles = fileInput.files;
+        console.log("fileInputFiles:",fileInputFiles);
+    
 
-            //! Yeni Form Veriler
-            var formData = new FormData();
-            formData.append("file", fileInputFiles[0]);
-            formData.append("fileDbSave", $('#fileDbSaveEdit').val());
-            formData.append("fileWhere", $('#fileWhereEdit').val());
+        //! Yeni Form Veriler
+        var formData = new FormData();
+        formData.append("file", fileInputFiles[0]);
+        formData.append("fileDbSave", $('#fileDbSaveEdit').val());
+        formData.append("fileWhere", $('#fileWhereEdit').val());
 
-            $.ajax({
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = ((evt.loaded / evt.total) * 100);
-                            console.log("Dosya Yükleme Durumu: %", percentComplete);
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUploadEdit").width(percentComplete + '%');
-                            $("#progressBarFileUploadEdit").html(percentComplete+'%');
-                            
-                        }
-                    }, false);
-                    return xhr;
-                },
-                url: "/file/upload/control",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend: function () {
-                    console.log("Dosya yükleme başladı");
+                        $("#progressBarFileUploadEdit").width(percentComplete + '%');
+                        $("#progressBarFileUploadEdit").html(percentComplete+'%');
+                        
+                    }
+                }, false);
+                return xhr;
+            },
+            url: "/file/upload/control",
+            method: "post",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function () {
+                console.log("Dosya yükleme başladı");
 
-                    //! ProgressBar
-                    $("#progressBarFileUploadEdit").width('0%');
+                //! ProgressBar
+                $("#progressBarFileUploadEdit").width('0%');
 
-                    //! Upload Durum
-                    $('#LoadingFileUploadEdit').toggle();
-                    $('#uploadStatusEdit').hide();
+                //! Upload Durum
+                $('#LoadingFileUploadEdit').toggle();
+                $('#uploadStatusEdit').hide();
 
-                    //! Upload Url
-                    $('#filePathUrlEdit').html("");
-                },
-                error: function (error) {
-                    alert("başarısız");
-                    console.log("Hata oluştu error:", error);
+                //! Upload Url
+                $('#filePathUrlEdit').html("");
+            },
+            error: function (error) {
+                alert("başarısız");
+                console.log("Hata oluştu error:", error);
 
-                    //! Upload Durum
-                    $('#progressBarFileUploadEdit').hide();
-                    $('#uploadStatusEdit').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
+                //! Upload Durum
+                $('#progressBarFileUploadEdit').hide();
+                $('#uploadStatusEdit').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
 
-                    //! Upload Url
-                    $('#filePathUrlEdit').html("");
-
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-
-                },
-            success: function (resp) {
-                //alert("Başarılı");
-                console.log("file resp:", resp);
-
-                    //! ProgressBar
-                    $("#progressBarFileUploadEdit").width('100%');
-
-                    //! Upload Durum
-                    $('#LoadingFileUploadEdit').hide();
-                    $('#uploadStatusEdit').hide();
-
-                    //! Upload Url
-                    $('#filePathUrlEdit').html(resp.file_url);
-
-                    $('#productViewImageEdit').css('display','block');
-                    $('#productViewImageEdit').attr("src",resp.file_path);
-
-                    $('#product_dowloand_img').css('display','block');
-                    $('#product_dowloand_img').attr("href",resp.file_path);
-                    $('#product_dowloand_img').attr("download",resp.file_path);
+                //! Upload Url
+                $('#filePathUrlEdit').html("");
 
 
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
 
-                }
-            }); //! Ajax
+            },
+        success: function (resp) {
+            //alert("Başarılı");
+            console.log("file resp:", resp);
+
+                //! ProgressBar
+                $("#progressBarFileUploadEdit").width('100%');
+
+                //! Upload Durum
+                $('#LoadingFileUploadEdit').hide();
+                $('#uploadStatusEdit').hide();
+
+                //! Upload Url
+                $('#filePathUrlEdit').html(resp.file_url);
+
+                $('#productViewImageEdit').css('display','block');
+                $('#productViewImageEdit').attr("src",resp.file_path);
+
+                $('#product_dowloand_img').css('display','block');
+                $('#product_dowloand_img').attr("href",resp.file_path);
+                $('#product_dowloand_img').attr("download",resp.file_path);
+
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            }
+        }); //! Ajax
 
 
 
-        });
-        //! FileUpload Son
+    });
+    //! FileUpload Son
 
     //! ************ Ürün Resmi Edit Son  ***************
 
 
     //! ************ Teknik Özellikler ***************
 
-        //! FileUpload
-        $("#techFileUploadClick").click(function (e) {
-            e.preventDefault();
-            //alert("fileUploadClick");
+    //! FileUpload
+    $("#techFileUploadClick").click(function (e) {
+        e.preventDefault();
+        //alert("fileUploadClick");
 
-            //! Dosya Yükleme
-            const fileInput = document.querySelector("#fileInputTech");
-            const fileInputFiles = fileInput.files;
-            console.log("fileInputFiles:",fileInputFiles);
-        
+        //! Dosya Yükleme
+        const fileInput = document.querySelector("#fileInputTech");
+        const fileInputFiles = fileInput.files;
+        console.log("fileInputFiles:",fileInputFiles);
+    
 
-            //! Yeni Form Veriler
-            var formData = new FormData();
-            formData.append("file", fileInputFiles[0]);
-            formData.append("fileDbSave", $('#fileDbSave_technicalFile').val());
-            formData.append("fileWhere", $('#fileWhere_technicalFile').val());
+        //! Yeni Form Veriler
+        var formData = new FormData();
+        formData.append("file", fileInputFiles[0]);
+        formData.append("fileDbSave", $('#fileDbSave_technicalFile').val());
+        formData.append("fileWhere", $('#fileWhere_technicalFile').val());
 
-            $.ajax({
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = ((evt.loaded / evt.total) * 100);
-                            console.log("Dosya Yükleme Durumu: %", percentComplete);
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUploadtechnical").width(percentComplete + '%');
-                            $("#progressBarFileUploadtechnical").html(percentComplete+'%');
-                            
-                        }
-                    }, false);
-                    return xhr;
-                },
-                url: "/file/upload/control",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend: function () {
-                    console.log("Dosya yükleme başladı");
+                        $("#progressBarFileUploadtechnical").width(percentComplete + '%');
+                        $("#progressBarFileUploadtechnical").html(percentComplete+'%');
+                        
+                    }
+                }, false);
+                return xhr;
+            },
+            url: "/file/upload/control",
+            method: "post",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function () {
+                console.log("Dosya yükleme başladı");
 
-                    //! ProgressBar
-                    $("#progressBarFileUploadtechnical").width('0%');
+                //! ProgressBar
+                $("#progressBarFileUploadtechnical").width('0%');
 
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').toggle();
-                    $('#uploadStatus').hide();
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').toggle();
+                $('#uploadStatus').hide();
 
-                    //! Upload Url
-                    $('#filePathUrltechnicalFile').html("");
-                },
-                error: function (error) {
-                    alert("başarısız");
-                    console.log("Hata oluştu error:", error);
+                //! Upload Url
+                $('#filePathUrltechnicalFile').html("");
+            },
+            error: function (error) {
+                alert("başarısız");
+                console.log("Hata oluştu error:", error);
 
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').hide();
-                    
-                    //! Upload Url
-                    $('#filePathUrltechnicalFile').html("");
-
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-
-                },
-            success: function (resp) {
-                //alert("Başarılı");
-                console.log("file resp:", resp);
-
-                    //! ProgressBar
-                    $("#progressBarFileUploadtechnical").width('100%');
-
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').hide();
-
-                    //! Upload Url
-                    $('#filePathUrltechnicalFile').html(resp.file_url);
-                    $('#product_dowloand_fileAdd').css('display','block');
-                    $('#product_dowloand_fileAdd').attr("href",resp.file_path);
-                    $('#product_dowloand_fileAdd').attr("download",resp.file_path);
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').hide();
+                
+                //! Upload Url
+                $('#filePathUrltechnicalFile').html("");
 
 
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
 
-                }
-            }); //! Ajax
+            },
+        success: function (resp) {
+            //alert("Başarılı");
+            console.log("file resp:", resp);
+
+                //! ProgressBar
+                $("#progressBarFileUploadtechnical").width('100%');
+
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').hide();
+
+                //! Upload Url
+                $('#filePathUrltechnicalFile').html(resp.file_url);
+                $('#product_dowloand_fileAdd').css('display','block');
+                $('#product_dowloand_fileAdd').attr("href",resp.file_path);
+                $('#product_dowloand_fileAdd').attr("download",resp.file_path);
+
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            }
+        }); //! Ajax
 
 
 
-        });
-        //! FileUpload Son
+    });
+    //! FileUpload Son
 
     //! ************ Teknik Özellikler Son  ***************
 
 
-      //! ************ Teknik Özellikler Edit ***************
+    //! ************ Teknik Özellikler Edit ***************
 
-        //! FileUpload
-        $("#techFileUploadClickEdit").click(function (e) {
-            e.preventDefault();
-            //alert("fileUploadClick");
+    //! FileUpload
+    $("#techFileUploadClickEdit").click(function (e) {
+        e.preventDefault();
+        //alert("fileUploadClick");
 
-            //! Dosya Yükleme
-            const fileInput = document.querySelector("#fileInputEditTech");
-            const fileInputFiles = fileInput.files;
-            console.log("fileInputFiles:",fileInputFiles);
-        
+        //! Dosya Yükleme
+        const fileInput = document.querySelector("#fileInputEditTech");
+        const fileInputFiles = fileInput.files;
+        console.log("fileInputFiles:",fileInputFiles);
+    
 
-            //! Yeni Form Veriler
-            var formData = new FormData();
-            formData.append("file", fileInputFiles[0]);
-            formData.append("fileDbSave", $('#fileDbSave_technicalFileEdit').val());
-            formData.append("fileWhere", $('#fileWhere_technicalFileEdit').val());
+        //! Yeni Form Veriler
+        var formData = new FormData();
+        formData.append("file", fileInputFiles[0]);
+        formData.append("fileDbSave", $('#fileDbSave_technicalFileEdit').val());
+        formData.append("fileWhere", $('#fileWhere_technicalFileEdit').val());
 
-            $.ajax({
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = ((evt.loaded / evt.total) * 100);
-                            console.log("Dosya Yükleme Durumu: %", percentComplete);
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUploadtechnicalEdit").width(percentComplete + '%');
-                            $("#progressBarFileUploadtechnicalEdit").html(percentComplete+'%');
-                            
-                        }
-                    }, false);
-                    return xhr;
-                },
-                url: "/file/upload/control",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend: function () {
-                    console.log("Dosya yükleme başladı");
+                        $("#progressBarFileUploadtechnicalEdit").width(percentComplete + '%');
+                        $("#progressBarFileUploadtechnicalEdit").html(percentComplete+'%');
+                        
+                    }
+                }, false);
+                return xhr;
+            },
+            url: "/file/upload/control",
+            method: "post",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function () {
+                console.log("Dosya yükleme başladı");
 
-                    //! ProgressBar
-                    $("#progressBarFileUploadtechnicalEdit").width('0%');
+                //! ProgressBar
+                $("#progressBarFileUploadtechnicalEdit").width('0%');
 
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').toggle();
-                    $('#uploadStatus').hide();
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFileEdit').toggle();
+                $('#uploadStatus').hide();
 
-                    //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html("");
-                },
-                error: function (error) {
-                    alert("başarısız");
-                    console.log("Hata oluştu error:", error);
+                //! Upload Url
+                $('#filePathUrltechnicalFileEdit').html("");
+            },
+            error: function (error) {
+                alert("başarısız");
+                console.log("Hata oluştu error:", error);
 
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').hide();
-                    
-                    //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html("");
-
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-
-                },
-            success: function (resp) {
-                //alert("Başarılı");
-                console.log("file resp:", resp);
-
-                    //! ProgressBar
-                    $("#progressBarFileUploadtechnicalEdit").width('100%');
-
-                    //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').hide();
-
-                    //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html(resp.file_url);
-
-                    $('#product_dowloand_file').css('display','block');
-                    $('#product_dowloand_file').attr("href",resp.file_path);
-                    $('#product_dowloand_file').attr("download",resp.file_path);
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFileEdit').hide();
+                
+                //! Upload Url
+                $('#filePathUrltechnicalFileEdit').html("");
 
 
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
 
-                }
-            }); //! Ajax
+            },
+        success: function (resp) {
+            //alert("Başarılı");
+            console.log("file resp:", resp);
+
+                //! ProgressBar
+                $("#progressBarFileUploadtechnicalEdit").width('100%');
+
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFileEdit').hide();
+
+                //! Upload Url
+                $('#filePathUrltechnicalFileEdit').html(resp.file_url);
+
+                $('#product_dowloand_file').css('display','block');
+                $('#product_dowloand_file').attr("href",resp.file_path);
+                $('#product_dowloand_file').attr("download",resp.file_path);
+
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            }
+        }); //! Ajax
 
 
 
-        });
-        //! FileUpload Son
+    });
+    //! FileUpload Son
 
     //! ************ Teknik Özellikler Edit Son  ***************
 
@@ -1942,846 +1935,3 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! ************ Aktif Son ***************
 
 
-    //! ************ Tablo Özellik ***************
-
-    //! Modal Ayarlama
-    $('document').ready(function () {
-        $("#modalTableColoums").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            //    console.log("TableJson:",TableJson);
-            //    console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-            
-                if(element.head_display == "" ) { 
-                exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckSettings" id="modalTableTitleCheckSettings'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheck'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_display == "none"  ) { 
-                exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckSettings" id="modalTableTitleCheckSettings'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheck'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            }
-
-            $('#exportModalHeaderTable').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUpload').css('display','none');
-            $('#ModalBodyInfo').css('display','block');
-
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Ayarlama Son
-
-
-    //! Güncelle
-    $("#edit_item_check_coloums").click(function (e) {
-        e.preventDefault();
-
-        //alert("edit_item_check_coloums");
-
-        //! Tüm Check
-        $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
-    
-            var data_check_checked = $(this)[0].checked//! false/true
-            var data_check_val = $(this)[0].defaultValue//! Val
-
-            // console.log("data_check_checked:",data_check_checked);
-            // console.log("data_check_val:",data_check_val);
-
-            //! Tablo Sutun Silme
-            var tablex = document.getElementById('customerTable'); //! Tablo Okuma
-            //console.log("tablex:",tablex);
-
-            var row = tablex.rows; //! Satır Alma
-
-            for (var i = 0; i < row[0].cells.length; i++) {
-
-                var str = row[0].cells[i].attributes["exportname"].nodeValue //! Sutun Adı
-                var searchText = data_check_val; //! Aranan Metin
-            
-                //! Veri Varmı - Sutun Siliyor
-                //if (str.search(searchText) != -1 && data_check_checked == false ) {  for (var j = 0; j < row.length; j++) { row[j].deleteCell(i); } }
-                
-                if (str.search(searchText) != -1 && data_check_checked == false ) {  for (var j = 0; j < row.length; j++) { row[j].cells[i].style.display="none" } }
-                else if (str.search(searchText) != -1 && data_check_checked == true ) {  for (var j = 0; j < row.length; j++) { row[j].cells[i].style.display="" } }
-            }
-            //! Tablo Sutun Silme
-
-        }); 
-        //! Tüm Check Son
-
-    }); //! Güncelle Coloums Son
-
-
-    //! ************ Tablo Özellik Son ***************
-
-    //! ************ Export ***************
-
-    //! Fonksiyon - Tablo -> JSON
-    function tableConvertJson(tableFind) {
-        var i = 0;
-        var tableObj = { myhead: [], myrows: [], tabloJson: [] }; //! Tablo
-        $.each($(tableFind + " thead th"), function () {
-            var head = $(this);
-            var head_id = $(this)[0].childNodes[0].id; //! id
-            var head_text = $(this)[0].innerText; //! Text
-            var head_exportName = $(this)[0].attributes['exportName'].nodeValue; //! ExportName
-            var head_display = $(this)[0].style["display"]; //! Style Display
-
-            if(head_id == "showAllRows") { head_text="Check" }
-
-            // console.log("head:",head);
-            // console.log("head_id:",head_id);
-            // console.log("head_text:",head_text);
-            // console.log("head_exportName:",head_exportName);
-            // console.log("head_display:",head_display);
-
-            //! Table Header Ekleme Yapıyor
-            if (head_text != ""  && head_exportName !="Actions" ) { tableObj.myhead[i++] =  {head_exportName:head_exportName,head_display:head_display} ;}
-
-        });
-
-        //console.log("head:", tableObj.myhead);
-
-        $.each($(tableFind + " tbody tr"), function () {
-            var $row = $(this);
-            var $row_id = $(this)[0].id;
-            var rowObj = [];
-            var rowItem = {};
-            var itemCount = 0;
-
-            // console.log("row:",$row);
-            // console.log("row_id:",$row_id);
-
-            if($row_id != "tableConst" ) {
-
-                $.each($("td", $row), function () {
-                    var $colID="";
-                    var $col_value = "";
-
-                    var col = $(this);
-                    var col_id = $(this)[0].id; //! id
-                    var col_text = $(this)[0].innerText; //! Text
-                    var col_childNodes_id = $(this)[0].childNodes[0].id; //! Node - id
-                
-                    // console.log("col:",col);
-                    // console.log("col_id:",col_id);
-                    // console.log("col_text:",col_text);
-                    // console.log("col_childNodes_id:",col_childNodes_id);
-
-                    //! Check
-                    if(col_id == "checkItemCol") { $colID="checkItemCol";  $col_value = $(this)[0].childNodes[0].checked; }
-
-                    //! ID
-                    else if(col_id == "itemID") { $colID = col_id; $col_value = $(this)[0].innerText;  }
-
-                    //! Resim
-                    else if (col_id == "listItemImageBox") { var $col_value = $(this)[0].childNodes[1].currentSrc; } //! Resim Son
-
-                    //! Active
-                    else if (col_id == "tableStatus") {  var $col_value = $(this)[0].attributes["data_val"].nodeValue == "1" ? true : false ; } //! Active Son
-
-                    //! Diğer
-                    else { $col_value = col_text; } //! Diğer Son
-
-                    //! Ekleme
-                    if ( col_id != "listItemActionBox" ) {
-                        //console.log("itemCount:", itemCount);
-                        //console.log("listItemActionBox var");
-
-                        var head_item = tableObj.myhead[itemCount]; //! Tablo Header
-                        //console.log("head_item", head_item);
-
-                        //! Yeni Veriler
-                        var rowObjNew = {
-                            id: $colID,
-                            val: $col_value,
-                            header: head_item.head_exportName,
-                            display:head_item.head_display
-                        }; //! Yeni Veriler Son
-
-                        rowItem[head_item.head_exportName] = $col_value; //! Tablo Json item
-
-                        rowObj.push(rowObjNew); //! Yeni verileri ekliyor
-                        itemCount++;
-
-                        //console.log("rowObjNew:", rowObjNew);
-                    } //! Ekleme Son
-                    
-                });
-
-            }
-
-            // console.log("rowObj:", rowObj);
-            // console.log("rowItem:",rowItem);
-        
-            if(rowObj.length != 0 ) {
-                
-                tableObj.myrows.push(rowObj); //! Tablo Satır Json Ekle
-                tableObj.tabloJson.push(rowItem); //! Tablo Veri Json Ekleniyor
-
-            } 
-        
-        });
-
-        return tableObj;
-    } //! Fonksiyon - Tablo -> JSON Son
-
-    //! Export Json
-    function exportToJsonFile(jsonData, exportFileName) {
-        
-        try {
-
-            //! İndirme
-            let dataStr = JSON.stringify(jsonData);
-            let dataUri = "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
-            let exportFileDefaultName = exportFileName + ".json";
-
-            let linkElement = document.createElement("a");
-            linkElement.setAttribute("href", dataUri);
-            linkElement.setAttribute("download", exportFileDefaultName);
-            linkElement.click();
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            //! Return
-            var result = {
-                status:true,
-                msg:  $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-            }
-            return result
-        } catch (error) {
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            console.log("export json error: ",error);
-
-            var result = {
-                status:false,
-                msg:  error
-            }
-            return result;
-            
-        }
-
-    } //! Export Json Son
-
-    //! Fonksiyon Export - Xml
-    function JsonToXml(JsonFind, FileName) {
-        //console.log("Json Xml");
-
-        try {
-
-            //! Export Json
-            var ExportJson = {
-                DataList:{
-                    Data: JsonFind
-                }
-            } //! Export Json Son
-        
-            var x2js = new X2JS();
-            var xmlChange = x2js.json2xml_str( ExportJson );
-            var pretty_xml = vkbeautify.xml(xmlChange, 4);
-            // console.log("pretty_xml:", pretty_xml);
-        
-            //! İndirme
-            var anchor = document.createElement("a");
-            anchor.setAttribute("href","data:text/plain; charset=utf-8," + encodeURIComponent(pretty_xml) ); //! İndiricek yer
-            anchor.setAttribute("download", FileName+".xml"); //! İndirme - Dosya Adı
-            anchor.click();
-            anchor.remove();
-            //! İndirme Son
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            //! Return
-            var result = {
-                status:true,
-                msg:  $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-            }
-            return result
-        } catch (error) {
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            console.log("export json error: ",error);
-
-            var result = {
-                status:false,
-                msg:  error
-            }
-            return result;
-            
-        }
-    
-    } //! Fonksiyon Export - Xml Son
-
-
-    //! Fonksiyon Export - Excel
-    function JsonToExcel(JsonFind, FileName) {
-        //console.log("Json Excel");
-
-        try {
-
-            const worksheet = XLSX.utils.json_to_sheet(JsonFind); //! Excel Formatına Dönüştürüyor
-            const workbook = XLSX.utils.book_new(); //! Yeni Çalışma Oluşturuyor
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1"); //! Yeni Sheet oluşturuyor
-            XLSX.writeFile(workbook, FileName + ".xlsx", { compression: true }); //! Excel Yazıyor
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            //! Return
-            var result = {
-                status:true,
-                msg:  $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-            }
-            return result
-        } catch (error) {
-
-            //! Alert
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                showConfirmButton: false,
-                timer: 2000,
-            });  //! Alert Son
-
-            console.log("export json error: ",error);
-
-            var result = {
-                status:false,
-                msg:  error
-            }
-            return result;
-            
-        }
-        
-    } //! Fonksiyon Export - Excel Son
-
-
-    //! **** Modal ****
-
-    //! Modal JSon
-    $('document').ready(function () {
-        $("#exportJsonModal").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-
-            //! Table
-            var TableTitle = $('#tableTitle').html();
-            $('#ModalTableTitle').html(TableTitle);
-            
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            // console.log("TableJson:",TableJson);
-            // console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-
-                if(element.head_exportName == "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckJson" id="modalTableTitleCheckJson'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheckJson'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_exportName != "İşlemler" && element.head_exportName != "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckJson" id="modalTableTitleCheckJson'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheckJson'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            }
-
-            $('#exportModalHeader').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadJson').css('display','none');
-            $('#ModalBodyInfoJson').css('display','block');
-
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal JSon Son
-
-    //! Export - JSON
-    document.querySelectorAll("#exportJson").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-        
-            //! Table
-            var TableTitle = $('#tableTitle').html(); //! Tablo Adı
-            var checkAll =  $('#showAllRows').attr('data_value'); //! Tümü Seçme
-
-            //! Elemanları alıyor
-            var eleman = $("input[type=checkbox][name=modalTableTitleCheckJson]"); //! Row Seçili
-            var eleman_sayisi = eleman.length; //! Sayısı
-            var checkEleman = [];
-
-            //console.log("eleman:",eleman);
-            //console.log("eleman_sayisi:",eleman_sayisi);
-
-            for (var i = 0; i < eleman_sayisi; i++) {
-                var eleman_value = eleman[i].value; //! Değer
-                var ischecked = eleman[i].checked; //! true - false
-                if(ischecked) { checkEleman.push(eleman_value) } //! Array Ekleme Yapıyor
-                //console.log("eleman_value:", eleman_value, " ischecked:", ischecked);        
-            }
-
-            //console.log("checkEleman:",checkEleman);
-            //! Elemanları Alıyor Son
-
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-            
-            // console.log("TableJson:",TableJson);
-            // console.log("TableJsonCol:",TableJsonCol);
-        
-            var tableExportRadio =  $("input[name='modalTableTitleRadio']:checked").val();
-            if(tableExportRadio == "all" ) { 
-
-                //! Yeni Json
-                TableJsonCol.map(function(item) { 
-                    var tableItemKey = Object.keys(item);
-                    //console.log("tableItemKey:",tableItemKey);
-                    
-                    for (let index = 0; index < tableItemKey.length; index++) {
-                        const element = tableItemKey[index];
-                        var checkEleman_Find=checkEleman.includes(element); //true
-                        if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                    }
-
-                });  //! Yeni Json Son
-
-
-                //! Export
-                var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                var status = exportToJsonFile(TableJsonCol, exportFileName); //! Json İndiriyor
-            } 
-            else if(tableExportRadio == "select" ) { 
-                
-                if(checkAll == '') { 
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=NoDataSelected]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-                    
-                }
-                else {
-                //! Seçili İse Alıyor
-                TableJsonCol = TableJsonCol.filter(s=> s.Check == true);
-
-                    //! Yeni Json
-                    TableJsonCol.map(function(item) { 
-                        var tableItemKey = Object.keys(item);
-                        //console.log("tableItemKey:",tableItemKey);
-                        
-                        for (let index = 0; index < tableItemKey.length; index++) {
-                            const element = tableItemKey[index];
-                            var checkEleman_Find=checkEleman.includes(element); //true
-                            if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                        }
-
-                    });  //! Yeni Json Son
-                    
-                    //! Export
-                    var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                    var status = exportToJsonFile(TableJsonCol, exportFileName); //! Json İndiriyor
-                }
-            } 
-            
-            //console.log("TableJson:",TableJson);
-
-        });
-    }); //! Export - JSON Son
-
-
-    //! Modal Xml
-    $('document').ready(function () {
-        $("#exportXmlModal").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-
-            //! Table
-            var TableTitle = $('#tableTitle').html();
-            $('#ModalTableTitleXml').html(TableTitle);
-            
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            // console.log("TableJson:",TableJson);
-            // console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-
-                if(element.head_exportName == "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckXml" id="modalTableTitleCheckXml'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheckXml'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_exportName != "İşlemler" && element.head_exportName != "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckXml" id="modalTableTitleCheckXml'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheckXml'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            }
-
-            $('#exportModalHeaderXml').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadXml').css('display','none');
-            $('#ModalBodyInfoXml').css('display','block');
-
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Xml Son
-
-
-    //! Export - Xml
-    document.querySelectorAll("#exportXml").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-        
-            //! Table
-            var TableTitle = $('#tableTitle').html(); //! Tablo Adı
-            var checkAll =  $('#showAllRows').attr('data_value'); //! Tümü Seçme
-
-            //! Elemanları alıyor
-            var eleman = $("input[type=checkbox][name=modalTableTitleCheckXml]"); //! Row Seçili
-            var eleman_sayisi = eleman.length; //! Sayısı
-            var checkEleman = [];
-
-            // console.log("eleman:",eleman);
-            // console.log("eleman_sayisi:",eleman_sayisi);
-
-            for (var i = 0; i < eleman_sayisi; i++) {
-                var eleman_value = eleman[i].value; //! Değer
-                var ischecked = eleman[i].checked; //! true - false
-                if(ischecked) { checkEleman.push(eleman_value) } //! Array Ekleme Yapıyor
-                //console.log("eleman_value:", eleman_value, " ischecked:", ischecked);        
-            }
-
-            //console.log("checkEleman:",checkEleman);
-            //! Elemanları Alıyor Son
-
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-        
-            var tableExportRadio =  $("input[name='modalTableTitleRadioXml']:checked").val();
-            if(tableExportRadio == "all" ) { 
-
-                //! Yeni Json
-                TableJsonCol.map(function(item) { 
-                    var tableItemKey = Object.keys(item);
-                    //console.log("tableItemKey:",tableItemKey);
-                    
-                    for (let index = 0; index < tableItemKey.length; index++) {
-                        const element = tableItemKey[index];
-                        var checkEleman_Find=checkEleman.includes(element); //true
-                        if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                    }
-
-                });  //! Yeni Json Son
-
-
-                //! Export
-                var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                var status = JsonToXml(TableJsonCol, exportFileName); //! Json Xml Oluşturma Fonksiyon Kullanımı
-            } 
-            else if(tableExportRadio == "select" ) {  
-                
-                if(checkAll == '') { 
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=NoDataSelected]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-                    
-                }
-                else {
-                //! Seçili İse Alıyor
-                TableJsonCol = TableJsonCol.filter(s=> s.Check == true);
-
-                    //! Yeni Json
-                    TableJsonCol.map(function(item) { 
-                        var tableItemKey = Object.keys(item);
-                        //console.log("tableItemKey:",tableItemKey);
-                        
-                        for (let index = 0; index < tableItemKey.length; index++) {
-                            const element = tableItemKey[index];
-                            var checkEleman_Find=checkEleman.includes(element); //true
-                            if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                        }
-
-                    });  //! Yeni Json Son
-                    
-                    //! Export
-                    var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                    var status = JsonToXml(TableJsonCol, exportFileName); //! Json Xml Oluşturma Fonksiyon Kullanımı
-                }
-            } 
-            
-            //console.log("TableJson:",TableJson);
-
-        });
-    }); //! Export - Xml Son
-
-
-    //! Modal Excel
-    $('document').ready(function () {
-        $("#exportExcelModal").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            // alert("Modal Açıldı");
-
-            //! Table
-            var TableTitle = $('#tableTitle').html();
-            $('#ModalTableTitleExcel').html(TableTitle);
-            
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            // console.log("TableJson:",TableJson);
-            // console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-
-                if(element.head_exportName == "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckExcel" id="modalTableTitleCheckExcel'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheckExcel'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_exportName != "İşlemler" && element.head_exportName != "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckExcel" id="modalTableTitleCheckExcel'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheckExcel'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            }
-
-            $('#exportModalHeaderExcel').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-
-            //! Görünürlük Kontrolleri
-            $('#LoadingFileUploadExcel').css('display','none');
-            $('#ModalBodyInfoExcel').css('display','block');
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Excel Son
-
-
-    //! Modal Export Excel
-    document.querySelectorAll("#exportExcelModal").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-
-            //! Table
-            var TableTitle = $('#tableTitle').html();
-            $('#ModalTableTitleExcel').html(TableTitle);
-            
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonHeader = TableJson.myhead; //! Tablo Export Json Data
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-            // console.log("TableJson:",TableJson);
-            // console.log("TableJsonCol:",TableJsonCol);
-
-            //! Tablo Header
-            var exportModalHeaderHtml ="";
-
-            for (let index = 0; index < TableJsonHeader.length; index++) {
-                const element = TableJsonHeader[index];
-
-                if(element.head_exportName == "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckExcel" id="modalTableTitleCheckExcel'+index+'" value="'+element.head_exportName+'" ><label class="form-check-label" for="modalTableTitleCheckExcel'+index+'">'+element.head_exportName+'</label></div>';
-                }
-                else if(element.head_exportName != "İşlemler" && element.head_exportName != "Check" ) { 
-                    exportModalHeaderHtml += '<div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheckExcel" id="modalTableTitleCheckExcel'+index+'" value="'+element.head_exportName+'" checked ><label class="form-check-label" for="modalTableTitleCheckExcel'+index+'">'+element.head_exportName+'</label></div>';
-                }
-            
-            }
-
-            $('#exportModalHeaderExcel').html(exportModalHeaderHtml);
-            //! Tablo Header Son
-
-        });
-    }); //! Modal Export Excel Son
-
-    //! Export - Excel
-    document.querySelectorAll("#exportExcel").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-
-            //! Table
-            var TableTitle = $('#tableTitle').html(); //! Tablo Adı
-            var checkAll =  $('#showAllRows').attr('data_value'); //! Tümü Seçme
-
-            //! Elemanları alıyor
-            var eleman = $("input[type=checkbox][name=modalTableTitleCheckExcel]"); //! Row Seçili
-            var eleman_sayisi = eleman.length; //! Sayısı
-            var checkEleman = [];
-
-            // console.log("eleman:",eleman);
-            // console.log("eleman_sayisi:",eleman_sayisi);
-
-            for (var i = 0; i < eleman_sayisi; i++) {
-                var eleman_value = eleman[i].value; //! Değer
-                var ischecked = eleman[i].checked; //! true - false
-                if(ischecked) { checkEleman.push(eleman_value) } //! Array Ekleme Yapıyor
-                //console.log("eleman_value:", eleman_value, " ischecked:", ischecked);        
-            }
-
-            //console.log("checkEleman:",checkEleman);
-            //! Elemanları Alıyor Son
-
-            //! Json
-            var TableJson = tableConvertJson("#customerTable"); //! Tablo Json Oluşturuyor
-            var TableJsonCol = TableJson.tabloJson; //! Tablo Export Json Data
-
-        
-        var tableExportRadio =  $("input[name='modalTableTitleRadioExcel']:checked").val();
-            if(tableExportRadio == "all" ) { 
-
-                //! Yeni Json
-                TableJsonCol.map(function(item) { 
-                    var tableItemKey = Object.keys(item);
-                    //console.log("tableItemKey:",tableItemKey);
-                    
-                    for (let index = 0; index < tableItemKey.length; index++) {
-                        const element = tableItemKey[index];
-                        var checkEleman_Find=checkEleman.includes(element); //true
-                        if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                    }
-
-                });  //! Yeni Json Son
-
-
-                //! Export
-                var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                var status = JsonToExcel(TableJsonCol, exportFileName); //! Json Xml Oluşturma Fonksiyon Kullanımı
-            } 
-            else if(tableExportRadio == "select" ) {  
-                
-                if(checkAll == '') { 
-
-                    //! Alert
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: $('[id=lang_change][data_key=NoDataSelected]').html().trim(),
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });  //! Alert Son
-                    
-                }
-                else {
-                //! Seçili İse Alıyor
-                TableJsonCol = TableJsonCol.filter(s=> s.Check == true);
-
-                    //! Yeni Json
-                    TableJsonCol.map(function(item) { 
-                        var tableItemKey = Object.keys(item);
-                        //console.log("tableItemKey:",tableItemKey);
-                        
-                        for (let index = 0; index < tableItemKey.length; index++) {
-                            const element = tableItemKey[index];
-                            var checkEleman_Find=checkEleman.includes(element); //true
-                            if(checkEleman_Find == false) { delete item[element]; } //! Seçilenleri Ekliyor
-                        }
-
-                    });  //! Yeni Json Son
-                    
-                    //! Export
-                    var exportFileName = TableTitle+"_" + new Date().getTime(); //! Export Dosya Adı
-                    var status = JsonToExcel(TableJsonCol, exportFileName); //! Json Xml Oluşturma Fonksiyon Kullanımı
-                }
-            } 
-            
-            // console.log("TableJson:",TableJson);
-
-        });
-    }); //! Export - Excel Son
-
-
-    //! ************ Export  Son ***************

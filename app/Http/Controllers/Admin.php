@@ -1787,7 +1787,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/stockList',$DB);
+            return view('admin/stock/stockList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -2503,7 +2503,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/stockCompanyList',$DB);
+            return view('admin/stock/stockCompanyList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
