@@ -692,7 +692,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             var sectorCode = $('#sectorEdit option[value='+sectorEdit+']').attr('data_codeLet');
             var sub_sectorCode = $('#selectSubCategoryEdit option[value='+selectSubCategoryEdit+']').attr('data_codeLet');
-            var stockNumber = $('#data_update').attr('data_stockNumber');
+            var stockNumber = $('#edit_item').attr('data_stockNumber');
 
             var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
             var accountingCode_buy = "153"+"."+stockNumber;
@@ -1023,7 +1023,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! Modal Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -1051,7 +1051,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     //! Return
                     $('#update_data_id').html(modalId);
-                    $('#data_update').attr("data_stockNumber",response.DB.codeNumber);
+                    $('#edit_item').attr("data_stockNumber",response.DB.codeNumber);
                     
                     $('#modalInfo').attr("data_stockNumber",response.DB.codeNumber);
                     $('#StockCodeEdit').val(response.DB.stockCode);
@@ -1173,7 +1173,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Modal Güncelle Son
 
     //! Güncelle
-    $("#data_update").click(function (e) {
+    $("#edit_item").click(function (e) {
         e.preventDefault();
        
         //! Select
@@ -1998,10 +1998,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#data_update_check_coloums").click(function (e) {
+    $("#edit_item_check_coloums").click(function (e) {
         e.preventDefault();
 
-        //alert("data_update_check_coloums");
+        //alert("edit_item_check_coloums");
 
         //! Tüm Check
         $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {

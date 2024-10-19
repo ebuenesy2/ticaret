@@ -97,7 +97,7 @@
 
             var total = Number(PriceAdd.replace(',','.'))*Number(StockCountAdd); //! Toplam
             var total = total.toFixed(2); //! Anlamlı Sayı
-            var data_id_req =  $('#data_update').attr('data_id'); //! Id
+            var data_id_req =  $('#edit_item').attr('data_id'); //! Id
             
         
             //! Ajax
@@ -225,7 +225,7 @@
                         data: {
                             siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                             id: data_id,
-                            requestform_id: $('#data_update').attr('data_id'),
+                            requestform_id: $('#edit_item').attr('data_id'),
                         },
                         success: function (response) {
                             // alert("başarılı");
@@ -297,7 +297,7 @@
                     data: {
                         siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                         id: data_id,
-                        requestform_id: $('#data_update').attr('data_id'),
+                        requestform_id: $('#edit_item').attr('data_id'),
                     },
                     success: function (response) {
                         // alert("başarılı");
@@ -558,7 +558,7 @@
             var total = Number(PriceEdit.replace(',','.'))*Number(StockCountEdit); //! Toplam
             total = total.toFixed(2); //! Anlamlı Sayı
             var data_id =  $('#update_data_id').html();  //! Id
-            var data_id_req =  $('#data_update').attr('data_id'); //! Id
+            var data_id_req =  $('#edit_item').attr('data_id'); //! Id
 
             //! Ajax
             $.ajax({

@@ -373,7 +373,7 @@ $(function () {
                 $total = $total.toFixed(2); //! Anlamlı Sayı
 
                 //! Id
-                var data_id_req =  $('#data_update').attr('data_id');
+                var data_id_req =  $('#edit_item').attr('data_id');
     
                 //! Ajax
                 $.ajax({
@@ -543,7 +543,7 @@ $(function () {
                             data: {
                                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                                 id: data_id,
-                                data_id: $('#data_update').attr('data_id'),
+                                data_id: $('#edit_item').attr('data_id'),
                             },
                             success: function (response) {
                                 // alert("başarılı");
@@ -874,7 +874,7 @@ $(function () {
                     data: {
                         siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                         id: Number(data_id),
-                        data_id: $('#data_update').attr('data_id'),
+                        data_id: $('#edit_item').attr('data_id'),
                         sector: Number($('#stockEdit').attr('data_sector')),
                         sub_sector: Number($('#stockEdit').attr('data_sub_sector')),
                         stock_id: Number($('#stockEdit').attr('data_stock_id')),
@@ -1024,7 +1024,7 @@ $(function () {
 
     //! ************ Güncelle ***************
     //! Güncelle
-    $("#data_update").click(function (e) {
+    $("#edit_item").click(function (e) {
         e.preventDefault();
 
         var selectCurrentCartEdit = $('#selectCurrentCartEdit').val(); //! Firma
@@ -1106,7 +1106,7 @@ $(function () {
         else {
 
               //! Id
-            var data_id =  $('#data_update').attr('data_id');
+            var data_id =  $('#edit_item').attr('data_id');
 
             //! Ajax
             $.ajax({
@@ -1802,7 +1802,7 @@ $(function () {
 
         else {
 
-            var data_id =  $('#data_update').attr('data_id');
+            var data_id =  $('#edit_item').attr('data_id');
 
             //! Ajax
             $.ajax({

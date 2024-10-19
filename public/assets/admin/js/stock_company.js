@@ -643,7 +643,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! Modal Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -712,7 +712,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Modal Güncelle Son
 
     //! Güncelle
-    $("#data_update").click(function (e) {
+    $("#edit_item").click(function (e) {
         e.preventDefault();
 
         var selectCurrentCartEdit = $('#selectCurrentCartEdit').val(); //! Firma
@@ -1047,7 +1047,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! Modal Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -1116,7 +1116,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Modal Güncelle Son
 
     //! Güncelle
-    $("#data_update_stock").click(function (e) {
+    $("#edit_item_stock").click(function (e) {
         e.preventDefault();
 
         var selectCurrentStockEdit = $('#selectCurrentStockEdit').val(); //! Stock

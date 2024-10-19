@@ -853,7 +853,7 @@
             <!-- Modal Banka Ekle  Son -->
 
             <!-- Modal Banka Güncelle -->
-            <div class="modal fade" id="BankUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="Bankedit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
@@ -1440,7 +1440,7 @@
                                                 <td exportname="Actions" id="listItemActionBox" > 
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item" title ="@lang('admin.Search')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="{{$DB_Find_Bank[$i]->id}}"  class="view-item-btn text-success" style="cursor:pointer;"><i class="ri-search-eye-line align-bottom "></i></a> </li> 
-                                                        <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#BankUpdateModal" data-id="{{$DB_Find_Bank[$i]->id}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
+                                                        <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#Bankedit_modal" data-id="{{$DB_Find_Bank[$i]->id}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
                                                         <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <a data-bs-toggle="modal" data-bs-target="#Delete_BankModal" data-id="{{$DB_Find_Bank[$i]->id}}"  class="text-danger d-inline-block remove-item-btn" > <i class="ri-delete-bin-5-fill fs-16"></i> </a> </li>
                                                     </ul>
                                                 </td>

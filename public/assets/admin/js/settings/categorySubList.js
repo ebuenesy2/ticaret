@@ -738,7 +738,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! Modal Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -799,7 +799,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Modal Güncelle Son
 
     //! Güncelle
-    $("#data_update").click(function (e) {
+    $("#edit_item").click(function (e) {
         e.preventDefault();
 
         var selectType = $('#selectTypeUpdate').val();

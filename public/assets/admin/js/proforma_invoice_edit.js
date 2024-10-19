@@ -1627,7 +1627,7 @@ $(function () {
             returnData +=' <ul class="list-inline hstack gap-2 mb-0">';
             
             returnData +='<li class="list-inline-item"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="'+data[index].id+'" class="view-item-btn text-success" style="cursor:pointer;"><i class="ri-search-eye-line align-bottom "></i></a> </li> ';
-            returnData +='<li class="list-inline-item edit"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#BankUpdateModal" data-id="'+data[index].id+'" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>';
+            returnData +='<li class="list-inline-item edit"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#Bankedit_modal" data-id="'+data[index].id+'" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>';
             returnData +='<li class="list-inline-item edit"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#Delete_BankModal" data-id="'+data[index].id+'" class="text-danger d-inline-block edit-item-btn"> <i class="ri-delete-bin-5-fill fs-16"></i> </a> </li>';
             
             returnData +='</ul>';
@@ -1651,7 +1651,7 @@ $(function () {
 
     //! Modal Banka Güncelle
     $('document').ready(function () {
-        $("#BankUpdateModal").modal({
+        $("#Bankedit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -1837,7 +1837,7 @@ $(function () {
                         $("#Edit_BankaForm")[0].reset();
 
                         //! Modal Kapatma
-                        $("#BankUpdateModal").modal('hide');
+                        $("#Bankedit_modal").modal('hide');
 
                         //! Sayfa Yenileme
                         //window.location.reload();

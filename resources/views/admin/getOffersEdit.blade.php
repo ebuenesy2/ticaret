@@ -943,7 +943,7 @@
                  
                     
                     <div class="mb-4 col-12 d-flex gap-1">
-                        <button id="data_update" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6">Güncelle</button>
+                        <button id="edit_item" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6">Güncelle</button>
                         <a href="/get/offers/tr/file/export/{{$DB_Find->id}}" class="btn btn-primary w-50 col-6"><img title="Pdf" src="/assets/img/icon/pdf.png" style="cursor:pointer;height: 20px;" alt="" srcset=""> Pdf</a>
                     </div>
                 </div>

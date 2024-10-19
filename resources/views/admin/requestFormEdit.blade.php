@@ -1026,7 +1026,7 @@
                     <!----  Özel Şartlar Son -->
                     
                     <div class="mb-4 col-12 d-flex gap-1">
-                        <button id="data_update" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6">Güncelle</button>
+                        <button id="edit_item" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6">Güncelle</button>
                         <a href="/request/form/tr/file/export/{{$DB_Find->id}}" class="btn btn-primary w-50 col-6"><img title="Pdf" src="/assets/img/icon/pdf.png" style="cursor:pointer;height: 20px;" alt="" srcset=""> Pdf</a>
                     </div>
 
@@ -1239,7 +1239,7 @@
                             data: {
                                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                                 id: data_id,
-                                requestform_id: $('#data_update').attr('data_id'),
+                                requestform_id: $('#edit_item').attr('data_id'),
                             },
                             success: function (response) {
                                 // alert("başarılı");

@@ -687,7 +687,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! Modal Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,
@@ -725,7 +725,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Modal Güncelle Son
 
     //! Güncelle
-    $("#data_update").click(function (e) {
+    $("#edit_item").click(function (e) {
         e.preventDefault();
 
         //! Id
@@ -954,10 +954,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#data_update_check_coloums").click(function (e) {
+    $("#edit_item_check_coloums").click(function (e) {
         e.preventDefault();
 
-        //alert("data_update_check_coloums");
+        //alert("edit_item_check_coloums");
 
         //! Tüm Check
         $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {

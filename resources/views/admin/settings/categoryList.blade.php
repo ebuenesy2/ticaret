@@ -92,13 +92,13 @@
     <!-- Modal Ekle  Son -->
 
     <!-- Modal Güncelle -->
-    <div class="modal_new fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal_new fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
                     <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
                     <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
-                    <button type="button" class="btn-close" onclick={$("#updateModal").modal('hide');} ></button>
+                    <button type="button" class="btn-close" onclick={$("#edit_modal").modal('hide');} ></button>
                 </div>
                 <form action="#">
 
@@ -110,7 +110,7 @@
                     <!--- End Loading --->
 
                     <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
+                    <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
 
                        <div class="row">
                           <div class="col12">
@@ -160,8 +160,8 @@
 
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" onclick={$("#updateModal").modal('hide');}  >@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="data_update">@lang('admin.Update')</button>
+                            <button type="button" class="btn btn-danger" onclick={$("#edit_modal").modal('hide');}  >@lang('admin.Close')</button>
+                            <button type="button" class="btn btn-info" id="edit_item">@lang('admin.Update')</button>
                         </div>
                     </div>
                 </form>
@@ -361,7 +361,7 @@
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
-                                                            <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#updateModal" data-id="{{$DB_Find[$i]->id}}" data-created_at="{{$DB_Find[$i]->created_at}}" data-isActive="{{$DB_Find[$i]->isActive}}"  class="text-primary d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;" > <i class="ri-pencil-fill fs-16"></i></button> </a> </li>
+                                                            <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#edit_modal" data-id="{{$DB_Find[$i]->id}}" data-created_at="{{$DB_Find[$i]->created_at}}" data-isActive="{{$DB_Find[$i]->isActive}}"  class="text-primary d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;" > <i class="ri-pencil-fill fs-16"></i></button> </a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                         </ul>
                                                     </td>

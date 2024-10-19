@@ -791,7 +791,7 @@ $(function () {
 
     //! Modal Banka Güncelle
     $('document').ready(function () {
-        $("#updateModal").modal({
+        $("#edit_modal").modal({
             keyboard: true,
             backdrop: "static",
             show: false,

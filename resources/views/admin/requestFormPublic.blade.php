@@ -862,7 +862,7 @@
                     
                     <div class="text-end mb-4">
                         <button id="data_public_update" data_id="{{$DB_Find->id}}" class="btn btn-success w-100"  {{$DB_Find->public == "1" ? '' : 'disabled' }}>@lang('admin.Create')</button>
-                        <button id="data_update" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6" style="display:none;" >Güncelle</button>
+                        <button id="edit_item" data_id="{{$DB_Find->id}}" class="btn btn-success  col-6" style="display:none;" >Güncelle</button>
                     </div>
                 </div>
                 <!-- end col -->

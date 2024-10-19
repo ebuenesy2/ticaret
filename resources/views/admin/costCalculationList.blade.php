@@ -55,7 +55,7 @@
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="data_update_check_coloums">@lang('admin.Update')</button>
+                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Update')</button>
                         </div>
                     </div>
                 </form>

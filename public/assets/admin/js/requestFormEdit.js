@@ -684,7 +684,7 @@ $(function () {
             $total = $total.toFixed(2); //! Anlamlı Sayı
 
             //! Id
-            var data_id_req =  $('#data_update').attr('data_id');
+            var data_id_req =  $('#edit_item').attr('data_id');
 
             //! Ajax
             $.ajax({
@@ -899,7 +899,7 @@ $(function () {
                             data: {
                                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                                 id: data_id,
-                                requestform_id: $('#data_update').attr('data_id'),
+                                requestform_id: $('#edit_item').attr('data_id'),
                             },
                             success: function (response) {
                                 // alert("başarılı");
@@ -1287,7 +1287,7 @@ $(function () {
                     data: {
                         siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                         id: Number(data_id),
-                        requestform_id: $('#data_update').attr('data_id'),
+                        requestform_id: $('#edit_item').attr('data_id'),
                         public: false,
                         sector: $('#sectorEdit').val(),
                         sub_sector: $('#selectSubCategoryEdit').val(),
@@ -1392,7 +1392,7 @@ $(function () {
         //! ************ Güncelle   ***************
 
         //! Güncelle
-        $("#data_update").click(function (e) {
+        $("#edit_item").click(function (e) {
             e.preventDefault();
 
             var requestFormTitle = $('#requestFormTitle').val(); //! Adı
@@ -1503,7 +1503,7 @@ $(function () {
             else {
 
                 //! Id
-                var data_id =  $('#data_update').attr('data_id');
+                var data_id =  $('#edit_item').attr('data_id');
 
                 //! Ajax
                 $.ajax({
