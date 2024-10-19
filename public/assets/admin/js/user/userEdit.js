@@ -70,7 +70,6 @@ $(function () {
                         document.cookie="yildirimdev_name="+$('#firstnameInput').val()+";path=/";
                         document.cookie="yildirimdev_surname="+$('#lastnameInput').val()+";path=/";
                         document.cookie="yildirimdev_departman="+$('#selectDepartman option[value='+selectDepartman +']').html()+";path=/";
-
                        
                         //! Sayfa Yenileme
                         window.location.reload();
@@ -103,7 +102,7 @@ $(function () {
     //! ************ Güncelle Son  ***************
 
 
-     //! ************ Güncelle Şifre   ***************
+    //! ************ Güncelle Şifre   ***************
     //! Güncelle Şifre
     $("#edit_pass").click(function (e) {
         e.preventDefault();
@@ -286,6 +285,9 @@ $(function () {
                 $('#filePathUrl').html(resp.file_url);
                 $('#profileImage').attr('src','/'+resp.file_url);
                 $('#profileImage').attr('data-src','/'+resp.file_url);
+
+                //! Çerez
+                document.cookie="yildirimdev_img_url="+'/'+resp.file_url+";path=/";
 
                 //! Alert
                 Swal.fire({
