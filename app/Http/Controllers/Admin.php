@@ -1218,7 +1218,7 @@ class Admin extends Controller
 
 
    //! UserList Update Active
-   public function UserListUpdateActive(Request $request)
+   public function UserListEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -2186,7 +2186,7 @@ class Admin extends Controller
    
 
    //! StockList Update Active
-   public function StockListUpdateActive(Request $request)
+   public function StockListEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -2786,7 +2786,7 @@ class Admin extends Controller
 
    
    //! Stok Firma Update Active
-   public function StockCompanyUpdateActive(Request $request)
+   public function StockCompanyEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -3589,7 +3589,7 @@ class Admin extends Controller
 
 
    //! currentCartList Update Active
-   public function currentCartListUpdateActive(Request $request)
+   public function currentCartListEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -5088,7 +5088,7 @@ class Admin extends Controller
    } //! RequestForm View Son
    
    //! RequestForm Update Active
-   public function RequestFormUpdateActive(Request $request)
+   public function RequestFormEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -6256,7 +6256,7 @@ class Admin extends Controller
    
 
    //! RequestFormStockList Update Active
-   public function RequestFormStockListUpdateActive(Request $request)
+   public function RequestFormStockListEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -7623,7 +7623,7 @@ class Admin extends Controller
    
 
    //! GetOffersProduct Update Active
-   public function GetOffersProductUpdateActive(Request $request)
+   public function GetOffersProductEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -8596,7 +8596,7 @@ class Admin extends Controller
    } //! CostCalculation Export Pdf Son
 
    //! CostCalculation Update Active
-   public function CostCalculationUpdateActive(Request $request)
+   public function CostCalculationEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -10211,7 +10211,7 @@ class Admin extends Controller
 
 
    //! ProformaInvoice Update Active
-   public function ProformaInvoiceUpdateActive(Request $request)
+   public function ProformaInvoiceEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -11396,7 +11396,7 @@ class Admin extends Controller
    } //! Bank Search Post Son
    
    //! Bank Update Active
-   public function ProformaBankUpdateActive(Request $request)
+   public function ProformaBankEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -12029,7 +12029,6 @@ class Admin extends Controller
       }
       
    } //! Category Search Post Son
-
    
    //! Category Search Type Post
    public function CategorySearchTypePost(Request $request)
@@ -12042,7 +12041,7 @@ class Admin extends Controller
          
 
          //! Veri Arama
-         $DB_Find = DB::table('category')->where('type',$request->type)->get(); //Tüm verileri çekiyor
+         $DB_Find = DB::table('category')->where('type',$request->type)->orderBy('category.title','asc')->get(); //Tüm verileri çekiyor
 
          if($DB_Find) {
 
@@ -12084,7 +12083,7 @@ class Admin extends Controller
    } //! Category Search Type Post Son
    
    //! Category Update Active
-   public function CategoryUpdateActive(Request $request)
+   public function CategoryEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -12284,7 +12283,7 @@ class Admin extends Controller
             //! Kategori
             $DB_Find_Category = [];
             $parameter_Type = request('Type');
-            if($parameter_Type) { $DB_Find_Category = DB::table('category')->where('type',$parameter_Type)->get(); }
+            if($parameter_Type) { $DB_Find_Category = DB::table('category')->where('type',$parameter_Type)->orderBy('category.title','asc')->get(); }
             
             //! Return
             $DB["userId"] =  $yildirimdev_userID;
@@ -12629,7 +12628,7 @@ class Admin extends Controller
    } //! SubCategory Search Type Post Son
 
    //! SubCategory Update Active
-   public function SubCategoryUpdateActive(Request $request)
+   public function SubCategoryEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -13176,7 +13175,7 @@ class Admin extends Controller
    } //! CostCalculationFixedExpenses Search Post Son
    
    //! CostCalculationFixedExpenses Update Active
-   public function CostCalculationFixedExpensesUpdateActive(Request $request)
+   public function CostCalculationFixedExpensesEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -13733,7 +13732,7 @@ class Admin extends Controller
    } //! Bank Search Post Son
    
    //! Bank Update Active
-   public function BankUpdateActive(Request $request)
+   public function BankEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -14209,7 +14208,7 @@ class Admin extends Controller
    } //! GeneralConditions Search Post Son
    
    //! GeneralConditions Update Active
-   public function GeneralConditionsUpdateActive(Request $request)
+   public function GeneralConditionsEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -15710,7 +15709,7 @@ class Admin extends Controller
    } //! BusinessTracking View Son
    
    //! BusinessTracking Update Active
-   public function BusinessTrackingUpdateActive(Request $request)
+   public function BusinessTrackingEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
@@ -17309,7 +17308,7 @@ class Admin extends Controller
 
 
    //! SabitList Update Active
-   public function SabitListUpdateActive(Request $request)
+   public function SabitListEditActive(Request $request)
    {
 
       $siteLang= $request->siteLang; //! Çoklu Dil
