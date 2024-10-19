@@ -352,7 +352,7 @@ class Admin extends Controller
          //! Silme Son
 
       } 
-      else {  return view('admin/user_login'); }
+      else {  return view('admin/user/user_login'); }
    
 
    } //! UserLogin Son
@@ -456,7 +456,7 @@ class Admin extends Controller
    {
 
       \Illuminate\Support\Facades\App::setLocale($site_lang); //! Çoklu Dil
-      return view('admin/user_register');
+      return view('admin/user/user_register');
    } //! UserRegister Son
 
       
@@ -518,7 +518,7 @@ class Admin extends Controller
    {
 
       \Illuminate\Support\Facades\App::setLocale($site_lang); //! Çoklu Dil
-      return view('admin/user_forgot_password');
+      return view('admin/user/user_forgot_password');
 
    } //! UserForgotPassword Son
    
@@ -566,7 +566,7 @@ class Admin extends Controller
    {
 
       \Illuminate\Support\Facades\App::setLocale($site_lang); //! Çoklu Dil
-      return view('admin/user_create_password');
+      return view('admin/user/user_create_password');
 
    } //! UserCreatePassword Son
 
@@ -702,7 +702,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/user_list',$DB);
+            return view('admin/user/user_list',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -1148,7 +1148,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/user_edit',$DB);
+            return view('admin/user/user_edit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -1204,7 +1204,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/user_detail',$DB);
+            return view('admin/user/user_detail',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -1657,7 +1657,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/user_edit',$DB);
+            return view('admin/user/user_edit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();

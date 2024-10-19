@@ -350,6 +350,6 @@
         @include('admin.include.footer')
 
         <!------- Js --->
-        <script src="{{asset('/assets/admin')}}/js/userEdit.js"></script>
+        <script src="{{asset('/assets/admin')}}/js/user/userEdit.js"></script>
 
     </footer>

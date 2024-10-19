@@ -599,6 +599,6 @@
             <script src="{{asset('/assets/admin')}}/assets/js/pages/password-addon.init.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/user_list.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/user/user_list.js"></script>
 
         </footer>
