@@ -149,41 +149,24 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Arama Zaman Son
 
 
-    //! Arama Durum
-    document.querySelector('#selectActive').addEventListener('change', e => {
+
+    //! Arama Type
+    document.querySelector('#selectTypeList').addEventListener('change', e => {
 
         //! Tanım
-        var filter = $('#selectActive').val(); //! Aranacak Veri
-        var searchJsonItem = { exportname: "Status", text:filter}; //! Aranacak Veri Item
-        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Status'); //! Json İçinde Arama 
+        var filter = $('#selectTypeList').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "Type", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Type'); //! Json İçinde Arama 
 
         //! Kontrol
         if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
         else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
-        if (filter == '') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
-    
+        if (filter == 'selectedFirst') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+
         //! Table Arama Kontrol
         searchTableControl();
 
-    }); //! Arama Durum Son
-
-   //! Arama Type
-   document.querySelector('#selectTypeList').addEventListener('change', e => {
-
-    //! Tanım
-    var filter = $('#selectTypeList').val(); //! Aranacak Veri
-    var searchJsonItem = { exportname: "Type", text:filter}; //! Aranacak Veri Item
-    var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Type'); //! Json İçinde Arama 
-
-    //! Kontrol
-    if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
-    else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
-    if (filter == 'selectedFirst') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
-
-    //! Table Arama Kontrol
-    searchTableControl();
-
-}); //! Arama Type Son
+    }); //! Arama Type Son
 
     //! ************ Arama Son ***************
 
@@ -630,7 +613,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     }); //! Arama Kategori Son
 
     //! Arama Kategori
-    document.querySelector('#selectTypeUpdate').addEventListener('change', e => {
+    document.querySelector('#selectTypeEdit').addEventListener('change', e => {
 
         
         //! Ajax  Post
@@ -640,7 +623,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             data: {
                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                type:$('#selectTypeUpdate').val(),
+                type:$('#selectTypeEdit').val(),
             },              
             // beforeSend: function() { console.log("Başlangıc"); },
             success: function (response) {
@@ -764,7 +747,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#selectTypeUpdate option[value='+response.DB_Category.type+']').prop('selected',true);
+                    $('#selectTypeEdit option[value='+response.DB_Category.type+']').prop('selected',true);
                     $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                     $('#subCategoryUpdate').val(response.DB.title);
                     $('#subCategoryENUpdate').val(response.DB.title_EN);
@@ -784,11 +767,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
                 }
             }); //! Ajax Post Son
-             
 
             //! Return
             $('#update_data_id').html(modalId);
-
 
             //! Görünürlük Kontrolleri
             $('#LoadingFileUploadUpdate').css('display','none');
@@ -802,7 +783,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     $("#edit_item").click(function (e) {
         e.preventDefault();
 
-        var selectType = $('#selectTypeUpdate').val();
+        var selectType = $('#selectTypeEdit').val();
         var selectTypeCategory = $('#selectTypeCategoryUpdate').val();
 
         if (selectType == "") {
@@ -825,52 +806,42 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }
         else {
 
-                //! Id
-                var data_id =  $('#update_data_id').html();
+            //! Id
+            var data_id =  $('#update_data_id').html();
 
-                //! Ajax
-                $.ajax({
-                    url: "/category/sub/edit/post",
-                    method: "post",
-                    headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-                    data: {
-                        siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                        id: Number(data_id),
-                        categoryid: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategory+'"]').attr('data_id'),
-                        title: $('#subCategoryUpdate').val(),
-                        title_EN: $('#subCategoryENUpdate').val(),
-                        codeLet: $('#codeLetUpdate').val(),
-                        codeNumber: $('#codeNumberUpdate').val(),
-                        updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-                    },
-                    success: function (response) {
-                        // alert("başarılı");
-                        // console.log("response:", response);
-                        // console.log("status:", response.status);
+            //! Ajax
+            $.ajax({
+                url: "/category/sub/edit/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id: Number(data_id),
+                    categoryid: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategory+'"]').attr('data_id'),
+                    title: $('#subCategoryUpdate').val(),
+                    title_EN: $('#subCategoryENUpdate').val(),
+                    codeLet: $('#codeLetUpdate').val(),
+                    codeNumber: $('#codeNumberUpdate').val(),
+                    updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    // console.log("response:", response);
+                    // console.log("status:", response.status);
 
-                        if (response.status == "success") {
-                            Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: response.msg,
-                                showConfirmButton: false,
-                                timer: 2000,
-                            });
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
 
-                            //! Sayfa Yenileme
-                            window.location.reload();
+                        //! Sayfa Yenileme
+                        window.location.reload();
 
-                        } else {
-                            Swal.fire({
-                                position: "center",
-                                icon: "error",
-                                title: response.msg,
-                                showConfirmButton: false,
-                                timer: 2000,
-                            });
-                        }
-                    },
-                    error: function (error) {
+                    } else {
                         Swal.fire({
                             position: "center",
                             icon: "error",
@@ -878,11 +849,21 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             showConfirmButton: false,
                             timer: 2000,
                         });
-                        console.log("error:", error);
-                    },
-                }); //! Ajax Son
+                    }
+                },
+                error: function (error) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: response.msg,
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                    console.log("error:", error);
+                },
+            }); //! Ajax Son
 
-            }
+        }
 
     }); //! Güncelle Son
 

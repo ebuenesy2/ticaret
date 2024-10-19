@@ -618,7 +618,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#selectTypeUpdate option[value='+response.DB.type+']').prop('selected',true);
+                    $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
                     $('#titleUpdate').val(response.DB.title);
                     $('#titleENUpdate').val(response.DB.title_EN);
 
@@ -667,13 +667,13 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }
         //! Loading - Veri Yüklendi Son
 
-        var selectTypeUpdate = $('#selectTypeUpdate').val();
+        var selectTypeEdit = $('#selectTypeEdit').val();
         var titleUpdate = $('#titleUpdate').val();
         var titleENUpdate = $('#titleENUpdate').val();
         var codeLetUpdate = $('#codeLetUpdate').val();
         var codeNumberUpdate = $('#codeNumberUpdate').val();
 
-        if (selectTypeUpdate == "") {
+        if (selectTypeEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -731,7 +731,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 data: {
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
-                    type: $('#selectTypeUpdate').val(),
+                    type: $('#selectTypeEdit').val(),
                     title: $('#titleUpdate').val(),
                     title_EN: $('#titleENUpdate').val(),
 

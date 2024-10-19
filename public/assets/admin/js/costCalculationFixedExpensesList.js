@@ -640,10 +640,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }); //! Arama Kategori Son
 
         //! Arama Kategori
-        document.querySelector('#selectTypeUpdate').addEventListener('change', e => {
+        document.querySelector('#selectTypeEdit').addEventListener('change', e => {
 
             //! Tanım
-            var TypeSelect = $('#selectTypeUpdate').val();
+            var TypeSelect = $('#selectTypeEdit').val();
 
             
             //! Ajax  Post
@@ -653,7 +653,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                 data: {
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                    type:$('#selectTypeUpdate').val(),
+                    type:$('#selectTypeEdit').val(),
                 },              
                 // beforeSend: function() { console.log("Başlangıc"); },
                 success: function (response) {
@@ -722,7 +722,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#selectTypeUpdate option[value='+response.DB.type+']').prop('selected',true);
+                    $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
                     
                     $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                
@@ -763,7 +763,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     $("#edit_item").click(function (e) {
         e.preventDefault();
 
-        var selectType = $('#selectTypeUpdate').val();
+        var selectType = $('#selectTypeEdit').val();
         var selectTypeCategoryUpdate = $('#selectTypeCategoryUpdate').val();
         var CurrencyUpdate = $('#CurrencyUpdate').val();
 
@@ -808,7 +808,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 data: {
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
-                    type: $('#selectTypeUpdate').val(),
+                    type: $('#selectTypeEdit').val(),
                     category_id: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategoryUpdate +'"]').attr('data_id'),
                     title: $('#titleUpdate').val(),
                     description: $('#descriptionUpdate').val(), 

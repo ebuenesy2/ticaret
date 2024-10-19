@@ -97,8 +97,8 @@
                     <div class="modal-body" id="ModalBodyInfoUpdate" style="display:none;" >
                         <!-- Arama Durum -->
                         <div class="mb-3">
-                            <label for="selectTypeUpdate" class="form-label">Tür</label>
-                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeUpdate"  >
+                            <label for="selectTypeEdit" class="form-label">Tür</label>
+                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeEdit"  >
                                 <option value="">Tür Seç</option>
                                 <option value="Genel">Genel</option>
                                 <option value="OzelSart">Özel Şart</option>

@@ -684,7 +684,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     //console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#selectTypeUpdate option[value='+response.DB.type+']').prop('selected',true);
+                    $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
                     $('#selectTypeCategoryUpdate').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
                     $('#titleUpdate').val(response.DB.title);
                 
@@ -717,7 +717,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     $("#edit_item").click(function (e) {
         e.preventDefault();
         
-        var selectType = $('#selectTypeUpdate').val();
+        var selectType = $('#selectTypeEdit').val();
         var selectTypeCategoryUpdate = $('#selectTypeCategoryUpdate').val();
 
         if (selectType == "") {
@@ -752,7 +752,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 data: {
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
-                    type: $('#selectTypeUpdate').val(),
+                    type: $('#selectTypeEdit').val(),
                     category_id: $('#selectTypeCategoryUpdate option[value="'+selectTypeCategoryUpdate +'"]').attr('data_id'),
                     title: $('#titleUpdate').val(),
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]

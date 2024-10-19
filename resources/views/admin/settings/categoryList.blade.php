@@ -124,8 +124,8 @@
                           <div class="col12">
                               <!-- Arama Durum -->
                                 <div class="mb-3">
-                                    <label for="selectTypeUpdate" class="form-label">Tür</label>
-                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeUpdate">
+                                    <label for="selectTypeEdit" class="form-label">Tür</label>
+                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeEdit">
                                         <option value="">Tür Seç</option>
                                         <option value="SektorStok">Sektor Stok</option>
                                         <option value="SektorCari">Sektor Cari</option>
@@ -178,8 +178,7 @@
     </div>
     <!-- Modal Güncelle  Son -->
 
-
-   <div class="page-content">
+    <div class="page-content">
      <div class="container-fluid">
 
         <!-- start page title -->
@@ -218,7 +217,7 @@
                                 </h5>
                                 <div class="flex-shrink-0">
                                     <div class="flax-shrink-0 hstack gap-2">
-                                       <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
+                                        <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,8 +234,8 @@
                                     </div>
                                     <!-- Arama id Son -->
                                     
-                                   <!-- Arama Takvim-->
-                                   <div class="col-xl-2 col-md-6"> 
+                                    <!-- Arama Takvim-->
+                                    <div class="col-xl-2 col-md-6"> 
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
@@ -253,8 +252,8 @@
                                     </div>
                                     <!--end Arama Durum  -->
 
-                                     <!-- Arama Type -->
-                                     <div class="col-xl-2 col-md-4">
+                                        <!-- Arama Type -->
+                                        <div class="col-xl-2 col-md-4">
                                         <label for="selectActive" class="form-label">Tür</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeList"  style="cursor:pointer;" >
                                             <option value="selectedFirst" selected  style="cursor:pointer;" >@lang('admin.All')</option>
@@ -275,7 +274,7 @@
                                     <!----- End Coloumn --->
 
                                     <!--- Import ----->
-                                     <!----TableImport-->
+                                        <!----TableImport-->
                                     <!--- End Import ----->
                                     
 
@@ -291,7 +290,7 @@
                             <div class="card-body">
 
                                 <div id="choosedPanel" style="border: 1px solid black;padding: 4px;display: flex;gap: 20px; margin-bottom: 23px; display:none; ">
-                                  
+                                    
 
                                     <!--- İşlemler -->
                                     <div style="display: flex;gap: 5px;">
@@ -359,7 +358,7 @@
                                                     <td exportname="Check"  id="checkItemCol" class="c-table__cell"><input id="checkItem" style="cursor:pointer;" type="checkbox" data_check_id="{{$DB_Find[$i]->id}}" > </td>
                                                     <td exportname="Id" id="itemID" class="type"> {{$DB_Find[$i]->id}}</td>
                                                     <td exportname="CreatedDate" class="order_date"> {{$DB_Find[$i]->created_at}}</td>
-                                                   
+                                                    
                                                     <td exportname="type" >{{$DB_Find[$i]->type}}</td>
                                                     <td exportname="title" >{{$DB_Find[$i]->title}}</td>
                                                     <td exportname="titleEN" >{{$DB_Find[$i]->title_EN}}</td>
@@ -392,14 +391,14 @@
                                     
                                     @if(count($DB_Find) == 0 )
 
-                                     <!-- No Item -->
+                                        <!-- No Item -->
                                     <div class="noresult" id="dataNoItemList">
                                         <div class="text-center">
                                             <lord-icon src="https://cdn.lordicon.com/wcjauznf.json" trigger="loop" colors="primary:#405189,secondary:#0ab39c" style="width:250px;height:250px"></lord-icon>
                                             <h5 class="mt-2">@lang('admin.DataListisEmpty')</h5>
                                         </div>
                                     </div>
-                                     <!-- No Item Son -->
+                                        <!-- No Item Son -->
 
                                     @endif
 

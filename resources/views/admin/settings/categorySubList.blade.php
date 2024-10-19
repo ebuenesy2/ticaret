@@ -24,45 +24,7 @@
 
     <!------- Lang --->
     @include('include.lang')
-    
-    <!-- Modal Coloums -->
-    <div class="modal fade" id="modalTableColoums" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > @lang('admin.TableSettings')   </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
 
-                        <!---  Loading --->
-                        <div id="LoadingFileUpload" style="display:block;" ><span class="d-flex align-items-center">
-                            <span class="spinner-border flex-shrink-0" role="status"></span>
-                            <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                        </span> </div>
-                        <div id="uploadStatus"></div>
-                        <!--- End Loading --->
-
-                        <!---  ModalBodyInfo --->
-                        <div id="ModalBodyInfo" style="display:none;"  >
-                            <p>@lang('admin.SelectVisibilityColumnsTable')</p>
-                            <div id="exportModalHeaderTable"  style="display: flex;flex-wrap: wrap;gap: 15px;" ></div>
-                        </div>
-                         <!---  ModalBodyInfo Son --->
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Update')</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Mod al Coloums  Son -->
 
      <!-- Modal Ekle -->
      <div class="modal_new fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,22 +39,22 @@
                        <div class="row">
                            <div class="col-6">
 
-                                <!-- Arama Durum -->
-                                <div class="mb-3">
-                                    <label for="selectType" class="form-label">Tür</label>
-                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectType"  >
-                                        <option value="">Tür Seç</option>
-                                        <option value="SektorStok"  style="cursor:pointer;" >Sektor Stok</option>
-                                        <option value="SektorCari"  style="cursor:pointer;" >Sektor Cari</option>
-                                        <option value="ÖdemeŞekli">Ödeme Şekli</option>
-                                        <option value="SevkŞekli">Sevk Şekli</option>
-                                        <option value="TeslimŞekli">Teslim Şekli</option>
-                                        <option value="NakliyetŞekli">Nakliyet Şekli</option>
-                                        <option value="ÖzelİzneTabiMi">Özel İzne Tabi Mi</option>
-                                        <option value="İntertekTabiMi">İntertek Tabi Mi</option>
-                                    </select>
-                                </div>
-                                <!--end Arama Durum  -->
+                            <!-- Arama Tür -->
+                            <div class="mb-3">
+                                <label for="selectType" class="form-label">Tür</label>
+                                <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectType" style="cursor:pointer;"  >
+                                    <option value="">Tür Seç</option>
+                                    <option value="SektorStok" >Sektor Stok</option>
+                                    <option value="SektorCari" >Sektor Cari</option>
+                                    <option value="ÖdemeŞekli">Ödeme Şekli</option>
+                                    <option value="SevkŞekli">Sevk Şekli</option>
+                                    <option value="TeslimŞekli">Teslim Şekli</option>
+                                    <option value="NakliyetŞekli">Nakliyet Şekli</option>
+                                    <option value="ÖzelİzneTabiMi">Özel İzne Tabi Mi</option>
+                                    <option value="İntertekTabiMi">İntertek Tabi Mi</option>
+                                </select>
+                            </div>
+                            <!-- Son Arama Tür  -->
 
 
                            </div>
@@ -168,8 +130,8 @@
                             <div class="col-6">
                                 <!-- Arama Durum -->
                                 <div class="mb-3">
-                                    <label for="selectTypeUpdate" class="form-label">Tür</label>
-                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeUpdate"  >
+                                    <label for="selectTypeEdit" class="form-label">Tür</label>
+                                    <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeEdit"  >
                                         <option value="">Tür Seç</option>
                                         <option value="SektorStok"  style="cursor:pointer;" >Sektor Stok</option>
                                         <option value="SektorCari"  style="cursor:pointer;" >Sektor Cari</option>
@@ -299,42 +261,31 @@
                                     </div>
                                     <!--end Arama Takvim-->
 
-                                    <!-- Arama Durum -->
-                                    <div class="col-xl-2 col-md-4 d-none">
-                                        <label for="selectActive" class="form-label">Durum</label>
-                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
-                                            <option value="">@lang('admin.All')</option>
-                                            <option value="1">@lang('admin.Active')</option>
-                                            <option value="0">@lang('admin.Passive')</option>
-                                        </select>
-                                    </div>
-                                    <!--end Arama Durum  -->
-
-                                     <!-- Arama Type -->
-                                     <div class="col-xl-2 col-md-4">
+                                    <!-- Arama Type -->
+                                    <div class="col-xl-2 col-md-4">
                                         <label for="selectActive" class="form-label">Tür</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectTypeList"  style="cursor:pointer;" >
-                                            <option value="selectedFirst" selected  style="cursor:pointer;" >@lang('admin.All')</option>
-                                            <option value="SektorStok"  style="cursor:pointer;" >Sektor Stok</option>
-                                            <option value="SektorCari"  style="cursor:pointer;" >Sektor Cari</option>
-                                            <option value="ÖdemeŞekli"  style="cursor:pointer;" >Ödeme Şekli</option>
-                                            <option value="SevkŞekli"  style="cursor:pointer;" >Sevk Şekli</option>
-                                            <option value="TeslimŞekli"  style="cursor:pointer;" >Teslim Şekli</option>
-                                            <option value="NakliyetŞekli"  style="cursor:pointer;" >Nakliyet Şekli</option>
-                                            <option value="ÖzelİzneTabiMi"  style="cursor:pointer;" >Özel İzne Tabi Mi</option>
-                                            <option value="İntertekTabiMi"  style="cursor:pointer;" >İntertek Tabi Mi</option>
+                                            <option value="selectedFirst" selected  >@lang('admin.All')</option>
+                                            <option value="SektorStok" >Sektor Stok</option>
+                                            <option value="SektorCari"   >Sektor Cari</option>
+                                            <option value="ÖdemeŞekli" >Ödeme Şekli</option>
+                                            <option value="SevkŞekli"  >Sevk Şekli</option>
+                                            <option value="TeslimŞekli"  >Teslim Şekli</option>
+                                            <option value="NakliyetŞekli"  >Nakliyet Şekli</option>
+                                            <option value="ÖzelİzneTabiMi"   >Özel İzne Tabi Mi</option>
+                                            <option value="İntertekTabiMi"  >İntertek Tabi Mi</option>
                                         </select>
                                     </div>
                                     <!--end Arama Type Son  -->
 
-                                    <!----- Coloumn --->
-                                    <!----TableSettings-->
-                                    <!----- End Coloumn --->
-
-                                    <!--- Import ----->
-                                     <!----TableImport-->
-                                    <!--- End Import ----->
-                                    
+                                    <!-- Arama Durum Başlık  -->
+                                    <div class="col-xl-2 col-md-4">
+                                        <label for="selectTypeCategory" class="form-label">Kategori</label>
+                                        <select class="form-control" data-choices data-choices-search-false name="selectTypeCategoryList" id="selectTypeCategoryList"  >
+                                            <option value="selectedFirst" selected  >@lang('admin.All')</option>
+                                        </select>
+                                    </div>
+                                    <!--end Arama Durum  Başlık -->
 
                                     <!--- Export -->
                                     <div class="col-xl-2 col-md-4" style="display: flex; height: 40px; gap: 10px; padding: 3px; margin-left: 10px;">
