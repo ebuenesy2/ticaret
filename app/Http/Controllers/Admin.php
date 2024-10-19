@@ -13466,16 +13466,10 @@ class Admin extends Controller
             ->orderBy('bank.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find); die();
             
-            //! Json Filter
-
-            for($i =0; $i<count($DB_Find); $i++){
-               if( $DB_Find[$i]->currencyCartId == 0) {$DB_Find[$i]->current_name = "Interturk iç ve dış";}
-            }
-         
             //! Params Verileri Where Formatında Yazılacak Son     
             
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_cart.current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
  
             //! Return
@@ -13492,10 +13486,7 @@ class Admin extends Controller
             \Illuminate\Support\Facades\App::setLocale($site_lang);
             return view('admin/settings/bankList',$DB);
          }
-         else {
-             //echo "üye giriş yapınız"; die();
-             return redirect('user/login');
-         }
+         else {  return redirect('user/login'); }
  
      } catch (\Throwable $th) {  throw $th; }
 

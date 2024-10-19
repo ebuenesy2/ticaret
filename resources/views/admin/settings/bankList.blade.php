@@ -24,75 +24,6 @@
 
     <!------- Lang --->
     @include('include.lang')
-  
-    <!-- Modal Arama -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Search') #</p>  <p id="search_data_id" style="margin:auto;">xx</p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    
-                     <!---  Loading --->
-                     <div id="LoadingFileUploadSearch" style="display:block;" ><span class="d-flex align-items-center">
-                        <span class="spinner-border flex-shrink-0" role="status"></span>
-                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                    </span> </div>
-                    <div id="uploadStatus"></div>
-                    <!--- End Loading --->
-
-                    <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoSearch" style="display:none;" >
-                        <div class="mb-3"> 
-                            <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrencyCartID')</label>
-                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="CurrencyCartIDSearch" disabled >
-                                <option value="">Cari Kart Seç</option>
-                                @for ($i = 0; $i < count($DB_Find_Current); $i++) 
-                                <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option> 
-                                @endfor
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="bankaAccountTitleSearch" class="form-label">Banka Hesap Adı</label>
-                            <input class="form-control" type="text" id="bankaAccountTitleSearch" name="bankaAccountTitleSearch" placeholder="Banka Hesap Adı" disabled>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="BankTitleSearch" class="form-label">@lang('admin.BankTitle')</label>
-                            <input class="form-control" type="text" id="BankTitleSearch" name="BankTitleSearch" placeholder="@lang('admin.BankTitle')" disabled >
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="BranchSearch" class="form-label">@lang('admin.Branch')</label>
-                            <input class="form-control" type="text" id="BranchSearch" name="BranchSearch" placeholder="@lang('admin.Branch')" disabled >
-                        </div>
-
-                        <div class="mb-3"> 
-                            <label for="AcountNumberSearch" class="form-label">@lang('admin.AcountNumber')</label>
-                            <input class="form-control" type="text" id="AcountNumberSearch" name="AcountNumberSearch" placeholder="@lang('admin.AcountNumber')" disabled >
-                        </div>
-
-                        <div class="mb-3"> 
-                            <label for="IbanSearch" class="form-label">@lang('admin.Iban')</label>
-                            <input class="form-control" type="text" id="IbanSearch" name="IbanSearch" placeholder="@lang('admin.Iban')" disabled >
-                        </div>
-
-                        <div class="mb-3"> 
-                            <label for="SwiftSearch" class="form-label">@lang('admin.Swift')</label>
-                            <input class="form-control" type="text" id="SwiftSearch" name="SwiftSearch" placeholder="@lang('admin.Swift')" disabled >
-                        </div>
-                    </div>
-                    <!---  ModalBodyInfoBody Son --->
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Arama  Son -->
 
     <!-- Modal Güncelle -->
     <div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -115,13 +46,10 @@
                     <!---  ModalBodyInfoBody --->
                     <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3"> 
-                            <label for="CurrencyCartIDUpdate" class="form-label">@lang('admin.CurrencyCartID')</label>
+                            <label for="CurrencyCartIDUpdate" class="form-label">Cari Kart</label>
                             <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="CurrencyCartIDUpdate">
                                 <option value="">Cari Kart Seç</option>
-                                <option value="0">İnterturk İç ve Dış Ticaret Anonim Şirketi</option>
-                                
                                 @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
-
                             </select>
                         </div>
 
@@ -180,12 +108,10 @@
                 <form action="#">
                     <div class="modal-body">
                         <div class="mb-3"> 
-                            <label for="CurrencyCartIDAdd" class="form-label">@lang('admin.CurrencyCartID')</label>
+                            <label for="CurrencyCartIDAdd" class="form-label">Cari Kart</label>
                             <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="CurrencyCartIDAdd">
                                 <option value="">Cari Kart Seç</option>
-                                <option value="0">İnterturk İç ve Dış Ticaret Anonim Şirketi</option>
                                 @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
-
                             </select>
                         </div>
 
@@ -195,28 +121,28 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="BankTitleAdd" class="form-label">@lang('admin.BankTitle')</label>
-                            <input class="form-control" type="text" id="BankTitleAdd" name="BankTitleAdd" placeholder="@lang('admin.BankTitle')">
+                            <label for="bankTitleAdd" class="form-label">@lang('admin.BankTitle')</label>
+                            <input class="form-control" type="text" id="bankTitleAdd" name="bankTitleAdd" placeholder="@lang('admin.BankTitle')">
                         </div>
 
                         <div class="mb-3">
-                            <label for="BranchAdd" class="form-label">@lang('admin.Branch')</label>
-                            <input class="form-control" type="text" id="BranchAdd" name="BranchAdd" placeholder="@lang('admin.Branch')">
+                            <label for="branchAdd" class="form-label">@lang('admin.Branch')</label>
+                            <input class="form-control" type="text" id="branchAdd" name="branchAdd" placeholder="@lang('admin.Branch')">
                         </div>
 
                         <div class="mb-3"> 
-                            <label for="AcountNumberAdd" class="form-label">@lang('admin.AcountNumber')</label>
-                            <input class="form-control" type="text" id="AcountNumberAdd" name="AcountNumberAdd" placeholder="@lang('admin.AcountNumber')">
+                            <label for="acountNumberAdd" class="form-label">@lang('admin.AcountNumber')</label>
+                            <input class="form-control" type="text" id="acountNumberAdd" name="acountNumberAdd" placeholder="@lang('admin.AcountNumber')">
                         </div>
 
                         <div class="mb-3"> 
-                            <label for="IbanAdd" class="form-label">@lang('admin.Iban')</label>
-                            <input class="form-control" type="text" id="IbanAdd" name="IbanAdd" placeholder="@lang('admin.Iban')">
+                            <label for="ibanAdd" class="form-label">@lang('admin.Iban')</label>
+                            <input class="form-control" type="text" id="ibanAdd" name="ibanAdd" placeholder="@lang('admin.Iban')">
                         </div>
 
                         <div class="mb-3"> 
-                            <label for="SwiftAdd" class="form-label">@lang('admin.Swift')</label>
-                            <input class="form-control" type="text" id="SwiftAdd" name="SwiftAdd" placeholder="@lang('admin.Swift')">
+                            <label for="swiftAdd" class="form-label">@lang('admin.Swift')</label>
+                            <input class="form-control" type="text" id="swiftAdd" name="swiftAdd" placeholder="@lang('admin.Swift')">
                         </div>
 
                     </div>
@@ -311,20 +237,10 @@
                                         <label for="selectCurrentCart" class="form-label"> Cari Kart Seç</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectCurrentCart">
                                             <option value="">@lang('admin.All')</option>
-                                            <option value="0">İnterturk İç ve Dış Ticaret Anonim Şirketi</option>
                                             @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
                                         </select>
                                     </div>
                                     <!--end Arama Cari Hesap -->
-
-                                    <!----- Coloumn --->
-                                    <!----TableSettings-->
-                                    <!----- End Coloumn --->
-
-                                    <!--- Import ----->
-                                     <!----TableImport-->
-                                    <!--- End Import ----->
-                                    
 
                                 
                                 </div>
@@ -361,7 +277,6 @@
 
                                     <!--- Button -->
                                     <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Update')</button>
-
 
                                 </div>
 
@@ -413,7 +328,6 @@
                                                 
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
-                                                            <li class="list-inline-item" title ="@lang('admin.Search')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="{{$DB_Find[$i]->id}}"  class="view-item-btn text-success" style="cursor:pointer;"><button class="btn btn-secondary waves-effect waves-light" style="width: 45px;height: 45px;"><i class="ri-search-eye-line align-bottom "></i></button></a> </li> 
                                                             <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#edit_modal" data-id="{{$DB_Find[$i]->id}}" data-created_at="{{$DB_Find[$i]->created_at}}" data-isActive="{{$DB_Find[$i]->isActive}}"  class="text-primary d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;"><i class="ri-pencil-fill fs-16"></i> </button> </a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                         </ul>
@@ -479,6 +393,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/bankList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/settings/bankList.js"></script>
 
         </footer>

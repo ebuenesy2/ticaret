@@ -1560,15 +1560,7 @@ $(function () {
                 
                 },
                 error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadSearch').css('display','none');
-                    $('#ModalBodyInfoSearch').css('display','block');
-
-                    console.log("Search Ajax Bitti");
-        
-                }
+              complete: function() {}
             }); //! Ajax Post Son
 
               

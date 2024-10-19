@@ -75,7 +75,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     } //! //! Json Html Kontrol Son
 
-
     //! Fonksiyon Kullanımı
     JsonHtml_Controller();
 
@@ -129,7 +128,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Arama Id Son
 
-
     //! Arama Zaman
     document.querySelector('#exampleInputdate').addEventListener('change', e => {
 
@@ -148,26 +146,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Arama Zaman Son
 
-
-    //! Arama Durum
-    document.querySelector('#selectActive').addEventListener('change', e => {
-
-        //! Tanım
-        var filter = $('#selectActive').val(); //! Aranacak Veri
-        var searchJsonItem = { exportname: "Status", text:filter}; //! Aranacak Veri Item
-        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Status'); //! Json İçinde Arama 
-
-        //! Kontrol
-        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
-        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
-        if (filter == '') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
-    
-        //! Table Arama Kontrol
-        searchTableControl();
-
-    }); //! Arama Durum Son
-
-    
     //! Arama Cari Kart
     document.querySelector('#selectCurrentCart').addEventListener('change', e => {
 
@@ -511,154 +489,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     //! ************ Tümü Seç Olayı Son ***************
 
-    //! ************ Aktif  ***************
-    //! Aktif
-    document.querySelectorAll("#listItemActive").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-        
-            //! Attr - Diğer Veri Alma
-            var data_id = event.target.getAttribute("data_id");
-            var data_active_status = event.target.getAttribute("data_active");
-
-            Swal.fire({
-                html: '<div class="mt-3"><lord-icon src="https://cdn.lordicon.com/tdrtiskw.json" trigger="loop" colors="primary:#f06548,secondary:#f7b84b" style="width:120px;height:120px"></lord-icon><div class="mt-4 pt-2 fs-15"><h4>'+$('[id=lang_change][data_key=AreYouSure]').html().trim()+' #'+data_id+'</h4></div></div>',
-                showCancelButton: true,
-                confirmButtonColor: data_active_status == "true" ? "#ed1c24" : "#1bb934",
-                confirmButtonText: data_active_status == "true" ? $('[id=lang_change][data_key=MakePassive]').html().trim() : $('[id=lang_change][data_key=Activate]').html().trim(),
-                cancelButtonColor: "black",
-                cancelButtonText: $('[id=lang_change][data_key=No]').html().trim(),
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    //! Ajax
-                    $.ajax({
-                        url: "/bank/update/active",
-                        method: "post",
-                        headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
-                        data: {
-                            siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                            id: data_id,
-                            active: data_active_status,
-                            updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-                        },
-                        success: function (response) {
-                            // alert("başarılı");
-                            // console.log("response:", response);
-                            // console.log("success:", response.status);
-
-                            if (response.status == "success") {
-                                Swal.fire({
-                                    position: "center",
-                                    icon: "success",
-                                    title: response.msg,
-                                    showConfirmButton: false,
-                                    timer: 2000,
-                                });
-
-                                //! Sayfa Yenileme
-                                window.location.reload();
-                            } else {
-                                Swal.fire({
-                                    position: "center",
-                                    icon: "error",
-                                    title: response.msg,
-                                    showConfirmButton: false,
-                                    timer: 2000,
-                                });
-                            }
-                        },
-                        error: function (error) {
-                            Swal.fire({
-                                position: "center",
-                                icon: "error",
-                                title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                                showConfirmButton: false,
-                                timer: 2000,
-                            });
-                            console.log("error:", error);
-                        },
-                    }); //! Ajax
-                }
-            });
-
-        });
-    }); //! Aktif Son
-    //! ************ Aktif Son ***************
-
-    //! ************ Ara  ***************
-
-    //! Modal Ara
-    $('document').ready(function () {
-        $("#searchModal").modal({
-            keyboard: true,
-            backdrop: "static",
-            show: false,
-        
-        }).on("show.bs.modal", function(event){
-            //alert("Modal Açıldı");
-        
-            var button = $(event.relatedTarget); 
-            var modalId = button.data("id"); 
-
-            //! Ajax  Post
-            $.ajax({
-                url: "/bank/search/post",
-                method: "post",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                data: {
-                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                    id:Number(modalId)
-                },              
-                // beforeSend: function() { console.log("Başlangıc"); },
-                success: function (response) {
-                    // alert("başarılı");
-                    console.log("response:", response);
-                    // console.log("status:", response.status);
-
-
-                    $('#CurrencyCartIDSearch option[value='+response.DB.currencyCartId+']').prop('selected',true);
-                    $('#bankaAccountTitleSearch').val(response.DB.bankaAccountTitle);
-                    $('#BankTitleSearch').val(response.DB.bankTitle);
-                    $('#BranchSearch').val(response.DB.branch);
-                    $('#AcountNumberSearch').val(response.DB.accountNumber);
-
-                    $('#IbanSearch').val(response.DB.iban);
-                    $('#SwiftSearch').val(response.DB.swift);
-                
-                },
-                error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadSearch').css('display','none');
-                    $('#ModalBodyInfoSearch').css('display','block');
-
-                    console.log("Search Ajax Bitti");
-        
-                }
-            }); //! Ajax Post Son
-
-              
-             //! Return
-             $('#search_data_id').html(modalId);
-           
-             //! Val
-             //$('#ValueUpdated').val(modal_Value);
- 
-             //! Check
-             //$('#Airline').prop('checked', true);
- 
-             //! Select
-             // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-            
-
-            
-        
-        }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
-
-    }); //! Modal Ara Son
-
-    //! ************ Ara Son  ***************
-
     //! ************ Güncelle  ***************
 
     //! Modal Güncelle
@@ -673,8 +503,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
             var button = $(event.relatedTarget); 
             var modalId = button.data("id"); 
+            //console.log("modalId:",modalId);
 
-            console.log("modalId:",modalId);
+            //! Görünürlük Kontrolleri - Tamamlandı
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
            
             //! Ajax  Post
             $.ajax({
@@ -699,19 +532,20 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     $('#IbanUpdate').val(response.DB.iban);
                     $('#SwiftUpdate').val(response.DB.swift);
-        
+
+                    //! Görünürlük Kontrolleri - Başlangıc
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
                 
                 },
-                error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadSearch').css('display','none');
-                    $('#ModalBodyInfoSearch').css('display','block');
+                error: function (error) { 
+                    console.log("search error:", error);  
 
-                    console.log("Search Ajax Bitti");
-        
-                }
+                    //! Görünürlük Kontrolleri - Başlangıc
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
+                },
+                complete: function() {}
             }); //! Ajax Post Son
              
 
@@ -739,6 +573,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! Güncelle
     $("#edit_item").click(function (e) {
         e.preventDefault();
+
+        //! Loading - Veri Yükleniyor
+        $('#loaderEdit').css('display','block'); //! Laoding Göster
+        $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+        $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+        //! Loading - Veri Yüklendi
+        function loadingYuklendi(){
+            $('#loaderEdit').hide(); //! Laoding Gizle
+            $('#edit_modal ').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+        }
+        //! Loading - Veri Yüklendi Son
 
         //! Id
         var data_id =  $('#update_data_id').html();
@@ -786,6 +633,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         timer: 2000,
                     });
                 }
+
+                //! Loading
+                loadingYuklendi();
             },
             error: function (error) {
                 Swal.fire({
@@ -883,13 +733,63 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     $("#new_add").click(function (e) {
         e.preventDefault();
 
-        var selectCurrentCartEdit = $('#CurrencyCartIDAdd').val(); //! Firma
+        var selectCurrentCartAdd = $('#CurrencyCartIDAdd').val(); 
+        var bankaAccountTitleAdd = $('#bankaAccountTitleAdd').val(); 
+        var bankTitleAdd = $('#bankTitleAdd').val(); 
+        var branchAdd = $('#branchAdd').val(); 
+        var acountNumberAdd = $('#acountNumberAdd').val(); 
+        var ibanAdd = $('#ibanAdd').val(); 
 
-        if (selectCurrentCartEdit == "") {
+        if (selectCurrentCartAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
                 title: "Firma  Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (bankaAccountTitleAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Banka Hesap Adı Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (bankTitleAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Banka Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (branchAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Şube Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (acountNumberAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Hesap Numarası Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (ibanAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Iban Yazılmadı",
                 showConfirmButton: false,
                 timer: 2000,
             });
@@ -905,11 +805,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     currencyCartId: $('#CurrencyCartIDAdd').val(),
                     bankaAccountTitle: $('#bankaAccountTitleAdd').val(),
-                    bankTitle: $('#BankTitleAdd').val(),
-                    branch: $('#BranchAdd').val(),
-                    accountNumber: $('#AcountNumberAdd').val(),
-                    iban: $('#IbanAdd').val(),
-                    swift: $('#SwiftAdd').val(),
+                    bankTitle: $('#bankTitleAdd').val(),
+                    branch: $('#branchAdd').val(),
+                    accountNumber: $('#acountNumberAdd').val(),
+                    iban: $('#ibanAdd').val(),
+                    swift: $('#swiftAdd').val(),
                     created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },
                 success: function (response) {
