@@ -1091,7 +1091,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 // beforeSend: function() { console.log("Başlangıc"); },
                 success: function (response) {
                     // alert("başarılı");
-                    //console.log("response:", response);
+                    console.log("response:", response);
                     // console.log("status:", response.status);
 
                     //! Return
@@ -1117,7 +1117,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#nameEnEdit').val(response.DB.nameEn);
 
                     //! Dosya - Resim
-                    if(response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
+                    if(response.DB.imgUrl != "/assets/img/product/default.jpg" && response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
                         $('#filePathUrlEdit').html(response.DB.imgUrl);
 
                         // console.log("resim var");
@@ -1128,9 +1128,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                         $('#product_dowloand_img').css('display','block');
                         $('#product_dowloand_img').attr("href",'/'+response.DB.imgUrl);
-                        $('#product_dowloand_img').attr("download",'/'+response.DB.imgUrl);
+                        $('#product_dowloand_img').attr("download",'urun_resim_'+response.DB.id);
                     }
-                    else if(response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
+                    else if( response.DB.imgUrl == "/assets/img/product/default.jpg" || response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
                         $('#productViewImageEdit').css('display','none');
                         $('#product_dowloand_img').css('display','none');
                     }
@@ -1175,8 +1175,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                         $('#export_registered_kdv_buyEdit').val("");
                         $('#export_registered_kdv_sellEdit').val("");
-                    }
-                   
+                    }                   
                    
                     $('#descriptionTREdit').val(response.DB.descriptionTr);
                     $('#descriptionENEdit').val(response.DB.descriptionEn);

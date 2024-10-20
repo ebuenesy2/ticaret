@@ -661,7 +661,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#tech_featuresTREdit').val(response.DB.tech_featuresTr);
 
                     //! Dosya - Resim
-                    if(response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
+                    if(response.DB.imgUrl != "/assets/img/product/default.jpg" && response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
                         $('#filePathUrlEdit').html(response.DB.imgUrl);
 
                         $('#productViewImageEdit').css('display','block');
@@ -671,7 +671,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         $('#product_dowloand_imgEdit').attr("href",'/'+response.DB.imgUrl);
                         $('#product_dowloand_imgEdit').attr("download",'/'+response.DB.imgUrl);
                     }
-                    else if(response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
+                    else if(response.DB.imgUrl == "/assets/img/product/default.jpg" || response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
                         $('#productViewImageEdit').css('display','none');
                         $('#product_dowloand_imgEdit').css('display','none');
                     }

@@ -420,7 +420,7 @@ $(function () {
 
                             $('#product_dowloand_img').css('display','block');
                             $('#product_dowloand_img').attr("href",'/'+response.DB.imgUrl);
-                            $('#product_dowloand_img').attr("download",'/'+response.DB.imgUrl);
+                            $('#product_dowloand_img').attr("download",'urun_resim_'+response.DB.id);
                         }
                         else if(response.DB.imgUrl == "" ) {
                             $('#productViewImage').css('display','none');
@@ -1027,7 +1027,7 @@ $(function () {
 
                        
                         //! Dosya - Resim
-                        if(response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
+                        if(response.DB.imgUrl != "/assets/img/product/default.jpg" && response.DB.imgUrl != "" && response.DB.imgUrl != null ) {
                             $('#filePathUrlEdit').html(response.DB.imgUrl);
 
                             $('#productViewImage').css('display','block');
@@ -1035,9 +1035,9 @@ $(function () {
 
                             $('#product_dowloand_img').css('display','block');
                             $('#product_dowloand_img').attr("href",'/'+response.DB.imgUrl);
-                            $('#product_dowloand_img').attr("download",'/'+response.DB.imgUrl);
+                            $('#product_dowloand_img').attr("download",'urun_resim_'+response.DB.id);
                         }
-                        else if(response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
+                        else if(response.DB.imgUrl == "/assets/img/product/default.jpg" || response.DB.imgUrl == "" || response.DB.imgUrl == null ) {
                             $('#productViewImage').css('display','none');
                             $('#product_dowloand_img').css('display','none');
                             $('#filePathUrlEdit').html(null);
