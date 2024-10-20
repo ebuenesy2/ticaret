@@ -378,7 +378,7 @@
                     // console.log("status:", response.status);
 
                     //! Return
-                    $('#update_data_id').html(modalId);
+                    $('#edit_data_id').html(modalId);
                     $('#namePublicEdit').val(response.DB.namePublic);
 
                     
@@ -482,7 +482,7 @@
             
 
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
 
             //! Görünürlük Kontrolleri
             $('#loaderEdit').css('display','none');
@@ -549,7 +549,7 @@
             //! Bilgileri
             var total = Number(PriceEdit.replace(',','.'))*Number(StockCountEdit); //! Toplam
             total = total.toFixed(2); //! Anlamlı Sayı
-            var data_id =  $('#update_data_id').html();  //! Id
+            var data_id =  $('#edit_data_id').html();  //! Id
             var data_id_req =  $('#edit_item').attr('data_id'); //! Id
 
             //! Ajax

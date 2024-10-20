@@ -284,7 +284,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -783,7 +783,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }); //! Ajax Post Son
 
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
 
             //! Görünürlük Kontrolleri - Tamamlandı
             $('#loaderEdit').css('display','none');
@@ -840,7 +840,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         else {
 
             //! Id
-            var data_id =  $('#update_data_id').html();
+            var data_id =  $('#edit_data_id').html();
 
             //! Ajax
             $.ajax({

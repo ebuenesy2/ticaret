@@ -520,7 +520,7 @@ $(function () {
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -861,19 +861,8 @@ $(function () {
             }); //! Ajax Post Son
 
               
-             //! Return
-             $('#search_data_id').html(modalId);
-           
-             //! Val
-             //$('#ValueUpdated').val(modal_Value);
- 
-             //! Check
-             //$('#Airline').prop('checked', true);
- 
-             //! Select
-             // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-            
-
+            //! Return
+            $('#search_data_id').html(modalId);
             
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
@@ -917,12 +906,11 @@ $(function () {
                     $('#CurrencyCartIDEdit').val(response.DB.currencyCartId);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
-                    $('#BranchUpdate').val(response.DB.branch);
-                    $('#AcountNumberUpdate').val(response.DB.accountNumber);
+                    $('#BranchEdit').val(response.DB.branch);
+                    $('#AcountNumberEdit').val(response.DB.accountNumber);
 
-                    $('#IbanUpdate').val(response.DB.iban);
-                    $('#SwiftUpdate').val(response.DB.swift);
-        
+                    $('#IbanEdit').val(response.DB.iban);
+                    $('#SwiftEdit').val(response.DB.swift);
                 
                 },
                 error: function (error) { console.log("search error:", error); alert("error");},
@@ -931,18 +919,9 @@ $(function () {
              
 
             //! Return
-            $('#update_data_id').html(modalId);
-           
-            //! Val
-            //$('#ValueUpdated').val(modal_Value);
+            $('#edit_data_id').html(modalId);
 
-            //! Check
-            //$('#Airline').prop('checked', true);
-
-            //! Select
-            // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-
-
+            
             //! Görünürlük Kontrolleri
             $('#loaderEdit').css('display','none');
             $('#ModalBodyInfoEdit').css('display','block');
@@ -956,7 +935,7 @@ $(function () {
         e.preventDefault();
 
         //! Id
-        var data_id =  $('#update_data_id').html();
+        var data_id =  $('#edit_data_id').html();
 
         //! Ajax
         $.ajax({
@@ -969,10 +948,10 @@ $(function () {
                 currencyCartId: $('#CurrencyCartIDEdit').val(),
                 bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
                 bankTitle: $('#BanktitleEdit').val(),
-                branch: $('#BranchUpdate').val(),
-                accountNumber: $('#AcountNumberUpdate').val(),
-                iban: $('#IbanUpdate').val(),
-                swift: $('#SwiftUpdate').val(),
+                branch: $('#BranchEdit').val(),
+                accountNumber: $('#AcountNumberEdit').val(),
+                iban: $('#IbanEdit').val(),
+                swift: $('#SwiftEdit').val(),
                 updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
             },
             success: function (response) {

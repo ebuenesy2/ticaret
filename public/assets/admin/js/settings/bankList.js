@@ -266,7 +266,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -527,11 +527,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#CurrencyCartIDEdit option[value='+response.DB.currencyCartId+']').prop('selected',true);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
-                    $('#BranchUpdate').val(response.DB.branch);
-                    $('#AcountNumberUpdate').val(response.DB.accountNumber);
+                    $('#BranchEdit').val(response.DB.branch);
+                    $('#AcountNumberEdit').val(response.DB.accountNumber);
 
-                    $('#IbanUpdate').val(response.DB.iban);
-                    $('#SwiftUpdate').val(response.DB.swift);
+                    $('#IbanEdit').val(response.DB.iban);
+                    $('#SwiftEdit').val(response.DB.swift);
 
                     //! Görünürlük Kontrolleri - Başlangıc
                     $('#loaderEdit').css('display','none');
@@ -550,17 +550,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
              
 
             //! Return
-            $('#update_data_id').html(modalId);
-           
-            //! Val
-            //$('#ValueUpdated').val(modal_Value);
-
-            //! Check
-            //$('#Airline').prop('checked', true);
-
-            //! Select
-            // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-
+            $('#edit_data_id').html(modalId);
 
             //! Görünürlük Kontrolleri
             $('#loaderEdit').css('display','none');
@@ -588,7 +578,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Loading - Veri Yüklendi Son
 
         //! Id
-        var data_id =  $('#update_data_id').html();
+        var data_id =  $('#edit_data_id').html();
 
         //! Ajax
         $.ajax({
@@ -601,10 +591,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 currencyCartId: $('#CurrencyCartIDEdit').val(),
                 bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
                 bankTitle: $('#BanktitleEdit').val(),
-                branch: $('#BranchUpdate').val(),
-                accountNumber: $('#AcountNumberUpdate').val(),
-                iban: $('#IbanUpdate').val(),
-                swift: $('#SwiftUpdate').val(),
+                branch: $('#BranchEdit').val(),
+                accountNumber: $('#AcountNumberEdit').val(),
+                iban: $('#IbanEdit').val(),
+                swift: $('#SwiftEdit').val(),
                 updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
             },
             success: function (response) {

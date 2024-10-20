@@ -100,7 +100,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     } //! Panel Gösterme Durum Son
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 

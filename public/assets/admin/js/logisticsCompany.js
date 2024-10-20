@@ -102,7 +102,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         //console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -718,7 +718,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
 
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
             $('#UpdatedName').val(modal_Name);
             $('#UpdatedAuthorizedPerson').val(modal_Authorized_person);
             $('#UpdatedAuthorizedPhone').val(modal_Authorized_person_tel);
@@ -747,7 +747,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         e.preventDefault();
 
         //! Id
-        var data_id =  $('#update_data_id').html();
+        var data_id =  $('#edit_data_id').html();
 
         //! Ajax
         $.ajax({
@@ -1004,8 +1004,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Tüm Check
         $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
     
-            var data_check_checked = $(this)[0].checked//! false/true
-            var data_check_val = $(this)[0].defaultValue//! Val
+            var data_check_checked = $(this)[0].checked; //! false/true
+            var data_check_val = $(this)[0].defaultValue; //! Val
 
             // console.log("data_check_checked:",data_check_checked);
             // console.log("data_check_val:",data_check_val);

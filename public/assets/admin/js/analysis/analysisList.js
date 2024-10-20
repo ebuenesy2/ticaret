@@ -102,7 +102,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -629,7 +629,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     //! Return
-                    $('#update_data_id').html(modalId);
+                    $('#edit_data_id').html(modalId);
                     
                     $('#productItemsEdit option[value='+response.DB.product_id+']').prop('selected',true); //! Select
                     $('#platformEdit option[value='+response.DB.pratform_id+']').prop('selected',true); //! Select
@@ -736,7 +736,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         } 
         else {
 
-            var data_id =  $('#update_data_id').html();  //! Id
+            var data_id =  $('#edit_data_id').html();  //! Id
 
             //! Ajax
             $.ajax({

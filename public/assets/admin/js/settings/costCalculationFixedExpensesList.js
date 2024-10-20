@@ -307,7 +307,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -755,7 +755,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
              
 
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
            
          
             //! Görünürlük Kontrolleri
@@ -818,7 +818,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
             //! Id
-            var data_id =  $('#update_data_id').html();
+            var data_id =  $('#edit_data_id').html();
 
             //! Ajax
             $.ajax({

@@ -635,7 +635,7 @@ $(function () {
                         // console.log("status:", response.status);
     
                         //! Return
-                        $('#update_data_id').html(modalId);
+                        $('#edit_data_id').html(modalId);
 
                         //! Loading
                         if(response.status == "success") {
@@ -773,7 +773,7 @@ $(function () {
                 
 
                 //! Return
-                $('#update_data_id').html(modalId);
+                $('#edit_data_id').html(modalId);
 
                 //! Görünürlük Kontrolleri
                 $('#loaderEdit').css('display','none');
@@ -834,7 +834,7 @@ $(function () {
                 
 
                 //! Id
-                var data_id =  $('#update_data_id').html();  //! Id
+                var data_id =  $('#edit_data_id').html();  //! Id
 
                 //! Ajax
                 $.ajax({

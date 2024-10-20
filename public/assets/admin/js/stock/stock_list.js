@@ -102,7 +102,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -1095,7 +1095,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     // console.log("status:", response.status);
 
                     //! Return
-                    $('#update_data_id').html(modalId);
+                    $('#edit_data_id').html(modalId);
                     $('#edit_item').attr("data_stockNumber",response.DB.codeNumber);
                     
                     $('#modalInfo').attr("data_stockNumber",response.DB.codeNumber);
@@ -1320,7 +1320,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }
             //! Loading - Veri Yüklendi Son
 
-            var data_id =  $('#update_data_id').html();  //! Id
+            var data_id =  $('#edit_data_id').html();  //! Id
 
             //! Ajax
             $.ajax({

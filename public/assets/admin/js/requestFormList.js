@@ -244,8 +244,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Tüm Check
         $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
     
-            var data_check_checked = $(this)[0].checked//! false/true
-            var data_check_val = $(this)[0].defaultValue//! Val
+            var data_check_checked = $(this)[0].checked;//! false/true
+            var data_check_val = $(this)[0].defaultValue;
 
             // console.log("data_check_checked:",data_check_checked);
             // console.log("data_check_val:",data_check_val);
@@ -376,7 +376,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 

@@ -96,7 +96,7 @@ function choosePanelView() {
 
 
 //! Güncelle
-$("#update_checkedItems").click(function (e) {
+$("#edit_checkedItems").click(function (e) {
     var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
     console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -745,7 +745,7 @@ $('document').ready(function () {
         
 
         //! Return
-        $('#update_data_id').html(modalId);
+        $('#edit_data_id').html(modalId);
         $('#UpdatedName').val(modal_Name);
         $('#UpdatedSurname').val(modal_Surname);
 
@@ -793,7 +793,7 @@ $("#edit_item").click(function (e) {
     else {        
 
         //! Id
-        var data_id =  $('#update_data_id').html();
+        var data_id =  $('#edit_data_id').html();
 
         //! Ajax
         $.ajax({
@@ -982,8 +982,8 @@ $("#edit_item_check_coloums").click(function (e) {
     //! Tüm Check
     $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
    
-        var data_check_checked = $(this)[0].checked//! false/true
-        var data_check_val = $(this)[0].defaultValue//! Val
+        var data_check_checked = $(this)[0].checked;//! false/true
+        var data_check_val = $(this)[0].defaultValue; //! Val
 
         //! Tablo Sutun Silme
         var tablex = document.getElementById('customerTable'); //! Tablo Okuma

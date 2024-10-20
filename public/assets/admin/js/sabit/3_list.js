@@ -102,7 +102,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -703,18 +703,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             var modal_Value = button.data("value"); 
 
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
             $('#nameEditd').val(modal_Name);
             $('#SurnameEditd').val(modal_Surname);
-            $('#EmailUpdated').val(modal_Email);
+            $('#EmailEdit').val(modal_Email);
             $('#ValueUpdated').val(modal_Value);
-
-            //! Check
-            //$('#Airline').prop('checked', true);
-
-            //! Select
-            // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-
 
             //! Görünürlük Kontrolleri
             $('#loaderEdit').css('display','none');
@@ -729,7 +722,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         e.preventDefault();
 
         //! Id
-        var data_id =  $('#update_data_id').html();
+        var data_id =  $('#edit_data_id').html();
 
         //! Ajax
         $.ajax({
@@ -815,12 +808,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             $('#EmailSearch').val(modal_Email);
             $('#ValueSearch').val(modal_Value);
 
-            //! Check
-            //$('#UpdatedAirline').prop('checked', true);
             
-            //! Select
-            // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-
             //! Görünürlük Kontrolleri
             $('#LoadingFileUploadSearch').css('display','none');
             $('#ModalBodyInfoSearch').css('display','block');
@@ -962,8 +950,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Tüm Check
         $('input[type=checkbox][name="modalTableTitleCheckSettings"]').each(function () {
     
-            var data_check_checked = $(this)[0].checked//! false/true
-            var data_check_val = $(this)[0].defaultValue//! Val
+            var data_check_checked = $(this)[0].checked; //! false/true
+            var data_check_val = $(this)[0].defaultValue
 
             // console.log("data_check_checked:",data_check_checked);
             // console.log("data_check_val:",data_check_val);

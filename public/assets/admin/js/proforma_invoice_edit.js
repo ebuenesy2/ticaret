@@ -636,7 +636,7 @@ $(function () {
                         //console.log("status:", response.status);
 
                         //! Return
-                        $('#update_data_id').html(modalId);
+                        $('#edit_data_id').html(modalId);
 
                         //! Loading
                         if(response.status == "success") {
@@ -774,7 +774,7 @@ $(function () {
                 
 
                 //! Return
-                $('#update_data_id').html(modalId);
+                $('#edit_data_id').html(modalId);
 
                 //! Görünürlük Kontrolleri
                 $('#loaderEdit').css('display','none');
@@ -916,7 +916,7 @@ $(function () {
                 
 
                 //! Id
-                var data_id =  $('#update_data_id').html();  //! Id
+                var data_id =  $('#edit_data_id').html();  //! Id
 
                 //! Ajax
                 $.ajax({
@@ -1564,18 +1564,8 @@ $(function () {
             }); //! Ajax Post Son
 
               
-             //! Return
-             $('#search_data_id').html(modalId);
-           
-             //! Val
-             //$('#ValueUpdated').val(modal_Value);
- 
-             //! Check
-             //$('#Airline').prop('checked', true);
- 
-             //! Select
-             // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-            
+            //! Return
+            $('#search_data_id').html(modalId);
 
             
         
@@ -1674,11 +1664,11 @@ $(function () {
                     $('#CurrencyCartIDEdit').val(response.DB.currencyCartId);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
-                    $('#BranchUpdate').val(response.DB.branch);
-                    $('#AcountNumberUpdate').val(response.DB.accountNumber);
+                    $('#BranchEdit').val(response.DB.branch);
+                    $('#AcountNumberEdit').val(response.DB.accountNumber);
 
-                    $('#IbanUpdate').val(response.DB.iban);
-                    $('#SwiftUpdate').val(response.DB.swift);
+                    $('#IbanEdit').val(response.DB.iban);
+                    $('#SwiftEdit').val(response.DB.swift);
         
                 
                 },
@@ -1718,10 +1708,10 @@ $(function () {
         //! Veriler
         var bankaAccountTitle = $('#bankaAccounttitleEdit').val();
         var BankTitle = $('#BanktitleEdit').val();
-        var Branch = $('#BranchUpdate').val();
-        var AcountNumber = $('#AcountNumberUpdate').val();
-        var Iban = $('#IbanUpdate').val();
-        var Swift = $('#SwiftUpdate').val();
+        var Branch = $('#BranchEdit').val();
+        var AcountNumber = $('#AcountNumberEdit').val();
+        var Iban = $('#IbanEdit').val();
+        var Swift = $('#SwiftEdit').val();
 
         if(bankaAccountTitle == "") {
 
@@ -1802,10 +1792,10 @@ $(function () {
                     proforma_id: $('#ProformaIDUpdate').val(),
                     bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
                     bankTitle: $('#BanktitleEdit').val(),
-                    branch: $('#BranchUpdate').val(),
-                    accountNumber: $('#AcountNumberUpdate').val(),
-                    iban: $('#IbanUpdate').val(),
-                    swift: $('#SwiftUpdate').val(),
+                    branch: $('#BranchEdit').val(),
+                    accountNumber: $('#AcountNumberEdit').val(),
+                    iban: $('#IbanEdit').val(),
+                    swift: $('#SwiftEdit').val(),
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },
                 success: function (response) {

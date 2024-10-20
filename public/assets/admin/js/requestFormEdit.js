@@ -984,7 +984,7 @@ $(function () {
 
                        
                         //! Return
-                        $('#update_data_id').html(modalId);
+                        $('#edit_data_id').html(modalId);
                         
                         //! sector
                         if(response.DB.sector) {
@@ -1137,7 +1137,7 @@ $(function () {
 
 
                 //! Return
-                $('#update_data_id').html(modalId);
+                $('#edit_data_id').html(modalId);
 
                 //! Görünürlük Kontrolleri
                 $('#loaderEdit').css('display','none');
@@ -1262,7 +1262,7 @@ $(function () {
                 $total = Number($unitPrice.replace(',','.'))*Number($val); //! Toplam
                 $total = $total.toFixed(2); //! Anlamlı Sayı
 
-                var data_id =  $('#update_data_id').html();  //! Id
+                var data_id =  $('#edit_data_id').html();  //! Id
 
                 //! Stok
                 if(stockActive == "0") {

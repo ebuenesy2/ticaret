@@ -267,7 +267,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
     //! Güncelle
-    $("#update_checkedItems").click(function (e) {
+    $("#edit_checkedItems").click(function (e) {
         var choosedItemActionText = $('#choosedItemAction').val(); //! Değer Okuma
         console.log("choosedItemActionText:",choosedItemActionText);
 
@@ -609,20 +609,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }); //! Ajax Post Son
 
               
-             //! Return
-             $('#search_data_id').html(modalId);
+            //! Return
+            $('#search_data_id').html(modalId);
            
-             //! Val
-             //$('#ValueUpdated').val(modal_Value);
- 
-             //! Check
-             //$('#Airline').prop('checked', true);
- 
-             //! Select
-             // $('#SelectStockUnitUpdated option[value='+modal_stockUnit+']').prop('selected',true);
-            
-
-            
+           
         
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
@@ -646,7 +636,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             var modalId = button.data("id"); 
             
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
             //console.log("modalId:",modalId);
             
             //! Ajax  Post
@@ -730,7 +720,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         else {
 
             //! Id
-            var data_id =  $('#update_data_id').html();
+            var data_id =  $('#edit_data_id').html();
 
             //! Ajax
             $.ajax({
@@ -965,7 +955,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             var modalId = button.data("id"); 
             
             //! Return
-            $('#update_data_id').html(modalId);
+            $('#edit_data_id').html(modalId);
             //console.log("modalId:",modalId);
             
             //! Ajax  Post
@@ -1050,7 +1040,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         else {
 
             //! Id
-            var data_id =  $('#update_data_id').html();
+            var data_id =  $('#edit_data_id').html();
       
             //! Ajax
             $.ajax({

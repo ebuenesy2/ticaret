@@ -277,7 +277,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="edit_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" onclick={$("#Edit_ProductModal").modal('hide');} ></button>
                         </div>
                         <form action="#">

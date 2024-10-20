@@ -336,7 +336,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="edit_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" onclick={$("#Edit_ProductModal").modal('hide');} ></button>
                         </div>
                         <form action="#">
@@ -889,23 +889,23 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="BranchUpdate" class="form-label">@lang('admin.Branch')</label>
-                                    <input class="form-control" type="text" id="BranchUpdate" name="BranchUpdate" placeholder="@lang('admin.Branch')">
+                                    <label for="BranchEdit" class="form-label">@lang('admin.Branch')</label>
+                                    <input class="form-control" type="text" id="BranchEdit" name="BranchEdit" placeholder="@lang('admin.Branch')">
                                 </div>
 
                                 <div class="mb-3"> 
-                                    <label for="AcountNumberUpdate" class="form-label">@lang('admin.AcountNumber')</label>
-                                    <input class="form-control" type="text" id="AcountNumberUpdate" name="AcountNumberUpdate" placeholder="@lang('admin.AcountNumber')">
+                                    <label for="AcountNumberEdit" class="form-label">@lang('admin.AcountNumber')</label>
+                                    <input class="form-control" type="text" id="AcountNumberEdit" name="AcountNumberEdit" placeholder="@lang('admin.AcountNumber')">
                                 </div>
 
                                 <div class="mb-3"> 
-                                    <label for="IbanUpdate" class="form-label">@lang('admin.Iban')</label>
-                                    <input class="form-control" type="text" id="IbanUpdate" name="IbanUpdate" placeholder="@lang('admin.Iban')">
+                                    <label for="IbanEdit" class="form-label">@lang('admin.Iban')</label>
+                                    <input class="form-control" type="text" id="IbanEdit" name="IbanEdit" placeholder="@lang('admin.Iban')">
                                 </div>
 
                                 <div class="mb-3"> 
-                                    <label for="SwiftUpdate" class="form-label">@lang('admin.Swift')</label>
-                                    <input class="form-control" type="text" id="SwiftUpdate" name="SwiftUpdate" placeholder="@lang('admin.Swift')">
+                                    <label for="SwiftEdit" class="form-label">@lang('admin.Swift')</label>
+                                    <input class="form-control" type="text" id="SwiftEdit" name="SwiftEdit" placeholder="@lang('admin.Swift')">
                                 </div>
                             </div>
                             <!---  ModalBodyInfoBody Son --->
@@ -1392,7 +1392,7 @@
 
 
                                 <!--- Button -->
-                                <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Edit')</button>
+                                <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="edit_checkedItems" >@lang('admin.Edit')</button>
 
 
                             </div>
