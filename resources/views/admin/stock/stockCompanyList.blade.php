@@ -25,8 +25,6 @@
     <!------- Lang --->
     @include('include.lang')
     
-
-    
     <!-- Modal Ekle -->
     <div class="modal_new fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -54,9 +52,9 @@
                                 <label for="currentCodeAdd" class="form-label">Görev</label>
                                 <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="currentCodeAdd">
                                     <option value="">Seç</option>
-                                    <option value="120" >Alıcı</option>
-                                    <option value="320" >Satıcı</option>
-                                    <option value="120" >Hem Alıcı Hemde Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer')}}" >Alıcı</option>
+                                    <option value="{{config('admin.currentCode_seller')}}" >Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer_seller')}}" >Hem Alıcı Hemde Satıcı</option>
                                 </select>
                             </div>
                             <!--end Arama CariKart  -->
@@ -113,9 +111,9 @@
                                 <label for="currentCodeEdit" class="form-label">Görev</label>
                                 <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="currentCodeEdit">
                                     <option value="">Seç</option>
-                                    <option value="120" >Alıcı</option>
-                                    <option value="320" >Satıcı</option>
-                                    <option value="120" >Hem Alıcı Hemde Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer')}}" >Alıcı</option>
+                                    <option value="{{config('admin.currentCode_seller')}}" >Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer_seller')}}" >Hem Alıcı Hemde Satıcı</option>
                                 </select>
                             </div>
                             <!--end Arama CariKart  -->

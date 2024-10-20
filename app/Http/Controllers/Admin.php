@@ -1797,7 +1797,6 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! StockList Son
 
-
    //! StockList Add  
    public function StockListAddPost(Request $request)
    {
@@ -1957,7 +1956,6 @@ class Admin extends Controller
       }
       
    } //! StockList Delete  Son
-
 
    //! StockList Delete  Multi
    public function StockListDeletePostMulti(Request $request)
@@ -2293,7 +2291,6 @@ class Admin extends Controller
       }
       
    } //! StockList Edit Active Multi Son
-
       
    //! StockList Update Product Image
    public function StockListUpdateProductImage(Request $request)

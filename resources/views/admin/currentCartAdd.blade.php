@@ -199,9 +199,9 @@
                                 <label class="form-label" for="currentRow">Görev</label>
                                 <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="currentRow">
                                     <option value="">Seç</option>
-                                    <option value="120" >Alıcı</option>
-                                    <option value="320" >Satıcı</option>
-                                    <option value="120" >Hem Alıcı Hemde Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer')}}" >Alıcı</option>
+                                    <option value="{{config('admin.currentCode_seller')}}" >Satıcı</option>
+                                    <option value="{{config('admin.currentCode_buyer_seller')}}" >Hem Alıcı Hemde Satıcı</option>
                                 </select>
                             </div>
                             <div class="col-lg-12 mb-3">

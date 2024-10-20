@@ -385,9 +385,9 @@
                                         <label for="currentCodeSearch" class="form-label">Görev</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="currentCodeSearch">
                                             <option value="">@lang('admin.All')</option>
-                                            <option value="120" >Alıcı</option>
-                                            <option value="320" >Satıcı</option>
-                                            <option value="120" >Hem Alıcı Hemde Satıcı</option>
+                                            <option value="{{config('admin.currentCode_buyer')}}" >Alıcı</option>
+                                            <option value="{{config('admin.currentCode_seller')}}" >Satıcı</option>
+                                            <option value="{{config('admin.currentCode_buyer_seller')}}" >Hem Alıcı Hemde Satıcı</option>
                                         </select>
                                     </div>
                                     <!--end Arama CariKart  -->

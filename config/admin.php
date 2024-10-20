@@ -49,6 +49,10 @@
     'Default_ProductImgUrl' => '/assets/img/product/default.jpg',
 
     'CompanyName' => 'Yildirimdev',
+
+    'currentCode_buyer' => '120',
+    'currentCode_seller' => '320',
+    'currentCode_buyer_seller' => '121',
      
      
    ]
