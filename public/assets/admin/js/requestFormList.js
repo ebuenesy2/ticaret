@@ -910,7 +910,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#public_passEditSetting').val(response.DB.public_pass);
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {
         
                     //! Görünürlük Kontrolleri

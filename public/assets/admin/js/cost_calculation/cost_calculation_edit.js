@@ -112,7 +112,7 @@ $(function () {
                             $('#salesOutletAdd').val(response.DB.salesOutlet);
                 
                         },
-                        error: function (error) { console.log("search error:", error); },
+                        error: function (error) { console.log("search error:", error); alert("error");},
                         complete: function() {
                 
                             //! Görünürlük Kontrolleri
@@ -237,7 +237,7 @@ $(function () {
                             $('#salesOutletEdit').val(response.DB.salesOutlet);
                 
                         },
-                        error: function (error) { console.log("search error:", error); },
+                        error: function (error) { console.log("search error:", error); alert("error");},
                         complete: function() {
                 
                             //! Görünürlük Kontrolleri
@@ -759,7 +759,7 @@ $(function () {
                         }
             
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
             
                         // //! Görünürlük Kontrolleri
@@ -1206,7 +1206,7 @@ $(function () {
                         $('#CostItemPriceEdit').val(response.DB.price);
                     
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
             
                         //! Görünürlük Kontrolleri
@@ -1612,7 +1612,7 @@ $(function () {
                     $('#companyAuthorized_person_adress').html(response.DB.billing_address);
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
             
             }); //! Ajax Post Son
             

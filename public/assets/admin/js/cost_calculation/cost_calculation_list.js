@@ -539,7 +539,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
 
             },
-            error: function (error) { console.log("search error:", error); },
+            error: function (error) { console.log("search error:", error); alert("error");},
 
         }); //! Ajax Post Son
 

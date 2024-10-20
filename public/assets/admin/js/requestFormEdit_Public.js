@@ -476,7 +476,7 @@
 
         
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
               complete: function() {}
             }); //! Ajax Post Son
             

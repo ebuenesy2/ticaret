@@ -322,7 +322,7 @@ $(function () {
                         $('#update_note_data_id').html(modalId);
 
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
 
                         //! Görünürlük Kontrolleri
@@ -1016,7 +1016,7 @@ $(function () {
                         $('#update_doc_data_id').html(modalId);
 
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
 
                         //! Görünürlük Kontrolleri
@@ -1678,7 +1678,7 @@ $(function () {
                         $('#update_todo_data_id').html(modalId);
 
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
 
                         //! Görünürlük Kontrolleri
@@ -2119,7 +2119,7 @@ $(function () {
                         $('#update_conditions_data_id').html(modalId);
 
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
 
                         //! Görünürlük Kontrolleri

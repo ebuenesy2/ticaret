@@ -582,7 +582,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                      
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
             
                         // //! Görünürlük Kontrolleri
@@ -661,7 +661,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         //! response.DB.title
                     
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
             
                         // //! Görünürlük Kontrolleri
@@ -1065,6 +1065,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
             var button = $(event.relatedTarget); 
             var modalId = button.data("id"); 
+
+            //! Loading - Veri Yükleniyor
+            $('#loaderEdit').css('display','block'); //! Laoding Göster
+            $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+            $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderEdit').hide(); //! Laoding Gizle
+                $('#edit_item').removeAttr('disabled'); //! //! Button Göster
+                $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
             
             //! Ajax  Post
             $.ajax({
@@ -1181,25 +1194,17 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     //! Progresbar
                     $("#progressBarFileUploadEdit").width('0%');
                     $("#progressBarFileUploadtechnicalEdit").width('0%');
+
+                    //! Görünürlük Kontrolleri - Tamamlandı
+                    loadingYuklendi(); //! Loading
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
         
                 },
-                error: function (error) { console.log("search error:", error); },
-                complete: function() {
-        
-                    //! Görünürlük Kontrolleri
-                    $('#LoadingFileUploadSearch').css('display','none');
-                    $('#ModalBodyInfoSearch').css('display','block');
-
-                    //console.log("Search Ajax Bitti");
-        
-                }
+                error: function (error) { console.log("search error:", error); alert("error");},
+                complete: function() {}
             }); //! Ajax Post Son
-
- 
-            //! Görünürlük Kontrolleri
-            $('#loaderEdit').css('display','none');
-            $('#ModalBodyInfoEdit').css('display','block');
-        
+            
         }).on("hide.bs.modal", function (event) {  /* alert("Modal Kapat"); */ });
 
     }); //! Modal Güncelle Son

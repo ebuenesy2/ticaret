@@ -611,7 +611,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 //! response.DB.title
                
             },
-            error: function (error) { console.log("search error:", error); },
+            error: function (error) { console.log("search error:", error); alert("error");},
             complete: function() {
     
                 // //! Görünürlük Kontrolleri
@@ -655,7 +655,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 //! response.DB.title
                
             },
-            error: function (error) { console.log("search error:", error); },
+            error: function (error) { console.log("search error:", error); alert("error");},
             complete: function() {
     
                 // //! Görünürlük Kontrolleri
@@ -708,7 +708,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {
         
                     //! Görünürlük Kontrolleri
@@ -774,7 +774,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#codeNumberUpdate').val(response.DB.codeNumber);
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {               
 
                     //console.log("Search Ajax Bitti");

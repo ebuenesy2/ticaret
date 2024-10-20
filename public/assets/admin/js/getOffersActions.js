@@ -112,7 +112,7 @@ $(function () {
                             $('#salesOutletAdd').val(response.DB.salesOutlet);
                 
                         },
-                        error: function (error) { console.log("search error:", error); },
+                        error: function (error) { console.log("search error:", error); alert("error");},
                         complete: function() {
                 
                             //! Görünürlük Kontrolleri
@@ -241,7 +241,7 @@ $(function () {
                             $('#salesOutletEdit').val(response.DB.salesOutlet);
                 
                         },
-                        error: function (error) { console.log("search error:", error); },
+                        error: function (error) { console.log("search error:", error); alert("error");},
                         complete: function() {
                 
                             //! Görünürlük Kontrolleri
@@ -766,7 +766,7 @@ $(function () {
 
             
                     },
-                    error: function (error) { console.log("search error:", error); },
+                    error: function (error) { console.log("search error:", error); alert("error");},
                     complete: function() {
             
                         // //! Görünürlük Kontrolleri
@@ -1233,7 +1233,7 @@ $(function () {
 
                 
             },
-            error: function (error) { console.log("search error:", error); },
+            error: function (error) { console.log("search error:", error); alert("error");},
         
         }); //! Ajax Post Son
         

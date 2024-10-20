@@ -639,7 +639,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     //! response.DB.title
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {
         
                     // //! Görünürlük Kontrolleri
@@ -686,7 +686,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     //! response.DB.title
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {
         
                     // //! Görünürlük Kontrolleri
@@ -749,7 +749,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#ModalBodyInfoEdit').css('display','block');
                 
                 },
-                error: function (error) { console.log("search error:", error); },
+                error: function (error) { console.log("search error:", error); alert("error");},
                 complete: function() {  }  
             }); //! Ajax Post Son
              
