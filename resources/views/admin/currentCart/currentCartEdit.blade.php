@@ -50,8 +50,8 @@
                     <!---  ModalBodyInfoBody --->
                     <div class="modal-body" id="ModalBodyInfoSearch" style="display:none;" >
                         <div class="mb-3" style="display:none;" > 
-                            <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrencyCartID')</label>
-                            <input class="form-control" type="number" id="CurrencyCartIDSearch" name="CurrencyCartIDSearch" placeholder="@lang('admin.CurrencyCartID')" disabled >
+                            <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrentName')</label>
+                            <input class="form-control" type="number" id="CurrencyCartIDSearch" name="CurrencyCartIDSearch" placeholder="@lang('admin.CurrentName')" disabled >
                         </div>
 
                         
@@ -115,8 +115,8 @@
                     <!---  ModalBodyInfoBody --->
                     <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3" style="display:none;" > 
-                            <label for="CurrencyCartIDEdit" class="form-label">@lang('admin.CurrencyCartID')</label>
-                            <input class="form-control" type="number" id="CurrencyCartIDEdit" name="nameEdit" placeholder="@lang('admin.CurrencyCartID')"  value="{{$DB_Find->current_name}}" >
+                            <label for="CurrencyCartIDEdit" class="form-label">@lang('admin.CurrentName')</label>
+                            <input class="form-control" type="number" id="CurrencyCartIDEdit" name="nameEdit" placeholder="@lang('admin.CurrentName')"  value="{{$DB_Find->current_name}}" >
                         </div>
                         
                         <div class="col-lg-12 mb-3">
@@ -174,8 +174,8 @@
                 <form action="#">
                     <div class="modal-body">
                         <div class="mb-3" style="display:none;"  > 
-                            <label for="CurrencyCartIDEdit" class="form-label">@lang('admin.CurrencyCartID')</label>
-                            <input class="form-control" type="number" id="CurrencyCartIDEdit" name="nameEdit" placeholder="@lang('admin.CurrencyCartID')" value="{{$DB_Find->id}}" >
+                            <label for="CurrencyCartIDEdit" class="form-label">@lang('admin.CurrentName')</label>
+                            <input class="form-control" type="number" id="CurrencyCartIDEdit" name="nameEdit" placeholder="@lang('admin.CurrentName')" value="{{$DB_Find->id}}" >
                         </div>
 
                         

@@ -805,8 +805,8 @@
                         <form action="#" id="Add_BankaForm">
                             <div class="modal-body">
                                 <div class="mb-3" style="display:none;"  > 
-                                    <label for="ProformaIDAdd" class="form-label">@lang('admin.CurrencyCartID')</label>
-                                    <input class="form-control" type="number" id="ProformaIDAdd" name="nameAdd" placeholder="@lang('admin.CurrencyCartID')" value="{{$DB_Find->id}}" >
+                                    <label for="ProformaIDAdd" class="form-label">@lang('admin.CurrentName')</label>
+                                    <input class="form-control" type="number" id="ProformaIDAdd" name="nameAdd" placeholder="@lang('admin.CurrentName')" value="{{$DB_Find->id}}" >
                                 </div>
 
                                 <div class="mb-3">
@@ -874,8 +874,8 @@
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="BankaModalBodyInfoEdit" style="display:none;" >
                                 <div class="mb-3" style="display:none;" > 
-                                    <label for="ProformaIDUpdate" class="form-label">@lang('admin.CurrencyCartID')</label>
-                                    <input class="form-control" type="number" id="ProformaIDUpdate" name="nameEdit" placeholder="@lang('admin.CurrencyCartID')"  value="{{$DB_Find->id}}" >
+                                    <label for="ProformaIDUpdate" class="form-label">@lang('admin.CurrentName')</label>
+                                    <input class="form-control" type="number" id="ProformaIDUpdate" name="nameEdit" placeholder="@lang('admin.CurrentName')"  value="{{$DB_Find->id}}" >
                                 </div>
 
                                 <div class="mb-3">
@@ -944,8 +944,8 @@
                             <!---  ModalBodyInfoBody --->
                             <div class="modal-body" id="ModalBodyInfoSearch" style="display:none;" >
                                 <div class="mb-3" style="display:none;" > 
-                                    <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrencyCartID')</label>
-                                    <input class="form-control" type="number" id="CurrencyCartIDSearch" name="CurrencyCartIDSearch" placeholder="@lang('admin.CurrencyCartID')" disabled >
+                                    <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrentName')</label>
+                                    <input class="form-control" type="number" id="CurrencyCartIDSearch" name="CurrencyCartIDSearch" placeholder="@lang('admin.CurrentName')" disabled >
                                 </div>
 
                                 <div class="mb-3">

@@ -292,7 +292,7 @@
                                                 <th exportname="Id" class="sort" data-sort="type" scope="col" id="checkItemBox"  >Id</th>
                                                 <th exportname="CreatedDate" class="sort" data-sort="order_date" scope="col" >@lang('admin.createdDate')</th>
                                                 
-                                                <th exportname="currencyCartId" >@lang('admin.CurrencyCartID')</th>
+                                                <th exportname="currencyCartId" >@lang('admin.CurrentName')</th>
                                                 <th exportname="bankaAccountTitle" scope="col" >Hesap Adı</th>
                                                 <th exportname="bankTitle" >@lang('admin.BankTitle')</th>
                                                 <th exportname="branch" >@lang('admin.Branch')</th>
