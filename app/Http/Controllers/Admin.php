@@ -2878,8 +2878,6 @@ class Admin extends Controller
       
    } //! Stok Firma Edit Active Multi Son
    
-
-
    //************* Current Cart ***************** */
 
    //! currentCartList
@@ -2980,7 +2978,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/currentCartList',$DB);
+            return view('admin/currentCart/currentCartList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -2989,7 +2987,6 @@ class Admin extends Controller
  
      } catch (\Throwable $th) {  throw $th; }
    } //! currentCartList Son
-
 
    //! currentCartList Add  
    public function currentCartListAddPost(Request $request)
@@ -3147,7 +3144,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/currentCartAdd',$DB);
+            return view('admin/currentCart/currentCartAdd',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -3435,7 +3432,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/currentCartEdit',$DB);
+            return view('admin/currentCart/currentCartEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -3498,7 +3495,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/currentCartView',$DB);
+            return view('admin/currentCart/currentCartView',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -3958,7 +3955,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/currentCartStockList',$DB);
+            return view('admin/currentCart/currentCartStockList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();

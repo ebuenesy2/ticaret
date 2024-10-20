@@ -603,6 +603,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/currentCartList.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/currentCart/currentCartList.js"></script>
 
         </footer>

@@ -636,6 +636,6 @@
         @include('admin.include.footer')
 
         <!------- Js --->
-        <script src="{{asset('/assets/admin')}}/js/currentCartAction.js"></script>
+        <script src="{{asset('/assets/admin')}}/js/currentCart/currentCartAction.js"></script>
 
     </footer>
