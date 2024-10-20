@@ -158,7 +158,6 @@ Route::get('/request/form/{lang}/public/{id}', [Admin::class,'RequestFormPublicV
 Route::get('/request/form/{lang}/login/{id}', [Admin::class,'RequestFormPublicLogin']) -> name("request.form.public.login"); //! Public Login
 Route::post('/request/form/login/control', [Admin::class,'RequestFormPublicLoginControl']) -> name("request.form.login.control.post"); //! Public Login Control
 
-
 //! Talep Alma product
 Route::post('/request/form/product/add/post', [Admin::class,'RequestFormStockListAddPost']) -> name("request.form.stock.list.add.post"); //! Veri Ekleme - Post
 Route::post('/request/form/product/search/post', [Admin::class,'RequestFormStockListSearchPost']) -> name("request.form.stock.list.search.post"); //! Veri Arama

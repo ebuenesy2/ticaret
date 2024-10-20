@@ -90,7 +90,7 @@ $(function () {
                         optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'"  value="'+response.DB[index].id+'"  >'+ title +'</option>';
                     }
 
-                    $('#selectSubCategoryAdd').html(optionSelect);
+                    $('#selectSubSectorAdd').html(optionSelect);
 
                 },
                 error: function (error) { console.log("search error:", error); alert("error");},
@@ -148,7 +148,7 @@ $(function () {
                         optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'"  value="'+response.DB[index].id+'"  >'+ title +'</option>';
                     }
 
-                    $('#selectSubCategoryEdit').html(optionSelect);
+                    $('#selectSubSectorEdit').html(optionSelect);
 
                     //! response.DB.title
 
@@ -172,9 +172,9 @@ $(function () {
 
 
     //! Arama Alt Kategori Add
-    document.querySelector('#selectSubCategoryAdd').addEventListener('change', e => {
+    document.querySelector('#selectSubSectorAdd').addEventListener('change', e => {
 
-        var selectType = $('#selectSubCategoryAdd').val();
+        var selectType = $('#selectSubSectorAdd').val();
 
         $('#stockAdd option[value=""]').prop('selected', true); //! Seçim yap
         document.querySelectorAll('[id=stockAddOption]').forEach(function(el) { el.style.display="none" });
@@ -183,9 +183,9 @@ $(function () {
     }); //! Arama Alt Kategori Add Son
 
     //! Arama Alt Kategori Add
-    document.querySelector('#selectSubCategoryEdit').addEventListener('change', e => {
+    document.querySelector('#selectSubSectorEdit').addEventListener('change', e => {
 
-        var selectType = $('#selectSubCategoryEdit').val();
+        var selectType = $('#selectSubSectorEdit').val();
 
         $('#stockEdit option[value=""]').prop('selected', true); //! Seçim yap
         document.querySelectorAll('[id=stockEditOption]').forEach(function(el) { el.style.display="none" });
@@ -211,10 +211,10 @@ $(function () {
 
             //! Select
             var sectorAdd =  $('#sectorAdd').val();
-            var selectSubCategoryAdd =  $('#selectSubCategoryAdd').val();
+            var selectSubSectorAdd =  $('#selectSubSectorAdd').val();
 
             var sectorCode = $('#sectorAdd option[value='+sectorAdd+']').attr('data_codeLet');
-            var sub_sectorCode = $('#selectSubCategoryAdd option[value='+selectSubCategoryAdd+']').attr('data_codeLet');
+            var sub_sectorCode = $('#selectSubSectorAdd option[value='+selectSubSectorAdd+']').attr('data_codeLet');
             var stockNumber = $('#product_add_item').attr('data_stockNumber');
 
             var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
@@ -277,7 +277,7 @@ $(function () {
                     if(response.DB.techFileUrl != "" && response.DB.techFileUrl != null ) {
 
                         //! Dosya - Teknik
-                        $('#filePathUrltechnicalFile').html(response.DB.techFileUrl);
+                        $('#filePathUrlTechnicalFile').html(response.DB.techFileUrl);
 
                         $('#product_dowloand_fileAdd').css('display','block');
                         $('#product_dowloand_fileAdd').attr("href",'/'+response.DB.techFileUrl);
@@ -430,7 +430,7 @@ $(function () {
                     if(response.DB.techFileUrl != "" && response.DB.techFileUrl != null ) {
 
                         //! Dosya - Teknik
-                        $('#filePathUrltechnicalFileEdit').html(response.DB.techFileUrl);
+                        $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
 
                         $('#product_dowloand_file').css('display','block');
                         $('#product_dowloand_file').attr("href",'/'+response.DB.techFileUrl);
@@ -591,14 +591,16 @@ $(function () {
 
         //! Select
         var sectorAdd =  $('#sectorAdd').val();
-        var selectSubCategoryAdd =  $('#selectSubCategoryAdd').val();
+        var selectSubSectorAdd =  $('#selectSubSectorAdd').val();
         var stockAdd =  $('#stockAdd').val();
 
         var nameTrAdd =  $('#nameTrAdd').val();
         var nameEnAdd =  $('#nameEnAdd').val();
 
-        var SelectStockUnitAdd =  $('#SelectStockUnitAdd').val();
+        var SelectStockUnitAdd =  $('#SelectStockUnitAdd').val(); //! Stok Birimi
+        var StockCountAdd =  $('#StockCountAdd').val(); //! Stok Sayısı
         var SelectCurrencyAdd =  $('#SelectProductCurrencyAdd').val(); //! Para Birimi
+        var PriceAdd =  $('#PriceAdd').val(); //! Birim Fiyat
 
 
         if(sectorAdd == "") {
@@ -610,211 +612,215 @@ $(function () {
                 timer: 2000,
             });
         }
-        else if(selectSubCategoryAdd == "") {
+        else if(selectSubSectorAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: $('[id=lang_change][data_key=NoSubSectorSelected]').html().trim(),
+                title: "Alt Sektor Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
         }
         else if(stockAdd == "") {
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=StockNotSelected]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: $('[id=lang_change][data_key=StockNotSelected]').html().trim(),
+                showConfirmButton: false,
+                timer: 2000,
+            });
         }
         else if( nameTrAdd == "" ) {
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=NameTRNotWritten]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: $('[id=lang_change][data_key=NameTRNotWritten]').html().trim(),
+                showConfirmButton: false,
+                timer: 2000,
+            });
         }
-        else if(nameEnAdd == "") {
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=NameEnNotWritten]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
-        }
-        else if( nameTrAdd == "" ) {
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=NameTRNotWritten]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
-        }
-        else if( nameEnAdd == "") {
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=NameEnNotWritten]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
-        }
-        else  if(SelectStockUnitAdd == "") {
+        else if(SelectStockUnitAdd == "") {
 
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: $('[id=lang_change][data_key=SelectStockUnit]').html().trim(),
-            showConfirmButton: false,
-            timer: 2000,
-        });
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: $('[id=lang_change][data_key=SelectStockUnit]').html().trim(),
+                showConfirmButton: false,
+                timer: 2000,
+            });
 
+        }
+        else if(StockCountAdd == "") {
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Stok Sayısı Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+
+        }
+        else if(SelectCurrencyAdd == "") {
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Para Birimi Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(PriceAdd == "") {
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Birim Fiyat Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
         }
         else {
 
-        $val = $('#StockCountAdd').val(); //! Sayısı
-        $unitPrice = $('#PriceAdd').val(); //! Birim Fiyat
+            $val = Number($('#StockCountAdd').val()); //! Sayısı
+            $unitPrice = Number($('#PriceAdd').val().replace(',','.')); //! Birim Fiyat
 
-        $total = Number($unitPrice.replace(',','.'))*Number($val); //! Toplam
-        $total = $total.toFixed(2); //! Anlamlı Sayı
+            $total = Number($unitPrice)*Number($val); //! Toplam
+            $total = $total.toFixed(2); //! Anlamlı Sayı
 
-        //! Id
-        var data_id_req =  $('#edit_item').attr('data_id');
+            //! Id
+            var data_id_req =  $('#edit_item').attr('data_id');
 
-        //! Ajax
-        $.ajax({
-            url: "/request/form/product/add/post",
-            method: "post",
-            headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-            data: {
-                siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                requestform_id: Number(data_id_req),
-                sector: $('#sectorAdd').val(),
-                sub_sector: $('#selectSubCategoryAdd').val(),
-                stock_id: $('#stockAdd').val(),
+            //! Ajax
+            $.ajax({
+                url: "/request/form/product/add/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    requestform_id: Number(data_id_req),
+                    sector: $('#sectorAdd').val(),
+                    sub_sector: $('#selectSubSectorAdd').val(),
+                    stock_id: Number($('#stockAdd').val()),
 
-                codeNumber: $('#product_add_item').attr('data_stockNumber'),
-                stockCode: $('#StockCodeAdd').val(),
-                accountingCode_buy: $('#accountingCodeBuyAdd').val(),
-                accountingCode_sel: $('#accountingCodeSelAdd').val(),
+                    // codeNumber: $('#product_add_item').attr('data_stockNumber'),
+                    // stockCode: $('#StockCodeAdd').val(),
+                    // accountingCode_buy: $('#accountingCodeBuyAdd').val(),
+                    // accountingCode_sel: $('#accountingCodeSelAdd').val(),
 
-                nameTr: $('#nameTrAdd').val(),
-                namePublic: $('#namePublicAdd').val(),
-                
-                imgUrl: $('#filePathUrl').html(),
-                techFileUrl: $('#filePathUrltechnicalFile').html(),
+                    nameTr: $('#nameTrAdd').val(),
+                    nameEn: $('#nameEnAdd').val(),
 
-                stockUnit: $('#SelectStockUnitAdd').val(),
-                stockCount: $('#StockCountAdd').val(),
+                    gtipNo: $('#gtipNoAdd').val(),
+                    stockUnit: $('#SelectStockUnitAdd').val(),
+                    stockCount: $val,
+                    currency: $('#SelectProductCurrencyAdd').val(),
+                    price: $unitPrice,
+                    total: $total,
 
-                //currency: $('#SelectProductCurrencyAdd').val(),
-                price: $('#PriceAdd').val(),
-                total: $total,
+                    kdv_buy: $('#kdv_buyAdd').val(),
+                    kdv_sell: $('#kdv_sellAdd').val(),
 
-                kdv_buy: $('#kdv_buyAdd').val(),
-                kdv_sell: $('#kdv_sellAdd').val(),
+                    export_registered: $('#export_registeredAdd').is(':checked'),
+                    export_registered_kdv_buy: $('#export_registered_kdv_buyAdd').val(),
+                    export_registered_kdv_sell: $('#export_registered_kdv_sellAdd').val(),
 
-                export_registered: $('#export_registeredAdd').is(':checked'),
-                export_registered_kdv_buy: $('#export_registered_kdv_buyAdd').val(),
-                export_registered_kdv_sell: $('#export_registered_kdv_sellAdd').val(),
+                    featuresTr: $('#featuresTRAdd').val(),
+                    featuresEn: $('#featuresENAdd').val(),
 
-                descriptionTr: $('#descriptionTRAdd').val(),
-                descriptionEn: $('#descriptionENAdd').val(),
+                    tech_featuresTr: $('#tech_featuresTRAdd').val(),
+                    tech_featuresEn: $('#tech_featuresENAdd').val(),
 
-                featuresTr: $('#featuresTRAdd').val(),
-                featuresEn: $('#featuresENAdd').val(),
+                    descriptionTr: $('#descriptionTRAdd').val(),
+                    descriptionEn: $('#descriptionENAdd').val(),
 
-                tech_featuresTr: $('#tech_featuresTRAdd').val(),
-                tech_featuresEn: $('#tech_featuresENAdd').val(),
+                    catalogLink: $('#catalogLinkAdd').val(),
+                    web_address: $('#webSiteAdd').val(),
+                    
+                    imgUrl: $('#filePathUrl').html(),
+                    techFileUrl: $('#filePathUrlTechnicalFile').html(),
 
-                web_address: $('#webSiteAdd').val(),
-                catalogLink: $('#catalogLinkAdd').val(),
-                gtipNo: $('#gtipNoAdd').val(),
+                    // productModel:  $('#productModelAdd').val(),
+                    // productCode:  $('#productCodeAdd').val(),
+                    // is_warranty:  $('#is_warrantyAdd').val(),
+                    // warrantyTime:  $('#warrantyTimeAdd').val(),
 
-                productModel:  $('#productModelAdd').val(),
-                productCode:  $('#productCodeAdd').val(),
-                is_warranty:  $('#is_warrantyAdd').val(),
-                warrantyTime:  $('#warrantyTimeAdd').val(),
+                    // setup:  $('#setupAdd').val(),
+                    // brand:  $('#brandAdd').val(),
+                    // colorCode:  $('#colorCodeAdd').val(),
 
-                setup:  $('#setupAdd').val(),
-                brand:  $('#brandAdd').val(),
-                colorCode:  $('#colorCodeAdd').val(),
+                    // productUsePurposeTR:  $('#productUsePurposeTRAdd').val(),
+                    // productUsePurposeEN:  $('#productUsePurposeENAdd').val(),
 
-                productUsePurposeTR:  $('#productUsePurposeTRAdd').val(),
-                productUsePurposeEN:  $('#productUsePurposeENAdd').val(),
+                    // ownBrand:  $('#ownBrandAdd').val(),
+                    // specialDesign:  $('#specialDesignAdd').val(),
+                    // specialPacket:  $('#specialPacketAdd').val(),
+                    // salesOutlet:  $('#salesOutletAdd').val(),
 
-                ownBrand:  $('#ownBrandAdd').val(),
-                specialDesign:  $('#specialDesignAdd').val(),
-                specialPacket:  $('#specialPacketAdd').val(),
-                salesOutlet:  $('#salesOutletAdd').val(),
+                    isActive: stockAdd == "newStock" ? false : true,
+                    created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    console.log("response:", response);
+                    // console.log("status:", response.status);
 
-                isActive: stockAdd == "newStock" ? false : true,
-                created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-            },
-            success: function (response) {
-                // alert("başarılı");
-                //console.log("response eklendi:", response);
-                // console.log("status:", response.status);
+                    // if (response.status == "success") {
+                    //     Swal.fire({
+                    //         position: "center",
+                    //         icon: "success",
+                    //         title: response.msg,
+                    //         showConfirmButton: false,
+                    //         timer: 2000,
+                    //     });
 
-                if (response.status == "success") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: response.msg,
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
+                    //     //! Product Liste Güncelle
+                    //     productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
-                    //! Product Liste Güncelle
-                    productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                    //     //! Modal Temizleme
+                    //     $("#Add_ProductForm")[0].reset();
 
-                    //! Modal Temizleme
-                    $("#Add_ProductForm")[0].reset();
+                    //     //! Ürün Resmi
+                    //     $('#productViewImageAdd').css('display','none');
+                    //     $('#product_dowloand_imgAdd').css('display','none');
+                    //     $('#filePathUrl').html("");
 
-                    //! Ürün Resmi
-                    $('#productViewImageAdd').css('display','none');
-                    $('#product_dowloand_imgAdd').css('display','none');
-                    $('#filePathUrl').html("");
+                    //     //! Teknik Resim
+                    //     $('#product_dowloand_fileAdd').css('display','none');
+                    //     $('#filePathUrlTechnicalFile').html("");
 
-                    //! Teknik Resim
-                    $('#product_dowloand_fileAdd').css('display','none');
-                    $('#filePathUrltechnicalFile').html("");
+                    //     //! Progresbar
+                    //     $("#progressBarFileUpload").width('0%');
+                    //     $("#progressBarFileUploadtechnical").width('0%');
 
-                    //! Progresbar
-                    $("#progressBarFileUpload").width('0%');
-                    $("#progressBarFileUploadtechnical").width('0%');
+                    //     //! Modal Kapatma
+                    //     $("#Add_ProductModal").modal('hide');
 
-                    //! Modal Kapatma
-                    $("#Add_ProductModal").modal('hide');
+                    //     //! Sayfa Yenileme
+                    //     //window.location.reload();
+                    // } else {
+                    //     Swal.fire({
+                    //         position: "center",
+                    //         icon: "error",
+                    //         title: response.msg,
+                    //         showConfirmButton: false,
+                    //         timer: 2000,
+                    //     });
+                    // }
 
-                    //! Sayfa Yenileme
-                    //window.location.reload();
-                } else {
+                },
+                error: function (error) {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: response.msg,
+                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
                         showConfirmButton: false,
                         timer: 2000,
                     });
-                }
-            },
-            error: function (error) {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                console.log("error:", error);
-            },
-        }); //! Ajax Son
+                    console.log("error:", error);
+                },
+            }); //! Ajax Son
 
         }
 
@@ -997,14 +1003,14 @@ $(function () {
 
                     //! sub-sector
                     if(response.DB.sub_sector) {
-                        $('#selectSubCategoryEdit').html(optionSelect);
-                        $('#selectSubCategoryEdit option[value='+response.DB.sub_sector+']').prop('selected',true); //! Select
+                        $('#selectSubSectorEdit').html(optionSelect);
+                        $('#selectSubSectorEdit option[value='+response.DB.sub_sector+']').prop('selected',true); //! Select
                         $('#stockEdit option[value="'+response.DB.stock_id+'"]').prop('selected', true); //! Seçim yap
 
                         document.querySelectorAll('[id=stockEditOption]').forEach(function(el) { el.style.display="none" });
                         document.querySelectorAll('[id=stockEditOption][data_sub_sector="'+response.DB.sub_sector+'"]').forEach(function(el) { el.style.display="block";  });
                     }
-                    else { $('#selectSubCategoryEdit option[value=""]').prop('selected',true); }
+                    else { $('#selectSubSectorEdit option[value=""]').prop('selected',true); }
                     //! sub-sector Son
 
                     
@@ -1043,7 +1049,7 @@ $(function () {
                     if(response.DB.techFileUrl != "" && response.DB.techFileUrl != null ) {
 
                         //! Dosya - Teknik
-                        $('#filePathUrltechnicalFileEdit').html(response.DB.techFileUrl);
+                        $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
 
                         $('#product_dowloand_file').css('display','block');
                         $('#product_dowloand_file').attr("href",'/'+response.DB.techFileUrl);
@@ -1051,7 +1057,7 @@ $(function () {
                     }
                     else if(response.DB.techFileUrl == "" || response.DB.techFileUrl == null ) {
                         $('#product_dowloand_file').css('display','none');
-                        $('#filePathUrltechnicalFileEdit').html(null);
+                        $('#filePathUrlTechnicalFileEdit').html(null);
                     }
                     //! Dosya - Resim Son
 
@@ -1150,7 +1156,7 @@ $(function () {
 
         //! Select
         var sectorEdit =  $('#sectorEdit').val();
-        var selectSubCategoryEdit =  $('#selectSubCategoryEdit').val();
+        var selectSubSectorEdit =  $('#selectSubSectorEdit').val();
         var stockEdit =  $('#stockEdit').val();
 
         //! Stok Kontrol
@@ -1177,7 +1183,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else if(selectSubCategoryEdit == "") {
+        else if(selectSubSectorEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -1266,7 +1272,7 @@ $(function () {
         
                 //! Stok
                 var sectorCode = $('#sectorEdit  option[value='+sectorEdit +']').attr('data_codeLet');
-                var sub_sectorCode = $('#selectSubCategoryEdit option[value='+selectSubCategoryEdit+']').attr('data_codeLet');
+                var sub_sectorCode = $('#selectSubSectorEdit option[value='+selectSubSectorEdit+']').attr('data_codeLet');
                 var stockNumber = $('#product_add_item').attr('data_stockNumber');
 
                 var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
@@ -1287,7 +1293,7 @@ $(function () {
                     requestform_id: $('#edit_item').attr('data_id'),
                     public: false,
                     sector: $('#sectorEdit').val(),
-                    sub_sector: $('#selectSubCategoryEdit').val(),
+                    sub_sector: $('#selectSubSectorEdit').val(),
                     stock_id: stockActive == "1" ? $('#stockEdit').val() : stockId,
                     stockActive: stockActive ? stockActive : null,
 
@@ -1300,7 +1306,7 @@ $(function () {
                     nameTr: $('#nameTrEdit').val(),
                     
                     imgUrl: $('#filePathUrlEdit').html(),
-                    techFileUrl: $('#filePathUrltechnicalFileEdit').html(),
+                    techFileUrl: $('#filePathUrlTechnicalFileEdit').html(),
 
                     stockUnit: $('#SelectStockUnitEdit').val(),
                     stockCount: $('#StockCountEdit').val(),
@@ -1328,7 +1334,7 @@ $(function () {
                     gtipNo: $('#gtipNoEdit').val(),
 
                     imgUrl: $('#filePathUrlEdit').html(),
-                    techFileUrl: $('#filePathUrltechnicalFileEdit').html(),
+                    techFileUrl: $('#filePathUrlTechnicalFileEdit').html(),
 
                     created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },
@@ -1618,7 +1624,7 @@ $(function () {
     //! ************ Güncelle Son  ***************
 
     //! ************ Ürün Resmi  ***************
-    //! FileUpload
+    //! Dosya Yükleme
     $("#fileUploadClick").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1728,13 +1734,122 @@ $(function () {
 
 
     });
-    //! FileUpload Son
+    //! Dosya Yükleme Son
     //! ************ Ürün Resmi Son  ***************
 
 
-    //! ************ Ürün Resmi Edit ***************
+    //! ************ Teknik Özellikler ***************
+    //! Dosya Yükleme
+    $("#techFileUploadClick").click(function (e) {
+        e.preventDefault();
+        //alert("fileUploadClick");
 
-    //! FileUpload
+        //! Dosya Yükleme
+        const fileInput = document.querySelector("#fileInputTech");
+        const fileInputFiles = fileInput.files;
+        console.log("fileInputFiles:",fileInputFiles);
+
+
+        //! Yeni Form Veriler
+        var formData = new FormData();
+        formData.append("file", fileInputFiles[0]);
+        formData.append("fileDbSave", $('#fileDbSave_technicalFile').val());
+        formData.append("fileWhere", $('#fileWhere_technicalFile').val());
+
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        console.log("Dosya Yükleme Durumu: %", percentComplete);
+
+                        $("#progressBarFileUploadtechnical").width(percentComplete + '%');
+                        $("#progressBarFileUploadtechnical").html(percentComplete+'%');
+
+                    }
+                }, false);
+                return xhr;
+            },
+            url: "/file/upload/control",
+            method: "post",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function () {
+                console.log("Dosya yükleme başladı");
+
+                //! ProgressBar
+                $("#progressBarFileUploadtechnical").width('0%');
+
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').toggle();
+                $('#uploadStatus').hide();
+
+                //! Upload Url
+                $('#filePathUrlTechnicalFile').html("");
+            },
+            error: function (error) {
+                alert("başarısız");
+                console.log("Hata oluştu error:", error);
+
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').hide();
+
+                //! Upload Url
+                $('#filePathUrlTechnicalFile').html("");
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            },
+        success: function (resp) {
+            //alert("Başarılı");
+            console.log("file resp:", resp);
+
+                //! ProgressBar
+                $("#progressBarFileUploadtechnical").width('100%');
+
+                //! Upload Durum
+                $('#LoadingFileUploadtechnicalFile').hide();
+
+                //! Upload Url
+                $('#filePathUrlTechnicalFile').html(resp.file_url);
+                $('#product_dowloand_fileAdd').css('display','block');
+                $('#product_dowloand_fileAdd').attr("href",resp.file_path);
+                $('#product_dowloand_fileAdd').attr("download",resp.file_path);
+
+
+                //! Alert
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
+                    showConfirmButton: false,
+                    timer: 2000,
+                });  //! Alert Son
+
+            }
+        }); //! Ajax
+
+
+
+    });
+    //! Dosya Yükleme Son
+    //! ************ Teknik Özellikler Son  ***************
+
+
+    
+    //! ************ Ürün Resmi Edit ***************
+    //! Dosya Yükleme
     $("#fileUploadClickEdit").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -1848,125 +1963,11 @@ $(function () {
 
 
     });
-    //! FileUpload Son
-
+    //! Dosya Yükleme Son
     //! ************ Ürün Resmi Edit Son  ***************
 
-
-    //! ************ Teknik Özellikler ***************
-
-    //! FileUpload
-    $("#techFileUploadClick").click(function (e) {
-        e.preventDefault();
-        //alert("fileUploadClick");
-
-        //! Dosya Yükleme
-        const fileInput = document.querySelector("#fileInputTech");
-        const fileInputFiles = fileInput.files;
-        console.log("fileInputFiles:",fileInputFiles);
-
-
-        //! Yeni Form Veriler
-        var formData = new FormData();
-        formData.append("file", fileInputFiles[0]);
-        formData.append("fileDbSave", $('#fileDbSave_technicalFile').val());
-        formData.append("fileWhere", $('#fileWhere_technicalFile').val());
-
-        $.ajax({
-            xhr: function() {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = ((evt.loaded / evt.total) * 100);
-                        console.log("Dosya Yükleme Durumu: %", percentComplete);
-
-                        $("#progressBarFileUploadtechnical").width(percentComplete + '%');
-                        $("#progressBarFileUploadtechnical").html(percentComplete+'%');
-
-                    }
-                }, false);
-                return xhr;
-            },
-            url: "/file/upload/control",
-            method: "post",
-            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-            data: formData,
-            contentType: false,
-            cache: false,
-            processData:false,
-            beforeSend: function () {
-                console.log("Dosya yükleme başladı");
-
-                //! ProgressBar
-                $("#progressBarFileUploadtechnical").width('0%');
-
-                //! Upload Durum
-                $('#LoadingFileUploadtechnicalFile').toggle();
-                $('#uploadStatus').hide();
-
-                //! Upload Url
-                $('#filePathUrltechnicalFile').html("");
-            },
-            error: function (error) {
-                alert("başarısız");
-                console.log("Hata oluştu error:", error);
-
-                //! Upload Durum
-                $('#LoadingFileUploadtechnicalFile').hide();
-
-                //! Upload Url
-                $('#filePathUrltechnicalFile').html("");
-
-                //! Alert
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                    showConfirmButton: false,
-                    timer: 2000,
-                });  //! Alert Son
-
-            },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
-
-                //! ProgressBar
-                $("#progressBarFileUploadtechnical").width('100%');
-
-                //! Upload Durum
-                $('#LoadingFileUploadtechnicalFile').hide();
-
-                //! Upload Url
-                $('#filePathUrltechnicalFile').html(resp.file_url);
-                $('#product_dowloand_fileAdd').css('display','block');
-                $('#product_dowloand_fileAdd').attr("href",resp.file_path);
-                $('#product_dowloand_fileAdd').attr("download",resp.file_path);
-
-
-                //! Alert
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: $('[id=lang_change][data_key=TransactionSuccessful]').html().trim(),
-                    showConfirmButton: false,
-                    timer: 2000,
-                });  //! Alert Son
-
-            }
-        }); //! Ajax
-
-
-
-    });
-    //! FileUpload Son
-
-    //! ************ Teknik Özellikler Son  ***************
-
-
     //! ************ Teknik Özellikler Edit ***************
-
-    //! FileUpload
+    //! Dosya Yükleme
     $("#techFileUploadClickEdit").click(function (e) {
         e.preventDefault();
         //alert("fileUploadClick");
@@ -2016,7 +2017,7 @@ $(function () {
                 $('#uploadStatus').hide();
 
                 //! Upload Url
-                $('#filePathUrltechnicalFileEdit').html("");
+                $('#filePathUrlTechnicalFileEdit').html("");
             },
             error: function (error) {
                 alert("başarısız");
@@ -2026,7 +2027,7 @@ $(function () {
                 $('#LoadingFileUploadtechnicalFileEdit').hide();
 
                 //! Upload Url
-                $('#filePathUrltechnicalFileEdit').html("");
+                $('#filePathUrlTechnicalFileEdit').html("");
 
 
                 //! Alert
@@ -2050,7 +2051,7 @@ $(function () {
                 $('#LoadingFileUploadtechnicalFileEdit').hide();
 
                 //! Upload Url
-                $('#filePathUrltechnicalFileEdit').html(resp.file_url);
+                $('#filePathUrlTechnicalFileEdit').html(resp.file_url);
                 $('#product_dowloand_file').css('display','block');
                 $('#product_dowloand_file').attr("href",resp.file_path);
                 $('#product_dowloand_file').attr("download",resp.file_path);
@@ -2071,8 +2072,7 @@ $(function () {
 
 
     });
-    //! FileUpload Son
-
+    //! Dosya Yükleme Son
     //! ************ Teknik Özellikler Edit Son  ***************
 
     //! Talep Formu

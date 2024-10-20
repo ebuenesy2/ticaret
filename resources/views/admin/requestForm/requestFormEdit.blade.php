@@ -30,7 +30,7 @@
     <div class="page-content">
        <div class="container-fluid">
 
-            <!-- Modal Ekle -->
+            <!-- Modal Ürün Ekle -->
             <div class="modal fade" id="Add_ProductModal" data_public="false"  data_lang="@lang('admin.lang')" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -71,8 +71,8 @@
                                             </div>
                                             <!--   Alt Sektor  -->
                                             <div class="col-6 mb-3">
-                                                <label for="selectSubCategoryAdd" class="form-label">Alt Sektor</label>
-                                                <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="selectSubCategoryAdd">
+                                                <label for="selectSubSectorAdd" class="form-label">Alt Sektor</label>
+                                                <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="selectSubSectorAdd">
                                                     <option value="">Seç</option>
                                                 </select>
                                             </div>
@@ -112,12 +112,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mb-3">
-                                                <label for="nameTrAdd" class="form-label">@lang('admin.name')</label>
+                                                <label for="nameTrAdd" class="form-label">@lang('admin.ProductName') ( TR )</label>
                                                 <input class="form-control" type="text" id="nameTrAdd" name="nameTrAdd">
                                             </div>
                                             <div class="col-12 mb-3">
-                                                <label for="namePublicAdd" class="form-label">@lang('admin.ProductName') ( Public )</label>
-                                                <input class="form-control" type="text" id="namePublicAdd" name="namePublicAdd">
+                                                <label for="nameEnAdd" class="form-label">@lang('admin.ProductName') ( EN )</label>
+                                                <input class="form-control" type="text" id="nameEnAdd" name="nameEnAdd">
                                             </div>
                                            
                                             
@@ -144,7 +144,7 @@
                                             <!-- Stok Sayısı -->
                                             <div class="col-6 mb-3">
                                                 <label for="StockCountAdd" class="form-label">Stok Sayısı</label>
-                                                <input class="form-control" type="number" id="StockCountAdd" name="StockCountAdd">
+                                                <input class="form-control" type="number" id="StockCountAdd" name="StockCountAdd" value="0">
                                             </div>
                                             <!-- End Stok Sayısı -->
                                         </div>
@@ -153,7 +153,7 @@
                                                 <!-- Para Tutarı -->
                                                 <div class="col-12 mb-3">
                                                     <label for="PriceAdd" class="form-label">Birim Fiyat</label>
-                                                    <input class="form-control" type="text" id="PriceAdd" name="PriceAdd" placeholder="00,00">
+                                                    <input class="form-control" type="text" id="PriceAdd" name="PriceAdd" placeholder="00,00" value="00,00">
                                                 </div>
                                                 <!-- End Para Tutarı -->
                                                 
@@ -195,27 +195,27 @@
                                         <div class="row">
                                             <!-- Özellik  -->
                                             <div class="col-6 mb-3">
-                                                <label for="featuresTRAdd" class="form-label">Özellikler TR</label>
+                                                <label for="featuresTRAdd" class="form-label">Özellikler ( TR )</label>
                                                 <textarea class="form-control" id="featuresTRAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Özellik  -->
                                             <!-- Özellik  -->
                                             <div class="col-6 mb-3">
-                                                <label for="featuresPublicAdd" class="form-label">Özellikler ( Public )</label>
-                                                <textarea class="form-control" id="featuresPublicAdd" rows="2"></textarea>
+                                                <label for="featuresENAdd" class="form-label">Özellikler ( EN )</label>
+                                                <textarea class="form-control" id="featuresENAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Özellik  -->
                                         </div>
                                         <div class="row">
                                             <!-- Teknik Özellik  -->
                                             <div class="col-6 mb-3">
-                                                <label for="tech_featuresTRAdd" class="form-label">Teknik Özellik TR</label>
+                                                <label for="tech_featuresTRAdd" class="form-label">Teknik Özellik ( TR )</label>
                                                 <textarea class="form-control" id="tech_featuresTRAdd" rows="2"></textarea>
                                             </div>
                                             <!-- Teknik Özellik Son  -->
                                             <!-- Teknik Özellik  -->
                                             <div class="col-6 mb-3">
-                                                <label for="tech_featuresENAdd" class="form-label">Teknik Özellik EN</label>
+                                                <label for="tech_featuresENAdd" class="form-label">Teknik Özellik ( EN )</label>
                                                 <textarea class="form-control" id="tech_featuresENAdd" rows="2"></textarea>
                                             </div>
                                             <!-- Teknik Özellik Son  -->
@@ -224,7 +224,7 @@
                                         <div class="row">
                                                 <!-- Açıklama  -->
                                             <div class="col-6 mb-3">
-                                                <label for="descriptionTRAdd" class="form-label">Açıklama TR</label>
+                                                <label for="descriptionTRAdd" class="form-label">Açıklama ( TR )</label>
                                                 <textarea class="form-control" id="descriptionTRAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Açıklama  -->
@@ -232,7 +232,7 @@
                                                             
                                             <!-- Açıklama  -->
                                             <div class="col-6 mb-3">
-                                                <label for="descriptionENAdd" class="form-label">Açıklama EN</label>
+                                                <label for="descriptionENAdd" class="form-label">Açıklama ( EN )</label>
                                                 <textarea class="form-control" id="descriptionENAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Açıklama  -->
@@ -317,7 +317,7 @@
                                                                 <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputTech" style="display: flex; color: steelblue; margin-left: 10px; ">
-                                                                <div style="display: none; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrltechnicalFile"></p></div>
+                                                                <div style="display: none; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlTechnicalFile"></p></div>
                                                                 <button type="button" id="techFileUploadClick" class="btn btn-success" style="color: #ffffff;border-bottom: 1px solid #022241;padding: 12px;width: 300px;border-radius: 6px;display: flex; gap:10px; justify-content: center;align-items: center;">
                                                                     <i class="ri-folder-upload-line" style="margin-top: -8px;  margin-bottom: -8px; font-size: 24px;"></i> 
                                                                     <p style=" color: #fff; font-size: 14px; font-weight: bold; margin-bottom: auto; "> Seçilen Teknik Belge Yükle </p>
@@ -357,7 +357,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal Ekle  Son -->
+            <!-- Modal Ürün Ekle  Son -->
 
             <!-- Modal Güncelle -->
             <div class="modal fade" id="Edit_ProductModal"  data_public="false"  data_lang="@lang('admin.lang')" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -418,8 +418,8 @@
 
                                          <!--   Alt Sektor  -->
                                          <div class="col-6 mb-3">
-                                            <label for="selectSubCategoryEdit" class="form-label">Alt Sektor</label>
-                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectSubCategoryEdit"  >
+                                            <label for="selectSubSectorEdit" class="form-label">Alt Sektor</label>
+                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectSubSectorEdit"  >
                                                 <option value="">Başlık</option>
                                             </select>
                                         </div>

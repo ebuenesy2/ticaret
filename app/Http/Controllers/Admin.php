@@ -5620,125 +5620,126 @@ class Admin extends Controller
          $stockId_new = 0;
          $id = $request->requestform_id;
         
-        if($request->isActive == "false") { 
+         //! Yeni Ürün Ekleme
+         if($request->isActive == "false") { 
 
-            //! Stok Veri Ekleme
-            $stockId_new =  DB::table('stock')->insertGetId([
+               //! Stok Veri Ekleme
+               $stockId_new =  DB::table('stock')->insertGetId([
+                  'ServerId' => config('admin.ServerId'),
+                  'ServerToken' => config('admin.ServerToken'),
+                  'sector' => $request->sector? $request->sector : null ,
+                  'sub_sector' => $request->sub_sector? $request->sub_sector : null ,
+
+                  'codeNumber' => $request->codeNumber? $request->codeNumber : null ,
+                  'stockCode' =>  $request->stockCode ? $request->stockCode : null ,
+                  'accountingCode_buy' => $request->accountingCode_buy ? $request->accountingCode_buy : null ,
+                  'accountingCode_sel' => $request->accountingCode_sel ? $request->accountingCode_sel : null ,
+                  
+                  'namePublic' => $request->namePublic ? $request->namePublic : null ,
+                  'nameTr' => $request->nameTr ? $request->nameTr : null ,
+                  'nameEn' => $request->nameEn ? $request->nameEn : null ,
+
+                  'imgUrl' => $request->imgUrl == "" ? config('admin.Default_ProductImgUrl') : $request->imgUrl,
+                  'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
+                  
+                  'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
+                  'stockCount' => $request->stockCount ? $request->stockCount : null ,
+                  'currency' => $request->currency,
+                  'price' => $request->price ? $request->price : null ,
+                  
+                  'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
+                  'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
+
+                  'export_registered' => $request->export_registered ? $request->export_registered : null ,
+                  'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
+                  'export_registered_kdv_sell' => $request->export_registered_kdv_sell  ? $request->export_registered_kdv_sell : null ,
+
+                  'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
+                  'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
+                  
+                  'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
+                  'featuresEn' => $request->featuresEn ? $request->featuresEn : null ,
+
+                  'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
+                  'tech_featuresEn' => $request->tech_featuresEn ? $request->tech_featuresEn : null ,
+
+                  'web_address' => $request->web_address ? $request->web_address : null ,
+                  'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
+                  'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
+
+                  'isActive'=>$request->isActive == "true" ? true : false,
+                  'created_byId'=>$request->created_byId,
+               ]); //! Stok Veri Ekleme Son
+
+
+            //echo "Yeni Ürün stockId:"; echo $stockId_new; die();
+
+         } //! Yeni Ürün Ekleme Son
+
+         //! Veri Ekleme
+         DB::table('requestform_product_list')->insert([
                'ServerId' => config('admin.ServerId'),
                'ServerToken' => config('admin.ServerToken'),
-               'sector' => $request->sector? $request->sector : null ,
-               'sub_sector' => $request->sub_sector? $request->sub_sector : null ,
-
-               'codeNumber' => $request->codeNumber? $request->codeNumber : null ,
-               'stockCode' =>  $request->stockCode ? $request->stockCode : null ,
-               'accountingCode_buy' => $request->accountingCode_buy ? $request->accountingCode_buy : null ,
-               'accountingCode_sel' => $request->accountingCode_sel ? $request->accountingCode_sel : null ,
-               
-               'namePublic' => $request->namePublic ? $request->namePublic : null ,
+               'requestform_id'=> $request->requestform_id,
+               'sector' => $request->sector ? $request->sector : null ,
+               'sub_sector' => $request->sub_sector ? $request->sub_sector : null ,
+               'stock_id' => $request->isActive == "true" ? $stockId : $stockId_new,
+            
                'nameTr' => $request->nameTr ? $request->nameTr : null ,
                'nameEn' => $request->nameEn ? $request->nameEn : null ,
-
-               'imgUrl' => $request->imgUrl == "" ? config('admin.Default_ProductImgUrl') : $request->imgUrl,
-               'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
-               
+            
+               'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
                'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
                'stockCount' => $request->stockCount ? $request->stockCount : null ,
-                //'currency' => $request->currency,
+               'currency' => $request->currency ? $request->currency : null ,
                'price' => $request->price ? $request->price : null ,
+               'total' => $request->total ? $request->total : null ,
                
                'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
                'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
 
                'export_registered' => $request->export_registered ? $request->export_registered : null ,
                'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
-               'export_registered_kdv_sell' => $request->export_registered_kdv_sell  ? $request->export_registered_kdv_sell : null ,
+               'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null ,
 
-               'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
-               'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
-               
                'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
                'featuresEn' => $request->featuresEn ? $request->featuresEn : null ,
 
                'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
                'tech_featuresEn' => $request->tech_featuresEn ? $request->tech_featuresEn : null ,
 
-               'web_address' => $request->web_address ? $request->web_address : null ,
+               'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
+               'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
+
                'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
-               'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
+               'web_address' => $request->web_address ? $request->web_address : null ,
 
-               'isActive'=>$request->isActive == "true" ? true : false,
-               'created_byId'=>$request->created_byId,
-            ]); //! Stok Veri Ekleme Son
+               'imgUrl' => $request->imgUrl == "" ? null: $request->imgUrl,
+               'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
+               
+               // 'productModel' => $request->productModel ? $request->productModel : null ,
+               // 'productCode' => $request->productCode ? $request->productCode : null ,
+               // 'is_warranty' => $request->is_warranty ? $request->is_warranty : null ,
+               // 'warrantyTime' => $request->warrantyTime ? $request->warrantyTime : null ,
 
+               // 'setup' => $request->setup ? $request->setup : null ,
+               // 'brand' => $request->brand ? $request->brand : null ,
+               // 'colorCode' => $request->colorCode ? $request->colorCode : null ,
 
-           //echo "Yeni Ürün stockId:"; echo $stockId_new; die();
+               // 'productUsePurposeTR' => $request->productUsePurposeTR ? $request->productUsePurposeTR : null ,
+               // 'productUsePurposeEN' => $request->productUsePurposeEN ? $request->productUsePurposeEN : null ,
 
-        }
+               // 'ownBrand' => $request->ownBrand ? $request->ownBrand : null ,
+               // 'specialDesign' => $request->specialDesign ? $request->specialDesign : null ,
+               // 'specialPacket' => $request->specialPacket ? $request->specialPacket : null ,
+               // 'salesOutlet' => $request->salesOutlet ? $request->salesOutlet : null ,
+               
+               'created_byId'=>$request->created_byId ? $request->created_byId : 0,
+         ]); //! Veri Ekleme Son
 
-        //! Veri Ekleme
-        DB::table('requestform_product_list')->insert([
-            'ServerId' => config('admin.ServerId'),
-            'ServerToken' => config('admin.ServerToken'),
-            'requestform_id'=> $request->requestform_id,
-            'sector' => $request->sector ? $request->sector : null ,
-            'sub_sector' => $request->sub_sector ? $request->sub_sector : null ,
-            'stock_id' => $request->isActive == "true" ? $stockId : $stockId_new,
-           
-            'namePublic' => $request->namePublic ? $request->namePublic : null ,
-            'nameTr' => $request->nameTr ? $request->nameTr : null ,
-            'nameEn' => $request->nameEn ? $request->nameEn : null ,
+         echo "Talep Stok Eklendi"; die();
 
-            'imgUrl' => $request->imgUrl == "" ? null: $request->imgUrl,
-            'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
-          
-            'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
-            'stockCount' => $request->stockCount ? $request->stockCount : null ,
-            'currency' => $request->currency ? $request->currency : null ,
-            'price' => $request->price ? $request->price : null ,
-            'total' => $request->total ? $request->total : null ,
-            
-            'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
-            'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
-
-            'export_registered' => $request->export_registered ? $request->export_registered : null ,
-            'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
-            'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null ,
-
-            'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
-            'descriptionPublic' => $request->descriptionPublic ? $request->descriptionPublic : null ,
-            
-            'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
-            'featuresPublic' => $request->featuresPublic ? $request->featuresPublic : null ,
-
-            'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
-            'tech_featuresPublic' => $request->tech_featuresPublic ? $request->tech_featuresPublic : null ,
-
-            'web_address' => $request->web_address ? $request->web_address : null ,
-            'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
-            'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
-
-            'productModel' => $request->productModel ? $request->productModel : null ,
-            'productCode' => $request->productCode ? $request->productCode : null ,
-            'is_warranty' => $request->is_warranty ? $request->is_warranty : null ,
-            'warrantyTime' => $request->warrantyTime ? $request->warrantyTime : null ,
-
-            'setup' => $request->setup ? $request->setup : null ,
-            'brand' => $request->brand ? $request->brand : null ,
-            'colorCode' => $request->colorCode ? $request->colorCode : null ,
-
-            'productUsePurposeTR' => $request->productUsePurposeTR ? $request->productUsePurposeTR : null ,
-            'productUsePurposeEN' => $request->productUsePurposeEN ? $request->productUsePurposeEN : null ,
-
-            'ownBrand' => $request->ownBrand ? $request->ownBrand : null ,
-            'specialDesign' => $request->specialDesign ? $request->specialDesign : null ,
-            'specialPacket' => $request->specialPacket ? $request->specialPacket : null ,
-            'salesOutlet' => $request->salesOutlet ? $request->salesOutlet : null ,
-            
-            'isActive'=>$request->isActive == "true" ? true : false,
-            'created_byId'=>$request->created_byId ? $request->created_byId : 0,
-        ]); //! Veri Ekleme Son
-
-        //echo "Talep Stok Eklendi"; echo $stockId_new; die();
+         echo "Yeni Stok Eklendi"; echo $stockId_new; die();
 
          //! Ürün Bilgileri
          $DB_Find_Product = DB::table('requestform_product_list')
