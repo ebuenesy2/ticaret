@@ -2075,7 +2075,7 @@ $(function () {
                         $("#Add_BankaForm")[0].reset();
 
                         //! Modal Kapatma
-                        $("#BankaAddModal").modal('hide');
+                        $("#Bankaadd_modal").modal('hide');
 
                         //! Sayfa Yenileme
                         //window.location.reload();

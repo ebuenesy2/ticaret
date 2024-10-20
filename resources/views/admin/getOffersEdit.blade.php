@@ -673,12 +673,12 @@
 
 
             <!-- Maliyet Ekle -->
-            <div class="modal_new fade" id="CalculationAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal_new fade" id="Calculationadd_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <h5 class="modal-title" id="exampleModalLabel">Maliyet Kalemi Oluştur</h5>
-                            <button type="button" class="btn-close" onclick={$("#CalculationAddModal").modal('hide');} id="close-modal"></button>
+                            <button type="button" class="btn-close" onclick={$("#Calculationadd_modal").modal('hide');} id="close-modal"></button>
                         </div>
                         <form action="#">
                             <div class="modal-body">
@@ -711,7 +711,7 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
-                                    <button type="button" class="btn btn-danger"  onclick={$("#CalculationAddModal").modal('hide');} >@lang('admin.Close')</button>
+                                    <button type="button" class="btn btn-danger"  onclick={$("#Calculationadd_modal").modal('hide');} >@lang('admin.Close')</button>
                                     <button type="button" class="btn btn-success" id="new_calculation_add">@lang('admin.Add')</button>
                                 </div>
                             </div>
@@ -957,7 +957,7 @@
                         </div>
                         <div class="card-body">
                            <div class="mb-3">
-                               <button type="button" class="btn py-0 fs-16 text-body"  data-bs-toggle="modal" data-bs-target="#CalculationAddModal" title="Maliyet Hesaplama" {{$DB_Find->isUpdated == 0 ? 'disabled' : ''  }} > <i class=" ri-calculator-fill align-bottom" style="color: black;font-size: 25px;" ></i> </button>
+                               <button type="button" class="btn py-0 fs-16 text-body"  data-bs-toggle="modal" data-bs-target="#Calculationadd_modal" title="Maliyet Hesaplama" {{$DB_Find->isUpdated == 0 ? 'disabled' : ''  }} > <i class=" ri-calculator-fill align-bottom" style="color: black;font-size: 25px;" ></i> </button>
                                <span class="badge badge-label bg-danger {{$DB_Find->isUpdated == 0 ? '' : 'd-none'  }} "><i class="mdi mdi-circle-medium"></i>Güncellenmeyen Veri Bulunuyor.</span>
                             </div>
                         </div>

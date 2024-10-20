@@ -875,13 +875,13 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             //! Loading - Veri Yükleniyor
             $('#loaderAdd').css('display','block'); //! Laoding Göster
             $('#new_add').attr('disabled','disabled'); //! Button Gizleme
-            $('#new_add input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+            $('#add_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
 
             //! Loading - Veri Yüklendi
             function loadingYuklendi(){
                 $('#loaderAdd').hide(); //! Laoding Gizle
                 $('#new_add').removeAttr('disabled'); //! //! Button Göster
-                $('#new_add input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+                $('#add_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
             }
             //! Loading - Veri Yüklendi Son
 

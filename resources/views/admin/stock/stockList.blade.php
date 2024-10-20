@@ -59,14 +59,22 @@
     <!-- Modal Resim  Son -->
 
     <!-- Modal Ekle -->
-    <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
                     <h5 class="modal-title" id="exampleModalLabel">@lang('admin.newAdd')</h5>
-                    <button type="button" class="btn-close" onclick={$("#AddModal").modal('hide');} ></button>
+                    <button type="button" class="btn-close" onclick={$("#add_modal").modal('hide');} ></button>
                 </div>
                 <form action="#">
+                    
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- End Loading --->
+
                     <div class="modal-body">
 
                         <ul class="nav nav-tabs mb-3" role="tablist">
@@ -261,7 +269,7 @@
                                                     <div class="d-flex gap-1">
                                                         <img id="productViewImageAdd" src="/assets/img/product/default.jpg" alt="" style="margin: auto;display: flex;width: 150px;">
 
-                                                        <a href="" id="product_dowloand_imgAdd" download="">
+                                                        <a href="" id="product_dowloand_imgAdd" download="" style="display:none;" >
                                                            <i class="ri-inbox-archive-line" style="color:#1bb934; font-size: 30px;" ></i>
                                                         </a>
                                                     </div>
@@ -333,7 +341,7 @@
                                             </form>
                                             <!-- Dosya Yükleme Son ---->
 
-                                            <a href="" id="product_dowloand_fileAdd" download="">
+                                            <a href="" id="product_dowloand_fileAdd" download="" style="display:none;" >
                                                <i class="ri-inbox-archive-line" style="color:#1bb934; font-size: 30px;" ></i>
                                             </a>
 
@@ -348,7 +356,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" onclick={$("#AddModal").modal('hide');}  >@lang('admin.Close')</button>
+                            <button type="button" class="btn btn-danger" onclick={$("#add_modal").modal('hide');}  >@lang('admin.Close')</button>
                             <button type="button" class="btn btn-success" id="new_add" data_stockNumber ="{{$DB_Find_Number}}"  >@lang('admin.Add')</button>
                         </div>
                     </div>
@@ -753,7 +761,7 @@
                                 </h5>
                                 <div class="flex-shrink-0">
                                     <div class="flax-shrink-0 hstack gap-2">
-                                        <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
+                                        <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
                                     </div>
                                 </div>
                             </div>

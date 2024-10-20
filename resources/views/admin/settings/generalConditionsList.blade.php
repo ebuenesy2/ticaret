@@ -26,7 +26,7 @@
     @include('include.lang')
 
     <!-- Modal Ekle -->
-    <div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
@@ -162,7 +162,7 @@
                                 </h5>
                                 <div class="flex-shrink-0">
                                     <div class="flax-shrink-0 hstack gap-2">
-                                       <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
+                                       <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
                                     </div>
                                 </div>
                             </div>
