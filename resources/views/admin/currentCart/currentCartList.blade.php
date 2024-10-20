@@ -107,7 +107,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/current/cart/list/@lang('admin.lang')">@lang('admin.CurrentCardList')</a></li>
+                            <li class="breadcrumb-item"><a href="/current/cart/list">@lang('admin.CurrentCardList')</a></li>
                             <li class="breadcrumb-item active">@lang('admin.CurrentCardList')</li>
                         </ol>
                     </div>

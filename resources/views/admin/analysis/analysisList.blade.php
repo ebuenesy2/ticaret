@@ -581,7 +581,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/analysis/product/list/@lang('admin.lang')">@lang('admin.AnalysisList')</a></li>
+                            <li class="breadcrumb-item"><a href="/analysis/product/list">@lang('admin.AnalysisList')</a></li>
                             <li class="breadcrumb-item active">@lang('admin.AnalysisList')</li>
                         </ol>
                     </div>

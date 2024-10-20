@@ -479,7 +479,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/analysis/product/list/@lang('admin.lang')">@lang('admin.ProductList')</a></li>
+                            <li class="breadcrumb-item"><a href="/analysis/product/list">@lang('admin.ProductList')</a></li>
                             <li class="breadcrumb-item active">@lang('admin.ProductList')</li>
                         </ol>
                     </div>

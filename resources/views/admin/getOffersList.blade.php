@@ -74,7 +74,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/get/offers/list/@lang('admin.lang')">Tedarik Talep Formu </a></li>
+                            <li class="breadcrumb-item"><a href="/get/offers/list">Tedarik Talep Formu </a></li>
                             <li class="breadcrumb-item active">Tedarik Talep Formu  </li>
                         </ol>
                     </div>

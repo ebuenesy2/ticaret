@@ -1033,7 +1033,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="/proforma/invoice/list/@lang('admin.lang')">@lang('admin.ProformaInvoiceList')</a></li>
+                                    <li class="breadcrumb-item"><a href="/proforma/invoice/list">@lang('admin.ProformaInvoiceList')</a></li>
                                     <li class="breadcrumb-item active"> #{{$DB_Find->id}}</li>
                                 </ol>
                             </div>

@@ -1032,7 +1032,7 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="/business/tracking/list/@lang('admin.lang')">İş Takibi</a></li>
+                                <li class="breadcrumb-item"><a href="/business/tracking/list">İş Takibi</a></li>
                                 <li class="breadcrumb-item active"> #{{$DB_Find->id}}</li>
                             </ol>
                         </div>

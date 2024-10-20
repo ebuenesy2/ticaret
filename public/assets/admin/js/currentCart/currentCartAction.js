@@ -24,7 +24,6 @@ $(function () {
         var AuthorizedPersonWhatsapAdd = $('#AuthorizedPersonWhatsapAdd').val();
         var AuthorizedPersonEmailAdd = $('#AuthorizedPersonEmailAdd').val();
 
-
         if(current_name == "") {
             Swal.fire({
                 position: "center",
@@ -43,7 +42,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(CurrencyAdd == "") {
+        else if(CurrencyAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -52,25 +51,25 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(currentRow == "") {
+        else if(currentRow == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Cari Kod Seçilmedi",
+                title: "Görev Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
         }
-        else  if(sectorAdd == "") {
+        else if(sectorAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Sektrorel Kod Seçilmedi",
+                title: "Sektor Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
         }
-        else  if(AuthorizedPersonAdd == "") {
+        else if(AuthorizedPersonAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -79,7 +78,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(AuthorizedPersonDepartmentAdd == "") {
+        else if(AuthorizedPersonDepartmentAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -88,7 +87,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(AuthorizedPhoneAdd == "") {
+        else if(AuthorizedPhoneAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -97,7 +96,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(AuthorizedPersonWhatsapAdd == "") {
+        else if(AuthorizedPersonWhatsapAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -106,7 +105,7 @@ $(function () {
                 timer: 2000,
             });
         }
-        else  if(AuthorizedPersonEmailAdd == "") {
+        else if(AuthorizedPersonEmailAdd == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
