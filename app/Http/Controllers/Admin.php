@@ -1743,7 +1743,7 @@ class Admin extends Controller
             ->leftJoin('category', 'category.id', '=', 'stock.sector')
             ->select('stock.*', 'category.title')
             ->where($data_all)->orderBy('stock.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
-            // //echo "<pre>"; print_r($DB_Find); die();
+            //echo "<pre>"; print_r($DB_Find); die();
 
             //! Çoklu Arama
             //veri tabanı işlemleri
@@ -1757,7 +1757,7 @@ class Admin extends Controller
             //! Params Verileri Where Formatında Yazılacak Son    
             
             //veri tabanı işlemleri
-            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->orderBy('category.title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
             //! Kod
