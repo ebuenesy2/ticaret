@@ -147,18 +147,18 @@
                                     <input class="form-control" type="text" id="titleEdit" name="titleEdit" placeholder="0">
                                 </div>
                                 <div class="mb-3"> 
-                                    <label for="codeLetUpdate" class="form-label">Kod Harf</label>
-                                    <input class="form-control" type="text" id="codeLetUpdate" name="codeLetUpdate" >
+                                    <label for="codeLetEdit" class="form-label">Kod Harf</label>
+                                    <input class="form-control" type="text" id="codeLetEdit" name="codeLetEdit" >
                                 </div>
                            </div>
                            <div class="col-6">
                                 <div class="mb-3"> 
-                                    <label for="titleENUpdate" class="form-label">Başlık EN</label>
-                                    <input class="form-control" type="text" id="titleENUpdate" name="titleENUpdate" placeholder="0">
+                                    <label for="titleENEdit" class="form-label">Başlık EN</label>
+                                    <input class="form-control" type="text" id="titleENEdit" name="titleENEdit" placeholder="0">
                                 </div>
                                 <div class="mb-3"> 
-                                    <label for="codeNumberUpdate" class="form-label">Kod Sayı</label>
-                                    <input class="form-control" type="number" id="codeNumberUpdate" name="codeNumberUpdate" >
+                                    <label for="codeNumberEdit" class="form-label">Kod Sayı</label>
+                                    <input class="form-control" type="number" id="codeNumberEdit" name="codeNumberEdit" >
                                 </div>
                            </div>
                        </div>

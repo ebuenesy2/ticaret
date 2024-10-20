@@ -1632,7 +1632,7 @@ $(function () {
         //! Dosya Yükleme
         const fileInput = document.querySelector("#fileInput");
         const fileInputFiles = fileInput.files;
-        console.log("fileInputFiles:",fileInputFiles);
+        //console.log("fileInputFiles:",fileInputFiles);
 
 
         //! Yeni Form Veriler
@@ -1664,7 +1664,7 @@ $(function () {
             cache: false,
             processData:false,
             beforeSend: function () {
-                console.log("Dosya yükleme başladı");
+                //console.log("Dosya yükleme başladı");
 
                 //! ProgressBar
                 $("#progressBarFileUpload").width('0%');
@@ -1700,7 +1700,7 @@ $(function () {
             },
             success: function (resp) {
                 //alert("Başarılı");
-                console.log("file resp:", resp);
+                //console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUpload").width('100%');
@@ -1747,7 +1747,7 @@ $(function () {
         //! Dosya Yükleme
         const fileInput = document.querySelector("#fileInputTech");
         const fileInputFiles = fileInput.files;
-        console.log("fileInputFiles:",fileInputFiles);
+        //console.log("fileInputFiles:",fileInputFiles);
 
 
         //! Yeni Form Veriler
@@ -1779,7 +1779,7 @@ $(function () {
             cache: false,
             processData:false,
             beforeSend: function () {
-                console.log("Dosya yükleme başladı");
+                //console.log("Dosya yükleme başladı");
 
                 //! ProgressBar
                 $("#progressBarFileUploadTechnical").width('0%');
@@ -1811,9 +1811,9 @@ $(function () {
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                //console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadTechnical").width('100%');
@@ -1856,7 +1856,7 @@ $(function () {
         //! Dosya Yükleme
         const fileInput = document.querySelector("#fileInputEdit");
         const fileInputFiles = fileInput.files;
-        console.log("fileInputFiles:",fileInputFiles);
+        //console.log("fileInputFiles:",fileInputFiles);
 
 
         //! Yeni Form Veriler
@@ -1888,7 +1888,7 @@ $(function () {
             cache: false,
             processData:false,
             beforeSend: function () {
-                console.log("Dosya yükleme başladı");
+                //console.log("Dosya yükleme başladı");
 
                 //! ProgressBar
                 $("#progressBarFileUploadEdit").width('0%');
@@ -1911,7 +1911,6 @@ $(function () {
                 //! Upload Url
                 $('#filePathUrlEdit').html("");
 
-
                 //! Alert
                 Swal.fire({
                     position: "center",
@@ -1922,9 +1921,9 @@ $(function () {
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                //console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadEdit").width('100%');
@@ -1933,11 +1932,8 @@ $(function () {
                 $('#LoadingFileUploadEdit').hide();
                 $('#uploadStatusEdit').hide();
 
-                console.log("ürün:",resp);
-
                 //! Upload Url
                 $('#filePathUrlEdit').html(resp.file_url);
-
 
                 $('#productViewImage').css('display','block');
                 $('#productViewImage').attr("src",resp.file_path);
@@ -1945,7 +1941,6 @@ $(function () {
                 $('#product_dowloand_img').css('display','block');
                 $('#product_dowloand_img').attr("href",resp.file_path);
                 $('#product_dowloand_img').attr("download",resp.file_name);
-
 
                 //! Alert
                 Swal.fire({
@@ -1958,8 +1953,6 @@ $(function () {
 
             }
         }); //! Ajax
-
-
 
     });
     //! Dosya Yükleme Son
@@ -1974,7 +1967,7 @@ $(function () {
         //! Dosya Yükleme
         const fileInput = document.querySelector("#fileInputEditTech");
         const fileInputFiles = fileInput.files;
-        console.log("fileInputFiles:",fileInputFiles);
+        //console.log("fileInputFiles:",fileInputFiles);
 
 
         //! Yeni Form Veriler
@@ -2006,7 +1999,7 @@ $(function () {
             cache: false,
             processData:false,
             beforeSend: function () {
-                console.log("Dosya yükleme başladı");
+                //console.log("Dosya yükleme başladı");
 
                 //! ProgressBar
                 $("#progressBarFileUploadTechnicalEdit").width('0%');
@@ -2039,9 +2032,9 @@ $(function () {
                 });  //! Alert Son
 
             },
-        success: function (resp) {
-            //alert("Başarılı");
-            console.log("file resp:", resp);
+            success: function (resp) {
+                //alert("Başarılı");
+                //console.log("file resp:", resp);
 
                 //! ProgressBar
                 $("#progressBarFileUploadTechnicalEdit").width('100%');
@@ -2055,7 +2048,6 @@ $(function () {
                 $('#product_dowloand_file').attr("href",resp.file_path);
                 $('#product_dowloand_file').attr("download",resp.file_name);
 
-
                 //! Alert
                 Swal.fire({
                     position: "center",
@@ -2067,8 +2059,6 @@ $(function () {
 
             }
         }); //! Ajax
-
-
 
     });
     //! Dosya Yükleme Son

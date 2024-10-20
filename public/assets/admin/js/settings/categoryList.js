@@ -620,10 +620,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     $('#selectTypeEdit option[value='+response.DB.type+']').prop('selected',true);
                     $('#titleEdit').val(response.DB.title);
-                    $('#titleENUpdate').val(response.DB.title_EN);
+                    $('#titleENEdit').val(response.DB.title_EN);
 
-                    $('#codeLetUpdate').val(response.DB.codeLet);
-                    $('#codeNumberUpdate').val(response.DB.codeNumber);
+                    $('#codeLetEdit').val(response.DB.codeLet);
+                    $('#codeNumberEdit').val(response.DB.codeNumber);
 
                     //! Görünürlük Kontrolleri
                     $('#loaderEdit').css('display','none');
@@ -665,9 +665,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
         var selectTypeEdit = $('#selectTypeEdit').val();
         var titleEdit = $('#titleEdit').val();
-        var titleENUpdate = $('#titleENUpdate').val();
-        var codeLetUpdate = $('#codeLetUpdate').val();
-        var codeNumberUpdate = $('#codeNumberUpdate').val();
+        var titleENEdit = $('#titleENEdit').val();
+        var codeLetEdit = $('#codeLetEdit').val();
+        var codeNumberEdit = $('#codeNumberEdit').val();
 
         if (selectTypeEdit == "") {
             Swal.fire({
@@ -687,7 +687,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (titleENUpdate == "") {
+        else if (titleENEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -696,7 +696,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (codeLetUpdate == "") {
+        else if (codeLetEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -705,7 +705,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         }
-        else if (codeNumberUpdate == "") {
+        else if (codeNumberEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -729,10 +729,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     id: Number(data_id),
                     type: $('#selectTypeEdit').val(),
                     title: $('#titleEdit').val(),
-                    title_EN: $('#titleENUpdate').val(),
+                    title_EN: $('#titleENEdit').val(),
 
-                    codeLet: $('#codeLetUpdate').val(),
-                    codeNumber: $('#codeNumberUpdate').val(),
+                    codeLet: $('#codeLetEdit').val(),
+                    codeNumber: $('#codeNumberEdit').val(),
 
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },

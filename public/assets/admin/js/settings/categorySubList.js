@@ -767,11 +767,11 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     $('#selectTypeEdit option[value='+response.DB_Category.type+']').prop('selected',true);
                     $('#selectTypeCategoryEdit').html('<option  data_id="'+response.DB_Category.id+'" value="'+response.DB_Category.title+'">'+response.DB_Category.title+'</option>');
-                    $('#subCategoryUpdate').val(response.DB.title);
-                    $('#subCategoryENUpdate').val(response.DB.title_EN);
+                    $('#subCategoryEdit').val(response.DB.title);
+                    $('#subCategoryENEdit').val(response.DB.title_EN);
                     
-                    $('#codeLetUpdate').val(response.DB.codeLet);
-                    $('#codeNumberUpdate').val(response.DB.codeNumber);
+                    $('#codeLetEdit').val(response.DB.codeLet);
+                    $('#codeNumberEdit').val(response.DB.codeNumber);
                 
                 },
                 error: function (error) { console.log("search error:", error); alert("error");},
@@ -851,10 +851,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                     id: Number(data_id),
                     categoryid: $('#selectTypeCategoryEdit option[value="'+selectTypeCategory+'"]').attr('data_id'),
-                    title: $('#subCategoryUpdate').val(),
-                    title_EN: $('#subCategoryENUpdate').val(),
-                    codeLet: $('#codeLetUpdate').val(),
-                    codeNumber: $('#codeNumberUpdate').val(),
+                    title: $('#subCategoryEdit').val(),
+                    title_EN: $('#subCategoryENEdit').val(),
+                    codeLet: $('#codeLetEdit').val(),
+                    codeNumber: $('#codeNumberEdit').val(),
                     updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
                 },
                 success: function (response) {

@@ -4837,7 +4837,7 @@ class Admin extends Controller
             //echo "<pre>";print_r($DB_Find_User); die();
 
             //! Kategori Bilgileri
-            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->orderBy('category.title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
             
             //! Ürün Bilgileri
@@ -4933,7 +4933,6 @@ class Admin extends Controller
    
       } catch (\Throwable $th) {  throw $th; }
    } //! RequestForm Edit View Son
-
 
    //! RequestForm Post
    public function RequestFormSearchPost(Request $request)
@@ -5156,7 +5155,6 @@ class Admin extends Controller
       }
       
    } //! RequestForm Edit Active Multi Son
-
    
    //! Dosya Yükleme - Ürün Resmi
    public function RequestFormFileUploadProductImage(Request $request)
@@ -5266,7 +5264,6 @@ class Admin extends Controller
 
    }  //! Dosya Yükleme - Ürün Resmi Son
 
-
    //! RequestForm File Export
    public function RequestFormFileExport($site_lang="tr",$id)
    {
@@ -5344,7 +5341,6 @@ class Admin extends Controller
    
       } catch (\Throwable $th) {  throw $th; }
    } //! RequestForm File Export Son
-
 
    //! RequestForm public View
    public function RequestFormPublicView($site_lang="tr",$id)
@@ -5509,7 +5505,6 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! RequestForm public View Son
 
-
    //! RequestForm public Login
    public function RequestFormPublicLogin($site_lang="tr",$id)
    {
@@ -5566,7 +5561,6 @@ class Admin extends Controller
      
    } //! RequestForm public Login Son
 
-
    //!  RequestForm public View Login Control
    public function RequestFormPublicLoginControl(Request $request)
    {
@@ -5602,7 +5596,6 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
       
    } //! RequestForm public View Login Control Son
-
 
    //************* Talep Alma Stok List ***************** */
 
@@ -5931,7 +5924,6 @@ class Admin extends Controller
       
    } //! RequestFormStockList Delete  Son
 
-
    //! RequestFormStockList Post
    public function RequestFormStockListSearchPost(Request $request)
    {
@@ -5990,7 +5982,6 @@ class Admin extends Controller
       }
       
    } //! RequestFormStockList Search Post Son
-
      
    //! RequestFormStockList Edit  
    public function RequestFormStockListEditPost(Request $request)
@@ -6205,7 +6196,6 @@ class Admin extends Controller
       }
       
    } //! RequestFormStockList Edit  Son
-   
 
    //! RequestFormStockList Edit Active
    public function RequestFormStockListEditActive(Request $request)

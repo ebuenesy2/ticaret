@@ -95,7 +95,7 @@
                             </div>
                             <div class="mb-3"> 
                                 <label for="codeNumberAdd" class="form-label">Kod Sayı</label>
-                                <input class="form-control" type="text" id="codeNumberAdd" name="codeNumberAdd" >
+                                <input class="form-control" type="number" id="codeNumberAdd" name="codeNumberAdd" >
                             </div>
                           </div>
                        </div>
@@ -153,13 +153,13 @@
                                 <!--son Arama Durum  -->
 
                                 <div class="mb-3">
-                                    <label for="subCategoryUpdate" class="form-label">Alt Kategori</label>
-                                    <input class="form-control" type="text" id="subCategoryUpdate" name="subCategoryUpdate" placeholder="Alt Kategori">
+                                    <label for="subCategoryEdit" class="form-label">Alt Kategori</label>
+                                    <input class="form-control" type="text" id="subCategoryEdit" name="subCategoryEdit" placeholder="Alt Kategori">
                                 </div>
 
                                 <div class="mb-3"> 
-                                    <label for="codeLetUpdate" class="form-label">Kod Harf</label>
-                                    <input class="form-control" type="text" id="codeLetUpdate" name="codeLetUpdate" >
+                                    <label for="codeLetEdit" class="form-label">Kod Harf</label>
+                                    <input class="form-control" type="text" id="codeLetEdit" name="codeLetEdit" >
                                 </div>
 
                             </div>
@@ -175,13 +175,13 @@
                                 <!--son Arama Durum  Başlık -->
 
                                 <div class="mb-3">
-                                    <label for="subCategoryENUpdate" class="form-label">Alt Kategori En</label>
-                                    <input class="form-control" type="text" id="subCategoryENUpdate" name="subCategoryENUpdate" placeholder="Alt Kategori EN">
+                                    <label for="subCategoryENEdit" class="form-label">Alt Kategori En</label>
+                                    <input class="form-control" type="text" id="subCategoryENEdit" name="subCategoryENEdit" placeholder="Alt Kategori EN">
                                 </div>
 
                                 <div class="mb-3"> 
-                                    <label for="codeNumberUpdate" class="form-label">Kod Sayı</label>
-                                    <input class="form-control" type="text" id="codeNumberUpdate" name="codeNumberUpdate" >
+                                    <label for="codeNumberEdit" class="form-label">Kod Sayı</label>
+                                    <input class="form-control" type="number" id="codeNumberEdit" name="codeNumberEdit" >
                                 </div>
 
                             </div>
@@ -231,7 +231,7 @@
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
                                 <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.SubCategory') @lang('admin.List')</p> <p> | {{count($DB_Find)}}</p> 
-                               
+                                
                                     <!---  Loading --->
                                     <div id="loader" style="display:block;" ><span class="d-flex align-items-center">
                                         <span class="spinner-border flex-shrink-0" role="status"></span>
@@ -243,14 +243,14 @@
                                 </h5>
                                 <div class="flex-shrink-0">
                                     <div class="flax-shrink-0 hstack gap-2">
-                                       <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
+                                        <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="ri-add-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body border border-dashed border-end-0 border-start-0">
                                 <div class="row g-2">
                                     
-                                                                       
+                                                                        
                                     <!-- Arama id -->
                                     <div class="col-xl-2 col-md-6">
                                         <label for="searhId_Table" class="form-label">ID</label>
@@ -261,8 +261,8 @@
                                     </div>
                                     <!-- Arama id Son -->
                                     
-                                   <!-- Arama Takvim-->
-                                   <div class="col-xl-2 col-md-6"> 
+                                    <!-- Arama Takvim-->
+                                    <div class="col-xl-2 col-md-6"> 
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
@@ -304,7 +304,7 @@
                             <div class="card-body">
 
                                 <div id="choosedPanel" style="border: 1px solid black;padding: 4px;display: flex;gap: 20px; margin-bottom: 23px; display:none; ">
-                                  
+                                    
 
                                     <!--- İşlemler -->
                                     <div style="display: flex;gap: 5px;">
@@ -373,7 +373,7 @@
                                                     <td exportname="Check"  id="checkItemCol" class="c-table__cell"><input id="checkItem" style="cursor:pointer;" type="checkbox" data_check_id="{{$DB_Find[$i]->id}}" > </td>
                                                     <td exportname="Id" id="itemID" class="type"> {{$DB_Find[$i]->id}}</td>
                                                     <td exportname="CreatedDate" class="order_date"> {{$DB_Find[$i]->created_at}}</td>
-                                                   
+                                                    
                                                     <td exportname="type" >{{$DB_Find[$i]->categoryType}}</td>
                                                     <td exportname="categoryid" >{{$DB_Find[$i]->categoryTitle}}</td>
                                                     <td exportname="title" >{{$DB_Find[$i]->title}}</td>
@@ -382,7 +382,7 @@
                                                     <td exportname="codeLet" >{{$DB_Find[$i]->codeLet}}</td>
                                                     <td exportname="codeNumber" >{{$DB_Find[$i]->codeNumber}}</td>
                                                 
-                                                  
+                                                    
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
@@ -409,14 +409,14 @@
                                     
                                     @if(count($DB_Find) == 0 )
 
-                                     <!-- No Item -->
+                                        <!-- No Item -->
                                     <div class="noresult" id="dataNoItemList">
                                         <div class="text-center">
                                             <lord-icon src="https://cdn.lordicon.com/wcjauznf.json" trigger="loop" colors="primary:#405189,secondary:#0ab39c" style="width:250px;height:250px"></lord-icon>
                                             <h5 class="mt-2">@lang('admin.DataListisEmpty')</h5>
                                         </div>
                                     </div>
-                                     <!-- No Item Son -->
+                                        <!-- No Item Son -->
 
                                     @endif
 
