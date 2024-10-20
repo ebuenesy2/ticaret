@@ -201,7 +201,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/proforma/invoice/update/active/multi",
+                        url: "/proforma/invoice/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -267,7 +267,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/proforma/invoice/update/active/multi",
+                        url: "/proforma/invoice/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -676,7 +676,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/proforma/invoice/update/active",
+                        url: "/proforma/invoice/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

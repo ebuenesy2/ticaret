@@ -383,7 +383,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/category/sub/update/active/multi",
+                        url: "/category/sub/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -449,7 +449,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/category/sub/update/active/multi",
+                        url: "/category/sub/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -527,7 +527,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/category/sub/update/active",
+                        url: "/category/sub/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

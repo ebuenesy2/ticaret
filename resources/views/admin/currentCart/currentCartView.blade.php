@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="col-md-auto">
                                         <div class="hstack gap-1 flex-wrap">
-                                            <a href="/current/cart/@lang('admin.lang')/update/{{$DB_Find->id}}"><button type="button" class="btn py-0 fs-16 text-body"> <i class="ri-pencil-fill " style="color: black;font-size: 25px;" ></i> </button></a>
+                                            <a href="/current/cart/@lang('admin.lang')/edit/{{$DB_Find->id}}"><button type="button" class="btn py-0 fs-16 text-body"> <i class="ri-pencil-fill " style="color: black;font-size: 25px;" ></i> </button></a>
                                         </div> 
                                     </div>
                                 </div>

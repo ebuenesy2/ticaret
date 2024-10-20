@@ -1176,8 +1176,8 @@
                                                         <div id="collapseTwo_{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['id']}}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                                                             <div class="mb-3">
                                                                 <div class="col-lg-12 d-flex" style="border: 1px solid;" >
-                                                                <a href="/cost/calculation/tr/update/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['id']}}" target="_blank" style="margin: auto;color: green;  font-size: 12px;"  ><p>Maliyet Görüntüle</p></a>
-                                                                <a href="/cost/calculation/tr/update/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['id']}}" target="_blank" title="Göster"><button type="button" class="btn py-0 fs-16 text-body"><i class="ri-search-eye-line align-bottom" style="color: black;font-size: 25px;"></i> </button></a>
+                                                                <a href="/cost/calculation/tr/edit/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['id']}}" target="_blank" style="margin: auto;color: green;  font-size: 12px;"  ><p>Maliyet Görüntüle</p></a>
+                                                                <a href="/cost/calculation/tr/edit/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['id']}}" target="_blank" title="Göster"><button type="button" class="btn py-0 fs-16 text-body"><i class="ri-search-eye-line align-bottom" style="color: black;font-size: 25px;"></i> </button></a>
                                                                 </div>
                                                             </div>
 
@@ -1201,8 +1201,8 @@
                                                                 
                                                                     <div class="mb-3">
                                                                         <div class="col-lg-12 d-flex" style="border: 1px solid;" >
-                                                                        <a href="/proforma/invoice/tr/update/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['proforma'][$j]['id']}}" target="_blank" style="margin: auto;color: green;  font-size: 12px;"  ><p>Proforma Görüntüle</p></a>
-                                                                        <a href="/proforma/invoice/tr/update/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['proforma'][$j]['id']}}" target="_blank" title="Göster"><button type="button" class="btn py-0 fs-16 text-body"><i class="ri-search-eye-line align-bottom" style="color: black;font-size: 25px;"></i> </button></a>
+                                                                        <a href="/proforma/invoice/tr/edit/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['proforma'][$j]['id']}}" target="_blank" style="margin: auto;color: green;  font-size: 12px;"  ><p>Proforma Görüntüle</p></a>
+                                                                        <a href="/proforma/invoice/tr/edit/{{$DB_Find_Doc_Log[$i]['cost_calculation'][$k]['proforma'][$j]['id']}}" target="_blank" title="Göster"><button type="button" class="btn py-0 fs-16 text-body"><i class="ri-search-eye-line align-bottom" style="color: black;font-size: 25px;"></i> </button></a>
                                                                         </div>
                                                                     </div>
 

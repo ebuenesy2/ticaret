@@ -201,7 +201,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/sabit_list/update/active/multi",
+                        url: "/sabit_list/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -267,7 +267,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/sabit_list/update/active/multi",
+                        url: "/sabit_list/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -852,7 +852,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/sabit_list/update/active",
+                        url: "/sabit_list/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

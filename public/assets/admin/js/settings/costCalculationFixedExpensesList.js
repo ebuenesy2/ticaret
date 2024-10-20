@@ -406,7 +406,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/cost/calculation/fixed/expenses/update/active/multi",
+                        url: "/cost/calculation/fixed/expenses/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -472,7 +472,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/cost/calculation/fixed/expenses/update/active/multi",
+                        url: "/cost/calculation/fixed/expenses/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -550,7 +550,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/cost/calculation/fixed/expenses/update/active",
+                        url: "/cost/calculation/fixed/expenses/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

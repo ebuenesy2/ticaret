@@ -196,7 +196,7 @@ $("#update_checkedItems").click(function (e) {
             if (result.isConfirmed) {
                 //! Ajax
                 $.ajax({
-                    url: "/user/update/active/multi",
+                    url: "/user/edit/active/multi",
                     method: "post",
                     headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
                     data: {
@@ -262,7 +262,7 @@ $("#update_checkedItems").click(function (e) {
                
                 //! Ajax
                 $.ajax({
-                    url: "/user/update/active/multi",
+                    url: "/user/edit/active/multi",
                     method: "post",
                     headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
                     data: {
@@ -880,7 +880,7 @@ document.querySelectorAll("#listItemActive").forEach(function (i) {
             if (result.isConfirmed) {
                 //! Ajax
                 $.ajax({
-                    url: "/user/update/active",
+                    url: "/user/edit/active",
                     method: "post",
                     headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                     data: {

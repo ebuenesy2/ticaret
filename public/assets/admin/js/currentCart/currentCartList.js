@@ -199,7 +199,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/current/cart/update/active/multi",
+                        url: "/current/cart/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -265,7 +265,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/current/cart/update/active/multi",
+                        url: "/current/cart/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -624,7 +624,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/current/cart/update/active",
+                        url: "/current/cart/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

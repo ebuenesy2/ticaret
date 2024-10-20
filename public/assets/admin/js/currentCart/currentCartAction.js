@@ -515,7 +515,7 @@ $(function () {
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/bank/update/active/multi",
+                        url: "/bank/edit/active/multi",
                         method: "post",
                         headers: {  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
                         data: {
@@ -581,7 +581,7 @@ $(function () {
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/bank/update/active/multi",
+                        url: "/bank/edit/active/multi",
                         method: "post",
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -659,7 +659,7 @@ $(function () {
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/bank/update/active",
+                        url: "/bank/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

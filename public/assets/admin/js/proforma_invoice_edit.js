@@ -1464,7 +1464,7 @@ $(function () {
                 if (result.isConfirmed) {
                     //! Ajax
                     $.ajax({
-                        url: "/proforma/invoice/bank/update/active",
+                        url: "/proforma/invoice/bank/edit/active",
                         method: "post",
                         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
                         data: {

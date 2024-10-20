@@ -3404,7 +3404,7 @@ class Admin extends Controller
          if($yildirimdev_userCheck ) {
 
            
-            // //veri tabanı işlemleri
+            //veri tabanı işlemleri
             $DB_Find = DB::table('current_cart')->where('id',$id)->first();//Tüm verileri çekiyor
             //echo "<pre>"; print_r($DB_Find); die();
 
@@ -3413,7 +3413,7 @@ class Admin extends Controller
             $DB_Find_Category = DB::table('category')->where('type','SektorCari')->orderBy('title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
-            // //veri tabanı işlemleri
+            //veri tabanı işlemleri
             $DB_Find_Bank = DB::table('bank')->where('currencyCartId',$id)->get();//Tüm verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Bank); die();
          
@@ -3478,7 +3478,7 @@ class Admin extends Controller
             $DB_Find = DB::table('current_cart')->where('id',$id)->first(); //Tüm verileri çekiyor
             //print_r($DB_Find); die();
 
-            // //veri tabanı işlemleri
+            //veri tabanı işlemleri
             $DB_Find_Bank = DB::table('bank')->where('currencyCartId',$id)->get();//Tüm verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Bank); die();
    
@@ -10107,7 +10107,7 @@ class Admin extends Controller
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
             
-            // //veri tabanı işlemleri
+            //veri tabanı işlemleri
             $DB_Find_Bank = DB::table('proforma_bank_list')->where('proforma_id',$id)->get();//Tüm verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Bank); die();
    
@@ -17184,7 +17184,7 @@ class Admin extends Controller
          if($yildirimdev_userCheck ) {
 
             // echo "<pre>";
-            // //veri tabanı işlemleri
+            //veri tabanı işlemleri
             $DB_Find = DB::table('test')->where('id',1)->get();//Tüm verileri çekiyor
             // print_r($DB_Find); die();
          
