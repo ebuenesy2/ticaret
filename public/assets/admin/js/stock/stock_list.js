@@ -1220,7 +1220,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         var nameEnEdit =  $('#nameEnEdit').val();
 
         var SelectStockUnitEdit =  $('#SelectStockUnitEdit').val();
+        var StockCountEdit =  $('#StockCountEdit').val();
         var SelectCurrencyEdit =  $('#SelectCurrencyEdit').val();
+        var PriceEdit =  $('#PriceEdit').val();
 
         //! SelectStockUnitAdd Yok İse
         if(sectorEdit == "") { 
@@ -1231,7 +1233,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
+        } 
         else if(selectSubCategoryEdit == "") { 
             Swal.fire({
                 position: "center",
@@ -1240,8 +1242,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
-         else if(nameTrEdit == "") { 
+        } 
+        else if(nameTrEdit == "") { 
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -1249,8 +1251,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
-         else if(nameEnEdit == "") { 
+        } 
+        else if(nameEnEdit == "") { 
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -1258,8 +1260,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 showConfirmButton: false,
                 timer: 2000,
             });
-         } 
-         else  if(SelectStockUnitEdit == "") { 
+        } 
+        else  if(SelectStockUnitEdit == "") { 
 
             Swal.fire({
                 position: "center",
@@ -1269,7 +1271,18 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
 
-         }
+        }
+        else  if(StockCountEdit == "") { 
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: 'Stok Sayısı Yazılmadı',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+
+        }
         else if(SelectCurrencyEdit == "") { 
 
             Swal.fire({
@@ -1280,9 +1293,32 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
 
-         } 
+        }
+        else  if(PriceEdit == "") { 
+
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: 'Fiyat Yazılmadı',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+
+        }
         else {
 
+            //! Loading - Veri Yükleniyor
+            $('#loaderEdit').css('display','block'); //! Laoding Göster
+            $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+            $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderEdit').hide(); //! Laoding Gizle
+                $('#edit_item').removeAttr('disabled'); //! //! Button Göster
+                $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
 
             var data_id =  $('#update_data_id').html();  //! Id
 
@@ -1358,6 +1394,10 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                    //! Loading
+                    loadingYuklendi();
+
                 },
                 error: function (error) {
                     Swal.fire({
