@@ -219,7 +219,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4 d-none">
@@ -230,7 +230,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                     <!-- Arama Cari Hesap -->
                                     <div class="col-xl-2 col-md-4 ">
@@ -240,7 +240,7 @@
                                             @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}">{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Cari Hesap -->
+                                    <!--son Arama Cari Hesap -->
 
                                 
                                 </div>

@@ -52,7 +52,7 @@
                                 <option value="OzelSart">Özel Şart</option>
                             </select>
                         </div>
-                        <!--end Arama Durum  -->
+                        <!--son Arama Durum  -->
 
                       
                         <div class="mb-3">
@@ -102,7 +102,7 @@
                                 <option value="OzelSart">Özel Şart</option>
                             </select>
                         </div>
-                        <!--end Arama Durum  -->
+                        <!--son Arama Durum  -->
 
                         <div class="mb-3">
                             <label for="titleEdit" class="form-label">Başlık</label>
@@ -184,7 +184,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4">
@@ -195,7 +195,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                     <!-- Arama Type -->
                                     <div class="col-xl-2 col-md-4">
@@ -206,7 +206,7 @@
                                             <option value="OzelSart">Özel Şart</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Type Son  -->
+                                    <!--son Arama Type Son  -->
                                   
                                 
                                 </div>

@@ -235,7 +235,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4">
@@ -247,7 +247,7 @@
                                             <option value="Hayır">Hayır</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
                                    
                                 </div>
                                 <!--end row-->

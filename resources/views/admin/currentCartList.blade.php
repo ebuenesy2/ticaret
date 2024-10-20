@@ -367,7 +367,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4">
@@ -378,7 +378,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                      <!-- Arama CariKart -->
                                      <div class="col-xl-2 col-md-4">
@@ -390,7 +390,7 @@
                                             <option value="{{config('admin.currentCode_buyer_seller')}}" >Hem Alıcı Hemde Satıcı</option>
                                         </select>
                                     </div>
-                                    <!--end Arama CariKart  -->
+                                    <!--son Arama CariKart  -->
 
                                     <!-- Arama Sektor -->
                                     <div class="col-xl-2 col-md-4">
@@ -403,7 +403,7 @@
                                             
                                         </select>
                                     </div>
-                                    <!--end Arama Sektor  -->
+                                    <!--son Arama Sektor  -->
 
 
                                     <div class="col-12 d-none mb-3 mt-3">

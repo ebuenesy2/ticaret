@@ -528,19 +528,19 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4 d-none">
                                         <label for="selectActive" class="form-label">Onaylama</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
-                                            <option value="">@lang('admin.StatusSelect')</option>
+                                            <option value="">@lang('admin.All')</option>
                                             <option value="All">@lang('admin.All')</option>
                                             <option value="1">Onaylananlar</option>
                                             <option value="0">Onay Bekleyenler</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                   
                              

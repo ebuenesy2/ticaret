@@ -74,7 +74,7 @@
                                         <option value="">Başlık</option>
                                     </select>
                                 </div>
-                                <!--end Arama Durum  Başlık -->
+                                <!--son Arama Durum  Başlık -->
                            </div>
                        </div>
                        <div class="row">
@@ -150,7 +150,7 @@
                                         <option value="İntertekTabiMi">İntertek Tabi Mi</option>
                                     </select>
                                 </div>
-                                <!--end Arama Durum  -->
+                                <!--son Arama Durum  -->
 
                                 <div class="mb-3">
                                     <label for="subCategoryUpdate" class="form-label">Alt Kategori</label>
@@ -172,7 +172,7 @@
                                         
                                     </select>
                                 </div>
-                                <!--end Arama Durum  Başlık -->
+                                <!--son Arama Durum  Başlık -->
 
                                 <div class="mb-3">
                                     <label for="subCategoryENUpdate" class="form-label">Alt Kategori En</label>
@@ -266,7 +266,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Type -->
                                     <div class="col-xl-2 col-md-4">
@@ -283,7 +283,7 @@
                                             <option value="İntertekTabiMi"  >İntertek Tabi Mi</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Type Son  -->
+                                    <!--son Arama Type Son  -->
 
                                     <!-- Arama Kategori  -->
                                     <div class="col-xl-2 col-md-4">
@@ -295,7 +295,7 @@
                                             @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Kategori  Başlık -->
+                                    <!--son Arama Kategori  Başlık -->
 
                                 
                                 </div>

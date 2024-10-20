@@ -60,7 +60,7 @@
                                         <option value="İntertekTabiMi">İntertek Tabi Mi</option>
                                     </select>
                                 </div>
-                            <!--end Arama Durum  -->
+                            <!--son Arama Durum  -->
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -137,7 +137,7 @@
                                         <option value="İntertekTabiMi">İntertek Tabi Mi</option>
                                     </select>
                                 </div>
-                                <!--end Arama Durum  -->
+                                <!--son Arama Durum  -->
                           </div>
                        </div>
                        <div class="row">
@@ -239,7 +239,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4 d-none">
@@ -250,7 +250,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                         <!-- Arama Type -->
                                         <div class="col-xl-2 col-md-4">
@@ -267,7 +267,7 @@
                                             <option value="İntertekTabiMi"  style="cursor:pointer;" >İntertek Tabi Mi</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Type Son  -->
+                                    <!--son Arama Type Son  -->
 
                                     <!----- Coloumn --->
                                     <!----TableSettings-->

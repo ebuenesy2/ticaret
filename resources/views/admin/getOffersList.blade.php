@@ -122,7 +122,7 @@
                                         <label for="exampleInputdate" class="form-label">Oluşturma Zamanı</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;"> 
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-lg-2 col-md-12 mb-md-3 d-none"> 
@@ -133,7 +133,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                     <!-- Arama Cari Kart -->
                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
@@ -143,7 +143,7 @@
                                             @for ($i = 0; $i < count($DB_Find_current_cart); $i++) <option value="{{$DB_Find_current_cart[$i]->id}}" >{{$DB_Find_current_cart[$i]->current_name}}</option>  @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama  Cari Kart  -->
+                                    <!--son Arama  Cari Kart  -->
 
                                     <!-- Arama Talep -->
                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
@@ -153,7 +153,7 @@
                                             @for ($i = 0; $i < count($DB_Find_requestform); $i++) <option value="{{$DB_Find_requestform[$i]->id}}" >{{$DB_Find_requestform[$i]->requestFormTitle}}</option>  @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Talep  -->
+                                    <!--son Arama Talep  -->
                                 </div>
                                 <div class="d-flex gap-1 flex-lg-row flex-md-column">
 
@@ -165,7 +165,7 @@
                                             @for ($i = 0; $i < count($DB_Find_sevkSekli); $i++) <option value="{{$DB_Find_sevkSekli[$i]->id}}" data_title="{{$DB_Find_sevkSekli[$i]->title}}" >{{$DB_Find_sevkSekli[$i]->title}}</option> @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Sevk Şekli  -->
+                                    <!--son Arama Sevk Şekli  -->
 
                                     <!-- Arama Satıcı Teslim Şekli -->
                                     <div class="col-lg-2 col-md-12 mb-md-3" style="display: {{$isRequestFormId ? 'block' : 'none'}}"> 
@@ -175,7 +175,7 @@
                                             @for ($i = 0; $i < count($DB_Find_teslimSekli); $i++) <option value="{{$DB_Find_teslimSekli[$i]->id}}" data_title="{{$DB_Find_teslimSekli[$i]->title}}"  >{{$DB_Find_teslimSekli[$i]->title}}</option> @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Satıcı Teslim Şekli  -->
+                                    <!--son Arama Satıcı Teslim Şekli  -->
 
                                     <!-- Arama Ödeme Şekli -->
                                     <div class="col-lg-2 col-md-12 mb-md-3" style="display: {{$isRequestFormId ? 'block' : 'none'}}"> 
@@ -185,7 +185,7 @@
                                             @for ($i = 0; $i < count($DB_Find_ödemeSekli); $i++) <option value="{{$DB_Find_ödemeSekli[$i]->id}}" data_title="{{$DB_Find_ödemeSekli[$i]->title}}" >{{$DB_Find_ödemeSekli[$i]->title}}</option> @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Ödeme Şekli  -->
+                                    <!--son Arama Ödeme Şekli  -->
 
                                     <!-- Arama Nakliyet Şekli -->
                                     <div class="col-lg-2 col-md-12 mb-md-3" style="display: {{$isRequestFormId ? 'block' : 'none'}}"> 
@@ -195,7 +195,7 @@
                                             @for ($i = 0; $i < count($DB_Find_nakliyatSekli); $i++) <option value="{{$DB_Find_nakliyatSekli[$i]->id}}" data_title="{{$DB_Find_nakliyatSekli[$i]->title}}"  >{{$DB_Find_nakliyatSekli[$i]->title}}</option> @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Nakliyet Şekli  -->
+                                    <!--son Arama Nakliyet Şekli  -->
 
                                      <!-- Arama İntertek Tabi Mi  -->
                                      <div class="col-lg-2 col-md-12 mb-md-3" style="display: {{$isRequestFormId ? 'block' : 'none'}}"> 
@@ -205,7 +205,7 @@
                                             @for ($i = 0; $i < count($DB_Find_intertekTabi); $i++) <option value="{{$DB_Find_intertekTabi[$i]->id}}" data_title="{{$DB_Find_intertekTabi[$i]->title}}"  >{{$DB_Find_intertekTabi[$i]->title}}</option> @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama İntertek Tabi Mi   -->
+                                    <!--son Arama İntertek Tabi Mi   -->
 
                                     
 
@@ -220,7 +220,7 @@
                                             @for ($i = 0; $i < count($DB_Find_requestform_product_list); $i++) <option value="{{$DB_Find_requestform_product_list[$i]->id}}" >{{$DB_Find_requestform_product_list[$i]->nameTr}}</option>  @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Ürün  -->
+                                    <!--son Arama Ürün  -->
 
                                 </div>
                                 <div class="d-flex column"> </div>

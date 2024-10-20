@@ -147,7 +147,7 @@
                                         <label for="exampleInputdate" class="form-label">Oluşturma Zamanı</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;"> 
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
 
                                     <!-- Arama Durum -->
@@ -159,7 +159,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                      <!-- Arama Personel -->
                                      <div class="col-xl-2 col-md-4">
@@ -171,7 +171,7 @@
                                             @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Personel  -->
+                                    <!--son Arama Personel  -->
                                    
                                 </div>
                                 <!--end row-->

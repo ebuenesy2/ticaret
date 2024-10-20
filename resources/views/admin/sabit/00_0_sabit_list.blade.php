@@ -574,18 +574,18 @@
                                     
                                     <!-- Arama Takvim-->
                                     <div class="col-xl-2 col-md-6"> <div> <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;"> </div></div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4">
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
-                                            <option value="">@lang('admin.StatusSelect')</option>
+                                            <option value="">@lang('admin.All')</option>
                                             <option value="All">@lang('admin.All')</option>
                                             <option value="1">@lang('admin.Active')</option>
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                     <!----- Coloumn --->
                                     <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#modalTableColoums"  style="width: 150px;display: flex;gap: 10px;background-color: cadetblue;" ><i class="ri-grid-line"></i> @lang('admin.TableSettings') </button>

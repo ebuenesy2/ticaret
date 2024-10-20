@@ -62,7 +62,7 @@
                                 <option value="İntertekTabiMi">İntertek Tabi Mi</option>
                             </select>
                         </div>
-                        <!--end Arama Durum  -->
+                        <!--son Arama Durum  -->
 
                         <!-- Arama Durum Başlık  -->
                        <div class="mb-3">
@@ -72,7 +72,7 @@
                                 
                             </select>
                         </div>
-                        <!--end Arama Durum  Başlık -->
+                        <!--son Arama Durum  Başlık -->
 
                         <div class="mb-3">
                             <label for="titleEdit" class="form-label">Sabit Gider Adı</label>
@@ -147,7 +147,7 @@
                                 <option value="İntertekTabiMi">İntertek Tabi Mi</option>
                             </select>
                         </div>
-                        <!--end Arama Durum  -->
+                        <!--son Arama Durum  -->
 
                         <!-- Arama Durum Başlık  -->
                        <div class="mb-3">
@@ -157,7 +157,7 @@
                                 
                             </select>
                         </div>
-                        <!--end Arama Durum  Başlık -->
+                        <!--son Arama Durum  Başlık -->
 
                         <div class="mb-3">
                             <label for="titleAdd" class="form-label">Sabit Gider Adı</label>
@@ -260,7 +260,7 @@
                                         <label for="exampleInputdate" class="form-label">Zaman</label>
                                         <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;">
                                     </div>
-                                    <!--end Arama Takvim-->
+                                    <!--son Arama Takvim-->
 
                                     <!-- Arama Durum -->
                                     <div class="col-xl-2 col-md-4 d-none">
@@ -271,7 +271,7 @@
                                             <option value="0">@lang('admin.Passive')</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Durum  -->
+                                    <!--son Arama Durum  -->
 
                                     <!-- Arama Type -->
                                     <div class="col-xl-2 col-md-4">
@@ -288,7 +288,7 @@
                                             <option value="İntertekTabiMi"  style="cursor:pointer;" >İntertek Tabi Mi</option>
                                         </select>
                                     </div>
-                                    <!--end Arama Type Son  -->
+                                    <!--son Arama Type Son  -->
 
                                     <!-- Arama Kategori  -->
                                     <div class="col-xl-2 col-md-4">
@@ -300,7 +300,7 @@
                                             @endfor
                                         </select>
                                     </div>
-                                    <!--end Arama Kategori  Başlık -->
+                                    <!--son Arama Kategori  Başlık -->
                                 
                                 </div>
                                 <!--end row-->
