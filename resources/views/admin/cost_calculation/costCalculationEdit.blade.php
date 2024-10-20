@@ -279,7 +279,7 @@
                                                                 <input type="hidden" name="fileWhere_technicalFile" id="fileWhere_technicalFile" value="technicalFile">
 
                                                                 <!---  Loading --->
-                                                                <div id="LoadingFileUploadtechnicalFile" style="display:none;"><span class="d-flex align-items-center">
+                                                                <div id="LoadingFileUploadTechnicalFile" style="display:none;"><span class="d-flex align-items-center">
                                                                     <span class="spinner-border flex-shrink-0" role="status"></span>
                                                                     <span class="flex-grow-1 ms-2">Yükleniyor </span>
                                                                 </span> </div>
@@ -287,7 +287,7 @@
                                                                 <!--- Son Loading --->
 
                                                                 <input type="file" name="file" id="fileInputTech" style="display: flex; color: steelblue; margin-left: 10px; ">
-                                                                <div style="display: none; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrltechnicalFile"></p></div>
+                                                                <div style="display: none; gap: 10px; margin-bottom: -25px;"><p>Dosya Yolu:</p><p id="filePathUrlTechnicalFile"></p></div>
                                                                 <button type="button" id="techFileUploadClick" class="btn btn-success" style="color: #ffffff;border-bottom: 1px solid #022241;padding: 12px;width: 300px;border-radius: 6px;display: flex; gap:10px; justify-content: center;align-items: center;">
                                                                     <i class="ri-folder-upload-line" style="margin-top: -8px;  margin-bottom: -8px; font-size: 24px;"></i> 
                                                                     <p style=" color: #fff; font-size: 14px; font-weight: bold; margin-bottom: auto; "> Seçilen Teknik Belge Yükle </p>
@@ -295,7 +295,7 @@
                                                                 
                                                                 <!-- ProgressBar ---->
                                                                 <div class="progress" style="margin-top: 10px;">
-                                                                    <div class="progress-bar" id="progressBarFileUploadtechnical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;background-color: teal;color: rgb(255, 255, 255);border-radius: 6px;display: flex;justify-content: center;"></div>
+                                                                    <div class="progress-bar" id="progressBarFileUploadTechnical" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;background-color: teal;color: rgb(255, 255, 255);border-radius: 6px;display: flex;justify-content: center;"></div>
                                                                 </div>
                                                                 <!-- ProgressBar Son ---->
                                                                 
@@ -599,7 +599,7 @@
                                                     <input type="hidden" name="fileWhere_technicalFile" id="fileWhere_technicalFileEdit" value="technicalFile" >
         
                                                     <!---  Loading --->
-                                                    <div id="LoadingFileUploadtechnicalFileEdit" style="display:none;" ><span class="d-flex align-items-center">
+                                                    <div id="LoadingFileUploadTechnicalFileEdit" style="display:none;" ><span class="d-flex align-items-center">
                                                         <span class="spinner-border flex-shrink-0" role="status"></span>
                                                         <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
                                                     </span> </div>
@@ -607,7 +607,7 @@
                                                     <!--- Son Loading --->
         
                                                     <input type="file" name="file" id="fileInputEditTech" style="display: flex; color: steelblue; margin-left: 10px; ">
-                                                    <div style="display: none; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrltechnicalFileEdit"></p></div>
+                                                    <div style="display: none; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrlTechnicalFileEdit"></p></div>
                                                     <button type="button" id="techFileUploadClickEdit" class="btn btn-success" style="background-image: linear-gradient(#04519b, #033c73 60%, #02325f);color: #ffffff;border-bottom: 1px solid #022241;padding: 12px;width: 300px;border-radius: 6px;display: flex; gap:10px; justify-content: center;align-items: center;">
                                                         <i class="ri-folder-upload-line" style="margin-top: -8px;  margin-bottom: -8px; font-size: 24px;"></i> 
                                                         <p style=" color: blanchedalmond; font-size: 14px; font-weight: bold; margin-bottom: auto; " > Teknik Belge Yükle </p>
@@ -615,7 +615,7 @@
                                                     
                                                     <!-- ProgressBar ---->
                                                     <div class="progress" style="margin-top: 20px;">
-                                                        <div class="progress-bar" id="progressBarFileUploadtechnicalEdit" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;background-color: teal;color: rgb(255, 255, 255);border-radius: 6px;display: flex;justify-content: center;"></div>
+                                                        <div class="progress-bar" id="progressBarFileUploadTechnicalEdit" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;background-color: teal;color: rgb(255, 255, 255);border-radius: 6px;display: flex;justify-content: center;"></div>
                                                     </div>
                                                     <!-- ProgressBar Son ---->
                                                     

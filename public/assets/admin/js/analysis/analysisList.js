@@ -663,7 +663,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     //! Progresbar
                     $("#progressBarFileUploadEdit").width('0%');
-                    $("#progressBarFileUploadtechnicalEdit").width('0%');
+                    $("#progressBarFileUploadTechnicalEdit").width('0%');
 
 
                     //! Hesaplama
@@ -984,7 +984,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     $('#product_dowloand_imgAdd').css('display','block');
                     $('#product_dowloand_imgAdd').attr("href",resp.file_path);
-                    $('#product_dowloand_imgAdd').attr("download",resp.file_path);
+                    $('#product_dowloand_imgAdd').attr("download",resp.file_name);
 
 
                     //! Alert
@@ -1102,7 +1102,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                     $('#product_dowloand_img').css('display','block');
                     $('#product_dowloand_img').attr("href",resp.file_path);
-                    $('#product_dowloand_img').attr("download",resp.file_path);
+                    $('#product_dowloand_img').attr("download",resp.file_name);
 
 
                     //! Alert

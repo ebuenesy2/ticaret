@@ -49,7 +49,7 @@ $(function () {
                             $('#accountingCodeSelAdd').val(response.DB.accountingCode_sel);
         
                            // $('#filePathUrl').html(response.DB.imgUrl);
-                           // $('#filePathUrltechnicalFile').html(response.DB.techFileUrl);
+                           // $('#filePathUrlTechnicalFile').html(response.DB.techFileUrl);
                             
                             $('#SelectStockUnitAdd option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
                             $('#StockCountAdd').val(response.DB.stockCount);
@@ -178,7 +178,7 @@ $(function () {
                             $('#accountingCodeSelEdit').val(response.DB.accountingCode_sel);
         
                             ! $('#filePathUrlEdit').html(response.DB.imgUrl);
-                            ! $('#filePathUrltechnicalFileEdit').html(response.DB.techFileUrl);
+                            ! $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
                             
                             $('#SelectStockUnitEdit option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
                             $('#StockCountEdit').val(response.DB.stockCount);
@@ -390,7 +390,7 @@ $(function () {
                        
                         nameTr: $('#nameTrAdd').val(),
                         imgUrl: $('#filePathUrl').html(),
-                        techFileUrl: $('#filePathUrltechnicalFile').html(),
+                        techFileUrl: $('#filePathUrlTechnicalFile').html(),
                        
                         stockUnit: $('#SelectStockUnitAdd').val(),
                         stockCount: $('#StockCountAdd').val(),
@@ -465,11 +465,11 @@ $(function () {
 
                             //! Teknik Resim
                             $('#product_dowloand_fileAdd').css('display','none');
-                            $('#filePathUrltechnicalFile').html("");
+                            $('#filePathUrlTechnicalFile').html("");
 
                             //! Progresbar
                             $("#progressBarFileUpload").width('0%');
-                            $("#progressBarFileUploadtechnical").width('0%');
+                            $("#progressBarFileUploadTechnical").width('0%');
 
                             //! Modal Kapatma
                             $("#Add_ProductModal").modal('hide');
@@ -656,7 +656,7 @@ $(function () {
                             $('#accountingCodeSelEdit').val(response.DB.accountingCode_sel);
         
                             $('#filePathUrlEdit').html(response.DB.imgUrl);
-                            $('#filePathUrltechnicalFileEdit').html(response.DB.techFileUrl);
+                            $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
                             
                             $('#SelectStockUnitEdit option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
                             $('#StockCountEdit').val(response.DB.stockCount);
@@ -736,7 +736,7 @@ $(function () {
                             if(response.DB.techFileUrl != "" && response.DB.techFileUrl != null ) {
 
                                 //! Dosya - Teknik
-                                $('#filePathUrltechnicalFileEdit').html(response.DB.techFileUrl);
+                                $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
 
                                 $('#product_dowloand_file').css('display','block');
                                 $('#product_dowloand_file').attr("href",'/'+response.DB.techFileUrl);
@@ -753,7 +753,7 @@ $(function () {
 
                             //! Progresbar
                             $("#progressBarFileUploadEdit").width('0%');
-                            $("#progressBarFileUploadtechnicalEdit").width('0%');
+                            $("#progressBarFileUploadTechnicalEdit").width('0%');
     
                         }
                         else {
@@ -884,7 +884,7 @@ $(function () {
                         nameEn: $('#nameEnEdit').val(),
 
                         imgUrl: $('#filePathUrlEdit').html(),
-                        techFileUrl: $('#filePathUrltechnicalFileEdit').html(),
+                        techFileUrl: $('#filePathUrlTechnicalFileEdit').html(),
                     
                         stockUnit: $('#SelectStockUnitEdit').val(),
                         stockCount: $('#StockCountEdit').val(),
@@ -1335,7 +1335,7 @@ $(function () {
 
                     $('#product_dowloand_imgAdd').css('display','block');
                     $('#product_dowloand_imgAdd').attr("href",resp.file_path);
-                    $('#product_dowloand_imgAdd').attr("download",resp.file_path);
+                    $('#product_dowloand_imgAdd').attr("download",resp.file_name);
 
 
                     //! Alert
@@ -1456,7 +1456,7 @@ $(function () {
 
                     $('#product_dowloand_img').css('display','block');
                     $('#product_dowloand_img').attr("href",resp.file_path);
-                    $('#product_dowloand_img').attr("download",resp.file_path);
+                    $('#product_dowloand_img').attr("download",resp.file_name);
 
 
                     //! Alert
@@ -1506,8 +1506,8 @@ $(function () {
                             var percentComplete = ((evt.loaded / evt.total) * 100);
                             console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUploadtechnical").width(percentComplete + '%');
-                            $("#progressBarFileUploadtechnical").html(percentComplete+'%');
+                            $("#progressBarFileUploadTechnical").width(percentComplete + '%');
+                            $("#progressBarFileUploadTechnical").html(percentComplete+'%');
 
                         }
                     }, false);
@@ -1524,24 +1524,24 @@ $(function () {
                     console.log("Dosya yükleme başladı");
 
                     //! ProgressBar
-                    $("#progressBarFileUploadtechnical").width('0%');
+                    $("#progressBarFileUploadTechnical").width('0%');
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').toggle();
+                    $('#LoadingFileUploadTechnicalFile').toggle();
                     $('#uploadStatus').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFile').html("");
+                    $('#filePathUrlTechnicalFile').html("");
                 },
                 error: function (error) {
                     alert("başarısız");
                     console.log("Hata oluştu error:", error);
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').hide();
+                    $('#LoadingFileUploadTechnicalFile').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFile').html("");
+                    $('#filePathUrlTechnicalFile').html("");
 
                     //! Alert
                     Swal.fire({
@@ -1558,16 +1558,16 @@ $(function () {
                 console.log("file resp:", resp);
 
                     //! ProgressBar
-                    $("#progressBarFileUploadtechnical").width('100%');
+                    $("#progressBarFileUploadTechnical").width('100%');
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFile').hide();
+                    $('#LoadingFileUploadTechnicalFile').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFile').html(resp.file_url);
+                    $('#filePathUrlTechnicalFile').html(resp.file_url);
                     $('#product_dowloand_fileAdd').css('display','block');
                     $('#product_dowloand_fileAdd').attr("href",resp.file_path);
-                    $('#product_dowloand_fileAdd').attr("download",resp.file_path);
+                    $('#product_dowloand_fileAdd').attr("download",resp.file_name);
 
 
                     //! Alert
@@ -1617,8 +1617,8 @@ $(function () {
                             var percentComplete = ((evt.loaded / evt.total) * 100);
                             console.log("Dosya Yükleme Durumu: %", percentComplete);
 
-                            $("#progressBarFileUploadtechnicalEdit").width(percentComplete + '%');
-                            $("#progressBarFileUploadtechnicalEdit").html(percentComplete+'%');
+                            $("#progressBarFileUploadTechnicalEdit").width(percentComplete + '%');
+                            $("#progressBarFileUploadTechnicalEdit").html(percentComplete+'%');
 
                         }
                     }, false);
@@ -1635,24 +1635,24 @@ $(function () {
                     console.log("Dosya yükleme başladı");
 
                     //! ProgressBar
-                    $("#progressBarFileUploadtechnicalEdit").width('0%');
+                    $("#progressBarFileUploadTechnicalEdit").width('0%');
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').toggle();
+                    $('#LoadingFileUploadTechnicalFileEdit').toggle();
                     $('#uploadStatus').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html("");
+                    $('#filePathUrlTechnicalFileEdit').html("");
                 },
                 error: function (error) {
                     alert("başarısız");
                     console.log("Hata oluştu error:", error);
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').hide();
+                    $('#LoadingFileUploadTechnicalFileEdit').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html("");
+                    $('#filePathUrlTechnicalFileEdit').html("");
 
 
                     //! Alert
@@ -1670,16 +1670,16 @@ $(function () {
                 console.log("file resp:", resp);
 
                     //! ProgressBar
-                    $("#progressBarFileUploadtechnicalEdit").width('100%');
+                    $("#progressBarFileUploadTechnicalEdit").width('100%');
 
                     //! Upload Durum
-                    $('#LoadingFileUploadtechnicalFileEdit').hide();
+                    $('#LoadingFileUploadTechnicalFileEdit').hide();
 
                     //! Upload Url
-                    $('#filePathUrltechnicalFileEdit').html(resp.file_url);
+                    $('#filePathUrlTechnicalFileEdit').html(resp.file_url);
                     $('#product_dowloand_file').css('display','block');
                     $('#product_dowloand_file').attr("href",resp.file_path);
-                    $('#product_dowloand_file').attr("download",resp.file_path);
+                    $('#product_dowloand_file').attr("download",resp.file_name);
 
 
                     //! Alert
