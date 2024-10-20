@@ -107,16 +107,6 @@
                            <div class="row">
                               <div class="col-6">
                                     <div class="mb-3">
-                                        <label for="CurrencyCartIDEditSetting" class="form-label">Firma Seçiniz</label>
-                                        <select class="form-select" id="CurrencyCartIDEditSetting">
-                                            <option value="">Cari Kart Seç</option>
-                                            @for ($i = 0; $i < count($DB_Find_Current); $i++) 
-                                              <option value="{{$DB_Find_Current[$i]->id}}" > {{$DB_Find_Current[$i]->current_name}} </option>
-                                            @endfor  
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
                                         <label for="selectPersonelEditSetting" class="form-label">Personel Seçiniz</label>
                                         <select class="form-select" id="selectPersonelEditSetting">
                                             <option value="">Personel Seç</option>

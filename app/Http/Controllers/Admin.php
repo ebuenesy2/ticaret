@@ -1748,7 +1748,7 @@ class Admin extends Controller
             //! Çoklu Arama
             //veri tabanı işlemleri
             $DB_Find_stok_Ret = DB::table('stock')
-            ->join('category', 'category.id', '=', 'stock.sector')
+            ->leftJoin('category', 'category.id', '=', 'stock.sector')
             ->select('stock.*', 'category.title')
             ->where($data_all)->where('stock.isActive','=',0)
             ->orderBy('stock.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
@@ -2469,7 +2469,7 @@ class Admin extends Controller
             //veri tabanı işlemleri
             $DB_Find = DB::table('stockcompany')
             ->leftJoin('stock', 'stock.id', '=', 'stockcompany.stock_id')
-            ->join('current_cart', 'current_cart.id', '=', 'stockcompany.current_cart_id')
+            ->leftJoin('current_cart', 'current_cart.id', '=', 'stockcompany.current_cart_id')
             ->select('stockcompany.*','stock.nameTr as stockNameTR','stock.nameEn as stockNameEN' ,'current_cart.id as current_cartId','current_cart.current_name as current_cartName','current_cart.current_code as current_cartCode')
             ->where('stockcompany.stock_id',$id)
             ->where($data_all)->orderBy('stockcompany.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
@@ -2953,7 +2953,7 @@ class Admin extends Controller
             //! Çoklu Arama
             //veri tabanı işlemleri
             $DB_Find = DB::table('current_cart')
-            ->join('category', 'category.id', '=', 'current_cart.sectoral_type')
+            ->leftJoin('category', 'category.id', '=', 'current_cart.sectoral_type')
             ->select('current_cart.*', 'category.title')
             ->where($data_all)->orderBy('id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find); die();
@@ -3926,7 +3926,7 @@ class Admin extends Controller
             //veri tabanı işlemleri
             $DB_Find = DB::table('stockcompany')
             ->leftJoin('stock', 'stock.id', '=', 'stockcompany.stock_id')
-            ->join('current_cart', 'current_cart.id', '=', 'stockcompany.current_cart_id')
+            ->leftJoin('current_cart', 'current_cart.id', '=', 'stockcompany.current_cart_id')
             ->select('stockcompany.*','stock.stockCode','stock.nameTr as stockNameTR','stock.nameEn as stockNameEN' ,'current_cart.id as current_cartId','current_cart.current_name as current_cartName','current_cart.current_code as current_cartCode')
             ->where('stockcompany.current_cart_id',$id)
             ->where($data_all)->orderBy('stockcompany.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
@@ -4291,8 +4291,8 @@ class Admin extends Controller
             //! Çoklu Arama
             //veri tabanı işlemleri
             $DB_Find = DB::table('requestform')
-            ->join('users', 'users.id', '=', 'requestform.personeId')
-            ->join('current_cart', 'current_cart.id', '=', 'requestform.currencyCartId')
+            ->leftJoin('users', 'users.id', '=', 'requestform.personeId')
+            ->leftJoin('current_cart', 'current_cart.id', '=', 'requestform.currencyCartId')
             ->select('requestform.*','users.name','users.surname','users.img_url','current_cart.current_name')
             ->where($data_all)->orderBy('requestform.id','desc') ->get(); //! Paramsa Göre Tüm Verileri çekiyor
             // echo "<pre>"; print_r($DB_Find); die();
@@ -6142,7 +6142,7 @@ class Admin extends Controller
    
             //! Ürün Bilgileri - Stok Onaylanmayan Stok Sayısı
             $DB_Find_Product_Ret_Count = DB::table('requestform_product_list')
-            ->join('stock', 'stock.id', '=', 'requestform_product_list.stock_id')
+            ->leftJoin('stock', 'stock.id', '=', 'requestform_product_list.stock_id')
             ->select('requestform_product_list.*','stock.isActive as stockActive')
             ->where('requestform_product_list.requestform_id',$id)
             ->where('stock.isActive','=',0)
@@ -14759,7 +14759,7 @@ class Admin extends Controller
             //veri tabanı işlemleri
             $DB_Find = DB::table('analysis_list')
             ->select('analysis_list.*','analysis_product_list.nameTr','analysis_product_list.gtipNo','analysis_product_list.price as productPrice','analysis_product_list.imgUrl as product_imgUrl')
-            ->join('analysis_product_list', 'analysis_product_list.id', '=', 'analysis_list.product_id')
+            ->leftJoin('analysis_product_list', 'analysis_product_list.id', '=', 'analysis_list.product_id')
             ->where($data_all)->orderBy('analysis_list.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find); die();
             
@@ -14965,7 +14965,7 @@ class Admin extends Controller
          
          $DB_Find = DB::table('analysis_list')
             ->select('analysis_list.*','analysis_product_list.nameTr','analysis_product_list.gtipNo','analysis_product_list.price as productPrice')
-            ->join('analysis_product_list', 'analysis_product_list.id', '=', 'analysis_list.product_id')
+            ->leftJoin('analysis_product_list', 'analysis_product_list.id', '=', 'analysis_list.product_id')
             ->where('analysis_list.id',$request->id)->first(); //Tüm verileri çekiyor
          
          if($DB_Find) {
@@ -15163,7 +15163,7 @@ class Admin extends Controller
             //! Çoklu Arama
             //veri tabanı işlemleri
             $DB_Find = DB::table('business_tracking')
-            ->join('users', 'users.id', '=', 'business_tracking.personel_id')
+            ->leftJoin('users', 'users.id', '=', 'business_tracking.personel_id')
             ->leftJoin('requestform', 'requestform.id', '=', 'business_tracking.requestform_id')
             ->select('business_tracking.*','users.name','users.surname','users.img_url','requestform.requestFormTitle')
             ->where($data_all)->orderBy('business_tracking.id','desc') ->get(); //! Paramsa Göre Tüm Verileri çekiyor
