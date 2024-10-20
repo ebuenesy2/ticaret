@@ -1162,7 +1162,7 @@
         @include('admin.include.footer')
 
         <!------- List --->
-        <script src="{{asset('/assets/admin')}}/js/requestFormEdit.js"></script>
+        <script src="{{asset('/assets/admin')}}/js/requestForm/requestFormEdit.js"></script>
 
         <script>
 

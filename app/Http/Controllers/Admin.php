@@ -4327,7 +4327,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/requestFormList',$DB);
+            return view('admin/requestForm/requestFormList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -4929,7 +4929,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/requestFormEdit',$DB);
+            return view('admin/requestForm/requestFormEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -5037,7 +5037,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/requestFormView',$DB);
+            return view('admin/requestForm/requestFormView',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -5340,7 +5340,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/requestFormExport',$DB);
+            return view('admin/requestForm/requestFormExport',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -5502,7 +5502,7 @@ class Admin extends Controller
 
             //! Public Control
             $publicControl = $DB_Find->public; 
-            if( $publicControl == "1" || $publicControl == "2") {  return view('admin/requestFormPublic',$DB); } 
+            if( $publicControl == "1" || $publicControl == "2") {  return view('admin/requestForm/requestFormPublic',$DB); } 
             else {  return view('admin/error404',$DB);  }
 
 
@@ -5562,7 +5562,7 @@ class Admin extends Controller
          
          //! Çoklu Dil
          \Illuminate\Support\Facades\App::setLocale($site_lang);
-         return view('admin/requestFormPublicLogin',$DB);
+         return view('admin/requestForm/requestFormPublicLogin',$DB);
 
          
    
@@ -15673,7 +15673,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/requestFormView',$DB);
+            return view('admin/requestForm/requestFormView',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();

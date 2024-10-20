@@ -883,6 +883,6 @@
         @include('admin.include.footer')
 
          <!------- List --->
-         <script src="{{asset('/assets/admin')}}/js/requestFormEdit_Public.js"></script>
+         <script src="{{asset('/assets/admin')}}/js/requestForm/requestFormEdit_Public.js"></script>
 
     </footer>
