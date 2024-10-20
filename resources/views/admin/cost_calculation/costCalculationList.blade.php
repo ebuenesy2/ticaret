@@ -76,7 +76,7 @@
                                     <div class="mb-3">
                                         <label for="paymentMethodAdd" class="form-label"  >Ödeme Şekli</label>
                                         <select class="form-control"  name="choices-single-default2" id="paymentMethodAdd" disabled >
-                                            <option value="" selected>Şeç</option>
+                                            <option value="" selected>SEÇ</option>
                                             @for ($i = 0; $i < count($DB_Find_ödemeSekli); $i++) <option value="{{$DB_Find_ödemeSekli[$i]->id}}" data_value="{{$DB_Find_ödemeSekli[$i]->title}}" >{{$DB_Find_ödemeSekli[$i]->title}}</option> @endfor
                                         </select>
                                     </div>

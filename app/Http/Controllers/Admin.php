@@ -5413,7 +5413,7 @@ class Admin extends Controller
             //echo "<pre>";print_r($DB_Find_User); die();
 
             //veri tabanı işlemleri
-            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Category = DB::table('category')->where('type','SektorStok')->orderBy('category.title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
             //veri tabanı işlemleri
@@ -12533,7 +12533,7 @@ class Admin extends Controller
          
 
          //! Veri Arama
-         $DB_Find = DB::table('categorysub')->where('categoryid',$request->id)->get(); //Tüm verileri çekiyor
+         $DB_Find = DB::table('categorysub')->where('categoryid',$request->id)->orderBy('title','asc')->get(); //Tüm verileri çekiyor
 
          if($DB_Find) {
 
