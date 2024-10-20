@@ -17,7 +17,7 @@
 
 
     <!--------- Css  --> 
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/admin')}}/css/sabit/0_const.css" />
+    
     
 
 </head>
