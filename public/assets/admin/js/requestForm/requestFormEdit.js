@@ -1398,12 +1398,14 @@ $(function () {
         var VisibilityEdit = $('#VisibilityEdit').val(); //! Görünürlük
         var personelVal = $('#selectPersonelEdit').val(); //! Personel
         var SelectProductCurrencyAdd = $('#SelectProductCurrencyAdd').val(); //! Para Birimi
+        var offerEffectiveDateEdit = $('#offerEffectiveDateEdit').val(); //! Talep Geçerlilik Süresi
 
-        var sector_Val = $('#SectorAdd').val(); //! Sektor
+        var delivery_atEdit = $('#delivery_atEdit').val(); //! Teslim Zamanı
+        var shipmentTypeAdd_Val = $('#shipmentTypeAdd').val(); //! Sevk Şekli
         var vendorDeliveryTypeAdd_Val = $('#vendorDeliveryTypeAdd').val(); //! Teslim Şekli
         var paymentMethodAdd_Val = $('#paymentMethodAdd').val(); //! Ödeme Şekli
         var modeofTransportAdd_Val = $('#modeofTransportAdd').val(); //! Nakliyet Şekli
-        var shipmentTypeAdd_Val = $('#shipmentTypeAdd').val(); //! Sevk Şekli
+       
         var specialPermitAdd_Val = $('#specialPermitAdd').val(); //! Özel İzin
         var intertekAdd_Val = $('#intertekAdd').val(); //! intertek
 
@@ -1452,11 +1454,29 @@ $(function () {
                 timer: 2000,
             });
         }
-        else if (sector_Val == "") {
+        else if (offerEffectiveDateEdit == "") {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Sektor  Seçilmedi",
+                title: "Talep Geçerlilik Tarihi Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (delivery_atEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Teslim Zamanı Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (shipmentTypeAdd_Val == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Sevk Şekli  Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
@@ -1465,7 +1485,7 @@ $(function () {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "Teslim Şekli  Seçilmedi",
+                title: "Satıcı Teslim Şekli Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
@@ -1484,15 +1504,6 @@ $(function () {
                 position: "center",
                 icon: "error",
                 title: "Nakliyet Şekli  Seçilmedi",
-                showConfirmButton: false,
-                timer: 2000,
-            });
-        }
-        else if (shipmentTypeAdd_Val == "") {
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Sevk Şekli  Seçilmedi",
                 showConfirmButton: false,
                 timer: 2000,
             });
@@ -1602,9 +1613,6 @@ $(function () {
             }); //! Ajax Son
 
         }
-
-
-
     }); //! Güncelle Son
 
     //! ************ Güncelle Son  ***************

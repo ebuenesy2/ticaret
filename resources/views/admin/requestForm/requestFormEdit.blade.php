@@ -15,11 +15,6 @@
     <!------- Head --->
     @include('admin.include.head')
 
-
-    <!--------- Css  --> 
-    
-    
-
 </head>
 
 <body>
@@ -1161,7 +1156,7 @@
         <!------- Footer --->
         @include('admin.include.footer')
 
-        <!------- List --->
+        <!------- JS --->
         <script src="{{asset('/assets/admin')}}/js/requestForm/requestFormEdit.js"></script>
 
         <script>
