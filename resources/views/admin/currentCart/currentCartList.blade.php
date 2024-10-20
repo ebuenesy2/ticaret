@@ -25,45 +25,6 @@
     <!------- Lang --->
     @include('include.lang')
 
-    <!-- Modal Coloums -->
-    <div class="modal fade" id="modalTableColoums" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > @lang('admin.TableSettings')   </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
-
-                        <!---  Loading --->
-                        <div id="LoadingFileUpload" style="display:block;" ><span class="d-flex align-items-center">
-                            <span class="spinner-border flex-shrink-0" role="status"></span>
-                            <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                        </span> </div>
-                        <div id="uploadStatus"></div>
-                        <!--- Son Loading --->
-
-                        <!---  ModalBodyInfo --->
-                        <div id="ModalBodyInfo" style="display:none;"  >
-                            <p>@lang('admin.SelectVisibilityColumnsTable')</p>
-                            <div id="exportModalHeaderTable"  style="display: flex;flex-wrap: wrap;gap: 15px;" ></div>
-                        </div>
-                         <!---  ModalBodyInfo Son --->
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Update')</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Coloums  Son -->
-
     <!-- Modal Silme  -->
     <div class="modal fade flip" id="deleteModal" tabindex="-1" aria-hidden="true"  >
         <div class="modal-dialog modal-dialog-centered">
@@ -133,179 +94,7 @@
     </div>
     <!-- Modal Güncelle  Son -->
 
-    <!-- Modal Export Json -->
-    <div class="modal fade" id="exportJsonModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > Export Json  </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
-
-                        <!---  Loading --->
-                        <div id="LoadingFileUploadJson" style="display:block;" ><span class="d-flex align-items-center">
-                            <span class="spinner-border flex-shrink-0" role="status"></span>
-                            <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                        </span> </div>
-                        <div id="uploadStatus"></div>
-                        <!--- Son Loading --->
-
-                        <!---  ModalBodyInfoJson --->
-                        <div id="ModalBodyInfoJson" style="display:none;"  >
-                       
-                            <p id="ModalTableTitle" style="font-weight: bold;font-size: 15px;" >xx Listesi</p>
-                            <p>@lang('admin.SelectWhichDataExport')</p>
-                            
-                            <div class="form-check form-radio-primary mb-3">
-                                <input class="form-check-input" type="radio" name="modalTableTitleRadio" id="modalTableTitleRadioButton1" value="all"  checked="">
-                                <label class="form-check-label" for="modalTableTitleRadioButton1">@lang('admin.AllDataTable')</label>
-                            </div>
-                            <div class="form-check form-radio-primary mb-3">
-                                <input class="form-check-input" type="radio" name="modalTableTitleRadio" id="modalTableTitleRadioButton2" value="select" >
-                                <label class="form-check-label" for="modalTableTitleRadioButton2">@lang('admin.SelectedDataTable')</label>
-                            </div>                       
-
-                            <hr>
-                            <p>@lang('admin.SelectColumnsExport')</p>
-                            <div id="exportModalHeader"  style="display: flex;flex-wrap: wrap;gap: 15px;" >
-                                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheck"  id="modalTableTitleCheck" value="Check" ><label class="form-check-label" for="modalTableTitleCheck">Check</label></div>
-                            </div>
-                        
-
-                          </div>
-                        </div>
-                         <!---  ModalBodyInfoJson Son --->
-
-                    <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="exportJson">Export JSON</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Export Json Son -->
-
-    
-    <!-- Modal Export Excel -->
-    <div class="modal fade" id="exportExcelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > Export Excel  </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
-
-                           
-                        <!---  Loading --->
-                        <div id="LoadingFileUploadExcel" style="display:block;" ><span class="d-flex align-items-center">
-                            <span class="spinner-border flex-shrink-0" role="status"></span>
-                            <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                        </span> </div>
-                        <div id="uploadStatus"></div>
-                        <!--- Son Loading --->
-
-                        <!---  ModalBodyInfoExcel --->
-                        <div id="ModalBodyInfoExcel" style="display:none;"  >
-                            <p id="ModalTableTitleExcel" style="font-weight: bold;font-size: 15px;" >xx Listesi</p>
-                            <p>@lang('admin.SelectWhichDataExport')</p>
-                            
-                            <div class="form-check form-radio-primary mb-3">
-                                <input class="form-check-input" type="radio" name="modalTableTitleRadioExcel" id="modalTableTitleRadioButtonExcel1" value="all"  checked="">
-                                <label class="form-check-label" for="modalTableTitleRadioButtonExcel1">@lang('admin.AllDataTable')</label>
-                            </div>
-                            <div class="form-check form-radio-primary mb-3">
-                                <input class="form-check-input" type="radio" name="modalTableTitleRadioExcel" id="modalTableTitleRadioButtonExcel2" value="select" >
-                                <label class="form-check-label" for="modalTableTitleRadioButtonExcel2">@lang('admin.SelectedDataTable')</label>
-                            </div>
-
-                            <hr>
-
-                            <div>
-                                <p>@lang('admin.SelectColumnsExport')</p>
-                                <div id="exportModalHeaderExcel"  style="display: flex;flex-wrap: wrap;gap: 15px;" >
-                                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" name="modalTableTitleCheck"  id="modalTableTitleCheck" value="Check" ><label class="form-check-label" for="modalTableTitleCheck">Check</label></div>
-                                </div>
-                          </div>
-                        </div>
-                        <!---  ModalBodyInfoExcel Son --->
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="exportExcel">Export Excel</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Export Excel Son -->
-
-     <!-- Modal Import -->
-     <div class="modal fade" id="modalTableImport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" > Import  </p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    <div class="modal-body">
-                        <!-- Dosya Yükleme Kutusu ----->
-                        <div style="width: 450px;border: 2px solid;padding: 10px;">
-                        
-                            <!-- Dosya Yükleme ----->
-                            <form method="POST" id="uploadForm" enctype="multipart/form-data">
-                                <div style="display: flex;flex-direction: column; gap: 15px;">
-
-                                     <!-- Dosya Yükleme Bilgileri ----->
-                                    <input type="hidden" name="fileDbSave" id="fileDbSave" value="true" >
-                                    <input type="hidden" name="fileWhere" id="fileWhere" value="Import" >
-
-                                    <!---  Loading --->
-                                    <div id="LoadingFileUpload" style="display:none;" ><span class="d-flex align-items-center">
-                                        <span class="spinner-border flex-shrink-0" role="status"></span>
-                                        <span class="flex-grow-1 ms-2">  @lang('admin.Loading'). </span>
-                                    </span> </div>
-                                    <div id="uploadStatus"></div>
-                                    <!--- Son Loading --->
-
-                                    <input type="file" name="file" id="fileInput" style="display: flex; color: steelblue; margin-left: 10px; ">
-                                    <div style="display: flex; gap: 10px; margin-bottom: -25px;" ><p>@lang('admin.FileUrl'):</p><p id="filePathUrl"></p></div>
-                                    <button type="button" id="fileUploadClick" class="btn btn-success" style="background-image: linear-gradient(#04519b, #033c73 60%, #02325f);color: #ffffff;border-bottom: 1px solid #022241;padding: 12px;width: 100%;border-radius: 6px;display: flex; gap:10px; justify-content: center;align-items: center;">
-                                        <i class="ri-folder-upload-line" style="margin-top: -8px;  margin-bottom: -8px; font-size: 24px;"></i> 
-                                        <p style=" color: blanchedalmond; font-size: 14px; font-weight: bold; margin-bottom: auto; " > Dosya Yükle </p>
-                                    </button>
-                                    
-                                    <!-- ProgressBar ---->
-                                    <div class="progress" style="margin-top: 20px;">
-                                    <div class="progress-bar" id="progressBarFileUpload" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;background-color: teal;color: rgb(255, 255, 255);border-radius: 6px;display: flex;justify-content: center;"></div>
-                                </div>
-                                    <!-- ProgressBar Son ---->
-                                    
-                                </div>
-                            </form>
-                            <!-- Dosya Yükleme Son ---->
-                    
-                        </div>
-                        <!-- Dosya Yükleme Kutusu Son ----->
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Import  Son -->
-
-
-   <div class="page-content">
+    <div class="page-content">
      <div class="container-fluid">
 
         <!-- start page title -->
@@ -511,7 +300,12 @@
                                                     <td exportname="CreatedDate" class="order_date"> {{$DB_Find[$i]->created_at}}</td>
                                                   
                                                     <td exportname="CurrentName" > {{$DB_Find[$i]->current_name}}</td>
-                                                    <td exportname="CurrentRow" > {{$DB_Find[$i]->current_row == 120 ? 'Alıcı' : 'Satıcı'}}</td>
+                                                    
+                                                    @if($DB_Find[$i]->current_row == config('admin.currentCode_buyer')) <td exportname="CurrentRow" >Alıcı</td>
+                                                    @elseif($DB_Find[$i]->current_row == config('admin.currentCode_seller')) <td exportname="CurrentRow" >Satıcı</td>
+                                                    @elseif($DB_Find[$i]->current_row == config('admin.currentCode_buyer_seller')) <td exportname="CurrentRow" >Hem Alıcı Hemde Satıcı</td>
+                                                    @endif
+
                                                     <td exportname="Sector" > {{$DB_Find[$i]->title}}</td>
                                                     <td exportname="CurrentCode" > {{$DB_Find[$i]->current_code}}</td>
                                                    

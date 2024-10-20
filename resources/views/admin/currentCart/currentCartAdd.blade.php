@@ -208,7 +208,6 @@
                                 <label class="form-label" for="sectorAdd">Sektor</label>
                                 <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="sectorAdd">
                                     <option value="">Seç</option>
-
                                     @for ($i = 0; $i < count($DB_Find_Category); $i++)
                                     <option value="{{$DB_Find_Category[$i]->id}}" data_codeNo="{{$DB_Find_Category[$i]->codeNumber}}"  >{{$DB_Find_Category[$i]->title}}</option>
                                     @endfor

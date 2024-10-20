@@ -2962,7 +2962,7 @@ class Admin extends Controller
             
             
             //veri tabanı işlemleri
-            $DB_Find_Category = DB::table('category')->where('type','SektorCari')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Category = DB::table('category')->where('type','SektorCari')->orderBy('title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
  

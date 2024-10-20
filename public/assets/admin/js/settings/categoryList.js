@@ -863,21 +863,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! Ekleme
     $("#new_add").click(function (e) {
         e.preventDefault();
-
-        
-        //! Loading - Veri Yükleniyor
-        $('#loaderAdd').css('display','block'); //! Laoding Göster
-        $('#new_add').attr('disabled','disabled'); //! Button Gizleme
-        $('#add_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
-
-        //! Loading - Veri Yüklendi
-        function loadingYuklendi(){
-            $('#loaderAdd').hide(); //! Laoding Gizle
-            $('#new_add').removeAttr('disabled'); //! //! Button Göster
-            $('#add_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
-        }
-        //! Loading - Veri Yüklendi Son
-
         
         var selectTypeAdd = $('#selectTypeAdd').val();
         var titleAdd = $('#titleAdd').val();
@@ -931,6 +916,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             });
         }
         else {
+
+            //! Loading - Veri Yükleniyor
+            $('#loaderAdd').css('display','block'); //! Laoding Göster
+            $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+            $('#add_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderAdd').hide(); //! Laoding Gizle
+                $('#new_add').removeAttr('disabled'); //! //! Button Göster
+                $('#add_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
 
             //! Ajax
             $.ajax({
