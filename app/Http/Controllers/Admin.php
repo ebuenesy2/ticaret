@@ -1905,7 +1905,6 @@ class Admin extends Controller
       }
       
    } //! StockList Add  Son
-
    
    //! StockList Delete  
    public function StockListDeletePost(Request $request)
@@ -2010,7 +2009,6 @@ class Admin extends Controller
       
    } //! StockList Delete  Son
 
-
    //! StockList Post
    public function StockListSearchPost(Request $request)
    {
@@ -2065,7 +2063,6 @@ class Admin extends Controller
       }
       
    } //! StockList Search Post Son
-
      
    //! StockList Update  
    public function StockListEditPost(Request $request)
@@ -2174,7 +2171,6 @@ class Admin extends Controller
       }
       
    } //! StockList Update  Son
-   
 
    //! StockList Edit Active
    public function StockListEditActive(Request $request)
@@ -2232,7 +2228,6 @@ class Admin extends Controller
       }
       
    } //! StockList Edit Active Son
-
 
    //! StockList Edit Active Multi
    public function StockListEditActiveMulti(Request $request)
@@ -2448,9 +2443,7 @@ class Admin extends Controller
             
                if($data_key_item == "CreatedDate") { $data_key_item = "stockcompany.created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
                else if($data_key_item == "Id") { $data_key_item = "stockcompany.id";  $data_item_object="=";  }
-               else if($data_key_item == "Status") { $data_key_item = "stockcompany.isActive";  $data_item_object="="; }
-               else if($data_key_item == "sector") { $data_key_item = "stockcompany.sector";  $data_item_object="="; }
-
+               else if($data_key_item == "Role") { $data_key_item = "stockcompany.current_row";  $data_item_object="="; }
                
                //! Ekleme Yapıyor
                array_push($data_search_key,$data_key_item); //! id

@@ -64,7 +64,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             if(data.exportname == "Id") {  $('#searhId_Table').val( data.text);  } //! Input
             else if(data.exportname == "CreatedDate") {  $('#exampleInputdate').val(data.text); } //! Zaman
-            else if(data.exportname == "Status") {  $('#selectActive option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "Role") {  $('#selectCurrentRow option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             
         }); //! Json Verilerini Alıyor Son
 
@@ -147,14 +147,13 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
     }); //! Arama Zaman Son
 
-
-    //! Arama Durum
-    document.querySelector('#selectActive').addEventListener('change', e => {
+    //! Arama Görev
+    document.querySelector('#selectCurrentRow').addEventListener('change', e => {
 
         //! Tanım
-        var filter = $('#selectActive').val(); //! Aranacak Veri
-        var searchJsonItem = { exportname: "Status", text:filter}; //! Aranacak Veri Item
-        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Status'); //! Json İçinde Arama 
+        var filter = $('#selectCurrentRow').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "Role", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'Role'); //! Json İçinde Arama 
 
         //! Kontrol
         if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
@@ -164,7 +163,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         //! Table Arama Kontrol
         searchTableControl();
 
-    }); //! Arama Durum Son
+    }); //! Arama Görev Son
 
     //! ************ Arama Son ***************
 

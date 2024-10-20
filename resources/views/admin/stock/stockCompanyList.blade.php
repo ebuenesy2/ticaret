@@ -194,18 +194,6 @@
                                     <div class="col-xl-2 col-md-6"> <div> <input type="date" class="form-control" id="exampleInputdate"  style="cursor: pointer;"> </div></div>
                                     <!--son Arama Takvim-->
 
-                                    <!-- Arama Durum -->
-                                    <div class="col-xl-2 col-md-4">
-                                        <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectActive">
-                                            <option value="">@lang('admin.All')</option>
-                                            <option value="All">@lang('admin.All')</option>
-                                            <option value="1">@lang('admin.Active')</option>
-                                            <option value="0">@lang('admin.Passive')</option>
-                                        </select>
-                                    </div>
-                                    <!--son Arama Durum  -->
-
-
                                     <!-- Arama Görev -->
                                     <div class="col-xl-2 col-md-4">
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectCurrentRow">
@@ -294,7 +282,11 @@
                                                     <td exportname="current_cartId" > {{$DB_Find[$i]->current_cartId}}</td>
                                                     <td exportname="current_cartCode" > {{$DB_Find[$i]->current_cartCode}}</td>
                                                     <td exportname="current_cartName" > {{$DB_Find[$i]->current_cartName}}</td>
-                                                    <td exportname="CurrentRow" > {{$DB_Find[$i]->current_row == 120 ? 'Alıcı' : 'Satıcı'}}</td>
+
+                                                    @if($DB_Find[$i]->current_row == config('admin.currentCode_buyer')) <td exportname="CurrentRow" >Alıcı</td>
+                                                    @elseif($DB_Find[$i]->current_row == config('admin.currentCode_seller')) <td exportname="CurrentRow" >Satıcı</td>
+                                                    @elseif($DB_Find[$i]->current_row == config('admin.currentCode_buyer_seller')) <td exportname="CurrentRow" >Hem Alıcı Hemde Satıcı</td>
+                                                    @endif
                                                  
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
