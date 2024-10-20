@@ -27,74 +27,7 @@
     <!------- Lang --->
     @include('include.lang')
 
-
-    <!-- Modal Arama -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light p-3">
-                    <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Search') #</p>  <p id="search_data_id" style="margin:auto;">xx</p> </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                </div>
-                <form action="#">
-                    
-                     <!---  Loading --->
-                     <div id="LoadingFileUploadSearch" style="display:block;" ><span class="d-flex align-items-center">
-                        <span class="spinner-border flex-shrink-0" role="status"></span>
-                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
-                    </span> </div>
-                    <div id="uploadStatus"></div>
-                    <!--- Son Loading --->
-
-                    <!---  ModalBodyInfoBody --->
-                    <div class="modal-body" id="ModalBodyInfoSearch" style="display:none;" >
-                        <div class="mb-3" style="display:none;" > 
-                            <label for="CurrencyCartIDSearch" class="form-label">@lang('admin.CurrentName')</label>
-                            <input class="form-control" type="number" id="CurrencyCartIDSearch" name="CurrencyCartIDSearch" placeholder="@lang('admin.CurrentName')" disabled >
-                        </div>
-
-                        
-                        <div class="col-lg-12 mb-3">
-                            <label for="bankaAccountTitleSearch" class="form-label">Banka Hesap Adı</label>
-                            <input class="form-control" type="text" id="bankaAccountTitleSearch" name="bankaAccountTitleSearch" placeholder="Banka Hesap Adı" disabled>
-                        </div>
-
-
-                        <div class="col-lg-12 mb-3">
-                            <label for="BankTitleSearch" class="form-label">@lang('admin.BankTitle')</label>
-                            <input class="form-control" type="text" id="BankTitleSearch" name="BankTitleSearch" placeholder="@lang('admin.BankTitle')" disabled >
-                        </div>
-
-                        <div class="col-lg-12 mb-3">
-                            <label for="BranchSearch" class="form-label">@lang('admin.Branch')</label>
-                            <input class="form-control" type="text" id="BranchSearch" name="BranchSearch" placeholder="@lang('admin.Branch')" disabled >
-                        </div>
-
-                        <div class="col-lg-12 mb-3"> 
-                            <label for="AcountNumberSearch" class="form-label">@lang('admin.AcountNumber')</label>
-                            <input class="form-control" type="text" id="AcountNumberSearch" name="AcountNumberSearch" placeholder="@lang('admin.AcountNumber')" disabled >
-                        </div>
-
-                        <div class="col-lg-12 mb-3"> 
-                            <label for="IbanSearch" class="form-label">@lang('admin.Iban')</label>
-                            <input class="form-control" type="text" id="IbanSearch" name="IbanSearch" placeholder="@lang('admin.Iban')" disabled >
-                        </div>
-
-                        <div class="col-lg-12 mb-3"> 
-                            <label for="SwiftSearch" class="form-label">@lang('admin.Swift')</label>
-                            <input class="form-control" type="text" id="SwiftSearch" name="SwiftSearch" placeholder="@lang('admin.Swift')" disabled >
-                        </div>
-                    </div>
-                    <!---  ModalBodyInfoBody Son --->
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Arama  Son -->
-
-    <!-- Modal Güncelle -->
+    <!-- Modal Banka Güncelle -->
     <div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -154,17 +87,17 @@
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="data_bank_update">@lang('admin.Edit')</button>
+                            <button type="button" class="btn btn-info" id="data_bank_edit">@lang('admin.Edit')</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <!-- Modal Güncelle  Son -->
+    <!-- Modal Banka Güncelle  Son -->
 
-    <!-- Modal Ekle -->
-    <div class="modal fade" id="Edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Banka Ekle -->
+    <div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
@@ -172,41 +105,48 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
+
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- Son Loading --->
+
                     <div class="modal-body">
                         <div class="mb-3" style="display:none;"  > 
-                            <label for="CurrencyCartIDEdit" class="form-label">@lang('admin.CurrentName')</label>
-                            <input class="form-control" type="number" id="CurrencyCartIDEdit" name="nameEdit" placeholder="@lang('admin.CurrentName')" value="{{$DB_Find->id}}" >
+                            <label for="CurrencyCartIDAdd" class="form-label">@lang('admin.CurrentName')</label>
+                            <input class="form-control" type="number" id="CurrencyCartIDAdd" name="nameAdd" placeholder="@lang('admin.CurrentName')" value="{{$DB_Find->id}}" >
                         </div>
-
                         
                         <div class="col-lg-12 mb-3">
-                            <label for="bankaAccountTitleEdit" class="form-label">Banka Hesap Adı</label>
-                            <input class="form-control" type="text" id="bankaAccountTitleEdit" name="bankaAccountTitleEdit" placeholder="Banka Hesap Adı">
+                            <label for="bankaAccountTitleAdd" class="form-label">Banka Hesap Adı</label>
+                            <input class="form-control" type="text" id="bankaAccountTitleAdd" name="bankaAccountTitleAdd" placeholder="Banka Hesap Adı">
                         </div>
 
                         <div class="col-lg-12 mb-3">
-                            <label for="BankTitleEdit" class="form-label">@lang('admin.BankTitle')</label>
-                            <input class="form-control" type="text" id="BankTitleEdit" name="BankTitleEdit" placeholder="@lang('admin.BankTitle')">
+                            <label for="BankTitleAdd" class="form-label">@lang('admin.BankTitle')</label>
+                            <input class="form-control" type="text" id="BankTitleAdd" name="BankTitleAdd" placeholder="@lang('admin.BankTitle')">
                         </div>
 
                         <div class="col-lg-12 mb-3">
-                            <label for="BranchEdit" class="form-label">@lang('admin.Branch')</label>
-                            <input class="form-control" type="text" id="BranchEdit" name="BranchEdit" placeholder="@lang('admin.Branch')">
+                            <label for="BranchAdd" class="form-label">@lang('admin.Branch')</label>
+                            <input class="form-control" type="text" id="BranchAdd" name="BranchAdd" placeholder="@lang('admin.Branch')">
                         </div>
 
                         <div class="col-lg-12 mb-3"> 
-                            <label for="AcountNumberEdit" class="form-label">@lang('admin.AcountNumber')</label>
-                            <input class="form-control" type="text" id="AcountNumberEdit" name="AcountNumberEdit" placeholder="@lang('admin.AcountNumber')">
+                            <label for="AcountNumberAdd" class="form-label">@lang('admin.AcountNumber')</label>
+                            <input class="form-control" type="text" id="AcountNumberAdd" name="AcountNumberAdd" placeholder="@lang('admin.AcountNumber')">
                         </div>
 
                         <div class="col-lg-12 mb-3"> 
-                            <label for="IbanEdit" class="form-label">@lang('admin.Iban')</label>
-                            <input class="form-control" type="text" id="IbanEdit" name="IbanEdit" placeholder="@lang('admin.Iban')">
+                            <label for="IbanAdd" class="form-label">@lang('admin.Iban')</label>
+                            <input class="form-control" type="text" id="IbanAdd" name="IbanAdd" placeholder="@lang('admin.Iban')">
                         </div>
 
                         <div class="col-lg-12 mb-3"> 
-                            <label for="SwiftEdit" class="form-label">@lang('admin.Swift')</label>
-                            <input class="form-control" type="text" id="SwiftEdit" name="SwiftEdit" placeholder="@lang('admin.Swift')">
+                            <label for="SwiftAdd" class="form-label">@lang('admin.Swift')</label>
+                            <input class="form-control" type="text" id="SwiftAdd" name="SwiftAdd" placeholder="@lang('admin.Swift')">
                         </div>
 
                     </div>
@@ -220,7 +160,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Ekle  Son -->
+    <!-- Modal Banka Ekle  Son -->
 
     <!-- Page-content -->
     <div class="page-content">
@@ -358,7 +298,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between ">
                             <h5 class="card-title mb-0 flex-grow-1" style="display: flex;gap: 5px;" > <p id="tableTitle" >@lang('admin.Bank') @lang('admin.List')</p> <p> | {{count($DB_Find_Bank)}}</p> </h5>
-                            <button type="button" class="btn btn-primary Edit-btn" data-bs-toggle="modal" data-bs-target="#Edit_modal"><i class="ri-Edit-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
+                            <button type="button" class="btn btn-primary Edit-btn" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="ri-Edit-line align-bottom me-1"></i> @lang('admin.newAdd')</button>
                         </div>
                         <div class="card-body">
 
@@ -447,8 +387,6 @@
 
                                                 <td exportname="Actions" id="listItemActionBox" > 
                                                     <ul class="list-inline hstack gap-2 mb-0">
-                                                    <li class="list-inline-item" title ="@lang('admin.Visibility')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View" style="cursor:pointer;" > @if($DB_Find_Bank[$i]->isActive == 1) <a class="view-item-btn text-success"><button class="btn btn-success waves-effect waves-light" style="width: 45px;height: 45px;"  id="listItemActive" data_id="{{$DB_Find_Bank[$i]->id}}" data_active="true"  ><i  class="ri-eye-fill align-bottom"  id="listItemActive" data_id="{{$DB_Find_Bank[$i]->id}}"  data_active="true" ></i></button></a>  @elseif($DB_Find_Bank[$i]->isActive == 0)  <a class="view-item-btn"><button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px;" id="listItemActive" data_id="{{$DB_Find_Bank[$i]->id}}" data_active="false" ><i class="ri-eye-off-fill align-bottom" id="listItemActive" data_id="{{$DB_Find_Bank[$i]->id}}"  data_active="false" ></i></button></a>  @endif </li>
-                                                        <li class="list-inline-item" title ="@lang('admin.Search')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="{{$DB_Find_Bank[$i]->id}}"  class="view-item-btn text-success" style="cursor:pointer;"><button class="btn btn-secondary  waves-effect waves-light" style="width: 45px;height: 45px;"><i class="ri-search-eye-line align-bottom "></i></button></a> </li> 
                                                         <li class="list-inline-item edit" title ="@lang('admin.Edit')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#edit_modal" data-id="{{$DB_Find_Bank[$i]->id}}" data-created_at="{{$DB_Find_Bank[$i]->created_at}}" data-isActive="{{$DB_Find_Bank[$i]->isActive}}"  class="text-primary d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;"> <i class="ri-pencil-fill fs-16"></i></button> </a> </li>
                                                         <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find_Bank[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find_Bank[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                     </ul>

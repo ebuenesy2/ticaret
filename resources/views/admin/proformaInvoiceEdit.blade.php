@@ -913,7 +913,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_bank_update">@lang('admin.Edit')</button>
+                                    <button type="button" class="btn btn-info" id="data_bank_edit">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>

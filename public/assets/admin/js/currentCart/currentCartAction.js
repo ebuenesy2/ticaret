@@ -743,79 +743,6 @@ $(function () {
 
     //! ************ Tümü Seç Olayı Son ***************
 
-    //! ************ Banka    ***************
-    //! Aktif
-    document.querySelectorAll("#listItemActive").forEach(function (i) {
-        i.addEventListener("click", function (event) {
-        
-            //! Attr - Diğer Veri Alma
-            var data_id = event.target.getAttribute("data_id");
-            var data_active_status = event.target.getAttribute("data_active");
-
-            Swal.fire({
-                html: '<div class="mt-3"><lord-icon src="https://cdn.lordicon.com/tdrtiskw.json" trigger="loop" colors="primary:#f06548,secondary:#f7b84b" style="width:120px;height:120px"></lord-icon><div class="mt-4 pt-2 fs-15"><h4>'+$('[id=lang_change][data_key=AreYouSure]').html().trim()+' #'+data_id+'</h4></div></div>',
-                showCancelButton: true,
-                confirmButtonColor: data_active_status == "true" ? "#ed1c24" : "#1bb934",
-                confirmButtonText: data_active_status == "true" ? $('[id=lang_change][data_key=MakePassive]').html().trim() : $('[id=lang_change][data_key=Activate]').html().trim(),
-                cancelButtonColor: "black",
-                cancelButtonText: $('[id=lang_change][data_key=No]').html().trim(),
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    //! Ajax
-                    $.ajax({
-                        url: "/bank/edit/active",
-                        method: "post",
-                        headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr( "content" ), },
-                        data: {
-                            siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                            id: data_id,
-                            active: data_active_status,
-                            updated_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-                        },
-                        success: function (response) {
-                            // alert("başarılı");
-                            // console.log("response:", response);
-                            // console.log("success:", response.status);
-
-                            if (response.status == "success") {
-                                Swal.fire({
-                                    position: "center",
-                                    icon: "success",
-                                    title: response.msg,
-                                    showConfirmButton: false,
-                                    timer: 2000,
-                                });
-
-                                //! Sayfa Yenileme
-                                window.location.reload();
-                            } else {
-                                Swal.fire({
-                                    position: "center",
-                                    icon: "error",
-                                    title: response.msg,
-                                    showConfirmButton: false,
-                                    timer: 2000,
-                                });
-                            }
-                        },
-                        error: function (error) {
-                            Swal.fire({
-                                position: "center",
-                                icon: "error",
-                                title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                                showConfirmButton: false,
-                                timer: 2000,
-                            });
-                            console.log("error:", error);
-                        },
-                    }); //! Ajax
-                }
-            });
-
-        });
-    }); //! Aktif Son
-    //! ************ Banka  Aktif Son ***************
-
     //! ************ Ara  ***************
 
     //! Modal Banka Ara
@@ -885,8 +812,11 @@ $(function () {
         
             var button = $(event.relatedTarget); 
             var modalId = button.data("id"); 
+            //console.log("modalId:",modalId);
 
-            console.log("modalId:",modalId);
+            //! Görünürlük Kontrolleri - Tamamlandı
+            $('#loaderEdit').css('display','none');
+            $('#ModalBodyInfoEdit').css('display','block');
            
             //! Ajax  Post
             $.ajax({
@@ -911,10 +841,20 @@ $(function () {
 
                     $('#IbanEdit').val(response.DB.iban);
                     $('#SwiftEdit').val(response.DB.swift);
+
+                    //! Görünürlük Kontrolleri - Başlangıc
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
                 
                 },
-                error: function (error) { console.log("search error:", error); alert("error");},
-              complete: function() {}
+                error: function (error) { 
+                    console.log("search error:", error);  
+
+                    //! Görünürlük Kontrolleri - Başlangıc
+                    $('#loaderEdit').css('display','none');
+                    $('#ModalBodyInfoEdit').css('display','block');
+                },
+                complete: function() {}
             }); //! Ajax Post Son
              
 
@@ -931,11 +871,24 @@ $(function () {
     }); //! Modal Banka Güncelle Son
 
     //! Güncelle
-    $("#data_bank_update").click(function (e) {
+    $("#data_bank_edit").click(function (e) {
         e.preventDefault();
 
         //! Id
         var data_id =  $('#edit_data_id').html();
+
+        //! Loading - Veri Yükleniyor
+        $('#loaderEdit').css('display','block'); //! Laoding Göster
+        $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+        $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+        //! Loading - Veri Yüklendi
+        function loadingYuklendi(){
+            $('#loaderEdit').hide(); //! Laoding Gizle
+            $('#edit_item').removeAttr('disabled'); //! //! Button Göster
+            $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+        }
+        //! Loading - Veri Yüklendi Son
 
         //! Ajax
         $.ajax({
@@ -980,6 +933,9 @@ $(function () {
                         timer: 2000,
                     });
                 }
+
+                //! Loading
+                loadingYuklendi();
             },
             error: function (error) {
                 Swal.fire({
@@ -990,6 +946,9 @@ $(function () {
                     timer: 2000,
                 });
                 console.log("error:", error);
+
+                //! Loading
+                loadingYuklendi();
             },
         }); //! Ajax Son
 
@@ -1077,59 +1036,144 @@ $(function () {
     $("#new_bank_add").click(function (e) {
         e.preventDefault();
 
-        //! Ajax
-        $.ajax({
-            url: "/bank/add/post",
-            method: "post",
-            headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-            data: {
-                siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                currencyCartId: $('#CurrencyCartIDAdd').val(),
-                bankaAccountTitle: $('#bankaAccountTitleAdd').val(),
-                bankTitle: $('#BankTitleAdd').val(),
-                branch: $('#BranchAdd').val(),
-                accountNumber: $('#AcountNumberAdd').val(),
-                iban: $('#IbanAdd').val(),
-                swift: $('#SwiftAdd').val(),
-                created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-            },
-            success: function (response) {
-                // alert("başarılı");
-                //console.log("response:", response);
-                // console.log("status:", response.status);
+        var selectCurrentCartAdd = $('#CurrencyCartIDAdd').val(); 
+        var bankaAccountTitleAdd = $('#bankaAccountTitleAdd').val(); 
+        var bankTitleAdd = $('#bankTitleAdd').val(); 
+        var branchAdd = $('#branchAdd').val(); 
+        var acountNumberAdd = $('#acountNumberAdd').val(); 
+        var ibanAdd = $('#ibanAdd').val(); 
 
-                if (response.status == "success") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: response.msg,
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
+        if (selectCurrentCartAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Firma  Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (bankaAccountTitleAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Banka Hesap Adı Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (bankTitleAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Banka Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (branchAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Şube Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (acountNumberAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Hesap Numarası Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if (ibanAdd == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Iban Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
 
-                    //! Sayfa Yenileme
-                    window.location.reload();
-                } else {
+            //! Loading - Veri Yükleniyor
+            $('#loaderAdd').css('display','block'); //! Laoding Göster
+            $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+            $('#add_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderAdd').hide(); //! Laoding Gizle
+                $('#new_add').removeAttr('disabled'); //! //! Button Göster
+                $('#add_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
+
+            //! Ajax
+            $.ajax({
+                url: "/bank/add/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    currencyCartId: $('#CurrencyCartIDAdd').val(),
+                    bankaAccountTitle: $('#bankaAccountTitleAdd').val(),
+                    bankTitle: $('#BankTitleAdd').val(),
+                    branch: $('#BranchAdd').val(),
+                    accountNumber: $('#AcountNumberAdd').val(),
+                    iban: $('#IbanAdd').val(),
+                    swift: $('#SwiftAdd').val(),
+                    created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    //console.log("response:", response);
+                    // console.log("status:", response.status);
+
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+
+                        //! Sayfa Yenileme
+                        window.location.reload();
+                    } else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+
+                    //! Loading
+                    loadingYuklendi();
+                },
+                error: function (error) {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: response.msg,
+                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
                         showConfirmButton: false,
                         timer: 2000,
                     });
-                }
-            },
-            error: function (error) {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                console.log("error:", error);
-            },
-        }); //! Ajax Son
+                    console.log("error:", error);
+
+                    //! Loading
+                    loadingYuklendi();
+                },
+            }); //! Ajax Son
+
+        }
+
 
     }); //! Ekleme Son
     //! ************Banka Ekleme Son  ***************

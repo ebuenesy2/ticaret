@@ -3414,7 +3414,7 @@ class Admin extends Controller
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
             //veri tabanı işlemleri
-            $DB_Find_Bank = DB::table('bank')->where('currencyCartId',$id)->get();//Tüm verileri çekiyor
+            $DB_Find_Bank = DB::table('bank')->where('currencyCartId',$id)->orderBy('id','desc')->get();//Tüm verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Bank); die();
          
    

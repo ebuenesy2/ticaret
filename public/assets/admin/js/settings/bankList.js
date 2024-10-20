@@ -505,9 +505,18 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             var modalId = button.data("id"); 
             //console.log("modalId:",modalId);
 
-            //! Görünürlük Kontrolleri - Tamamlandı
-            $('#loaderEdit').css('display','none');
-            $('#ModalBodyInfoEdit').css('display','block');
+            //! Loading - Veri Yükleniyor
+            $('#loaderEdit').css('display','block'); //! Laoding Göster
+            $('#edit_item').attr('disabled','disabled'); //! Button Gizleme
+            $('#edit_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderEdit').hide(); //! Laoding Gizle
+                $('#edit_item').removeAttr('disabled'); //! //! Button Göster
+                $('#edit_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
            
             //! Ajax  Post
             $.ajax({
@@ -533,15 +542,17 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     $('#IbanEdit').val(response.DB.iban);
                     $('#SwiftEdit').val(response.DB.swift);
 
-                    //! Görünürlük Kontrolleri - Başlangıc
-                    $('#loaderEdit').css('display','none');
-                    $('#ModalBodyInfoEdit').css('display','block');
+                   //! Görünürlük Kontrolleri - Tamamlandı
+                   loadingYuklendi(); //! Loading
+                   $('#loaderEdit').css('display','none');
+                   $('#ModalBodyInfoEdit').css('display','block');
                 
                 },
                 error: function (error) { 
                     console.log("search error:", error);  
 
-                    //! Görünürlük Kontrolleri - Başlangıc
+                    //! Görünürlük Kontrolleri - Tamamlandı
+                    loadingYuklendi(); //! Loading
                     $('#loaderEdit').css('display','none');
                     $('#ModalBodyInfoEdit').css('display','block');
                 },
@@ -786,6 +797,19 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         }
         else {
 
+            //! Loading - Veri Yükleniyor
+            $('#loaderAdd').css('display','block'); //! Laoding Göster
+            $('#new_add').attr('disabled','disabled'); //! Button Gizleme
+            $('#add_modal input,textarea,select').attr('disabled','disabled'); //! İnputları Gizleme
+
+            //! Loading - Veri Yüklendi
+            function loadingYuklendi(){
+                $('#loaderAdd').hide(); //! Laoding Gizle
+                $('#new_add').removeAttr('disabled'); //! //! Button Göster
+                $('#add_modal input,textarea,select').removeAttr('disabled'); //! //! İnputları Göster
+            }
+            //! Loading - Veri Yüklendi Son
+
             //! Ajax
             $.ajax({
                 url: "/bank/add/post",
@@ -827,6 +851,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                             timer: 2000,
                         });
                     }
+
+                   //! Loading
+                   loadingYuklendi();
                 },
                 error: function (error) {
                     Swal.fire({
@@ -837,6 +864,9 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         timer: 2000,
                     });
                     console.log("error:", error);
+
+                    //! Loading
+                    loadingYuklendi();
                 },
             }); //! Ajax Son
 

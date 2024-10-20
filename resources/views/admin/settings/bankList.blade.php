@@ -106,6 +106,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
+
+                    <!---  Loading --->
+                    <div id="loaderAdd" style="display:none;" ><span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status"></span>
+                        <span class="flex-grow-1 ms-2">@lang('admin.Loading') </span>
+                    </span> </div>
+                    <!--- Son Loading --->
+
                     <div class="modal-body">
                         <div class="mb-3"> 
                             <label for="CurrencyCartIDAdd" class="form-label">Cari Kart</label>

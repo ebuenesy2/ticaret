@@ -1698,7 +1698,7 @@ $(function () {
     }); //! Modal Banka Güncelle Son
 
     //! Güncelle
-    $("#data_bank_update").click(function (e) {
+    $("#data_bank_edit").click(function (e) {
         e.preventDefault();
         
 
