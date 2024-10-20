@@ -67,7 +67,7 @@ Route::post('/user/delete/post/multi', [Admin::class,'UserListDeletePostMulti'])
 Route::post('/user/edit/post', [Admin::class,'UserListEditPost']) -> name("user.list.edit.post"); //! Veri Güncelleme
 Route::post('/user/edit/post/edit', [Admin::class,'UserListEditPostEdit']) -> name("user.list.edit.post.edit"); //! Veri Güncelleme - Edit
 Route::post('/user/edit/post/pass', [Admin::class,'UserListEditPostPass']) -> name("user.list.edit.post.pass"); //! Veri Güncelleme - Edit
-Route::get('/user/{lang}/update/{id}', [Admin::class,'UserListUpdateView']) -> name("user.list.update.view"); //! Veri Güncelleme Sayfası
+Route::get('/user/{lang}/update/{id}', [Admin::class,'UserListEditView']) -> name("user.list.update.view"); //! Veri Güncelleme Sayfası
 Route::get('/user/{lang}/view/{id}', [Admin::class,'UserListView']) -> name("user.list.view"); //! Veri Detay Sayfası
 Route::post('/user/update/active', [Admin::class,'UserListEditActive']) -> name("user.list.update.active"); //! Veri Aktif - Pasif
 Route::post('/user/update/active/multi', [Admin::class,'UserListEditActiveMulti']) -> name("user.list.update.active.multi"); //! Veri Çoklu Aktif - Pasif
@@ -89,7 +89,7 @@ Route::get('/current/cart/{lang}/add', [Admin::class,'currentCartListAddView']) 
 Route::post('/current/cart/delete/post', [Admin::class,'currentCartListDeletePost']) -> name("current.cart.list.delete.post"); //! Veri Silme
 Route::post('/current/cart/delete/post/multi', [Admin::class,'currentCartListDeletePostMulti']) -> name("current.cart.list.delete.post.multi"); //! Veri Çoklu Silme
 Route::post('/current/cart/edit/post', [Admin::class,'currentCartListEditPost']) -> name("current.cart.list.edit.post"); //! Veri Güncelleme Post
-Route::get('/current/cart/{lang}/update/{id}', [Admin::class,'currentCartListUpdateView']) -> name("current.cart.list.update.view"); //! Veri Güncelleme Sayfası
+Route::get('/current/cart/{lang}/update/{id}', [Admin::class,'currentCartListEditView']) -> name("current.cart.list.update.view"); //! Veri Güncelleme Sayfası
 Route::post('/current/cart/search/post', [Admin::class,'currentCartSearchPost']) -> name("current.cart.search.post"); //! Veri Arama - Post
 Route::get('/current/cart/{lang}/view/{id}', [Admin::class,'currentCartListView']) -> name("current.cart.list.view"); //! Veri Detay Sayfası
 Route::post('/current/cart/update/active', [Admin::class,'currentCartListEditActive']) -> name("current.cart.list.update.active"); //! Veri Aktif - Pasif
@@ -200,7 +200,7 @@ Route::post('/cost/calculation/add/post', [Admin::class,'CostCalculationAddPost'
 Route::post('/cost/calculation/delete/post', [Admin::class,'CostCalculationDeletePost']) -> name("cost.calculation.delete.post"); //! Veri Silme
 Route::post('/cost/calculation/delete/post/multi', [Admin::class,'CostCalculationDeletePostMulti']) -> name("cost.calculation.delete.post.multi"); //! Veri Çoklu Silme
 Route::post('/cost/calculation/edit/post', [Admin::class,'CostCalculationEditPost']) -> name("cost.calculation.edit.post"); //! Veri Güncelleme Post
-Route::get('/cost/calculation/{lang}/update/{id}', [Admin::class,'CostCalculationUpdateView']) -> name("current.cart.list.update.view"); //! Veri Güncelleme Sayfası
+Route::get('/cost/calculation/{lang}/update/{id}', [Admin::class,'CostCalculationEditView']) -> name("current.cart.list.update.view"); //! Veri Güncelleme Sayfası
 Route::get('/cost/calculation/{lang}/view/{id}', [Admin::class,'CostCalculationView']) -> name("current.cart.list.view"); //! Veri Detay Sayfası
 Route::get('/cost/calculation/{lang}/view/{id}/export/file', [Admin::class,'CostCalculationViewExportFile']) -> name("current.cart.list.view.export.file"); //! Veri Detay Export Sayfası
 Route::post('/cost/calculation/update/active', [Admin::class,'CostCalculationEditActive']) -> name("cost.calculation.update.active");  //! Veri Aktif - Pasif
@@ -228,7 +228,7 @@ Route::post('/proforma/invoice/add/post', [Admin::class,'ProformaInvoiceAddPost'
 Route::post('/proforma/invoice/delete/post', [Admin::class,'ProformaInvoiceDeletePost']) -> name("proforma.invoice.delete.post"); //! Veri Silme
 Route::post('/proforma/invoice/delete/post/multi', [Admin::class,'ProformaInvoiceDeletePostMulti']) -> name("proforma.invoice.delete.post.multi"); //! Veri Çoklu Silme
 Route::post('/proforma/invoice/edit/post', [Admin::class,'ProformaInvoiceEditPost']) -> name("proforma.invoice.edit.post"); //! Veri Güncelleme Post
-Route::get('/proforma/invoice/{lang}/update/{id}', [Admin::class,'ProformaInvoiceUpdateView']) -> name("proforma.invoice.list.update.view"); //! Veri Güncelleme Sayfası
+Route::get('/proforma/invoice/{lang}/update/{id}', [Admin::class,'ProformaInvoiceEditView']) -> name("proforma.invoice.list.update.view"); //! Veri Güncelleme Sayfası
 Route::get('/proforma/invoice/{lang}/view/{id}', [Admin::class,'ProformaInvoiceView']) -> name("proforma.invoice.list.view"); //! Veri Detay Sayfası
 Route::get('/proforma/invoice/{lang}/view/{id}/export/file', [Admin::class,'ProformaInvoiceViewExportFile']) -> name("proforma.invoice.list.view.export.file"); //! Veri Detay Export Sayfası
 Route::post('/proforma/invoice/update/active', [Admin::class,'ProformaInvoiceEditActive']) -> name("proforma.invoice.update.active");  //! Veri Aktif - Pasif
@@ -418,7 +418,7 @@ Route::post('/sabit_list/add/post', [Admin::class,'SabitListAddPost']) -> name("
 Route::post('/sabit_list/delete/post', [Admin::class,'SabitListDeletePost']) -> name("sabit.list.delete.post"); //! Veri Silme
 Route::post('/sabit_list/delete/post/multi', [Admin::class,'SabitListDeletePostMulti']) -> name("sabit.list.delete.post.multi"); //! Veri Çoklu Silme
 Route::post('/sabit_list/edit/post', [Admin::class,'SabitListEditPost']) -> name("sabit.list.edit.post"); //! Veri Güncelleme
-Route::get('/sabit_list/{lang}/update/{id}', [Admin::class,'SabitListUpdateView']) -> name("sabit.list.update.view"); //! Veri Güncelleme Sayfası
+Route::get('/sabit_list/{lang}/update/{id}', [Admin::class,'SabitListEditView']) -> name("sabit.list.update.view"); //! Veri Güncelleme Sayfası
 Route::get('/sabit_list/{lang}/view/{id}', [Admin::class,'SabitListView']) -> name("sabit.list.view");  //! Veri Detay Sayfası
 Route::post('/sabit_list/update/active', [Admin::class,'SabitListEditActive']) -> name("sabit.list.update.active");  //! Veri Aktif - Pasif
 Route::post('/sabit_list/update/active/multi', [Admin::class,'SabitListEditActiveMulti']) -> name("sabit.list.update.active.multi");  //! Veri Çoklu Aktif - Pasif

@@ -1103,7 +1103,7 @@ class Admin extends Controller
  
 
    //! UserList Update View
-   public function UserListUpdateView($site_lang="tr",$id)
+   public function UserListEditView($site_lang="tr",$id)
    {
 
       try {
@@ -3375,7 +3375,7 @@ class Admin extends Controller
 
 
    //! currentCartList Update View
-   public function currentCartListUpdateView($site_lang="tr",$id)
+   public function currentCartListEditView($site_lang="tr",$id)
    {
 
       try {
@@ -3410,7 +3410,7 @@ class Admin extends Controller
 
 
             //veri tabanı işlemleri
-            $DB_Find_Category = DB::table('category')->where('type','SektorCari')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Category = DB::table('category')->where('type','SektorCari')->orderBy('title','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find_Category); die();
 
             // //veri tabanı işlemleri
@@ -8255,7 +8255,7 @@ class Admin extends Controller
    } //! CostCalculation Update  Son
 
    //! CostCalculation Update View
-   public function CostCalculationUpdateView($site_lang="tr",$id)
+   public function CostCalculationEditView($site_lang="tr",$id)
    {
 
       try {
@@ -9852,7 +9852,7 @@ class Admin extends Controller
    } //! ProformaInvoice Update  Son
 
    //! ProformaInvoice Update View
-   public function ProformaInvoiceUpdateView($site_lang="tr",$id)
+   public function ProformaInvoiceEditView($site_lang="tr",$id)
    {
 
       try {
@@ -17155,7 +17155,7 @@ class Admin extends Controller
    } //! SabitList Update  Son
 
    //! SabitList Update View
-   public function SabitListUpdateView($site_lang="tr",$id)
+   public function SabitListEditView($site_lang="tr",$id)
    {
 
       try {
