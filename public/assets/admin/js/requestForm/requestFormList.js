@@ -66,6 +66,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             else if(data.exportname == "CreatedDate") {  $('#exampleInputdate').val(data.text); } //! Zaman
             else if(data.exportname == "Status") {  $('#selectActive option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             else if(data.exportname == "PersonelId") {  $('#selectPersonel option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "CurrencyCartId") {  $('#selectCurrentCart option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             
         }); //! Json Verilerini Alıyor Son
 
@@ -166,6 +167,25 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchTableControl();
 
     }); //! Arama Durum Son
+
+    
+    //! Arama Cari Kart
+    document.querySelector('#selectCurrentCart').addEventListener('change', e => {
+
+        //! Tanım
+        var filter = $('#selectCurrentCart').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "CurrencyCartId", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'CurrencyCartId'); //! Json İçinde Arama 
+
+        //! Kontrol
+        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
+        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
+        if (filter == '') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+    
+        //! Table Arama Kontrol
+        searchTableControl();
+
+    }); //! Arama Cari Kart  Son
 
 
     //! Arama Durum

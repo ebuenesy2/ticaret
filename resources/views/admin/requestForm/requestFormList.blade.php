@@ -252,8 +252,18 @@
                                     </div>
                                     <!--son Arama Durum  -->
 
-                                     <!-- Arama Personel -->
-                                     <div class="col-xl-2 col-md-4">
+                                    <!-- Arama Cari Kart -->
+                                    <div class="col-lg-2 col-md-12 mb-md-3"> 
+                                        <label for="selectActive" class="form-label"> Cari Kart Seç</label>
+                                        <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectCurrentCart">
+                                            <option value=""> @lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}" >{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
+                                        </select>
+                                    </div>
+                                    <!--son Arama  Cari Kart  -->
+
+                                    <!-- Arama Personel -->
+                                    <div class="col-xl-2 col-md-4">
                                         <label for="selectActive" class="form-label">Personel Arama</label>
                                         <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectPersonel">
                                             <option value="All">@lang('admin.All')</option>
@@ -316,8 +326,8 @@
                                                 
                                                 <th exportname="reqCode" >Talep Kodu</th>
                                                 <th exportname="title" >@lang('admin.Title')</th>
+                                                <th exportname="currentCardName" >Firma Adı</th>
                                                 <th exportname="Personel" >Personel</th>
-                                               
 
                                                 <th exportname="public" >@lang('admin.Visibility')</th>
                                                 <th exportname="Actions" >@lang('admin.Actions')</th>
@@ -340,7 +350,8 @@
                                                    
                                                     <td exportname="reqCode" >{{$DB_Find[$i]->reqCode}}</td>
                                                     <td exportname="title" >{{$DB_Find[$i]->requestFormTitle}}</td>
-                                                    <td exportname="Personel" class="d-flex align-items-center" >
+                                                    <td exportname="currentCardName" >{{$DB_Find[$i]->current_name}}</td>
+                                                    <td exportname="Personel" >
                                                         <img src="{{$DB_Find[$i]->img_url}}" alt="" class="avatar-xs rounded-circle me-2">
                                                         {{$DB_Find[$i]->name}} {{$DB_Find[$i]->surname}}
                                                     </td>

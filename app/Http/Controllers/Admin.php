@@ -3205,7 +3205,6 @@ class Admin extends Controller
       
    } //! currentCartList Delete  Son
 
-
    //! currentCartList Delete  Multi
    public function currentCartListDeletePostMulti(Request $request)
    {
@@ -3259,7 +3258,6 @@ class Admin extends Controller
       
    } //! currentCartList Delete  Son
 
-     
    //! currentCartList Edit  
    public function currentCartListEditPost(Request $request)
    {
@@ -3372,7 +3370,6 @@ class Admin extends Controller
       }
       
    } //! currentCartList Edit  Son
-
 
    //! currentCartList Edit View
    public function currentCartListEditView($site_lang="tr",$id)
@@ -3556,7 +3553,6 @@ class Admin extends Controller
       }
       
    } //! currentCartList Search Post Son
-
 
    //! currentCartList Edit Active
    public function currentCartListEditActive(Request $request)
@@ -4112,7 +4108,6 @@ class Admin extends Controller
       }
       
    } //!  Firma Stok Delete Multi  Son
-
    
    //! Firma Stok Post
    public function currentCartStockSearchPost(Request $request)
@@ -4297,7 +4292,8 @@ class Admin extends Controller
             //veri tabanı işlemleri
             $DB_Find = DB::table('requestform')
             ->join('users', 'users.id', '=', 'requestform.personeId')
-            ->select('requestform.*','users.name','users.surname','users.img_url')
+            ->join('current_cart', 'current_cart.id', '=', 'requestform.currencyCartId')
+            ->select('requestform.*','users.name','users.surname','users.img_url','current_cart.current_name')
             ->where($data_all)->orderBy('requestform.id','desc') ->get(); //! Paramsa Göre Tüm Verileri çekiyor
             // echo "<pre>"; print_r($DB_Find); die();
 
@@ -4305,13 +4301,12 @@ class Admin extends Controller
             //! Params Verileri Where Formatında Yazılacak Son     
 
             //veri tabanı işlemleri
-            $DB_Find_User = DB::table('users')->get(); //Tüm verileri çekiyor
+            $DB_Find_User = DB::table('users')->orderBy('users.name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_User); die();
 
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_cart.current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
- 
             
             //! Return
             $DB["userId"] =  $yildirimdev_userID;

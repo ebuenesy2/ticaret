@@ -258,7 +258,7 @@
     'NameEnNotWritten' => 'Ad En Yazılmadı',
     'NameNotWritten' => 'Ürün Adı Yazılmadı',
     'NoMoneyWritten' => 'Para Yazılmadı',
-    'GetOffers' => 'Teklif Alma',
+    'GetOffers' => 'Teklif Talep Formu',
     'RequestID' => 'Talep ID',
     'CurrentCardName' => 'Cari Kart Adı',
     'ProductTitle' => 'Ürün Adı',
