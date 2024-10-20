@@ -47,7 +47,7 @@
     'Close' => 'Close',
     'Add' => 'Add',
     'Delete' => 'Delete',
-    'Update' => 'Update',
+    'Edit' => 'Edit',
     'Create' => 'Create',
     'Search' => 'Search',
     'Visibility' => 'Visibility',

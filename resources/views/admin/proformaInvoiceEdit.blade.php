@@ -336,7 +336,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" onclick={$("#Edit_ProductModal").modal('hide');} ></button>
                         </div>
                         <form action="#">
@@ -645,7 +645,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Edit_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -682,7 +682,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -725,7 +725,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_conditions_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_conditions_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#">
@@ -748,7 +748,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_conditions_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_conditions_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -785,7 +785,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ConditionsModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -858,7 +858,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_bank_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_bank_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#" id="Edit_BankaForm">
@@ -875,7 +875,7 @@
                             <div class="modal-body" id="BankaModalBodyInfoEdit" style="display:none;" >
                                 <div class="mb-3" style="display:none;" > 
                                     <label for="ProformaIDUpdate" class="form-label">@lang('admin.CurrencyCartID')</label>
-                                    <input class="form-control" type="number" id="ProformaIDUpdate" name="nameUpdate" placeholder="@lang('admin.CurrencyCartID')"  value="{{$DB_Find->id}}" >
+                                    <input class="form-control" type="number" id="ProformaIDUpdate" name="nameEdit" placeholder="@lang('admin.CurrencyCartID')"  value="{{$DB_Find->id}}" >
                                 </div>
 
                                 <div class="mb-3">
@@ -913,7 +913,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_bank_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_bank_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -1014,7 +1014,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_BankModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -1392,7 +1392,7 @@
 
 
                                 <!--- Button -->
-                                <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Update')</button>
+                                <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Edit')</button>
 
 
                             </div>
@@ -1440,7 +1440,7 @@
                                                 <td exportname="Actions" id="listItemActionBox" > 
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item" title ="@lang('admin.Search')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="{{$DB_Find_Bank[$i]->id}}"  class="view-item-btn text-success" style="cursor:pointer;"><i class="ri-search-eye-line align-bottom "></i></a> </li> 
-                                                        <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#Bankedit_modal" data-id="{{$DB_Find_Bank[$i]->id}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
+                                                        <li class="list-inline-item edit" title ="@lang('admin.Edit')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#Bankedit_modal" data-id="{{$DB_Find_Bank[$i]->id}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
                                                         <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <a data-bs-toggle="modal" data-bs-target="#Delete_BankModal" data-id="{{$DB_Find_Bank[$i]->id}}"  class="text-danger d-inline-block remove-item-btn" > <i class="ri-delete-bin-5-fill fs-16"></i> </a> </li>
                                                     </ul>
                                                 </td>
@@ -1500,7 +1500,7 @@
                     <!---  Onaylandı Son --> 
 
                     <div class="hstack gap-2 justify-content-end d-print-none mt-4 w-100">
-                        <button class="btn btn-success w-50" id="btn_edit" data_time="{{$DB_Find->time}}"  data_id="{{$DB_Find->id}}"  ><i class="ri-edit-line align-bottom me-1"></i> @lang('admin.Update')</button>
+                        <button class="btn btn-success w-50" id="btn_edit" data_time="{{$DB_Find->time}}"  data_id="{{$DB_Find->id}}"  ><i class="ri-edit-line align-bottom me-1"></i> @lang('admin.Edit')</button>
                         <a href="/proforma/invoice/@lang('admin.lang')/view/{{$DB_Find->id}}/export/file" class="btn btn-primary w-50"><img title="Pdf" src="/assets/img/icon/pdf.png" style="cursor:pointer;height: 20px;" alt="" srcset=""> Pdf</a>
                     </div>
                 </div>

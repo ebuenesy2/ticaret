@@ -55,7 +55,7 @@
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Update')</button>
+                            <button type="button" class="btn btn-info" id="edit_item_check_coloums">@lang('admin.Edit')</button>
                         </div>
                     </div>
                 </form>
@@ -192,7 +192,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
                     <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
@@ -207,13 +207,13 @@
                     <!---  ModalBodyInfoBody --->
                     <div class="modal-body" id="ModalBodyInfoEdit" style="display:none;" >
                         <div class="mb-3">
-                            <label for="NameUpdated" class="form-label">@lang('admin.name')</label>
-                            <input class="form-control" type="text" id="NameUpdated" name="nameUpdated" placeholder="@lang('admin.name')">
+                            <label for="nameEditd" class="form-label">@lang('admin.name')</label>
+                            <input class="form-control" type="text" id="nameEditd" name="nameEditd" placeholder="@lang('admin.name')">
                         </div>
 
                         <div class="mb-3">
-                            <label for="SurnameUpdated" class="form-label">@lang('admin.surname')</label>
-                            <input class="form-control" type="text" id="SurnameUpdated" name="SurnameUpdated" placeholder="@lang('admin.surname')">
+                            <label for="SurnameEditd" class="form-label">@lang('admin.surname')</label>
+                            <input class="form-control" type="text" id="SurnameEditd" name="SurnameEditd" placeholder="@lang('admin.surname')">
                         </div>
 
                         <div class="mb-3">
@@ -231,7 +231,7 @@
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item">@lang('admin.Update')</button>
+                            <button type="button" class="btn btn-info" id="edit_item">@lang('admin.Edit')</button>
                         </div>
                     </div>
                 </form>
@@ -638,7 +638,7 @@
 
 
                                     <!--- Button -->
-                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Edit')</button>
 
 
                                 </div>
@@ -697,8 +697,8 @@
                                                            <li class="list-inline-item" title ="@lang('admin.Visibility')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View" style="cursor:pointer;" > @if($DB_Find[$i]->isActive == 1) <a class="view-item-btn text-success"><button class="btn btn-success waves-effect waves-light" style="width: 45px;height: 45px;"  id="listItemActive" data_id="{{$DB_Find[$i]->id}}" data_active="true"  ><i  class="ri-eye-fill align-bottom"  id="listItemActive" data_id="{{$DB_Find[$i]->id}}"  data_active="true" ></i></button></a>  @elseif($DB_Find[$i]->isActive == 0)  <a class="view-item-btn"><button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px;" id="listItemActive" data_id="{{$DB_Find[$i]->id}}" data_active="false" ><i class="ri-eye-off-fill align-bottom" id="listItemActive" data_id="{{$DB_Find[$i]->id}}"  data_active="false" ></i></button></a>  @endif </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Search')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a href="/sabit_list/view/{{$DB_Find[$i]->id}}" class="view-item-btn text-info "><i class="ri-search-eye-line align-bottom "></i></a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Search')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View"><a  data-bs-toggle="modal" data-bs-target="#searchModal" data-id="{{$DB_Find[$i]->id}}" data-name="{{$DB_Find[$i]->name}}" data-surname="{{$DB_Find[$i]->surname}}" data-email="{{$DB_Find[$i]->email}}" data-value="{{$DB_Find[$i]->value}}" class="view-item-btn text-success" style="cursor:pointer;"><i class="ri-search-eye-line align-bottom "></i></a> </li>
-                                                            <li class="list-inline-item edit"  title ="@lang('admin.Update')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/sabit_list/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
-                                                            <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#edit_modal" data-id="{{$DB_Find[$i]->id}}" data-created_at="{{$DB_Find[$i]->created_at}}" data-isActive="{{$DB_Find[$i]->isActive}}" data-name="{{$DB_Find[$i]->name}}" data-surname="{{$DB_Find[$i]->surname}}" data-email="{{$DB_Find[$i]->email}}" data-value="{{$DB_Find[$i]->value}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
+                                                            <li class="list-inline-item edit"  title ="@lang('admin.Edit')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/sabit_list/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
+                                                            <li class="list-inline-item edit" title ="@lang('admin.Edit')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"  style="cursor:pointer;"> <a data-bs-toggle="modal" data-bs-target="#edit_modal" data-id="{{$DB_Find[$i]->id}}" data-created_at="{{$DB_Find[$i]->created_at}}" data-isActive="{{$DB_Find[$i]->isActive}}" data-name="{{$DB_Find[$i]->name}}" data-surname="{{$DB_Find[$i]->surname}}" data-email="{{$DB_Find[$i]->email}}" data-value="{{$DB_Find[$i]->value}}" class="text-primary d-inline-block edit-item-btn"> <i class="ri-pencil-fill fs-16"></i> </a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                         </ul>
                                                     </td>

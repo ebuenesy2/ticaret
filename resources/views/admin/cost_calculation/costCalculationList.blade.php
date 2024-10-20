@@ -282,7 +282,7 @@
 
 
                                     <!--- Button -->
-                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Edit')</button>
 
 
                                 </div>
@@ -338,7 +338,7 @@
 
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
-                                                            <li class="list-inline-item edit"  title ="@lang('admin.Update')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/cost/calculation/@lang('admin.lang')/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;"> <i class="ri-pencil-fill fs-16"></i> </button> </a> </li>
+                                                            <li class="list-inline-item edit"  title ="@lang('admin.Edit')"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/cost/calculation/@lang('admin.lang')/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"> <button class="btn btn-primary waves-effect waves-light" style="width: 45px;height: 45px;"> <i class="ri-pencil-fill fs-16"></i> </button> </a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                     </td>
                                                 </tr>

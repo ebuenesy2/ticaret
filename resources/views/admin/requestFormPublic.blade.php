@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title> public - @lang('admin.RequestReceiveForm')  - @lang('admin.Update') #{{$DB_Find->id}}  | {{ config('admin.Admin_Title') }}</title>
+    <title> public - @lang('admin.RequestReceiveForm')  - @lang('admin.Edit') #{{$DB_Find->id}}  | {{ config('admin.Admin_Title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="{{ config('admin.Admin_Meta_Title') }}">
@@ -277,7 +277,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" onclick={$("#Edit_ProductModal").modal('hide');} ></button>
                         </div>
                         <form action="#">
@@ -517,7 +517,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Edit_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    @if($DB_Find->public == "1")  <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button> @endif
+                                    @if($DB_Find->public == "1")  <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button> @endif
                                 </div>
                             </div>
                         </form>

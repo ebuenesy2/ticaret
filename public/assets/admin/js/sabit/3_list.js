@@ -704,8 +704,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
             //! Return
             $('#update_data_id').html(modalId);
-            $('#NameUpdated').val(modal_Name);
-            $('#SurnameUpdated').val(modal_Surname);
+            $('#nameEditd').val(modal_Name);
+            $('#SurnameEditd').val(modal_Surname);
             $('#EmailUpdated').val(modal_Email);
             $('#ValueUpdated').val(modal_Value);
 

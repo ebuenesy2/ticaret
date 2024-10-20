@@ -57,7 +57,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
                     <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_data_id" style="margin:auto;">xx</p> </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                 </div>
                 <form action="#">
@@ -85,7 +85,7 @@
                     <div class="modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                            <button type="button" class="btn btn-info" id="edit_item">@lang('admin.Update')</button>
+                            <button type="button" class="btn btn-info" id="edit_item">@lang('admin.Edit')</button>
                         </div>
                     </div>
                 </form>
@@ -249,7 +249,7 @@
 
 
                                     <!--- Button -->
-                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-success bg-gradient waves-effect waves-light" style="padding: inherit;" id="update_checkedItems" >@lang('admin.Edit')</button>
 
 
                                 </div>
@@ -327,7 +327,7 @@
                                                         <ul class="list-inline hstack gap-2 mb-0">
                                                             <li class="list-inline-item" title ="@lang('admin.Visibility')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View" style="cursor:pointer;" > @if($DB_Find[$i]->isActive == 1) <a class="view-item-btn text-success"><button class="btn btn-success waves-effect waves-light" style="width: 45px;height: 45px;"  id="listItemActive" data_id="{{$DB_Find[$i]->id}}" data_active="true"  ><i  class="ri-eye-fill align-bottom"  id="listItemActive" data_id="{{$DB_Find[$i]->id}}"  data_active="true" ></i></button></a>  @elseif($DB_Find[$i]->isActive == 0)  <a class="view-item-btn"><button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px;" id="listItemActive" data_id="{{$DB_Find[$i]->id}}" data_active="false" ><i class="ri-eye-off-fill align-bottom" id="listItemActive" data_id="{{$DB_Find[$i]->id}}"  data_active="false" ></i></button></a>  @endif </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Search')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="View" ><a href="/current/cart/@lang('admin.lang')/view/{{$DB_Find[$i]->id}}" class="view-item-btn text-info "><button class="btn btn-info waves-effect waves-light" style="width: 45px;height: 45px;" ><i class="ri-search-eye-line align-bottom "></i></button></a> </li>
-                                                            <li class="list-inline-item edit" title ="@lang('admin.Update')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/current/cart/@lang('admin.lang')/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"><button class="btn btn-secondary waves-effect waves-light" style="width: 45px;height: 45px;" ><i class="ri-pencil-fill fs-16"></i></button> </a> </li>
+                                                            <li class="list-inline-item edit" title ="@lang('admin.Edit')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/current/cart/@lang('admin.lang')/edit/{{$DB_Find[$i]->id}}" class="text-info d-inline-block edit-item-btn"><button class="btn btn-secondary waves-effect waves-light" style="width: 45px;height: 45px;" ><i class="ri-pencil-fill fs-16"></i></button> </a> </li>
                                                             <li class="list-inline-item edit"  title ="Stoklar"  data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Edit"> <a href="/current/cart/{{$DB_Find[$i]->id}}/stock/list" class="text-info d-inline-block edit-item-btn">   <button class="btn btn-info waves-effect waves-light" style="width: 45px;height: 45px;background-color: chocolate;"><i class="ri-arrow-left-right-line fs-16"></i></button> </a> </li>
                                                             <li class="list-inline-item" title ="@lang('admin.Delete')" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label="Remove" style="cursor:pointer;" > <button class="btn btn-danger waves-effect waves-light" style="width: 45px;height: 45px; color:white;" id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" > <a  class="text-white d-inline-block remove-item-btn" ><i id="listItemDelete" data_id="{{$DB_Find[$i]->id}}" class="ri-delete-bin-5-fill fs-16"></i> </a> </button> </li>
                                                         </ul>

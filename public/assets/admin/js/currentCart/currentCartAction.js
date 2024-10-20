@@ -7,9 +7,7 @@ $(function () {
     //! ************ Ekleme  ***************
     $("#new_add").click(function (e) {
         e.preventDefault();
-
         //alert("new_add");
-
 
         var current_name = $('#currentNameAdd').val(); //! Firma  Ad
         var ShortNameAdd = $('#ShortNameAdd').val(); //! Kısa Ad
@@ -211,104 +209,210 @@ $(function () {
 
 
     //! ************ Ekleme  ***************
-    $("#btn_update").click(function (e) {
+    $("#btn_edit").click(function (e) {
         e.preventDefault();
 
-        //alert("btn_update");
+        //alert("btn_edit");
 
         //! Id
-        var data_id =  $('#btn_update').attr('data_id');
-        var sectorAdd = $('#sectorAdd').val();
+        var data_id =  $('#btn_edit').attr('data_id');
+        var sectorEdit = $('#sectorEdit').val();
 
+        var current_name = $('#currentNameEdit').val(); //! Firma  Ad
+        var ShortNameEdit = $('#ShortNameEdit').val(); //! Kısa Ad
+        var CurrencyEdit = $('#SelectCurrency').val(); //! Para Birimi
+
+        var currentRow = $('#currentRow').val(); //! Cari Kod
+        var sectorEdit = $('#sectorEdit').val(); //! Sektorel Kod
+
+        var AuthorizedPersonEdit = $('#AuthorizedPersonEdit').val();
+        var AuthorizedPersonDepartmentEdit = $('#AuthorizedPersonDepartmentEdit').val();
+        var AuthorizedPhoneEdit = $('#AuthorizedPhoneEdit').val();
+        var AuthorizedPersonWhatsapEdit = $('#AuthorizedPersonWhatsapEdit').val();
+        var AuthorizedPersonEmailEdit = $('#AuthorizedPersonEmailEdit').val();
+
+        if(current_name == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Firma Ad Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(ShortNameEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Kısa Ad Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(CurrencyEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Para Birimi Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(currentRow == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Görev Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(sectorEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Sektor Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(AuthorizedPersonEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Yetkili Kişi Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(AuthorizedPersonDepartmentEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Yetkili Kişi Departman Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(AuthorizedPhoneEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Yetkili Kişi Telefon Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(AuthorizedPersonWhatsapEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Yetkili Kişi Whatsap Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else if(AuthorizedPersonEmailEdit == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Yetkili Kişi Email Yazılmadı",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
     
-        //! Ajax
-        $.ajax({
-            url: "/current/cart/edit/post",
-            method: "post",
-            headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
-            data: {
-                siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                id: Number(data_id),
+            //! Ajax
+            $.ajax({
+                url: "/current/cart/edit/post",
+                method: "post",
+                headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id: Number(data_id),
+                    
+                    current_no: $('#btn_edit').attr('data_codeNumber'),
+                    current_row: $('#currentRow').val(),
+                    sectoral_type: $('#sectorEdit').val(),
+                    sectoral_typeCode:$('#sectorEdit option[value='+sectorEdit+']').attr('data_codeNo'),
+                    
+                    current_name: $('#currentNameEdit').val(),
+                    short_name: $('#ShortNameEdit').val(),
+
+                    currency: document.getElementById("SelectCurrency").value,
+                    description: document.getElementById('DescriptionEdit').value,
+
+                    authorized_person: $('#AuthorizedPersonEdit').val(),
+                    authorized_person_role: $('#AuthorizedPersonDepartmentEdit').val(),
+                    authorized_person_tel: $('#AuthorizedPhoneEdit').val(),
+                    authorized_person_whatsap: $('#AuthorizedPersonWhatsapEdit').val(),
+                    authorized_person_mail: $('#AuthorizedPersonEmailEdit').val(),
+
+                    ref_person: $('#refPersonEdit').val(),
+                    ref_departman: $('#refDepartmentEdit').val(),
+                    ref_phone: $('#refPhoneEdit').val(),
+                    ref_email: $('#refEmailEdit').val(),
+
+                    country: $('#CountryEdit').val(),
+                    city: $('#CityEdit').val(),
+                    district: $('#DitsrictEdit').val(),
+                    post_code: $('#PostCodeEdit').val(),
+
+                    tel1: $('#TelEdit1').val(),
+                    tel2: $('#TelEdit2').val(),
+                    fax1: $('#FaxEdit2').val(),
+
+                    address: document.getElementById('adressEdit').value,
+                    billing_address: document.getElementById('InvoiceAddressEdit').value,
+                    tax_administration: $('#tax_administration').val(),
+                    tax_number: $('#tax_number').val(),
+
+                    web_address: $('#WebEdit').val(),
+                    email: $('#EmailEdit').val(),
+                    email_cc: $('#EmailCCEdit').val(),
                 
-                current_no: $('#btn_update').attr('data_codeNumber'),
-                current_row: $('#currentRow').val(),
-                sectoral_type: $('#sectorAdd').val(),
-                sectoral_typeCode:$('#sectorAdd option[value='+sectorAdd+']').attr('data_codeNo'),
-                
-                current_name: $('#currentNameAdd').val(),
-                short_name: $('#ShortNameAdd').val(),
+                    created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
+                },
+                success: function (response) {
+                    // alert("başarılı");
+                    console.log("response:", response);
+                    // console.log("status:", response.status);
 
-                currency: document.getElementById("SelectCurrency").value,
-                description: document.getElementById('DescriptionAdd').value,
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
 
-                authorized_person: $('#AuthorizedPersonAdd').val(),
-                authorized_person_role: $('#AuthorizedPersonDepartmentAdd').val(),
-                authorized_person_tel: $('#AuthorizedPhoneAdd').val(),
-                authorized_person_whatsap: $('#AuthorizedPersonWhatsapAdd').val(),
-                authorized_person_mail: $('#AuthorizedPersonEmailAdd').val(),
-
-                ref_person: $('#refPersonAdd').val(),
-                ref_departman: $('#refDepartmentAdd').val(),
-                ref_phone: $('#refPhoneAdd').val(),
-                ref_email: $('#refEmailAdd').val(),
-
-                country: $('#CountryAdd').val(),
-                city: $('#CityAdd').val(),
-                district: $('#DitsrictAdd').val(),
-                post_code: $('#PostCodeAdd').val(),
-
-                tel1: $('#TelAdd1').val(),
-                tel2: $('#TelAdd2').val(),
-                fax1: $('#FaxAdd2').val(),
-
-                address: document.getElementById('adressAdd').value,
-                billing_address: document.getElementById('InvoiceAddressAdd').value,
-                tax_administration: $('#tax_administration').val(),
-                tax_number: $('#tax_number').val(),
-
-                web_address: $('#WebAdd').val(),
-                email: $('#EmailAdd').val(),
-                email_cc: $('#EmailCCAdd').val(),
-              
-                created_byId: document.cookie.split(';').find((row) => row.startsWith(' yildirimdev_userID='))?.split('=')[1]
-            },
-            success: function (response) {
-                // alert("başarılı");
-                console.log("response:", response);
-                // console.log("status:", response.status);
-
-                if (response.status == "success") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: response.msg,
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
-
-                    //! Sayfa Yenileme
-                    window.location.reload();
-                } else {
+                        //! Sayfa Yenileme
+                        window.location.reload();
+                    } else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+                },
+                error: function (error) {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: response.msg,
+                        title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
                         showConfirmButton: false,
                         timer: 2000,
                     });
-                }
-            },
-            error: function (error) {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: $('[id=lang_change][data_key=TransactionFailed]').html().trim(),
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                console.log("error:", error);
-            },
-        }); //! Ajax Son
+                    console.log("error:", error);
+                },
+            }); //! Ajax Son
+        
+        }
 
     }); //! Ekleme Son
     //! ************ Ekleme Son  ***************
@@ -810,7 +914,7 @@ $(function () {
                     console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#CurrencyCartIDUpdate').val(response.DB.currencyCartId);
+                    $('#CurrencyCartIDEdit').val(response.DB.currencyCartId);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
                     $('#BranchUpdate').val(response.DB.branch);
@@ -862,7 +966,7 @@ $(function () {
             data: {
                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                 id: Number(data_id),
-                currencyCartId: $('#CurrencyCartIDUpdate').val(),
+                currencyCartId: $('#CurrencyCartIDEdit').val(),
                 bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
                 bankTitle: $('#BanktitleEdit').val(),
                 branch: $('#BranchUpdate').val(),

@@ -888,7 +888,7 @@ class Admin extends Controller
       
    } //! UserList Delete  Son
       
-   //! UserList Update  
+   //! UserList Edit  
    public function UserListEditPost(Request $request)
    {
 
@@ -958,10 +958,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! UserList Update  Son
+   } //! UserList Edit  Son
 
 
-   //! UserList Update Edit 
+   //! UserList Edit Edit 
    public function UserListEditPostEdit(Request $request)
    {
 
@@ -1028,10 +1028,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! UserList Update  Edit Son
+   } //! UserList Edit  Edit Son
 
    
-   //! UserList Update Pass 
+   //! UserList Edit Pass 
    public function UserListEditPostPass(Request $request)
    {
 
@@ -1099,10 +1099,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! UserList Update  Pass Son
+   } //! UserList Edit  Pass Son
  
 
-   //! UserList Update View
+   //! UserList Edit View
    public function UserListEditView($site_lang="tr",$id)
    {
 
@@ -1156,7 +1156,7 @@ class Admin extends Controller
          }
    
       } catch (\Throwable $th) {  throw $th; }
-   } //! UserList Update View Son
+   } //! UserList Edit View Son
 
    //! UserList View
    public function UserListView($site_lang="tr",$id)
@@ -2064,7 +2064,7 @@ class Admin extends Controller
       
    } //! StockList Search Post Son
      
-   //! StockList Update  
+   //! StockList Edit  
    public function StockListEditPost(Request $request)
    {
 
@@ -2170,7 +2170,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! StockList Update  Son
+   } //! StockList Edit  Son
 
    //! StockList Edit Active
    public function StockListEditActive(Request $request)
@@ -2287,7 +2287,7 @@ class Admin extends Controller
       
    } //! StockList Edit Active Multi Son
       
-   //! StockList Update Product Image
+   //! StockList Edit Product Image
    public function StockListUpdateProductImage(Request $request)
    {
       
@@ -2388,7 +2388,7 @@ class Admin extends Controller
          
       } catch (\Throwable $th) { throw $th; }
 
-   }  //! StockList Update Product Image
+   }  //! StockList Edit Product Image
 
          
    //************* Stok Firma List ***************** */
@@ -3260,7 +3260,7 @@ class Admin extends Controller
    } //! currentCartList Delete  Son
 
      
-   //! currentCartList Update  
+   //! currentCartList Edit  
    public function currentCartListEditPost(Request $request)
    {
 
@@ -3371,10 +3371,10 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! currentCartList Update  Son
+   } //! currentCartList Edit  Son
 
 
-   //! currentCartList Update View
+   //! currentCartList Edit View
    public function currentCartListEditView($site_lang="tr",$id)
    {
 
@@ -3440,7 +3440,7 @@ class Admin extends Controller
          }
    
       } catch (\Throwable $th) {  throw $th; }
-   } //! currentCartList Update View Son
+   } //! currentCartList Edit View Son
 
 
    //! currentCartList View
@@ -5996,7 +5996,7 @@ class Admin extends Controller
    } //! RequestFormStockList Search Post Son
 
      
-   //! RequestFormStockList Update  
+   //! RequestFormStockList Edit  
    public function RequestFormStockListEditPost(Request $request)
    {
 
@@ -6208,7 +6208,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! RequestFormStockList Update  Son
+   } //! RequestFormStockList Edit  Son
    
 
    //! RequestFormStockList Edit Active
@@ -8254,7 +8254,7 @@ class Admin extends Controller
       
    } //! CostCalculation Update  Son
 
-   //! CostCalculation Update View
+   //! CostCalculation Edit View
    public function CostCalculationEditView($site_lang="tr",$id)
    {
 
@@ -8375,7 +8375,7 @@ class Admin extends Controller
          }
    
       } catch (\Throwable $th) {  throw $th; }
-   } //! CostCalculation Update View Son
+   } //! CostCalculation Edit View Son
 
    //! CostCalculation View
    public function CostCalculationView($site_lang="tr",$id)
@@ -9851,7 +9851,7 @@ class Admin extends Controller
       
    } //! ProformaInvoice Update  Son
 
-   //! ProformaInvoice Update View
+   //! ProformaInvoice Edit View
    public function ProformaInvoiceEditView($site_lang="tr",$id)
    {
 
@@ -9979,7 +9979,7 @@ class Admin extends Controller
          }
    
       } catch (\Throwable $th) {  throw $th; }
-   } //! ProformaInvoice Update View Son
+   } //! ProformaInvoice Edit View Son
 
    //! ProformaInvoice View
    public function ProformaInvoiceView($site_lang="tr",$id)
@@ -14623,7 +14623,7 @@ class Admin extends Controller
    } //! AnalysisProductList Search Post Son
 
      
-   //! AnalysisProductList Update  
+   //! AnalysisProductList Edit  
    public function AnalysisProductListEditPost(Request $request)
    {
 
@@ -14689,7 +14689,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! AnalysisProductList Update  Son
+   } //! AnalysisProductList Edit  Son
 
 
    //************* Analiz Listesi ***************** */
@@ -15013,7 +15013,7 @@ class Admin extends Controller
    } //! AnalysisList Search Post Son
 
      
-   //! AnalysisList Update  
+   //! AnalysisList Edit  
    public function AnalysisListEditPost(Request $request)
    {
 
@@ -15093,7 +15093,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! AnalysisList Update  Son
+   } //! AnalysisList Edit  Son
 
    
    //************* BusinessTracking ***************** */
@@ -17095,7 +17095,7 @@ class Admin extends Controller
    } //! SabitList Delete  Son
 
      
-   //! SabitList Update  
+   //! SabitList Edit  
    public function SabitListEditPost(Request $request)
    {
 
@@ -17152,9 +17152,9 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! SabitList Update  Son
+   } //! SabitList Edit  Son
 
-   //! SabitList Update View
+   //! SabitList Edit View
    public function SabitListEditView($site_lang="tr",$id)
    {
 
@@ -17209,7 +17209,7 @@ class Admin extends Controller
          }
    
       } catch (\Throwable $th) {  throw $th; }
-   } //! SabitList Update View Son
+   } //! SabitList Edit View Son
 
    //! SabitList View
    public function SabitListView($site_lang="tr",$id)

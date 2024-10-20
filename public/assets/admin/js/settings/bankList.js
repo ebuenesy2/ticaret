@@ -524,7 +524,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#CurrencyCartIDUpdate option[value='+response.DB.currencyCartId+']').prop('selected',true);
+                    $('#CurrencyCartIDEdit option[value='+response.DB.currencyCartId+']').prop('selected',true);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
                     $('#BranchUpdate').val(response.DB.branch);
@@ -598,7 +598,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             data: {
                 siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
                 id: Number(data_id),
-                currencyCartId: $('#CurrencyCartIDUpdate').val(),
+                currencyCartId: $('#CurrencyCartIDEdit').val(),
                 bankaAccountTitle: $('#bankaAccounttitleEdit').val(),
                 bankTitle: $('#BanktitleEdit').val(),
                 branch: $('#BranchUpdate').val(),

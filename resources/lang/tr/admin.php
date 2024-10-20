@@ -47,7 +47,7 @@
     'Close' => 'Kapat',
     'Add' => 'Ekle',
     'Delete' => 'Sil',
-    'Update' => 'Güncelle',
+    'Edit' => 'Güncelle',
     'Create' => 'Oluştur',
     'Search' => 'Ara',
     'Visibility' => 'Görünürlük',

@@ -145,7 +145,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_conditions_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_conditions_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#">
@@ -249,7 +249,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_log_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_log_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -286,7 +286,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ConditionsModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -418,7 +418,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_note_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_note_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#">
@@ -533,7 +533,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_note_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_note_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -570,7 +570,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ConditionsModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -695,7 +695,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_doc_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_doc_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#">
@@ -802,7 +802,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_doc_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_doc_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -839,7 +839,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ConditionsModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -915,7 +915,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <p id="modalInfo" data_id="121" style="display:none;" >Modal Bilgi</p>
-                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Update') #</p>  <p id="update_todo_data_id" style="margin:auto;">xx</p> </h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="display:flex;" ><p style="margin:auto;" >@lang('admin.Edit') #</p>  <p id="update_todo_data_id" style="margin:auto;">xx</p> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
                         <form action="#">
@@ -973,7 +973,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_todo_update">@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" data_isgeneral="0" id="data_todo_update">@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -1010,7 +1010,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Delete_ConditionsModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Update')</button>
+                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -1390,7 +1390,7 @@
 
                  
                     <div class="hstack gap-2 justify-content-end d-print-none mt-4 w-100">
-                        <button class="btn btn-success w-50" id="btn_edit" data_id="{{$DB_Find->id}}"  ><i class="ri-edit-line align-bottom me-1"></i> @lang('admin.Update')</button>
+                        <button class="btn btn-success w-50" id="btn_edit" data_id="{{$DB_Find->id}}"  ><i class="ri-edit-line align-bottom me-1"></i> @lang('admin.Edit')</button>
                         <a href="/business/tracking/@lang('admin.lang')/view/{{$DB_Find->id}}/export/file" class="btn btn-primary w-50"><img title="Pdf" src="/assets/img/icon/pdf.png" style="cursor:pointer;height: 20px;" alt="" srcset=""> Pdf</a>
                     </div>
                 </div>

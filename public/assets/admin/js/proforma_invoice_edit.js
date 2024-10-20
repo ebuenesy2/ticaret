@@ -1671,7 +1671,7 @@ $(function () {
                     //console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    $('#CurrencyCartIDUpdate').val(response.DB.currencyCartId);
+                    $('#CurrencyCartIDEdit').val(response.DB.currencyCartId);
                     $('#bankaAccounttitleEdit').val(response.DB.bankaAccountTitle);
                     $('#BanktitleEdit').val(response.DB.bankTitle);
                     $('#BranchUpdate').val(response.DB.branch);
