@@ -5730,9 +5730,8 @@ class Admin extends Controller
                'created_byId'=>$request->created_byId ? $request->created_byId : 0,
          ]); //! Veri Ekleme Son
 
-         echo "Talep Stok Eklendi"; die();
-
-         echo "Yeni Stok Eklendi"; echo $stockId_new; die();
+         // echo "Talep Stok Eklendi"; die();
+         // echo "Yeni Stok Eklendi"; echo $stockId_new; die();
 
          //! Ürün Bilgileri
          $DB_Find_Product = DB::table('requestform_product_list')

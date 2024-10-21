@@ -741,48 +741,48 @@ $(function () {
                     console.log("response:", response);
                     // console.log("status:", response.status);
 
-                    // if (response.status == "success") {
-                    //     Swal.fire({
-                    //         position: "center",
-                    //         icon: "success",
-                    //         title: response.msg,
-                    //         showConfirmButton: false,
-                    //         timer: 2000,
-                    //     });
+                    if (response.status == "success") {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
 
-                    //     //! Product Liste Güncelle
-                    //     productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                        //! Product Liste Güncelle
+                        productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
-                    //     //! Modal Temizleme
-                    //     $("#Add_ProductForm")[0].reset();
+                        //! Modal Temizleme
+                        $("#Add_ProductForm")[0].reset();
 
-                    //     //! Ürün Resmi
-                    //     $('#productViewImageAdd').css('display','none');
-                    //     $('#product_dowloand_imgAdd').css('display','none');
-                    //     $('#filePathUrl').html("");
+                        //! Ürün Resmi
+                        $('#productViewImageAdd').css('display','none');
+                        $('#product_dowloand_imgAdd').css('display','none');
+                        $('#filePathUrl').html("");
 
-                    //     //! Teknik Resim
-                    //     $('#product_dowloand_fileAdd').css('display','none');
-                    //     $('#filePathUrlTechnicalFile').html("");
+                        //! Teknik Resim
+                        $('#product_dowloand_fileAdd').css('display','none');
+                        $('#filePathUrlTechnicalFile').html("");
 
-                    //     //! Progresbar
-                    //     $("#progressBarFileUpload").width('0%');
-                    //     $("#progressBarFileUploadTechnical").width('0%');
+                        //! Progresbar
+                        $("#progressBarFileUpload").width('0%');
+                        $("#progressBarFileUploadTechnical").width('0%');
 
-                    //     //! Modal Kapatma
-                    //     $("#Add_ProductModal").modal('hide');
+                        //! Modal Kapatma
+                        $("#Add_ProductModal").modal('hide');
 
-                    //     //! Sayfa Yenileme
-                    //     //window.location.reload();
-                    // } else {
-                    //     Swal.fire({
-                    //         position: "center",
-                    //         icon: "error",
-                    //         title: response.msg,
-                    //         showConfirmButton: false,
-                    //         timer: 2000,
-                    //     });
-                    // }
+                        //! Sayfa Yenileme
+                        //window.location.reload();
+                    } else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
 
                 },
                 error: function (error) {
