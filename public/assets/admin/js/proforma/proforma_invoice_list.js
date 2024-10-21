@@ -387,6 +387,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             if(data.exportname == "Id") {  $('#searhId_Table').val( data.text);  } //! Input
             else if(data.exportname == "CreatedDate") {  $('#exampleInputdate').val(data.text); } //! Zaman
             else if(data.exportname == "Status") {  $('#selectActive option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "CurrencyCartId") {  $('#selectCurrentCartFind option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
+            else if(data.exportname == "CostCalculation") {  $('#selectCostCalculationFind option[value="'+data.text+'"]').prop('selected', true );  } //! Seçim yap
             
         }); //! Json Verilerini Alıyor Son
 
@@ -489,6 +491,44 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
         searchTableControl();
 
     }); //! Arama Durum Son
+
+    //! Arama Cari Kart
+    document.querySelector('#selectCurrentCartFind').addEventListener('change', e => {
+
+        //! Tanım
+        var filter = $('#selectCurrentCartFind').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "CurrencyCartId", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'CurrencyCartId'); //! Json İçinde Arama 
+
+        //! Kontrol
+        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
+        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
+        if (filter == '') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+    
+        //! Table Arama Kontrol
+        searchTableControl();
+
+    }); //! Arama Cari Kart  Son
+
+
+    //! Arama Maliyet Kalemi
+    document.querySelector('#selectCostCalculationFind').addEventListener('change', e => {
+
+        //! Tanım
+        var filter = $('#selectCostCalculationFind').val(); //! Aranacak Veri
+        var searchJsonItem = { exportname: "CostCalculation", text:filter}; //! Aranacak Veri Item
+        var searchJsonFindItem = searchJsonData.findIndex(s => s.exportname == 'CostCalculation'); //! Json İçinde Arama 
+
+        //! Kontrol
+        if(searchJsonFindItem == -1 ) { searchJsonData.push(searchJsonItem); } //! Yoksa Ekliyor
+        else if(searchJsonFindItem != -1 ) { searchJsonData[searchJsonFindItem].text = filter; } //! Varsa Güncelliyor
+        if (filter == '') { searchJsonData.splice(searchJsonFindItem, 1); } //! Arama Boş ise Kaldır
+    
+        //! Table Arama Kontrol
+        searchTableControl();
+
+    }); //! Arama Maliyet Kalemi  Son
+
 
     //! ************ Arama Son ***************
 

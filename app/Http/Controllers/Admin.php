@@ -9407,7 +9407,8 @@ class Admin extends Controller
                if($data_key_item == "CreatedDate") { $data_key_item = "proforma_invoice.created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
                else if($data_key_item == "Id") { $data_key_item = "proforma_invoice.id";  $data_item_object="=";  }
                else if($data_key_item == "Status") { $data_key_item = "proforma_invoice.isActive";  $data_item_object="="; }
-
+               else if($data_key_item == "CurrencyCartId") { $data_key_item = "proforma_invoice.companyId";  $data_item_object="="; }
+               else if($data_key_item == "CostCalculation") { $data_key_item = "proforma_invoice.cost_calculation_id";  $data_item_object="="; }
                
                //! Ekleme Yapıyor
                array_push($data_search_key,$data_key_item); //! id
@@ -9437,14 +9438,10 @@ class Admin extends Controller
 
             //! Params Verileri Where Formatında Yazılacak Son    
 
-            //! Maliyet Kalemi
+            //! Listeleme
+            $DB_Find_current_cart = DB::table('current_cart')->orderBy('current_name','asc')->get();//! Cari Kart
             $DB_Find_Cost_Calculation_List = DB::table('cost_calculation_list')->where('costCalculationCheck',"Evet")->get();//! Talepler
             //echo "<pre>";print_r($DB_Find_Cost_Calculation_List); die();
-
-            $DB_Find_requestform = DB::table('requestform')->where('id',59)->first();//! Talepler
-            //echo "<pre>" ;print_r($DB_Find_requestform); die();
-            //echo "currencyCartId:"; echo $DB_Find_requestform->currencyCartId;   die();
-
 
             //! Return
             $DB["userId"] =  $yildirimdev_userID;
@@ -9454,6 +9451,7 @@ class Admin extends Controller
             $DB["userImageUrl"] =  $yildirimdev_img_url;
 
             $DB["DB_Find"] =  $DB_Find;
+            $DB["DB_Find_current_cart"] =  $DB_Find_current_cart;
             $DB["DB_Find_Cost_Calculation_List"] =  $DB_Find_Cost_Calculation_List;
 
             //! Çoklu Dil

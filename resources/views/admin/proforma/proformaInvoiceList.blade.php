@@ -162,6 +162,26 @@
                                         </select>
                                     </div>
                                     <!--son Arama Durum  -->
+
+                                     <!-- Arama Cari Kart -->
+                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
+                                        <label for="selectCurrentCartFind" class="form-label"> Cari Kart Seç</label>
+                                        <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectCurrentCartFind">
+                                            <option value=""> @lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_current_cart); $i++) <option value="{{$DB_Find_current_cart[$i]->id}}" >{{$DB_Find_current_cart[$i]->current_name}}</option>  @endfor
+                                        </select>
+                                    </div>
+                                    <!--son Arama  Cari Kart  -->
+
+                                    <!-- Arama Maliyet -->
+                                    <div class="col-lg-2 col-md-12 mb-md-3"> 
+                                        <label for="selectCostCalculationFind" class="form-label">Talep Formu Seç</label>
+                                        <select class="form-select"  id="selectCostCalculationFind">
+                                            <option value="">Maliyet Seç</option>
+                                            @for ($i = 0; $i < count($DB_Find_Cost_Calculation_List); $i++) <option value="{{$DB_Find_Cost_Calculation_List[$i]->id}}" >{{$DB_Find_Cost_Calculation_List[$i]->title}}</option>  @endfor
+                                        </select>
+                                    </div>
+                                    <!--son Arama Maliyet  -->
                                   
 
                                 </div>
@@ -215,8 +235,8 @@
                                                 <th exportname="proformaCode" >Proforma Kodu</th>
                                                 
                                                 <th exportname="Title" >@lang('admin.Title')</th>
-                                                <th exportname="CostCalculation" >Maliyet Tablosu</th>
                                                 <th exportname="currentCardName" >Cari Kart Adı</th>
+                                                <th exportname="CostCalculation" >Maliyet Tablosu</th>
                                                
                                                 <th exportname="Actions" >@lang('admin.Actions')</th>
                                             </tr>
@@ -239,9 +259,8 @@
                                                     <td exportname="proformaCode" > {{$DB_Find[$i]->proformaCode}}</td>
                                                     
                                                     <td exportname="Title" > {{$DB_Find[$i]->title}}</td>
-                                                    <td exportname="CostCalculation" > {{$DB_Find[$i]->cost_calculationTitle}}</td>
                                                     <td exportname="currentCardName" >{{$DB_Find[$i]->current_name}}</td>
-                                                   
+                                                    <td exportname="CostCalculation" > {{$DB_Find[$i]->cost_calculationTitle}}</td>
                                                     
                                                     <td exportname="Actions" id="listItemActionBox" > 
                                                         <ul class="list-inline hstack gap-2 mb-0">
