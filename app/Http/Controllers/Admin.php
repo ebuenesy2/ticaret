@@ -5220,10 +5220,9 @@ class Admin extends Controller
 
 
             //! Veri Güncelle
-            $DB_Status = DB::table('requestform')->where('id',$request->requestformId)
+            $DB_Status = DB::table('requestform')->where('id',$request->	requestformid)
             ->update([            
                'product_image'=>"/upload/uploads/".$fileName,
-
                'isUpdated'=>true,
                'updated_at'=>Carbon::now(),
                'updated_byId'=>$request->updated_byId,
