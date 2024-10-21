@@ -1135,7 +1135,7 @@ $(function () {
 
 
     //! Güncelle
-    $("#data_productUpdate").click(function (e) {
+    $("#data_productEdit").click(function (e) {
         e.preventDefault();
 
         //! Select

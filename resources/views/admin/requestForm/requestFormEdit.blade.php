@@ -702,7 +702,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Edit_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button>
+                                    <button type="button" class="btn btn-info" id="data_productEdit"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>

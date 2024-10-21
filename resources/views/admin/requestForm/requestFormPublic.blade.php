@@ -517,7 +517,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Edit_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    @if($DB_Find->public == "1")  <button type="button" class="btn btn-info" id="data_productUpdate"  >@lang('admin.Edit')</button> @endif
+                                    @if($DB_Find->public == "1")  <button type="button" class="btn btn-info" id="data_productEdit"  >@lang('admin.Edit')</button> @endif
                                 </div>
                             </div>
                         </form>
