@@ -751,7 +751,7 @@ $(function () {
                     //     });
 
                     //     //! Product Liste Güncelle
-                    //     productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                    //     productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
                     //     //! Modal Temizleme
                     //     $("#Add_ProductForm")[0].reset();
@@ -803,7 +803,7 @@ $(function () {
     //! Ürün Ekleme Son
 
     //! Product Listesi
-    function productListEdit(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
+    function productListUpdate(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
         // console.log("data:",data);
         // console.log("DB_Find_Product_Ret_Count:",DB_Find_Product_Ret_Count);
         // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
@@ -897,7 +897,7 @@ $(function () {
                                 });
 
                                 //! Product Liste Güncelle
-                                productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                                productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
                             } else {
                                 Swal.fire({
@@ -1296,13 +1296,13 @@ $(function () {
                     export_registered_kdv_sell: $('#export_registered_kdv_sellEdit').val(),
 
                     featuresTr: $('#featuresTREdit').val(),
-                    featuresPublic: $('#featuresPublicEdit').val(),
+                    featuresEn: $('#featuresEnEdit').val(),
 
                     tech_featuresTr: $('#tech_featuresTREdit').val(),
-                    tech_featuresPublic: $('#tech_featuresPublicEdit').val(),
+                    tech_featuresEn: $('#tech_featuresEnEdit').val(),
 
                     descriptionTr: $('#descriptionTREdit').val(),
-                    descriptionPublic: $('#descriptionPublicEdit').val(),
+                    descriptionEn: $('#descriptionEnEdit').val(),
 
                     catalogLink: $('#catalogLinkEdit').val(),
                     web_address: $('#webSiteEdit').val(),
@@ -1348,7 +1348,7 @@ $(function () {
                         $("#Edit_ProductModal").modal('hide');
 
                         //! Product Liste Güncelle
-                        productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                        productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
                     } else {
                         Swal.fire({

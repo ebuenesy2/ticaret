@@ -123,8 +123,8 @@
                                         <div class="row">
                                             <!-- Özellik  -->
                                             <div class="col-12 mb-3" >
-                                                <label for="featuresPublicAdd" class="form-label">@lang('admin.Features')</label>
-                                                <textarea class="form-control" id="featuresPublicAdd" rows="2"></textarea>
+                                                <label for="featuresEnAdd" class="form-label">@lang('admin.Features')</label>
+                                                <textarea class="form-control" id="featuresEnAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Özellik  -->
                                           
@@ -132,8 +132,8 @@
                                         <div class="row">
                                             <!-- Teknik Özellik  -->
                                             <div class="col-12 mb-3" >
-                                                <label for="tech_featuresPublicAdd" class="form-label">@lang('admin.TechnicialSpecifications')</label>
-                                                <textarea class="form-control" id="tech_featuresPublicAdd" rows="2"></textarea>
+                                                <label for="tech_featuresEnAdd" class="form-label">@lang('admin.TechnicialSpecifications')</label>
+                                                <textarea class="form-control" id="tech_featuresEnAdd" rows="2"></textarea>
                                             </div>
                                             <!-- Teknik Özellik Son  -->
                                           
@@ -142,8 +142,8 @@
                                         <div class="row">
                                             <!-- Açıklama  -->
                                             <div class="col-12 mb-3" >
-                                                <label for="descriptionPublicAdd" class="form-label">@lang('admin.Description')</label>
-                                                <textarea class="form-control" id="descriptionPublicAdd" rows="2"></textarea>
+                                                <label for="descriptionEnAdd" class="form-label">@lang('admin.Description')</label>
+                                                <textarea class="form-control" id="descriptionEnAdd" rows="2"></textarea>
                                             </div>
                                             <!-- End Açıklama  -->
             
@@ -364,8 +364,8 @@
                                    <div class="row">
                                         <!-- Özellik  -->
                                         <div class="col-12 mb-3" >
-                                            <label for="featuresPublicEdit" class="form-label">@lang('admin.Features')</label>
-                                            <textarea class="form-control" id="featuresPublicEdit" rows="4"></textarea>
+                                            <label for="featuresEnEdit" class="form-label">@lang('admin.Features')</label>
+                                            <textarea class="form-control" id="featuresEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Özellik  -->
                                    </div>
@@ -373,8 +373,8 @@
 
                                         <!-- Teknik Özellik  -->
                                         <div class="col-12 mb-3" >
-                                            <label for="tech_featuresPublicEdit" class="form-label">@lang('admin.TechnicialSpecifications')</label>
-                                            <textarea class="form-control" id="tech_featuresPublicEdit" rows="4"></textarea>
+                                            <label for="tech_featuresEnEdit" class="form-label">@lang('admin.TechnicialSpecifications')</label>
+                                            <textarea class="form-control" id="tech_featuresEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- Teknik Özellik Son  -->
 
@@ -382,8 +382,8 @@
                                     <div class="row">
                                         <!-- Açıklama  -->
                                         <div class="col-12 mb-3" >
-                                            <label for="descriptionPublicEdit" class="form-label">@lang('admin.Description')</label>
-                                            <textarea class="form-control" id="descriptionPublicEdit" rows="4"></textarea>
+                                            <label for="descriptionEnEdit" class="form-label">@lang('admin.Description')</label>
+                                            <textarea class="form-control" id="descriptionEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Açıklama  -->
 

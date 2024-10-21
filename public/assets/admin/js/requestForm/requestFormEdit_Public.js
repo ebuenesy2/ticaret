@@ -1,4 +1,4 @@
-    function productListEdit(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
+    function productListUpdate(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
         // console.log("data:",data);
         // console.log("DB_Find_Product_Ret_Count:",DB_Find_Product_Ret_Count);
         // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
@@ -16,7 +16,7 @@
             // else if(data[index].stockActive == 1 ) {  returnData +='<div style="display:none"> <span class="badge text-bg-danger">Onay Bekliyor</span></div>'; }
             returnData +='<input type="text" class="form-control bg-light border-0" id="productName-1"  value="'+data[index].namePublic+'" readonly="readonly" >';
             returnData +='</div>';
-            returnData +='<textarea class="form-control bg-light border-0" id="productDetails-1" rows="2" readonly="readonly"  >'+data[index].descriptionPublic +'</textarea>';
+            returnData +='<textarea class="form-control bg-light border-0" id="productDetails-1" rows="2" readonly="readonly"  >'+data[index].descriptionEn +'</textarea>';
             returnData +=' </td>';
             returnData +='<td><input type="text" class="form-control product-price bg-light border-0" id="product-qty" data_id="'+Number(index+1)+'" step="0.01" placeholder="0.00" value="'+data[index].price+'" readonly="readonly" ></td>';
             returnData +=' <td id="DB_Find_Product_count"> <div class="input-step"> <input type="number" class="product-quantity bg-light border-0 " id="Productprice" data_id="'+Number(index+1)+'" value="'+data[index].stockCount+'"  readonly="readonly" > </div> </td>';
@@ -116,9 +116,9 @@
                     price: $('#PriceAdd').val(),
                     total: total,
                 
-                    featuresPublic: $('#featuresPublicAdd').val(),
-                    tech_featuresPublic: $('#tech_featuresPublicAdd').val(),
-                    descriptionPublic: $('#descriptionPublicAdd').val(),
+                    featuresEn: $('#featuresEnAdd').val(),
+                    tech_featuresEn: $('#tech_featuresEnAdd').val(),
+                    descriptionEn: $('#descriptionEnAdd').val(),
 
                     imgUrl: $('#filePathUrl').html(),
                     techFileUrl: $('#filePathUrlTechnicalFile').html(),
@@ -145,7 +145,7 @@
                         });
 
                         //! Product Liste Güncelle
-                        productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                        productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
                         //! Modal Temizleme
                         $("#Add_ProductForm")[0].reset();
@@ -242,7 +242,7 @@
                                 });
                                 
                                 //! Product Liste Güncelle
-                                productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                                productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
                             
                             } else {
                                 Swal.fire({
@@ -314,7 +314,7 @@
                             });
                             
                             //! Product Liste Güncelle
-                            productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                            productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
                         
                         } else {
                             Swal.fire({
@@ -445,9 +445,9 @@
                         $('#export_registered_kdv_sellEdit').val("");
                     }
                     
-                    $('#featuresPublicEdit').val(response.DB.featuresPublic);
-                    $('#tech_featuresPublicEdit').val(response.DB.tech_featuresPublic);
-                    $('#descriptionPublicEdit').val(response.DB.descriptionPublic);
+                    $('#featuresEnEdit').val(response.DB.featuresEn);
+                    $('#tech_featuresEnEdit').val(response.DB.tech_featuresEn);
+                    $('#descriptionEnEdit').val(response.DB.descriptionEn);
 
                     $('#webSiteEdit').val(response.DB.web_address);
                     $('#catalogLinkEdit').val(response.DB.catalogLink);
@@ -569,9 +569,9 @@
                     price: $('#PriceEdit').val(),
                     total: total,
 
-                    featuresPublic: $('#featuresPublicEdit').val(),
-                    tech_featuresPublic: $('#tech_featuresPublicEdit').val(),
-                    descriptionPublic: $('#descriptionPublicEdit').val(),
+                    featuresEn: $('#featuresEnEdit').val(),
+                    tech_featuresEn: $('#tech_featuresEnEdit').val(),
+                    descriptionEn: $('#descriptionEnEdit').val(),
                 
                     catalogLink: $('#catalogLinkEdit').val(),
                     web_address: $('#webSiteEdit').val(),
@@ -600,7 +600,7 @@
                         });
 
                         //! Product Liste Güncelle
-                        productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                        productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
 
                         //! Kapatma
                         $("#Edit_ProductModal").modal('hide');
