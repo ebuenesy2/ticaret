@@ -2,10 +2,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © {{ config('admin.CompanyTitle') }}
+                            <script>document.write(new Date().getFullYear())</script> © {{ config('admin.CompanyTitle') }}  - [ {{ config('admin.Version') }} ]
                         </div>
                         <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block"> {{ config('admin.CompanyDescription') }} </div>
+                            <div class="text-sm-end d-none d-sm-block"> {{ config('admin.CompanyDescription') }}</div>
                         </div>
                     </div>
                 </div>

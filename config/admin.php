@@ -2,7 +2,9 @@
 
    return [
     'Default_Lang' => 'tr',
+    'Version' => 'v1.0.0',
 
+    'CompanyName' => 'Yildirimdev',
     'CompanyTitle' => 'YıldırımDev',
     'CompanyDescription' => 'YıldırımDev Admin & CMS & Web Site Yönetim',
     'CompanyLogo' => '/assets/img/company/index.png',
@@ -47,8 +49,6 @@
 
     'Default_UserImgUrl' => '/assets/img/user/default.jpg',
     'Default_ProductImgUrl' => '/assets/img/product/default.jpg',
-
-    'CompanyName' => 'Yildirimdev',
 
     'currentCode_buyer' => '120',
     'currentCode_seller' => '320',
