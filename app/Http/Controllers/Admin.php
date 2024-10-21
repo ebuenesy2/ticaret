@@ -6325,7 +6325,6 @@ class Admin extends Controller
       
    } //! RequestFormStockList Edit Active Son
 
-
    //! RequestFormStockList Edit Active Multi
    public function RequestFormStockListEditActiveMulti(Request $request)
    {
@@ -6383,7 +6382,6 @@ class Admin extends Controller
       }
       
    } //! RequestFormStockList Edit Active Multi Son
-
 
 
    //************* GetOffers ***************** */
@@ -6581,7 +6579,7 @@ class Admin extends Controller
 
    } //! GetOffers Son
 
-   //! GetOffersAdd Post  
+   //! GetOffers Post  
    public function GetOffersAddPost(Request $request)
    {
 
@@ -6678,9 +6676,9 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GetOffersAdd Post Son
+   } //! GetOffers Post Son
 
-   //! GetOffersProduct Search Post
+   //! GetOffers Search Post
    public function GetOffersSearchPost(Request $request)
    {
 
@@ -6729,9 +6727,9 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GetOffersProduct Search Post Son
+   } //! GetOffers Search Post Son
 
-   //! GetOffersAdd Delete  
+   //! GetOffers Delete  
    public function GetOffersDeletePost(Request $request)
    {
 
@@ -6779,7 +6777,7 @@ class Admin extends Controller
          return response()->json($response);
       }
       
-   } //! GetOffersAdd Delete  Son
+   } //! GetOffers Delete  Son
 
    //! GetOffers Edit  
    public function GetOffersEditPost(Request $request)
@@ -7017,7 +7015,6 @@ class Admin extends Controller
       } catch (\Throwable $th) {  throw $th; }
    } //! GetOffers Edit View Son
 
-
    //! Dosya Yükleme - Ürün Resmi
    public function GetOffersFileUploadProductImage(Request $request)
    {
@@ -7197,7 +7194,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/getOfferExportPdf',$DB);
+            return view('admin/getOffers/getOfferExportPdf',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
