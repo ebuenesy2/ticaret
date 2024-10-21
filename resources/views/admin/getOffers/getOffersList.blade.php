@@ -416,6 +416,6 @@
             <script src="{{asset('/assets/admin')}}/assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
             <!------- List --->
-            <script src="{{asset('/assets/admin')}}/js/getOffersListAll.js"></script>
+            <script src="{{asset('/assets/admin')}}/js/getOffers/getOffersListAll.js"></script>
 
         </footer>

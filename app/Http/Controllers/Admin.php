@@ -5492,7 +5492,7 @@ class Admin extends Controller
             //! Public Control
             $publicControl = $DB_Find->public; 
             if( $publicControl == "1" || $publicControl == "2") {  return view('admin/requestForm/requestFormPublic',$DB); } 
-            else {  return view('admin/error404',$DB);  }
+            else {  return view('admin/error/error404',$DB);  }
 
 
 
@@ -6571,7 +6571,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/getOffersList',$DB);
+            return view('admin/getOffers/getOffersList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -7008,7 +7008,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/getOffersEdit',$DB);
+            return view('admin/getOffers/getOffersEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -9460,7 +9460,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/proformaInvoiceList',$DB);
+            return view('admin/proforma/proformaInvoiceList',$DB);
          }
          else {
              //echo "üye giriş yapınız"; die();
@@ -10029,7 +10029,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/proformaInvoiceEdit',$DB);
+            return view('admin/proforma/proformaInvoiceEdit',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -10193,7 +10193,7 @@ class Admin extends Controller
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
-            return view('admin/proformaInvoiceExportPdf',$DB);
+            return view('admin/proforma/proformaInvoiceExportPdf',$DB);
          }
          else {
                //echo "üye giriş yapınız"; die();
@@ -18329,7 +18329,7 @@ class Admin extends Controller
    public function errorAccountBlock($site_lang="tr")
    {
       \Illuminate\Support\Facades\App::setLocale($site_lang); //! Çoklu Dil
-      return view('admin/errorAccountBlock');
+      return view('admin/error/errorAccountBlock');
    } //! errorAccountBlock Son
 
 
@@ -18337,7 +18337,7 @@ class Admin extends Controller
    public function error500($site_lang="tr")
    {
       \Illuminate\Support\Facades\App::setLocale($site_lang); //! Çoklu Dil
-      return view('admin/error500');
+      return view('admin/error/error500');
    } //! error500 Son
 
    

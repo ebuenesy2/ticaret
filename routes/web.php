@@ -481,4 +481,4 @@ Route::get('error/500/{lang}', [Admin::class,'error500']) -> name("error500.lang
 
 
 //************* Sayfa Bulunamadı ***************** */
-Route::fallback(function(){  return view("admin/error404");  });  //! Sayfa Bulunamadı
+Route::fallback(function(){  return view("admin/error/error404");  });  //! Sayfa Bulunamadı
