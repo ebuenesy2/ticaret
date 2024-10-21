@@ -461,12 +461,12 @@
                                         </div>
                                        
                                         <div class="col-12 mb-3">
-                                            <label for="nameTrEdit" class="form-label">@lang('admin.name')</label>
+                                            <label for="nameTrEdit" class="form-label">@lang('admin.ProductName') ( TR )</label>
                                             <input class="form-control" type="text" id="nameTrEdit" name="nameTrEdit" placeholder="">
                                         </div>
                                         <div class="col-12 mb-3">
-                                            <label for="productNameEdit" class="form-label">@lang('admin.ProductName') ( Public ) </label>
-                                            <input class="form-control" type="text" id="productNameEdit" name="productNameEdit" placeholder="">
+                                            <label for="nameEnEdit" class="form-label">@lang('admin.ProductName') ( EN ) </label>
+                                            <input class="form-control" type="text" id="nameEnEdit" name="nameEnEdit" placeholder="">
                                         </div>
                                       
                                         <div class="col-12 mb-3">
@@ -542,15 +542,15 @@
                                    <div class="row">
                                         <!-- Özellik  -->
                                         <div class="col-6 mb-3">
-                                            <label for="featuresTREdit" class="form-label">@lang('admin.Features')</label>
+                                            <label for="featuresTREdit" class="form-label">@lang('admin.Features') ( TR )</label>
                                             <textarea class="form-control" id="featuresTREdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Özellik  -->
 
                                         <!-- Özellik  -->
                                         <div class="col-6 mb-3">
-                                            <label for="featuresPublicEdit" class="form-label">@lang('admin.Features') ( Public )</label>
-                                            <textarea class="form-control" id="featuresPublicEdit" rows="4"></textarea>
+                                            <label for="featuresEnEdit" class="form-label">@lang('admin.Features') ( EN )</label>
+                                            <textarea class="form-control" id="featuresEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Özellik  -->
                                    </div>
@@ -558,15 +558,15 @@
 
                                         <!-- Teknik Özellik  -->
                                         <div class="col-6 mb-3">
-                                            <label for="tech_featuresTREdit" class="form-label">Teknik Özellik</label>
+                                            <label for="tech_featuresTREdit" class="form-label">Teknik Özellik ( TR )</label>
                                             <textarea class="form-control" id="tech_featuresTREdit" rows="4"></textarea>
                                         </div>
                                         <!-- Teknik Özellik Son  -->
 
                                         <!-- Teknik Özellik  -->
                                        <div class="col-6 mb-3">
-                                            <label for="tech_featuresPublicEdit" class="form-label">Teknik Özellik ( Public ) </label>
-                                            <textarea class="form-control" id="tech_featuresPublicEdit" rows="4"></textarea>
+                                            <label for="tech_featuresEnEdit" class="form-label">Teknik Özellik ( EN ) </label>
+                                            <textarea class="form-control" id="tech_featuresEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- Teknik Özellik Son  -->
 
@@ -574,15 +574,15 @@
                                     <div class="row">
                                         <!-- Açıklama  -->
                                         <div class="col-6 mb-3">
-                                            <label for="descriptionTREdit" class="form-label">@lang('admin.Description')</label>
+                                            <label for="descriptionTREdit" class="form-label">@lang('admin.Description') ( TR )</label>
                                             <textarea class="form-control" id="descriptionTREdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Açıklama  -->
 
                                         <!-- Açıklama  -->
                                         <div class="col-6 mb-3">
-                                            <label for="descriptionPublicEdit" class="form-label">@lang('admin.Description') ( Public ) </label>
-                                            <textarea class="form-control" id="descriptionPublicEdit" rows="4"></textarea>
+                                            <label for="descriptionEnEdit" class="form-label">@lang('admin.Description') ( EN ) </label>
+                                            <textarea class="form-control" id="descriptionEnEdit" rows="4"></textarea>
                                         </div>
                                         <!-- End Açıklama  -->
                                     </div>
@@ -702,7 +702,7 @@
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-danger" onclick={$("#Edit_ProductModal").modal('hide');}  >@lang('admin.Close')</button>
-                                    <button type="button" class="btn btn-info" id="data_productEdit"  >@lang('admin.Edit')</button>
+                                    <button type="button" class="btn btn-info" id="product_edit_item"  >@lang('admin.Edit')</button>
                                 </div>
                             </div>
                         </form>
@@ -748,8 +748,8 @@
                                 
                                 <!-- Para Birimi -->
                                 <div class="col-4 mb-3">
-                                    <label for="SelectProductCurrencyAdd" class="form-label">Para Birimi</label>
-                                    <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="SelectProductCurrencyAdd" style="cursor: pointer;">
+                                    <label for="SelectProductCurrencyEdit" class="form-label">Para Birimi</label>
+                                    <select class="form-control" data-choices="" data-choices-search-false="" name="choices-single-default2" id="SelectProductCurrencyEdit" style="cursor: pointer;">
                                         <option value="">@lang('admin.Currency')</option>
                                         <option value="Euro" {{$DB_Find->currency == "Euro" ? 'selected' : ''}} >Euro</option>
                                         <option value="Dolar" {{$DB_Find->currency == "Dolar" ? 'selected' : ''}} >Dolar</option>
@@ -1162,7 +1162,7 @@
         <script>
 
             //! Product Listesi
-            function productListUpdate(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
+            function productListEdit(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
                 // console.log("data:",data);
                 // console.log("DB_Find_Product_Ret_Count:",DB_Find_Product_Ret_Count);
                 // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
@@ -1251,7 +1251,7 @@
                                     });
                                     
                                     //! Product Liste Güncelle
-                                    productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                                    productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
                                 
                                 } else {
                                     Swal.fire({

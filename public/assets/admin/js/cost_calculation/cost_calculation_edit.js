@@ -452,7 +452,7 @@ $(function () {
                             });
 
                             //! Product Liste Güncelle
-                            productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                            productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
     
                             //! Modal Temizleme
                             $("#Add_ProductForm")[0].reset();
@@ -562,7 +562,7 @@ $(function () {
                                     $("#Delete_ProductModal").modal('hide');
 
                                     //! Product Liste Güncelle
-                                    productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                                    productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
 
                                    
     
@@ -738,7 +738,7 @@ $(function () {
 
                                 $('#product_dowloand_file').css('display','block');
                                 $('#product_dowloand_file').attr("href",'/'+response.DB.techFileUrl);
-                                $('#product_dowloand_file').attr("download",'/'+response.DB.techFileUrl);
+                                $('#product_dowloand_file').attr("download",'teknik_dosya_'+response.DB.id);
                             }
                             else if(response.DB.techFileUrl == "" || response.DB.techFileUrl == null ) {
                                 $('#product_dowloand_file').css('display','none');
@@ -785,7 +785,7 @@ $(function () {
 
         
         //! Güncelle
-        $("#data_productEdit").click(function (e) {
+        $("#product_edit_item").click(function (e) {
             e.preventDefault();
 
             var nameTrEdit =  $('#nameTrEdit').val();
@@ -917,7 +917,7 @@ $(function () {
                             $("#Edit_ProductModal").modal('hide');
 
                             //! Product Liste Güncelle
-                            productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                            productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
 
                             //! Sayfa Yenileme
                             //window.location.reload();
@@ -1379,7 +1379,7 @@ $(function () {
 
 
         //! Ürün Bilgileri Listeleme
-        function productListUpdate(data,DB_Find_Product_TotalPayment) {
+        function productListEdit(data,DB_Find_Product_TotalPayment) {
             // console.log("data:",data);
             // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
            

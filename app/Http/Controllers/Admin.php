@@ -6001,29 +6001,63 @@ class Admin extends Controller
           
                //! Veri Güncelle
                $DB_Status_Stock = DB::table('stock')->where('id',$request->stock_id)
-               ->update([            
-               
-                  'sector' => $request->sector ? $request->sector : null,
-                  'sub_sector' => $request->sub_sector ? $request->sub_sector : null,
+               ->update([       
+                  
+                  'ServerId' => config('admin.ServerId'),
+                  'ServerToken' => config('admin.ServerToken'),
+                  'requestform_id'=> $request->requestform_id,
+                  'sector' => $request->sector ? $request->sector : null ,
+                  'sub_sector' => $request->sub_sector ? $request->sub_sector : null ,
+                  'stock_id' => $request->isActive == "true" ? $stockId : $stockId_new,
 
-                  'codeNumber' => $request->codeNumber ? $request->codeNumber : null,
-                  'stockCode' => $request->stockCode ? $request->stockCode : null,
-                  'accountingCode_buy' => $request->accountingCode_buy ? $request->accountingCode_buy : null,
-                  'accountingCode_sel' => $request->accountingCode_sel ? $request->accountingCode_sel : null,
+                  'nameTr' => $request->nameTr ? $request->nameTr : null ,
+                  'nameEn' => $request->nameEn ? $request->nameEn : null ,
                
-                  'namePublic' => $request->namePublic ? $request->namePublic : null,
-                  'nameTr' => $request->nameTr ? $request->nameTr : null,
+                  'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
+                  'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
+                  'stockCount' => $request->stockCount ? $request->stockCount : null ,
+                  'currency' => $request->currency ? $request->currency : null ,
+                  'price' => $request->price ? $request->price : null ,
+                  'total' => $request->total ? $request->total : null ,
+                  
+                  'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
+                  'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
 
-                  'featuresTr' => $request->featuresTr ?  $request->featuresTr : null,
-                  'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null,
-                  'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null,
+                  'export_registered' => $request->export_registered ? $request->export_registered : null ,
+                  'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
+                  'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null ,
 
-                  'catalogLink' => $request->catalogLink ? $request->catalogLink : null,
-                  'web_address' => $request->web_address ? $request->web_address : null,
-                  'gtipNo' => $request->gtipNo ? $request->gtipNo : null,
-               
-                  'imgUrl' => $request->imgUrl,
-                  'techFileUrl' => $request->techFileUrl,
+                  'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
+                  'featuresEn' => $request->featuresEn ? $request->featuresEn : null ,
+
+                  'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
+                  'tech_featuresEn' => $request->tech_featuresEn ? $request->tech_featuresEn : null ,
+
+                  'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
+                  'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
+
+                  'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
+                  'web_address' => $request->web_address ? $request->web_address : null ,
+
+                  'imgUrl' => $request->imgUrl == "" ? null: $request->imgUrl,
+                  'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
+                  
+                  // 'productModel' => $request->productModel ? $request->productModel : null ,
+                  // 'productCode' => $request->productCode ? $request->productCode : null ,
+                  // 'is_warranty' => $request->is_warranty ? $request->is_warranty : null ,
+                  // 'warrantyTime' => $request->warrantyTime ? $request->warrantyTime : null ,
+
+                  // 'setup' => $request->setup ? $request->setup : null ,
+                  // 'brand' => $request->brand ? $request->brand : null ,
+                  // 'colorCode' => $request->colorCode ? $request->colorCode : null ,
+
+                  // 'productUsePurposeTR' => $request->productUsePurposeTR ? $request->productUsePurposeTR : null ,
+                  // 'productUsePurposeEN' => $request->productUsePurposeEN ? $request->productUsePurposeEN : null ,
+
+                  // 'ownBrand' => $request->ownBrand ? $request->ownBrand : null ,
+                  // 'specialDesign' => $request->specialDesign ? $request->specialDesign : null ,
+                  // 'specialPacket' => $request->specialPacket ? $request->specialPacket : null ,
+                  // 'salesOutlet' => $request->salesOutlet ? $request->salesOutlet : null ,
 
                   'isActive'=>true,
                   'isUpdated'=>true,
@@ -6041,37 +6075,55 @@ class Admin extends Controller
                'sector' => $request->sector ? $request->sector : null,
                'sub_sector' => $request->sub_sector ? $request->sub_sector : null,
                'stock_id' => $request->stock_id ? $request->stock_id : null,
-
-               'namePublic' => $request->namePublic ? $request->namePublic : null,
-               'nameTr' => $request->nameTr ? $request->nameTr : null,
+              
+               'nameTr' => $request->nameTr ? $request->nameTr : null ,
+               'nameEn' => $request->nameEn ? $request->nameEn : null ,
+            
+               'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
+               'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
+               'stockCount' => $request->stockCount ? $request->stockCount : null ,
+               'currency' => $request->currency ? $request->currency : null ,
+               'price' => $request->price ? $request->price : null ,
+               'total' => $request->total ? $request->total : null ,
                
-               'stockUnit' => $request->stockUnit ? $request->stockUnit : null,
-               'stockCount' => $request->stockCount ? $request->stockCount : null,
-               'price' => $request->price ? $request->price : null,
-               'total' => $request->total ? $request->total : null,
-            
-               'kdv_buy' =>  $request->kdv_buy ? $request->kdv_buy : null,
-               'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null,
+               'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
+               'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
 
-               'export_registered' => $request->export_registered ? $request->export_registered : null,
-               'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null,
-               'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null,
+               'export_registered' => $request->export_registered ? $request->export_registered : null ,
+               'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
+               'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null ,
 
-               'featuresTr' => $request->featuresTr ?  $request->featuresTr : null,
-               'featuresPublic' => $request->featuresPublic ?  $request->featuresPublic : null,
+               'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
+               'featuresEn' => $request->featuresEn ? $request->featuresEn : null ,
 
-               'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null,
-               'tech_featuresPublic' => $request->tech_featuresPublic ? $request->tech_featuresPublic : null,
+               'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
+               'tech_featuresEn' => $request->tech_featuresEn ? $request->tech_featuresEn : null ,
 
-               'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null,
-               'descriptionPublic' => $request->descriptionPublic ? $request->descriptionPublic : null,
+               'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
+               'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
 
-               'catalogLink' => $request->catalogLink ? $request->catalogLink : null,
-               'web_address' => $request->web_address ? $request->web_address : null,
-               'gtipNo' => $request->gtipNo ? $request->gtipNo : null,
-            
-               'imgUrl' => $request->imgUrl,
-               'techFileUrl' => $request->techFileUrl,
+               'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
+               'web_address' => $request->web_address ? $request->web_address : null ,
+
+               'imgUrl' => $request->imgUrl == "" ? null: $request->imgUrl,
+               'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
+               
+               // 'productModel' => $request->productModel ? $request->productModel : null ,
+               // 'productCode' => $request->productCode ? $request->productCode : null ,
+               // 'is_warranty' => $request->is_warranty ? $request->is_warranty : null ,
+               // 'warrantyTime' => $request->warrantyTime ? $request->warrantyTime : null ,
+
+               // 'setup' => $request->setup ? $request->setup : null ,
+               // 'brand' => $request->brand ? $request->brand : null ,
+               // 'colorCode' => $request->colorCode ? $request->colorCode : null ,
+
+               // 'productUsePurposeTR' => $request->productUsePurposeTR ? $request->productUsePurposeTR : null ,
+               // 'productUsePurposeEN' => $request->productUsePurposeEN ? $request->productUsePurposeEN : null ,
+
+               // 'ownBrand' => $request->ownBrand ? $request->ownBrand : null ,
+               // 'specialDesign' => $request->specialDesign ? $request->specialDesign : null ,
+               // 'specialPacket' => $request->specialPacket ? $request->specialPacket : null ,
+               // 'salesOutlet' => $request->salesOutlet ? $request->salesOutlet : null ,
 
                'isActive'=>true,
                'isUpdated'=>true,
@@ -6084,42 +6136,66 @@ class Admin extends Controller
         
             //! Veri Güncelle
             $DB_Status = DB::table('requestform_product_list')->where('id',$request->id)
-            ->update([            
-            
+            ->update([      
+               
                'sector' => $request->sector ? $request->sector : null,
                'sub_sector' => $request->sub_sector ? $request->sub_sector : null,
-               'namePublic' => $request->namePublic ? $request->namePublic : null,
+               'nameTr' => $request->nameTr ? $request->nameTr : null ,
+               'nameEn' => $request->nameEn ? $request->nameEn : null ,
             
-               'stockUnit' => $request->stockUnit ? $request->stockUnit : null,
-               'stockCount' => $request->stockCount ? $request->stockCount : null,
-               'price' => $request->price ? $request->price : null,
-               'total' => $request->total ? $request->total : null,
+               'gtipNo' => $request->gtipNo ? $request->gtipNo : null ,
+               'stockUnit' => $request->stockUnit ? $request->stockUnit : null ,
+               'stockCount' => $request->stockCount ? $request->stockCount : null ,
+               'currency' => $request->currency ? $request->currency : null ,
+               'price' => $request->price ? $request->price : null ,
+               'total' => $request->total ? $request->total : null ,
+               
+               'kdv_buy' => $request->kdv_buy ? $request->kdv_buy : null ,
+               'kdv_sell' => $request->kdv_sell ? $request->kdv_sell : null ,
 
-               'featuresPublic' => $request->featuresPublic ?  $request->featuresPublic : null,
-               'tech_featuresPublic' => $request->tech_featuresPublic ? $request->tech_featuresPublic : null,
-               'descriptionPublic' => $request->descriptionPublic ? $request->descriptionPublic : null,
+               'export_registered' => $request->export_registered ? $request->export_registered : null ,
+               'export_registered_kdv_buy' => $request->export_registered_kdv_buy ? $request->export_registered_kdv_buy : null ,
+               'export_registered_kdv_sell' => $request->export_registered_kdv_sell ? $request->export_registered_kdv_sell : null ,
 
-               'catalogLink' => $request->catalogLink ? $request->catalogLink : null,
-               'web_address' => $request->web_address ? $request->web_address : null,
-               'gtipNo' => $request->gtipNo ? $request->gtipNo : null,
-            
-               'imgUrl' => $request->imgUrl,
-               'techFileUrl' => $request->techFileUrl,
+               'featuresTr' => $request->featuresTr ? $request->featuresTr : null ,
+               'featuresEn' => $request->featuresEn ? $request->featuresEn : null ,
+
+               'tech_featuresTr' => $request->tech_featuresTr ? $request->tech_featuresTr : null ,
+               'tech_featuresEn' => $request->tech_featuresEn ? $request->tech_featuresEn : null ,
+
+               'descriptionTr' => $request->descriptionTr ? $request->descriptionTr : null ,
+               'descriptionEn' => $request->descriptionEn ? $request->descriptionEn : null ,
+
+               'catalogLink' => $request->catalogLink ? $request->catalogLink : null ,
+               'web_address' => $request->web_address ? $request->web_address : null ,
+
+               'imgUrl' => $request->imgUrl == "" ? null: $request->imgUrl,
+               'techFileUrl' => $request->techFileUrl ? $request->techFileUrl : null ,
+               
+               // 'productModel' => $request->productModel ? $request->productModel : null ,
+               // 'productCode' => $request->productCode ? $request->productCode : null ,
+               // 'is_warranty' => $request->is_warranty ? $request->is_warranty : null ,
+               // 'warrantyTime' => $request->warrantyTime ? $request->warrantyTime : null ,
+
+               // 'setup' => $request->setup ? $request->setup : null ,
+               // 'brand' => $request->brand ? $request->brand : null ,
+               // 'colorCode' => $request->colorCode ? $request->colorCode : null ,
+
+               // 'productUsePurposeTR' => $request->productUsePurposeTR ? $request->productUsePurposeTR : null ,
+               // 'productUsePurposeEN' => $request->productUsePurposeEN ? $request->productUsePurposeEN : null ,
+
+               // 'ownBrand' => $request->ownBrand ? $request->ownBrand : null ,
+               // 'specialDesign' => $request->specialDesign ? $request->specialDesign : null ,
+               // 'specialPacket' => $request->specialPacket ? $request->specialPacket : null ,
+               // 'salesOutlet' => $request->salesOutlet ? $request->salesOutlet : null ,
 
                // 'isActive'=>true,
                'isUpdated'=>true,
                'updated_at'=>Carbon::now(),
                'updated_byId'=>$request->updated_byId,
             ]); //! Veri Güncelle Son
-
-
-
-
          }
 
-     
- 
-         
          if($DB_Status) {
 
             $id = $request->requestform_id;
@@ -6178,7 +6254,6 @@ class Admin extends Controller
             return response()->json($response);
 
          }
-         
 
       } catch (\Throwable $th) {
         

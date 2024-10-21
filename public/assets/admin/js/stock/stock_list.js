@@ -542,194 +542,194 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
     //! ************ Json Verisine Göre Html Kontrol Son  ***************
 
     //! ************ Değişimler  ***************
-        //! Arama Kategori Add
-        document.querySelector('#sectorAdd').addEventListener('change', e => {
+    //! Arama Kategori Add
+    document.querySelector('#sectorAdd').addEventListener('change', e => {
 
-            var selectType = $('#sectorAdd').val();
-    
-            if (selectType == "") {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: "Sektor Seçilmedi",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-            }
-            else {
-            
-                //! Ajax  Post
-                $.ajax({
-                    url: "/category/sub/type/search/post",
-                    method: "post",
-                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                    data: {
-                        siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                        id:$('#sectorAdd option[value="'+selectType+'"]').attr('data_id')
-                    },              
-                    // beforeSend: function() { console.log("Başlangıc"); },
-                    success: function (response) {
-                        // alert("başarılı");
-                        console.log("response:", response);
-                        // console.log("status:", response.status);
+        var selectType = $('#sectorAdd').val();
 
-                        var optionSelect = '<option value="">Başlık Seç</option>';
-                        for (let index = 0; index < response.DB.length; index++) {
-                            optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'"  value="'+response.DB[index].id+'"  >'+response.DB[index].title+'</option>';
-                        }
+        if (selectType == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Sektor Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
+        
+            //! Ajax  Post
+            $.ajax({
+                url: "/category/sub/type/search/post",
+                method: "post",
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id:$('#sectorAdd option[value="'+selectType+'"]').attr('data_id')
+                },              
+                // beforeSend: function() { console.log("Başlangıc"); },
+                success: function (response) {
+                    // alert("başarılı");
+                    console.log("response:", response);
+                    // console.log("status:", response.status);
 
-                        $('#selectSubCategoryAdd').html(optionSelect);
-
-                     
-                    },
-                    error: function (error) { console.log("search error:", error); alert("error");},
-                    complete: function() {
-            
-                        // //! Görünürlük Kontrolleri
-                        // $('#LoadingFileUploadSearch').css('display','none');
-                        // $('#ModalBodyInfoSearch').css('display','block');
-
-                        // console.log("Search Ajax Bitti");
-            
+                    var optionSelect = '<option value="">Başlık Seç</option>';
+                    for (let index = 0; index < response.DB.length; index++) {
+                        optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'"  value="'+response.DB[index].id+'"  >'+response.DB[index].title+'</option>';
                     }
-                }); //! Ajax Post Son
 
-            }
-        
+                    $('#selectSubCategoryAdd').html(optionSelect);
 
-        }); //! Arama Kategori Add Son
-        
-        //! Arama Alt Kategori Add
-        document.querySelector('#selectSubCategoryAdd').addEventListener('change', e => {
-
-            //! Select
-            var sectorAdd =  $('#sectorAdd').val();
-            var selectSubCategoryAdd =  $('#selectSubCategoryAdd').val();
-
-            var sectorCode = $('#sectorAdd option[value='+sectorAdd+']').attr('data_codeLet');
-            var sub_sectorCode = $('#selectSubCategoryAdd option[value='+selectSubCategoryAdd+']').attr('data_codeLet');
-            var stockNumber = $('#new_add').attr('data_stockNumber');
-
-            var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
-            var accountingCode_buy = "153"+"."+stockNumber;
-            var accountingCode_sel = "610"+"."+stockNumber;
-
-            $('#StockCodeAdd').val(StockCode);
-            $('#accountingCodeBuyAdd').val(accountingCode_buy);
-            $('#accountingCodeSelAdd').val(accountingCode_sel);
-
-        }); //! Arama Alt Kategori Add Son
-
-        //! Arama Kategori Edit
-        document.querySelector('#sectorEdit').addEventListener('change', e => {
-
-            var selectType = $('#sectorEdit').val();
-    
-            if (selectType == "") {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: "Sektor Seçilmedi",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-            }
-            else {
-            
-                //! Ajax  Post
-                $.ajax({
-                    url: "/category/sub/type/search/post",
-                    method: "post",
-                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                    data: {
-                        siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                        id:$('#sectorEdit option[value="'+selectType+'"]').attr('data_id')
-                    },              
-                    // beforeSend: function() { console.log("Başlangıc"); },
-                    success: function (response) {
-                         alert("başarılı");
-                        //console.log("response:", response);
-                        // console.log("status:", response.status);
-
-                        var optionSelect = '<option value="">Başlık Seç</option>';
-                        for (let index = 0; index < response.DB.length; index++) {
-                            optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'" value="'+response.DB[index].id+'"  >'+response.DB[index].title+'</option>';
-                        }
-
-                        $('#selectSubCategoryEdit').html(optionSelect);
-
-                        //! response.DB.title
                     
-                    },
-                    error: function (error) { console.log("search error:", error); alert("error");},
-                    complete: function() {
-            
-                        // //! Görünürlük Kontrolleri
-                        // $('#LoadingFileUploadSearch').css('display','none');
-                        // $('#ModalBodyInfoSearch').css('display','block');
-
-                        // console.log("Search Ajax Bitti");
-            
-                    }
-                }); //! Ajax Post Son
-
-            }
+                },
+                error: function (error) { console.log("search error:", error); alert("error");},
+                complete: function() {
         
+                    // //! Görünürlük Kontrolleri
+                    // $('#LoadingFileUploadSearch').css('display','none');
+                    // $('#ModalBodyInfoSearch').css('display','block');
 
-        }); //! Arama Kategori Edit Son
+                    // console.log("Search Ajax Bitti");
+        
+                }
+            }); //! Ajax Post Son
 
-        //! Arama Alt Kategori Add
-        document.querySelector('#selectSubCategoryEdit').addEventListener('change', e => {
+        }
+    
 
-            //! Select
-            var sectorEdit =  $('#sectorEdit').val();
-            var selectSubCategoryEdit =  $('#selectSubCategoryEdit').val();
+    }); //! Arama Kategori Add Son
+    
+    //! Arama Alt Kategori Add
+    document.querySelector('#selectSubCategoryAdd').addEventListener('change', e => {
 
-            var sectorCode = $('#sectorEdit option[value='+sectorEdit+']').attr('data_codeLet');
-            var sub_sectorCode = $('#selectSubCategoryEdit option[value='+selectSubCategoryEdit+']').attr('data_codeLet');
-            var stockNumber = $('#edit_item').attr('data_stockNumber');
+        //! Select
+        var sectorAdd =  $('#sectorAdd').val();
+        var selectSubCategoryAdd =  $('#selectSubCategoryAdd').val();
 
-            var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
-            var accountingCode_buy = "153"+"."+stockNumber;
-            var accountingCode_sel = "610"+"."+stockNumber;
+        var sectorCode = $('#sectorAdd option[value='+sectorAdd+']').attr('data_codeLet');
+        var sub_sectorCode = $('#selectSubCategoryAdd option[value='+selectSubCategoryAdd+']').attr('data_codeLet');
+        var stockNumber = $('#new_add').attr('data_stockNumber');
 
-            $('#StockCodeEdit').val(StockCode);
-            $('#accountingCodeBuyEdit').val(accountingCode_buy);
-            $('#accountingCodeSelEdit').val(accountingCode_sel);
+        var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
+        var accountingCode_buy = "153"+"."+stockNumber;
+        var accountingCode_sel = "610"+"."+stockNumber;
 
-        }); //! Arama Alt Kategori Add Son
+        $('#StockCodeAdd').val(StockCode);
+        $('#accountingCodeBuyAdd').val(accountingCode_buy);
+        $('#accountingCodeSelAdd').val(accountingCode_sel);
 
-        //İhraç Kayıtlı Add
-        $('input[type="checkbox"][name="export_registeredAdd"]').click(function () {
-           
-            //! Seçili ise
-            var this_check = $(this).is(":checked"); //! Check Durumu - true/false
-            if(this_check) { 
-                $('#export_registered_kdv_buyAdd').attr('disabled',false);
-                $('#export_registered_kdv_sellAdd').attr('disabled',false);
-            }
-            else { 
-                $('#export_registered_kdv_buyAdd').attr('disabled',true);
-                $('#export_registered_kdv_sellAdd').attr('disabled',true);
-            }
+    }); //! Arama Alt Kategori Add Son
 
-        }); //İhraç Kayıtlı Add Son
+    //! Arama Kategori Edit
+    document.querySelector('#sectorEdit').addEventListener('change', e => {
 
-        //İhraç Kayıtlı Edit
-        $('input[type="checkbox"][name="export_registeredEdit"]').click(function () {
-           
-            //! Seçili ise
-            var this_check = $(this).is(":checked"); //! Check Durumu - true/false
-            if(this_check) { 
-                $('#export_registered_kdv_buyEdit').attr('disabled',false);
-                $('#export_registered_kdv_sellEdit').attr('disabled',false);
-            }
-            else { 
-                $('#export_registered_kdv_buyEdit').attr('disabled',true);
-                $('#export_registered_kdv_sellEdit').attr('disabled',true);
-            }
+        var selectType = $('#sectorEdit').val();
 
-        }); //İhraç Kayıtlı Edit Son
+        if (selectType == "") {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Sektor Seçilmedi",
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        else {
+        
+            //! Ajax  Post
+            $.ajax({
+                url: "/category/sub/type/search/post",
+                method: "post",
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                data: {
+                    siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                    id:$('#sectorEdit option[value="'+selectType+'"]').attr('data_id')
+                },              
+                // beforeSend: function() { console.log("Başlangıc"); },
+                success: function (response) {
+                        alert("başarılı");
+                    //console.log("response:", response);
+                    // console.log("status:", response.status);
+
+                    var optionSelect = '<option value="">Başlık Seç</option>';
+                    for (let index = 0; index < response.DB.length; index++) {
+                        optionSelect+='<option id="typeId" data_title="'+response.DB[index].title+'" data_codeLet="'+response.DB[index].codeLet+'" value="'+response.DB[index].id+'"  >'+response.DB[index].title+'</option>';
+                    }
+
+                    $('#selectSubSectorEdit').html(optionSelect);
+
+                    //! response.DB.title
+                
+                },
+                error: function (error) { console.log("search error:", error); alert("error");},
+                complete: function() {
+        
+                    // //! Görünürlük Kontrolleri
+                    // $('#LoadingFileUploadSearch').css('display','none');
+                    // $('#ModalBodyInfoSearch').css('display','block');
+
+                    // console.log("Search Ajax Bitti");
+        
+                }
+            }); //! Ajax Post Son
+
+        }
+    
+
+    }); //! Arama Kategori Edit Son
+
+    //! Arama Alt Kategori Add
+    document.querySelector('#selectSubSectorEdit').addEventListener('change', e => {
+
+        //! Select
+        var sectorEdit =  $('#sectorEdit').val();
+        var selectSubSectorEdit =  $('#selectSubSectorEdit').val();
+
+        var sectorCode = $('#sectorEdit option[value='+sectorEdit+']').attr('data_codeLet');
+        var sub_sectorCode = $('#selectSubSectorEdit option[value='+selectSubSectorEdit+']').attr('data_codeLet');
+        var stockNumber = $('#edit_item').attr('data_stockNumber');
+
+        var StockCode = sectorCode+"-"+sub_sectorCode+"-"+stockNumber;
+        var accountingCode_buy = "153"+"."+stockNumber;
+        var accountingCode_sel = "610"+"."+stockNumber;
+
+        $('#StockCodeEdit').val(StockCode);
+        $('#accountingCodeBuyEdit').val(accountingCode_buy);
+        $('#accountingCodeSelEdit').val(accountingCode_sel);
+
+    }); //! Arama Alt Kategori Add Son
+
+    //İhraç Kayıtlı Add
+    $('input[type="checkbox"][name="export_registeredAdd"]').click(function () {
+        
+        //! Seçili ise
+        var this_check = $(this).is(":checked"); //! Check Durumu - true/false
+        if(this_check) { 
+            $('#export_registered_kdv_buyAdd').attr('disabled',false);
+            $('#export_registered_kdv_sellAdd').attr('disabled',false);
+        }
+        else { 
+            $('#export_registered_kdv_buyAdd').attr('disabled',true);
+            $('#export_registered_kdv_sellAdd').attr('disabled',true);
+        }
+
+    }); //İhraç Kayıtlı Add Son
+
+    //İhraç Kayıtlı Edit
+    $('input[type="checkbox"][name="export_registeredEdit"]').click(function () {
+        
+        //! Seçili ise
+        var this_check = $(this).is(":checked"); //! Check Durumu - true/false
+        if(this_check) { 
+            $('#export_registered_kdv_buyEdit').attr('disabled',false);
+            $('#export_registered_kdv_sellEdit').attr('disabled',false);
+        }
+        else { 
+            $('#export_registered_kdv_buyEdit').attr('disabled',true);
+            $('#export_registered_kdv_sellEdit').attr('disabled',true);
+        }
+
+    }); //İhraç Kayıtlı Edit Son
 
     //! ************ Değişimler Son ***************
 
@@ -1108,8 +1108,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                         optionSelect+='<option id="typeId" data_title="'+response.DB_Find_Category[index].title+'" data_codeLet="'+response.DB_Find_Category[index].codeLet+'"  value="'+response.DB_Find_Category[index].id+'"  >'+response.DB_Find_Category[index].title+'</option>';
                     }
 
-                    $('#selectSubCategoryEdit').html(optionSelect);
-                    $('#selectSubCategoryEdit option[value='+response.DB.sub_sector+']').prop('selected',true); //! Select
+                    $('#selectSubSectorEdit').html(optionSelect);
+                    $('#selectSubSectorEdit option[value='+response.DB.sub_sector+']').prop('selected',true); //! Select
                   
                     $('#nameTrEdit').val(response.DB.nameTr);
                     $('#nameEnEdit').val(response.DB.nameEn);
@@ -1140,7 +1140,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
 
                         $('#product_dowloand_file').css('display','block');
                         $('#product_dowloand_file').attr("href",'/'+response.DB.techFileUrl);
-                        $('#product_dowloand_file').attr("download",'/'+response.DB.techFileUrl);
+                        $('#product_dowloand_file').attr("download",'teknik_dosya_'+response.DB.id);
                     }
                     else if(response.DB.techFileUrl == "" || response.DB.techFileUrl == null ) {
                         $('#product_dowloand_file').css('display','none');
@@ -1212,7 +1212,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
        
         //! Select
         var sectorEdit =  $('#sectorEdit').val();
-        var selectSubCategoryEdit =  $('#selectSubCategoryEdit').val();
+        var selectSubSectorEdit =  $('#selectSubSectorEdit').val();
 
         var nameTrEdit =  $('#nameTrEdit').val();
         var nameEnEdit =  $('#nameEnEdit').val();
@@ -1232,7 +1232,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         } 
-        else if(selectSubCategoryEdit == "") { 
+        else if(selectSubSectorEdit == "") { 
             Swal.fire({
                 position: "center",
                 icon: "error",
@@ -1259,7 +1259,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                 timer: 2000,
             });
         } 
-        else  if(SelectStockUnitEdit == "") { 
+        else if(SelectStockUnitEdit == "") { 
 
             Swal.fire({
                 position: "center",
@@ -1270,7 +1270,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             });
 
         }
-        else  if(StockCountEdit == "") { 
+        else if(StockCountEdit == "") { 
 
             Swal.fire({
                 position: "center",
@@ -1292,7 +1292,7 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             });
 
         }
-        else  if(PriceEdit == "") { 
+        else if(PriceEdit == "") { 
 
             Swal.fire({
                 position: "center",
@@ -1331,8 +1331,8 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
                     data_stockNumber:$('#modalInfo').attr("data_stockNumber"),
                     sector: $('#sectorEdit').val(),
                     sectorCode:$('#sectorEdit option[value='+sectorEdit+']').attr('data_codeLet'),
-                    sub_sector: $('#selectSubCategoryEdit').val(),
-                    sub_sectorCode:$('#selectSubCategoryEdit option[value='+selectSubCategoryEdit+']').attr('data_codeLet'),
+                    sub_sector: $('#selectSubSectorEdit').val(),
+                    sub_sectorCode:$('#selectSubSectorEdit option[value='+selectSubSectorEdit+']').attr('data_codeLet'),
                    
                     nameTr: $('#nameTrEdit').val(),
                     nameEn: $('#nameEnEdit').val(),
@@ -1410,7 +1410,6 @@ var paginationNext = (ContactList && (contactList = new List("contactList", opti
             }); //! Ajax Son
 
         }
-          
 
     }); //! Güncelle Son
 

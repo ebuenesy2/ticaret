@@ -418,8 +418,8 @@
                                             </select>
                                         </div>
                                         <div class="col-6 mb-3">
-                                            <label for="selectSubCategoryEdit" class="form-label">Alt Sektor</label>
-                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectSubCategoryEdit"  >
+                                            <label for="selectSubSectorEdit" class="form-label">Alt Sektor</label>
+                                            <select class="form-control" data-choices data-choices-search-false name="choices-single-default2" id="selectSubSectorEdit"  >
                                                 <option value="">Başlık</option>
                                                 
                                             </select>
