@@ -44,9 +44,9 @@
                             <div class="col-12">
 
                                 <div class="mb-3" >
-                                    <label for="selectGetOffers" class="form-label">Teklif Formu Seç</label>
+                                    <label for="selectGetOffers" class="form-label">Tedarik Talep Formu Seç</label>
                                     <select class="form-select"  id="selectGetOffers">
-                                        <option value="">Teklif Formu Seç</option>
+                                        <option value="">Tedarik Talep Formu Seç</option>
                                             @for ($i = 0; $i < count($DB_Find_get_offers); $i++) <option value="{{$DB_Find_get_offers[$i]->id}}" >{{$DB_Find_get_offers[$i]->title}}</option>  @endfor
                                     </select>
                                 </div>

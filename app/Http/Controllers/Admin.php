@@ -4873,12 +4873,12 @@ class Admin extends Controller
       
 
              //! Diğer Veriler
-             $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-             $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-             $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-             $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-             $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-             $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+             $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+             $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+             $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+             $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+             $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+             $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
 
@@ -5435,12 +5435,12 @@ class Admin extends Controller
        
 
             //! Diğer Veriler
-            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+            $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
 
@@ -6529,13 +6529,13 @@ class Admin extends Controller
             //echo "<pre>"; print_r($DB_Find_requestform_product_list); die();
 
             //! Diğer Veriler
-            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
             
@@ -6932,13 +6932,13 @@ class Admin extends Controller
 
 
             //! Diğer Veriler
-            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+            $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
 
@@ -7835,13 +7835,13 @@ class Admin extends Controller
             $DB_Find_get_offers = DB::table('get_offers')->where('isUpdated',1)->get();//! Talepler
          
             //! Diğer Veriler
-            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+            $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
 
@@ -8350,13 +8350,13 @@ class Admin extends Controller
             //echo "<pre>";print_r($DB_Find_Current); die();
 
              //! Diğer Veriler
-             $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->get();//Sektor
-             $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-             $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-             $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-             $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-             $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-             $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+             $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
+             $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+             $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+             $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+             $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+             $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+             $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
              //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
   
             //! Ürünleri Güncelleme - Control
@@ -9979,12 +9979,12 @@ class Admin extends Controller
 
             //! Diğer Veriler
             $DB_Find_sektor = DB::table('category')->where('type',"Sektor")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
             
@@ -10152,12 +10152,12 @@ class Admin extends Controller
 
             //! Diğer Veriler
             $DB_Find_sektor = DB::table('category')->where('type',"Sektor")->get();//Sektor
-            $DB_Find_teslimSekli = DB::table('category')->where('type',"TeslimŞekli")->get();//Teslim Şekli
-            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->get();//Ödeme Şekli
-            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->get();//Nakliyet Şekli
-            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->get();//Sevk Şekli
-            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->get();//Özel İzne Tabi Mi
-            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->get();//İntertek Tabi Mi
+            $DB_Find_teslimSekli =  DB::table('category')->where('type',"TeslimŞekli")->orderBy('title','asc')->get();//Teslim Şekli
+            $DB_Find_ödemeSekli = DB::table('category')->where('type',"ÖdemeŞekli")->orderBy('title','asc')->get();//Ödeme Şekli
+            $DB_Find_nakliyatSekli = DB::table('category')->where('type',"NakliyetŞekli")->orderBy('title','asc')->get();//Nakliyet Şekli
+            $DB_Find_sevkSekli = DB::table('category')->where('type',"SevkŞekli")->orderBy('title','asc')->get();//Sevk Şekli
+            $DB_Find_özelİzneTabi = DB::table('category')->where('type',"ÖzelİzneTabiMi")->orderBy('title','asc')->get();//Özel İzne Tabi Mi
+            $DB_Find_intertekTabi = DB::table('category')->where('type',"İntertekTabiMi")->orderBy('title','asc')->get();//İntertek Tabi Mi
             //echo "<pre>"; print_r($DB_Find_teslimSekli); die();
 
             
