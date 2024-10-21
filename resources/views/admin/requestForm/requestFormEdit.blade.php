@@ -1162,7 +1162,7 @@
         <script>
 
             //! Product Listesi
-            function productListEdit(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
+            function productListUpdate(data,DB_Find_Product_Ret_Count,DB_Find_Product_TotalPayment) {
                 // console.log("data:",data);
                 // console.log("DB_Find_Product_Ret_Count:",DB_Find_Product_Ret_Count);
                 // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
@@ -1251,7 +1251,7 @@
                                     });
                                     
                                     //! Product Liste Güncelle
-                                    productListEdit(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
+                                    productListUpdate(response.DB_Product,response.DB_Find_Product_Ret_Count,response.DB_Find_Product_TotalPayment);
                                 
                                 } else {
                                     Swal.fire({

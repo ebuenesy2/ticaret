@@ -2475,7 +2475,7 @@ class Admin extends Controller
             ->where($data_all)->orderBy('stockcompany.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($DB_Find); die();
 
-            $DB_Find_Current = DB::table('current_cart')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
             //echo "<pre>"; print_r($current_cart); die();
 
             //! Return
@@ -4829,7 +4829,7 @@ class Admin extends Controller
             //echo "<pre>"; print_r($DB_Find); die();
 
             //! Firma Bilgileri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
 
             //! Kullanıcı Bilgileri
@@ -4919,8 +4919,6 @@ class Admin extends Controller
             $DB["DB_Find_nakliyatSekli"] =  $DB_Find_nakliyatSekli;
             $DB["DB_Find_sevkSekli"] =  $DB_Find_sevkSekli;
             $DB["DB_Find_intertekTabi"] =  $DB_Find_intertekTabi;
-          
-
 
             //! Çoklu Dil
             \Illuminate\Support\Facades\App::setLocale($site_lang);
@@ -5404,7 +5402,7 @@ class Admin extends Controller
 
 
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
 
 
@@ -6520,12 +6518,12 @@ class Admin extends Controller
             //! Çoklu Arama Son
            
         
-            //! Params Verileri Where Formatında Yazılacak Son      
+            //! Params Verileri Where Formatında Yazılacak Son   
             
             
             //! Talep Formu
-            $DB_Find_requestform = DB::table('requestform')->get();//! Talepler
-            $DB_Find_current_cart = DB::table('current_cart')->get();//! Cari Kart
+            $DB_Find_requestform = DB::table('requestform')->orderBy('requestFormTitle','asc')->get();//! Talepler
+            $DB_Find_current_cart = DB::table('current_cart')->orderBy('current_name','asc')->get();//! Cari Kart
             //echo "<pre>"; print_r($DB_Find_current_cart); die();
 
 
@@ -6914,7 +6912,7 @@ class Admin extends Controller
 
 
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
 
             
@@ -6948,7 +6946,7 @@ class Admin extends Controller
 
 
             //! Talep Formu
-            $DB_Find_requestform = DB::table('requestform')->get();//! Talepler
+            $DB_Find_requestform = DB::table('requestform')->orderBy('requestFormTitle','asc')->get();//! Talepler
 
 
             //! Para Birimi
@@ -8352,7 +8350,7 @@ class Admin extends Controller
             $DB_Find_get_offers = DB::table('get_offers')->get();//! Talepler
 
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); //Tüm verileri çekiyor
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
 
              //! Diğer Veriler
@@ -9951,7 +9949,7 @@ class Admin extends Controller
             //! Params Verileri Where Formatında Yazılacak Son    
 
             //veri tabanı işlemleri
-            $DB_Find_Current = DB::table('current_cart')->get(); // Cari Kart
+            $DB_Find_Current = DB::table('current_cart')->orderBy('current_name','asc')->get(); // Cari Kart
             //echo "<pre>";print_r($DB_Find_Current); die();
 
             //! Maliyetteki Ürünler
@@ -15242,7 +15240,7 @@ class Admin extends Controller
             //echo "<pre>";print_r($DB_Find_User); die();
 
             //veri tabanı işlemleri
-            $DB_Find_requestform = DB::table('requestform')->get(); //Tüm verileri çekiyor
+            $DB_Find_requestform = DB::table('requestform')->orderBy('requestFormTitle','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_Current); die();
  
             
@@ -15550,7 +15548,7 @@ class Admin extends Controller
             //echo "<pre>";print_r($DB_Find_User); die();
 
             //! Talep
-            $DB_Find_requestform = DB::table('requestform')->get(); //Tüm verileri çekiyor
+            $DB_Find_requestform = DB::table('requestform')->orderBy('requestFormTitle','asc')->get(); //Tüm verileri çekiyor
             //echo "<pre>";print_r($DB_Find_requestform); die();
 
             //! Teklif

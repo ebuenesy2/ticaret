@@ -452,7 +452,7 @@ $(function () {
                             });
 
                             //! Product Liste Güncelle
-                            productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                            productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
     
                             //! Modal Temizleme
                             $("#Add_ProductForm")[0].reset();
@@ -562,7 +562,7 @@ $(function () {
                                     $("#Delete_ProductModal").modal('hide');
 
                                     //! Product Liste Güncelle
-                                    productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                                    productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
 
                                    
     
@@ -917,7 +917,7 @@ $(function () {
                             $("#Edit_ProductModal").modal('hide');
 
                             //! Product Liste Güncelle
-                            productListEdit(response.DB_Product,response.DB_Find_Product_TotalPayment);
+                            productListUpdate(response.DB_Product,response.DB_Find_Product_TotalPayment);
 
                             //! Sayfa Yenileme
                             //window.location.reload();
@@ -1379,7 +1379,7 @@ $(function () {
 
 
         //! Ürün Bilgileri Listeleme
-        function productListEdit(data,DB_Find_Product_TotalPayment) {
+        function productListUpdate(data,DB_Find_Product_TotalPayment) {
             // console.log("data:",data);
             // console.log("DB_Find_Product_TotalPayment:",DB_Find_Product_TotalPayment);
            
