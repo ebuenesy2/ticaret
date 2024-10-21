@@ -195,39 +195,6 @@
                 ),
             )
         ),
-        'analysis' =>  array(
-            'id' => 'file',
-            'icon'=>'ri-file-fill',
-            'tr'=> array('title'=> 'Ürün Fiyat Analizi', 'url'=> '#'),
-            'en'=> array('title'=> 'Product Price Analysis', 'url'=> '#'),
-            'de'=> array('title'=> 'Produktpreisanalyse', 'url'=> '#'),
-            'pages'=> array(
-                array(
-                    'tr'=> array('icon'=>'#','title'=> 'Ürün Listesi', 'url'=> '/analysis/product/list'),
-                    'en'=> array('icon'=>'#','title'=> 'Product List', 'url'=> '/analysis/product/list/en'),
-                    'de'=> array('icon'=>'#','title'=> 'Produktliste', 'url'=> '/analysis/product/list/de')
-                ),
-                array(
-                    'tr'=> array('icon'=>'#','title'=> 'Analiz Listesi', 'url'=> '/analysis/list'),
-                    'en'=> array('icon'=>'#','title'=> 'Analysis List', 'url'=> '/analysis/list/en'),
-                    'de'=> array('icon'=>'#','title'=> 'Analyseliste', 'url'=> '/analysis/list/de')
-                ),
-            )
-        ),
-        'tracking' =>  array(
-            'id' => 'file',
-            'icon'=>'bx bx-task',
-            'tr'=> array('title'=> 'İş Takibi', 'url'=> '#'),
-            'en'=> array('title'=> 'Business Tracking', 'url'=> '#'),
-            'de'=> array('title'=> 'Geschäftsverfolgung', 'url'=> '#'),
-            'pages'=> array(
-                array(
-                    'tr'=> array('icon'=>'#','title'=> 'İş Takibi', 'url'=> '/business/tracking/list'),
-                    'en'=> array('icon'=>'#','title'=> 'Business Tracking', 'url'=> '/business/tracking/list/en'),
-                    'de'=> array('icon'=>'#','title'=> 'Geschäftsverfolgung', 'url'=> '/business/tracking/list/de')
-                ),
-            )
-        ),
        'settings' =>  array(
             'id' => 'setting',
             'icon'=>'mdi mdi-cog-outline',
@@ -462,7 +429,7 @@
                     </li>
                     <!-- personel Son -->
 
-                    <!-- File  -->
+                    <!-- Dosya  -->
                     <li class="nav-item" style="display:none;"  >
                         <a class="nav-link menu-link" href="#{{$menuList['file']['id']}}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{$menuList['file']['id']}}">
                             <i class="{{$menuList['file']['icon']}}"></i> <span data-key="t-apps"> {{$menuList['file'][__('admin.lang')]['title']}} </span>
@@ -476,42 +443,8 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- File Son -->
-
-
-                    <!-- Analiz  -->
-                    <li class="nav-item"   >
-                        <a class="nav-link menu-link" href="#{{$menuList['analysis']['id']}}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{$menuList['analysis']['id']}}">
-                            <i class="{{$menuList['analysis']['icon']}}"></i> <span data-key="t-apps"> {{$menuList['analysis'][__('admin.lang')]['title']}} </span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="{{$menuList['analysis']['id']}}">
-                            <ul class="nav nav-sm flex-column">
-
-                                <li class="nav-item"> <a href="{{$menuList['analysis']['pages'][0][__('admin.lang')]['url']}}" class="nav-link" data-key="t-calendar"> {{$menuList['analysis']['pages'][0][__('admin.lang')]['title']}} </a> </li>
-                                <li class="nav-item"> <a href="{{$menuList['analysis']['pages'][1][__('admin.lang')]['url']}}" class="nav-link" data-key="t-calendar"> {{$menuList['analysis']['pages'][1][__('admin.lang')]['title']}} </a> </li>
-                               
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Analiz Son -->
-
-
-                    <!-- Takip  -->
-                    <li class="nav-item"   >
-                        <a class="nav-link menu-link" href="#{{$menuList['tracking']['id']}}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{$menuList['tracking']['id']}}">
-                            <i class="{{$menuList['tracking']['icon']}}"></i> <span data-key="t-apps"> {{$menuList['tracking'][__('admin.lang')]['title']}} </span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="{{$menuList['tracking']['id']}}">
-                            <ul class="nav nav-sm flex-column">
-
-                                <li class="nav-item"> <a href="{{$menuList['tracking']['pages'][0][__('admin.lang')]['url']}}" class="nav-link" data-key="t-calendar"> {{$menuList['tracking']['pages'][0][__('admin.lang')]['title']}} </a> </li>
-                              
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Takip Son -->
-
-                    
+                    <!-- Dosya Son -->
+                     
                    <!-- settings  -->
                    <li class="nav-item"  >
                         <a class="nav-link menu-link" href="#{{$menuList['settings']['id']}}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{$menuList['settings']['id']}}">
