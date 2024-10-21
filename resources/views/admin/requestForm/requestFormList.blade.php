@@ -244,7 +244,7 @@
 
                                     <!-- Arama Cari Kart -->
                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
-                                        <label for="selectActive" class="form-label"> Cari Kart Seç</label>
+                                        <label for="selectCurrentCart" class="form-label"> Cari Kart Seç</label>
                                         <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectCurrentCart">
                                             <option value=""> @lang('admin.All')</option>
                                             @for ($i = 0; $i < count($DB_Find_Current); $i++) <option value="{{$DB_Find_Current[$i]->id}}" >{{$DB_Find_Current[$i]->current_name}}</option>  @endfor
@@ -316,7 +316,7 @@
                                                 
                                                 <th exportname="reqCode" >Talep Kodu</th>
                                                 <th exportname="title" >@lang('admin.Title')</th>
-                                                <th exportname="currentCardName" >Firma Adı</th>
+                                                <th exportname="currentCardName" >Cari Kart Adı</th>
                                                 <th exportname="Personel" >Personel</th>
 
                                                 <th exportname="public" >@lang('admin.Visibility')</th>

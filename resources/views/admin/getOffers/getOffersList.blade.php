@@ -24,8 +24,6 @@
 
     <!------- Lang --->
     @include('include.lang')
-
-    
     
     <!-- Modal Ekle -->
     <div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,7 +135,7 @@
 
                                     <!-- Arama Cari Kart -->
                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
-                                        <label for="selectActive" class="form-label"> Cari Kart Seç</label>
+                                        <label for="selectCurrentCart" class="form-label"> Cari Kart Seç</label>
                                         <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectCurrentCart">
                                             <option value=""> @lang('admin.All')</option>
                                             @for ($i = 0; $i < count($DB_Find_current_cart); $i++) <option value="{{$DB_Find_current_cart[$i]->id}}" >{{$DB_Find_current_cart[$i]->current_name}}</option>  @endfor
@@ -269,8 +267,9 @@
                                                 <th exportname="getCode"  scope="col" >Teklif Kodu</th>
 
                                                 <th exportname="title"  scope="col" >@lang('admin.Title')</th>
+                                                <th exportname="currentCardName" >Cari Kart Adı</th>
                                                 <th exportname="requestformTitle" >Talep Adı</th>
-                                                <th exportname="currentCardName" >Firma Adı</th>
+                                                
 
                                                 <th exportname="offerEffectiveDate" style="display: {{ $isRequestFormId ? '' : 'none'}}" >Geçerlilik Tarihi</th>
                                                 <th exportname="delivery_at" style="display: {{ $isRequestFormId ? '' : 'none'}}" >Teslim Tarihi</th>
@@ -318,8 +317,8 @@
                                                     <td exportname="getCode" class="order_date"> {{$DB_Find[$i]->getOfferNo}}</td>
 
                                                     <td exportname="title" class="order_date"> {{$DB_Find[$i]->title}}</td>
-                                                    <td exportname="requestformTitle" >{{$DB_Find[$i]->requestFormTitle}}</td>
                                                     <td exportname="currentCardName" >{{$DB_Find[$i]->current_name}}</td>
+                                                    <td exportname="requestformTitle" >{{$DB_Find[$i]->requestFormTitle}}</td>
 
                                                     <td exportname="offerEffectiveDate" style="display: {{ $isRequestFormId ? '' : 'none'}}" > {{$DB_Find[$i]->offerEffectiveDate}} </td>
                                                     <td exportname="delivery_at" style="display: {{ $isRequestFormId ? '' : 'none'}}" > {{$DB_Find[$i]->delivery_at}} </td>

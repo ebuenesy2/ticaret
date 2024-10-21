@@ -6513,10 +6513,8 @@ class Admin extends Controller
 
             }
             //! Çoklu Arama Son
-           
         
             //! Params Verileri Where Formatında Yazılacak Son   
-            
             
             //! Talep Formu
             $DB_Find_requestform = DB::table('requestform')->orderBy('requestFormTitle','asc')->get();//! Talepler
@@ -7741,9 +7739,6 @@ class Admin extends Controller
       
    } //! GetOffersProduct Edit Active Multi Son
 
-
-
- 
    //************* Maliyet Hesaplama Listesi ***************** */
 
    //! CostCalculation
@@ -7780,7 +7775,6 @@ class Admin extends Controller
          //! Veri Okuma
          // $cookie_function["yildirimdev_userCheck"]
 
-
  
          if($cookie_function["yildirimdev_userCheck"] ) {
              
@@ -7803,9 +7797,11 @@ class Admin extends Controller
                $data_item_object = "=";
 
             
-               if($data_key_item == "CreatedDate") { $data_key_item = "created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
-               else if($data_key_item == "Id") { $data_key_item = "id";  $data_item_object="=";  }
-               else if($data_key_item == "Status") { $data_key_item = "isActive";  $data_item_object="="; }
+               if($data_key_item == "CreatedDate") { $data_key_item = "cost_calculation_list.created_at";   $data_item_object="like"; $data_item=$data_item ."%";  }
+               else if($data_key_item == "Id") { $data_key_item = "cost_calculation_list.id";  $data_item_object="=";  }
+               else if($data_key_item == "Status") { $data_key_item = "cost_calculation_list.isActive";  $data_item_object="="; }
+               else if($data_key_item == "CurrencyCartId") { $data_key_item = "cost_calculation_list.companyId";  $data_item_object="="; }
+               else if($data_key_item == "GetOffersId") { $data_key_item = "cost_calculation_list.get_offers_id";  $data_item_object="="; }
 
                
                //! Ekleme Yapıyor
@@ -7824,15 +7820,21 @@ class Admin extends Controller
 
 
             //! Çoklu Arama
-            //echo "<pre>";
             //veri tabanı işlemleri
-            $DB_Find = DB::table('cost_calculation_list')->where($data_all)->orderBy('id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
-            //print_r($DB_Find); die();
+            $DB_Find = DB::table('cost_calculation_list')
+            ->leftJoin('current_cart', 'current_cart.id', '=', 'cost_calculation_list.companyId')
+            ->leftJoin('get_offers', 'get_offers.id', '=', 'cost_calculation_list.get_offers_id')
+            ->where($data_all)
+            ->select('cost_calculation_list.*','current_cart.current_name','get_offers.title as get_offers_title')
+            ->orderBy('cost_calculation_list.id','desc')->get(); //! Paramsa Göre Tüm Verileri çekiyor
+            //echo "<pre>"; print_r($DB_Find); die();
 
             //! Params Verileri Where Formatında Yazılacak Son
 
-            //! Talep Formu
-            $DB_Find_get_offers = DB::table('get_offers')->where('isUpdated',1)->get();//! Talepler
+            //! Listeleme
+            $DB_Find_get_offers = DB::table('get_offers')->where('isActive',1)->get();//! Listeleme
+            $DB_Find_current_cart = DB::table('current_cart')->orderBy('current_name','asc')->get();//! Cari Kart
+            //echo "<pre>"; print_r($DB_Find_current_cart); die();
          
             //! Diğer Veriler
             $DB_Find_sektor = DB::table('category')->where('type',"SektorStok")->orderBy('title','asc')->get();//Sektor
@@ -7863,7 +7865,6 @@ class Admin extends Controller
             //echo "EUR: "; echo $DB_Find_Borsa['EUR']['Satış']; die(); 
             //! Borsa
  
- 
             //! Return
             $DB["userId"] =  $cookie_function["yildirimdev_userID"];
             $DB["name"] = $cookie_function["yildirimdev_name"];
@@ -7873,6 +7874,7 @@ class Admin extends Controller
 
             $DB["DB_Find"] =  $DB_Find;
             $DB["DB_Find_get_offers"] =  $DB_Find_get_offers;
+            $DB["DB_Find_current_cart"] =  $DB_Find_current_cart;
             
             $DB["DB_Find_sektor"] =  $DB_Find_sektor;
             $DB["DB_Find_teslimSekli"] =  $DB_Find_teslimSekli;

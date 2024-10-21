@@ -47,7 +47,7 @@
                                     <label for="selectGetOffers" class="form-label">Tedarik Talep Formu Seç</label>
                                     <select class="form-select"  id="selectGetOffers">
                                         <option value="">Tedarik Talep Formu Seç</option>
-                                            @for ($i = 0; $i < count($DB_Find_get_offers); $i++) <option value="{{$DB_Find_get_offers[$i]->id}}" >{{$DB_Find_get_offers[$i]->title}}</option>  @endfor
+                                        @for ($i = 0; $i < count($DB_Find_get_offers); $i++) <option value="{{$DB_Find_get_offers[$i]->id}}" >{{$DB_Find_get_offers[$i]->title}}</option>  @endfor
                                     </select>
                                 </div>
 
@@ -248,6 +248,26 @@
                                         </select>
                                     </div>
                                     <!--son Arama Durum  -->
+
+                                     <!-- Arama Cari Kart -->
+                                     <div class="col-lg-2 col-md-12 mb-md-3"> 
+                                        <label for="selectCurrentCartFind" class="form-label"> Cari Kart Seç</label>
+                                        <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectCurrentCartFind">
+                                            <option value=""> @lang('admin.All')</option>
+                                            @for ($i = 0; $i < count($DB_Find_current_cart); $i++) <option value="{{$DB_Find_current_cart[$i]->id}}" >{{$DB_Find_current_cart[$i]->current_name}}</option>  @endfor
+                                        </select>
+                                    </div>
+                                    <!--son Arama  Cari Kart  -->
+
+                                    <!-- Arama Teklif -->
+                                    <div class="col-lg-2 col-md-12 mb-md-3"> 
+                                        <label for="selectGetOffersFind" class="form-label">Talep Formu Seç</label>
+                                        <select class="form-control" style="cursor: pointer;"  name="choices-single-default2" id="selectGetOffersFind">
+                                            <option value="">Tedarik Talep Formu Seç</option>
+                                            @for ($i = 0; $i < count($DB_Find_get_offers); $i++) <option value="{{$DB_Find_get_offers[$i]->id}}" >{{$DB_Find_get_offers[$i]->title}}</option>  @endfor
+                                        </select>
+                                    </div>
+                                    <!--son Arama Teklif  -->
                                    
                                 </div>
                                 <!--end row-->
@@ -300,6 +320,9 @@
                                                 <th exportname="getCode">Maliyet Kodu</th>
                                              
                                                 <th exportname="Title" >@lang('admin.Title')</th>
+                                                <th exportname="currentCardName" >Cari Kart Adı</th>
+                                                <th exportname="get_offers_title" >Teklif Adı</th>
+                                                
                                                 <th exportname="Currency" >@lang('admin.Currency')</th>
                                                 <th exportname="CurrencyRateAdd" class="sort" data-sort="order_value" scope="col" >@lang('admin.CurrencyRate')</th>
                                                 
@@ -325,6 +348,8 @@
                                                     <td exportname="getCode" > {{$DB_Find[$i]->	costCalculationCode}}</td>
 
                                                     <td exportname="Title" > {{$DB_Find[$i]->title}}</td>
+                                                    <td exportname="currentCardName" >{{$DB_Find[$i]->current_name}}</td>
+                                                    <td exportname="get_offers_title" > {{$DB_Find[$i]->get_offers_title}}</td>
                                                   
                                                     <td exportname="Currency" > {{$DB_Find[$i]->currency}}</td>
                                                     <td exportname="CurrencyRateAdd" class="order_value"> {{$DB_Find[$i]->currency_rate}}</td>

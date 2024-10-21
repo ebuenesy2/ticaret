@@ -216,7 +216,7 @@
                                                 
                                                 <th exportname="Title" >@lang('admin.Title')</th>
                                                 <th exportname="CostCalculation" >Maliyet Tablosu</th>
-                                                <th exportname="currentCardName" >Firma Adı</th>
+                                                <th exportname="currentCardName" >Cari Kart Adı</th>
                                                
                                                 <th exportname="Actions" >@lang('admin.Actions')</th>
                                             </tr>
