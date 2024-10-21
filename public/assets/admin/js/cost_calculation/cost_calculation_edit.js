@@ -6,286 +6,286 @@ $(function () {
         //! ************ Ürün Bilgileri Modal ***************
 
         //! ************ Değişimler  ***************
-            //! Arama Stok Add
-            document.querySelector('#stockAdd').addEventListener('change', e => {
+        //! Arama Stok Add
+        document.querySelector('#stockAdd').addEventListener('change', e => {
 
-                var selectType = $('#stockAdd').val();
-        
-                if (selectType == "") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Stok Seçilmedi",
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
-                }
-                else {
+            var selectType = $('#stockAdd').val();
+    
+            if (selectType == "") {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Stok Seçilmedi",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+            }
+            else {
 
-                    //! Ajax  Post
-                    $.ajax({
-                        url: "/get/offers/product/search/post",
-                        method: "post",
-                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                        data: {
-                            siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                            id:Number(selectType)
-                        },              
-                        beforeSend: function() { console.log("Başlangıc"); },
-                        success: function (response) {
-                            // alert("başarılı");
-                            //console.log("response:", response);
-                            // console.log("status:", response.status);
-                            
-                            $('#stockAdd').attr('data_sector',response.DB.sector);
-                            $('#stockAdd').attr('data_sub_sector',response.DB.sub_sector);
-                            $('#stockAdd').attr('data_stock_id',response.DB.stock_id);
+                //! Ajax  Post
+                $.ajax({
+                    url: "/get/offers/product/search/post",
+                    method: "post",
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    data: {
+                        siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                        id:Number(selectType)
+                    },              
+                    beforeSend: function() { console.log("Başlangıc"); },
+                    success: function (response) {
+                        // alert("başarılı");
+                        //console.log("response:", response);
+                        // console.log("status:", response.status);
                         
-                            $('#nameTrAdd').val(response.DB.nameTr);
-                            $('#nameEnAdd').val(response.DB.nameEn);
+                        $('#stockAdd').attr('data_sector',response.DB.sector);
+                        $('#stockAdd').attr('data_sub_sector',response.DB.sub_sector);
+                        $('#stockAdd').attr('data_stock_id',response.DB.stock_id);
+                    
+                        $('#nameTrAdd').val(response.DB.nameTr);
+                        $('#nameEnAdd').val(response.DB.nameEn);
 
-                            $('#StockCodeAdd').val(response.DB.stockCode);
-                            $('#accountingCodeBuyAdd').val(response.DB.accountingCode_buy);
-                            $('#accountingCodeSelAdd').val(response.DB.accountingCode_sel);
-        
-                           $('#filePathUrl').html(response.DB.imgUrl);
-                           $('#filePathUrlTechnicalFile').html(response.DB.techFileUrl);
-                            
-                            $('#SelectStockUnitAdd option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
-                            $('#StockCountAdd').val(response.DB.stockCount);
-                            $('#SelectCurrencyAdd option[value='+response.DB.currency+']').prop('selected',true); //! Select
-                            $('#PriceAdd').val(response.DB.price);
+                        $('#StockCodeAdd').val(response.DB.stockCode);
+                        $('#accountingCodeBuyAdd').val(response.DB.accountingCode_buy);
+                        $('#accountingCodeSelAdd').val(response.DB.accountingCode_sel);
+    
+                        $('#filePathUrl').html(response.DB.imgUrl);
+                        $('#filePathUrlTechnicalFile').html(response.DB.techFileUrl);
                         
-                            $('#kdv_buyAdd').val(response.DB.kdv_buy);
-                            $('#kdv_sellAdd').val(response.DB.kdv_sell);
-        
-                            
-                            if(response.DB.export_registered =="true" ) {
-                                $("input[name='export_registeredAdd']").prop('checked', true);
-        
-                                $('#export_registered_kdv_buyAdd').attr('disabled',false)
-                                $('#export_registered_kdv_sellAdd').attr('disabled',false)
-        
-                                $('#export_registered_kdv_buyAdd').val(response.DB.export_registered_kdv_buy);
-                                $('#export_registered_kdv_sellAdd').val(response.DB.export_registered_kdv_sell);
-                            }
-        
-                            if(response.DB.export_registered !="true" ) {
-                                $("input[name='export_registeredAdd']").prop('checked', false);
-        
-                                $('#export_registered_kdv_buyAdd').attr('disabled',true)
-                                $('#export_registered_kdv_sellAdd').attr('disabled',true)
-        
-                                $('#export_registered_kdv_buyAdd').val("");
-                                $('#export_registered_kdv_sellAdd').val("");
-                            }
+                        $('#SelectStockUnitAdd option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
+                        $('#StockCountAdd').val(response.DB.stockCount);
+                        $('#SelectCurrencyAdd option[value='+response.DB.currency+']').prop('selected',true); //! Select
+                        $('#PriceAdd').val(response.DB.price);
+                    
+                        $('#kdv_buyAdd').val(response.DB.kdv_buy);
+                        $('#kdv_sellAdd').val(response.DB.kdv_sell);
+    
                         
-                        
-                            $('#descriptionTRAdd').val(response.DB.descriptionTr);
-                            $('#descriptionENAdd').val(response.DB.descriptionEn);
-        
-                            $('#featuresTRAdd').val(response.DB.featuresTr);
-                            $('#featuresENAdd').val(response.DB.featuresEn);
-        
-                            $('#tech_featuresTRAdd').val(response.DB.tech_featuresTr);
-                            $('#tech_featuresENAdd').val(response.DB.tech_featuresEn);    
-
-                            $('#webSiteAdd').val(response.DB.web_address);
-                            $('#catalogLinkAdd').val(response.DB.catalogLink);
-                            $('#gtipNoAdd').val(response.DB.gtipNo);
-        
-                            $('#productModelAdd').val(response.DB.productModel);
-                            $('#productCodeAdd').val(response.DB.productCode);
-                            $('#is_warrantyEdit option[value='+response.DB.is_warranty+']').prop('selected',true); //! Select
-                            $('#warrantyTimeAdd').val(response.DB.warrantyTime);
-        
-                            $('#setupEdit option[value='+response.DB.setup+']').prop('selected',true); //! Select
-                            $('#brandAdd').val(response.DB.brand);
-                            $('#colorCodeAdd').val(response.DB.colorCode);
-
-                            $('#productUsePurposeTRAdd').val(response.DB.productUsePurposeTR);
-                            $('#productUsePurposeENAdd').val(response.DB.productUsePurposeEN);
-
-                            $('#ownBrandAdd').val(response.DB.ownBrand);
-                            $('#specialDesignAdd').val(response.DB.specialDesign);
-                            $('#specialPacketAdd').val(response.DB.specialPacket);
-                            $('#salesOutletAdd').val(response.DB.salesOutlet);
-                
-                        },
-                        error: function (error) { console.log("search error:", error); alert("error");},
-                        complete: function() {
-                
-                            //! Görünürlük Kontrolleri
-                            $('#LoadingFileUploadSearch').css('display','none');
-                            $('#ModalBodyInfoSearch').css('display','block');
-        
-                            console.log("Search Ajax Bitti");
-                
+                        if(response.DB.export_registered =="true" ) {
+                            $("input[name='export_registeredAdd']").prop('checked', true);
+    
+                            $('#export_registered_kdv_buyAdd').attr('disabled',false)
+                            $('#export_registered_kdv_sellAdd').attr('disabled',false)
+    
+                            $('#export_registered_kdv_buyAdd').val(response.DB.export_registered_kdv_buy);
+                            $('#export_registered_kdv_sellAdd').val(response.DB.export_registered_kdv_sell);
                         }
-                    }); //! Ajax Post Son
-
-                }
-            
-
-            }); //! Arama Stok Add Son
-
-            //! Arama Stok Edit
-            document.querySelector('#stockEdit').addEventListener('change', e => {
-
-                var selectType = $('#stockEdit').val();
-        
-                if (selectType == "") {
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Stok Seçilmedi",
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
-                }
-                else {
-
-                    var productIDSearch = $('#stockEdit').val();
-
-                    //! Ajax  Post
-                    $.ajax({
-                        url: "/get/offers/product/search/post",
-                        method: "post",
-                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                        data: {
-                            siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
-                            id:Number(productIDSearch)
-                        },              
-                        beforeSend: function() { console.log("Başlangıc"); },
-                        success: function (response) {
-                            // alert("başarılı");
-                            // console.log("response:", response);
-                            // console.log("status:", response.status);
-                           
-                            $('#stockEdit option[value="'+response.DB.stock_id+'"]').prop('selected', true); //! Seçim yap
-                            $('#stockEdit').attr('data_sector',response.DB.sector);
-                            $('#stockEdit').attr('data_sub_sector',response.DB.sub_sector);
-                        
-                            $('#nameTrEdit').val(response.DB.nameTr);
-                            $('#nameEnEdit').val(response.DB.nameEn);
-                            
-                            $('#StockCodeEdit').val(response.DB.stockCode);
-                            $('#accountingCodeBuyEdit').val(response.DB.accountingCode_buy);
-                            $('#accountingCodeSelEdit').val(response.DB.accountingCode_sel);
-
-                            $('#filePathUrlEdit').html(response.DB.imgUrl);
-                            $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
-                            
-                            $('#SelectStockUnitEdit option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
-                            $('#StockCountEdit').val(response.DB.stockCount);
-                            $('#SelectCurrencyEdit option[value='+response.DB.currency+']').prop('selected',true); //! Select
-                            $('#PriceEdit').val(response.DB.price);
-                        
-                            $('#kdv_buyEdit').val(response.DB.kdv_buy);
-                            $('#kdv_sellEdit').val(response.DB.kdv_sell);
-        
-                            
-                            if(response.DB.export_registered =="true" ) {
-                                $("input[name='export_registeredEdit']").prop('checked', true);
-        
-                                $('#export_registered_kdv_buyEdit').attr('disabled',false)
-                                $('#export_registered_kdv_sellEdit').attr('disabled',false)
-        
-                                $('#export_registered_kdv_buyEdit').val(response.DB.export_registered_kdv_buy);
-                                $('#export_registered_kdv_sellEdit').val(response.DB.export_registered_kdv_sell);
-                            }
-        
-                            if(response.DB.export_registered !="true" ) {
-                                $("input[name='export_registeredEdit']").prop('checked', false);
-        
-                                $('#export_registered_kdv_buyEdit').attr('disabled',true)
-                                $('#export_registered_kdv_sellEdit').attr('disabled',true)
-        
-                                $('#export_registered_kdv_buyEdit').val("");
-                                $('#export_registered_kdv_sellEdit').val("");
-                            }
-                        
-                        
-                            $('#descriptionTREdit').val(response.DB.descriptionTr);
-                            $('#descriptionENEdit').val(response.DB.descriptionEn);
-        
-                            $('#featuresTREdit').val(response.DB.featuresTr);
-                            $('#featuresENEdit').val(response.DB.featuresEn);
-        
-                            $('#tech_featuresTREdit').val(response.DB.tech_featuresTr);
-                            $('#tech_featuresENEdit').val(response.DB.tech_featuresEn);    
-
-                            $('#webSiteEdit').val(response.DB.web_address);
-                            $('#catalogLinkEdit').val(response.DB.catalogLink);
-                            $('#gtipNoEdit').val(response.DB.gtipNo);
-        
-                            $('#productModelEdit').val(response.DB.productModel);
-                            $('#productCodeEdit').val(response.DB.productCode);
-                            $('#is_warrantyEdit option[value='+response.DB.is_warranty+']').prop('selected',true); //! Select
-                            $('#warrantyTimeEdit').val(response.DB.warrantyTime);
-        
-                            $('#setupEdit option[value='+response.DB.setup+']').prop('selected',true); //! Select
-                            $('#brandEdit').val(response.DB.brand);
-                            $('#colorCodeEdit').val(response.DB.colorCode);
-
-                            $('#productUsePurposeTREdit').val(response.DB.productUsePurposeTR);
-                            $('#productUsePurposeENEdit').val(response.DB.productUsePurposeEN);
-
-                            $('#ownBrandEdit').val(response.DB.ownBrand);
-                            $('#specialDesignEdit').val(response.DB.specialDesign);
-                            $('#specialPacketEdit').val(response.DB.specialPacket);
-                            $('#salesOutletEdit').val(response.DB.salesOutlet);
-                
-                        },
-                        error: function (error) { console.log("search error:", error); alert("error");},
-                        complete: function() {
-                
-                            //! Görünürlük Kontrolleri
-                            $('#LoadingFileUploadSearch').css('display','none');
-                            $('#ModalBodyInfoSearch').css('display','block');
-
-                            console.log("Search Ajax Bitti");
-                
+    
+                        if(response.DB.export_registered !="true" ) {
+                            $("input[name='export_registeredAdd']").prop('checked', false);
+    
+                            $('#export_registered_kdv_buyAdd').attr('disabled',true)
+                            $('#export_registered_kdv_sellAdd').attr('disabled',true)
+    
+                            $('#export_registered_kdv_buyAdd').val("");
+                            $('#export_registered_kdv_sellAdd').val("");
                         }
-                    }); //! Ajax Post Son
+                    
+                    
+                        $('#descriptionTRAdd').val(response.DB.descriptionTr);
+                        $('#descriptionENAdd').val(response.DB.descriptionEn);
+    
+                        $('#featuresTRAdd').val(response.DB.featuresTr);
+                        $('#featuresENAdd').val(response.DB.featuresEn);
+    
+                        $('#tech_featuresTRAdd').val(response.DB.tech_featuresTr);
+                        $('#tech_featuresENAdd').val(response.DB.tech_featuresEn);    
 
-                }
+                        $('#webSiteAdd').val(response.DB.web_address);
+                        $('#catalogLinkAdd').val(response.DB.catalogLink);
+                        $('#gtipNoAdd').val(response.DB.gtipNo);
+    
+                        $('#productModelAdd').val(response.DB.productModel);
+                        $('#productCodeAdd').val(response.DB.productCode);
+                        $('#is_warrantyEdit option[value='+response.DB.is_warranty+']').prop('selected',true); //! Select
+                        $('#warrantyTimeAdd').val(response.DB.warrantyTime);
+    
+                        $('#setupEdit option[value='+response.DB.setup+']').prop('selected',true); //! Select
+                        $('#brandAdd').val(response.DB.brand);
+                        $('#colorCodeAdd').val(response.DB.colorCode);
+
+                        $('#productUsePurposeTRAdd').val(response.DB.productUsePurposeTR);
+                        $('#productUsePurposeENAdd').val(response.DB.productUsePurposeEN);
+
+                        $('#ownBrandAdd').val(response.DB.ownBrand);
+                        $('#specialDesignAdd').val(response.DB.specialDesign);
+                        $('#specialPacketAdd').val(response.DB.specialPacket);
+                        $('#salesOutletAdd').val(response.DB.salesOutlet);
             
-
-            }); //! Arama Stok Edit Son
-
-            //İhraç Kayıtlı Add
-            $('input[type="checkbox"][name="export_registeredAdd"]').click(function () {
+                    },
+                    error: function (error) { console.log("search error:", error); alert("error");},
+                    complete: function() {
             
-                //! Seçili ise
-                var this_check = $(this).is(":checked"); //! Check Durumu - true/false
-                if(this_check) { 
-                    $('#export_registered_kdv_buyAdd').attr('disabled',false);
-                    $('#export_registered_kdv_sellAdd').attr('disabled',false);
-                }
-                else { 
-                    $('#export_registered_kdv_buyAdd').attr('disabled',true);
-                    $('#export_registered_kdv_sellAdd').attr('disabled',true);
-                }
-
-            }); //İhraç Kayıtlı Add Son
-
-
-            //İhraç Kayıtlı Edit
-            $('input[type="checkbox"][name="export_registeredEdit"]').click(function () {
+                        //! Görünürlük Kontrolleri
+                        $('#LoadingFileUploadSearch').css('display','none');
+                        $('#ModalBodyInfoSearch').css('display','block');
+    
+                        console.log("Search Ajax Bitti");
             
-                //! Seçili ise
-                var this_check = $(this).is(":checked"); //! Check Durumu - true/false
-                if(this_check) { 
-                    $('#export_registered_kdv_buyEdit').attr('disabled',false);
-                    $('#export_registered_kdv_sellEdit').attr('disabled',false);
-                }
-                else { 
-                    $('#export_registered_kdv_buyEdit').attr('disabled',true);
-                    $('#export_registered_kdv_sellEdit').attr('disabled',true);
-                }
+                    }
+                }); //! Ajax Post Son
 
-            }); //İhraç Kayıtlı Edit Son
+            }
+        
+
+        }); //! Arama Stok Add Son
+
+        //! Arama Stok Edit
+        document.querySelector('#stockEdit').addEventListener('change', e => {
+
+            var selectType = $('#stockEdit').val();
+    
+            if (selectType == "") {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Stok Seçilmedi",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+            }
+            else {
+
+                var productIDSearch = $('#stockEdit').val();
+
+                //! Ajax  Post
+                $.ajax({
+                    url: "/get/offers/product/search/post",
+                    method: "post",
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    data: {
+                        siteLang: $('[id=lang_change][data_key=lang]').html().trim(),
+                        id:Number(productIDSearch)
+                    },              
+                    beforeSend: function() { console.log("Başlangıc"); },
+                    success: function (response) {
+                        // alert("başarılı");
+                        // console.log("response:", response);
+                        // console.log("status:", response.status);
+                        
+                        $('#stockEdit option[value="'+response.DB.stock_id+'"]').prop('selected', true); //! Seçim yap
+                        $('#stockEdit').attr('data_sector',response.DB.sector);
+                        $('#stockEdit').attr('data_sub_sector',response.DB.sub_sector);
+                    
+                        $('#nameTrEdit').val(response.DB.nameTr);
+                        $('#nameEnEdit').val(response.DB.nameEn);
+                        
+                        $('#StockCodeEdit').val(response.DB.stockCode);
+                        $('#accountingCodeBuyEdit').val(response.DB.accountingCode_buy);
+                        $('#accountingCodeSelEdit').val(response.DB.accountingCode_sel);
+
+                        $('#filePathUrlEdit').html(response.DB.imgUrl);
+                        $('#filePathUrlTechnicalFileEdit').html(response.DB.techFileUrl);
+                        
+                        $('#SelectStockUnitEdit option[value='+response.DB.stockUnit+']').prop('selected',true); //! Select
+                        $('#StockCountEdit').val(response.DB.stockCount);
+                        $('#SelectCurrencyEdit option[value='+response.DB.currency+']').prop('selected',true); //! Select
+                        $('#PriceEdit').val(response.DB.price);
+                    
+                        $('#kdv_buyEdit').val(response.DB.kdv_buy);
+                        $('#kdv_sellEdit').val(response.DB.kdv_sell);
+    
+                        
+                        if(response.DB.export_registered =="true" ) {
+                            $("input[name='export_registeredEdit']").prop('checked', true);
+    
+                            $('#export_registered_kdv_buyEdit').attr('disabled',false)
+                            $('#export_registered_kdv_sellEdit').attr('disabled',false)
+    
+                            $('#export_registered_kdv_buyEdit').val(response.DB.export_registered_kdv_buy);
+                            $('#export_registered_kdv_sellEdit').val(response.DB.export_registered_kdv_sell);
+                        }
+    
+                        if(response.DB.export_registered !="true" ) {
+                            $("input[name='export_registeredEdit']").prop('checked', false);
+    
+                            $('#export_registered_kdv_buyEdit').attr('disabled',true)
+                            $('#export_registered_kdv_sellEdit').attr('disabled',true)
+    
+                            $('#export_registered_kdv_buyEdit').val("");
+                            $('#export_registered_kdv_sellEdit').val("");
+                        }
+                    
+                    
+                        $('#descriptionTREdit').val(response.DB.descriptionTr);
+                        $('#descriptionENEdit').val(response.DB.descriptionEn);
+    
+                        $('#featuresTREdit').val(response.DB.featuresTr);
+                        $('#featuresENEdit').val(response.DB.featuresEn);
+    
+                        $('#tech_featuresTREdit').val(response.DB.tech_featuresTr);
+                        $('#tech_featuresENEdit').val(response.DB.tech_featuresEn);    
+
+                        $('#webSiteEdit').val(response.DB.web_address);
+                        $('#catalogLinkEdit').val(response.DB.catalogLink);
+                        $('#gtipNoEdit').val(response.DB.gtipNo);
+    
+                        $('#productModelEdit').val(response.DB.productModel);
+                        $('#productCodeEdit').val(response.DB.productCode);
+                        $('#is_warrantyEdit option[value='+response.DB.is_warranty+']').prop('selected',true); //! Select
+                        $('#warrantyTimeEdit').val(response.DB.warrantyTime);
+    
+                        $('#setupEdit option[value='+response.DB.setup+']').prop('selected',true); //! Select
+                        $('#brandEdit').val(response.DB.brand);
+                        $('#colorCodeEdit').val(response.DB.colorCode);
+
+                        $('#productUsePurposeTREdit').val(response.DB.productUsePurposeTR);
+                        $('#productUsePurposeENEdit').val(response.DB.productUsePurposeEN);
+
+                        $('#ownBrandEdit').val(response.DB.ownBrand);
+                        $('#specialDesignEdit').val(response.DB.specialDesign);
+                        $('#specialPacketEdit').val(response.DB.specialPacket);
+                        $('#salesOutletEdit').val(response.DB.salesOutlet);
+            
+                    },
+                    error: function (error) { console.log("search error:", error); alert("error");},
+                    complete: function() {
+            
+                        //! Görünürlük Kontrolleri
+                        $('#LoadingFileUploadSearch').css('display','none');
+                        $('#ModalBodyInfoSearch').css('display','block');
+
+                        console.log("Search Ajax Bitti");
+            
+                    }
+                }); //! Ajax Post Son
+
+            }
+        
+
+        }); //! Arama Stok Edit Son
+
+        //İhraç Kayıtlı Add
+        $('input[type="checkbox"][name="export_registeredAdd"]').click(function () {
+        
+            //! Seçili ise
+            var this_check = $(this).is(":checked"); //! Check Durumu - true/false
+            if(this_check) { 
+                $('#export_registered_kdv_buyAdd').attr('disabled',false);
+                $('#export_registered_kdv_sellAdd').attr('disabled',false);
+            }
+            else { 
+                $('#export_registered_kdv_buyAdd').attr('disabled',true);
+                $('#export_registered_kdv_sellAdd').attr('disabled',true);
+            }
+
+        }); //İhraç Kayıtlı Add Son
+
+
+        //İhraç Kayıtlı Edit
+        $('input[type="checkbox"][name="export_registeredEdit"]').click(function () {
+        
+            //! Seçili ise
+            var this_check = $(this).is(":checked"); //! Check Durumu - true/false
+            if(this_check) { 
+                $('#export_registered_kdv_buyEdit').attr('disabled',false);
+                $('#export_registered_kdv_sellEdit').attr('disabled',false);
+            }
+            else { 
+                $('#export_registered_kdv_buyEdit').attr('disabled',true);
+                $('#export_registered_kdv_sellEdit').attr('disabled',true);
+            }
+
+        }); //İhraç Kayıtlı Edit Son
 
 
         //! ************ Değişimler Son ***************
@@ -1342,7 +1342,7 @@ $(function () {
                 //! Toplam - Ürün + Maliyet
                 var total =   Number(totalProduct_price) +  Number(totalExpense_price);
                 //console.log("total:",total);
-                $('#firstTotal').val(total); //! ilk toplam
+                $('#firstTotal').val(total.toFixed(2)); //! ilk toplam
 
                 //! Kar hesaplama
                 var profit_yüzde = $('#cart_profit').val().replace(',','.'); //! Sayıya Çevirme
